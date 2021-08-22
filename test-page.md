@@ -31,6 +31,7 @@ layout: page
 ## Tex
 
 $f_n=f_{n-1}+f_{n-2}$
+
 $$
 F(x)=\frac{1}{1-x-x^2}
 $$
