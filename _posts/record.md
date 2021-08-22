@@ -3,12 +3,6 @@ layout: post
 title: Record
 ---
 
-**Hello**
-
-| Hello | Bye| DHFAIDFOIFA| 
-| --- | --- | --- |
-| a | b | df|
-
 | Contest             | Problem                | Editorial/Submission                                     | Algo  | Extra         |
 | ------------------- | ---------------------- | -------------------------------------------------------- | ----- |---------------|
 | CF1553 (VP, div1+2) | CF1553A Digits Sum     | https://codeforces.com/contest/1553/submission/126576371 |       |               |
