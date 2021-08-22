@@ -27,3 +27,10 @@ layout: page
 2. Item 2
 3. Item 3
 4. Item 4
+
+## Tex
+
+$f_n=f_{n-1}+f_{n-2}$
+$$
+F(x)=\frac{1}{1-x-x^2}
+$$
