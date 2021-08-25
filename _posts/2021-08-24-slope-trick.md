@@ -3,6 +3,8 @@ title: DP 的各种凸优化
 post-image: "https://z3.ax1x.com/2021/08/25/hE9PO0.png"
 tags:
 - 算法笔记
+- DP
+- 凸壳
 ---
 
 
