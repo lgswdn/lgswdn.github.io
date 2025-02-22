@@ -10,7 +10,7 @@
     
     
     
-    <title>categories | lgswdn-SA</title>
+    <title>高代笔记-SVD和广义逆 | lgswdn-SA</title>
     <link href="http://example.com" rel="prefetch" />
 
     
@@ -174,21 +174,34 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <!-- 搜索页面(尽可能接近ZanBlog搜索功能) -->
-
-
+                    
 <article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://example.com">lgswdn-SA</a>
+        >
+        <span>高代笔记-SVD和广义逆</span>
+    </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/categories/index.html">categories</a>
+                <a href="/2025/02/22/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-SVD%E5%92%8C%E5%B9%BF%E4%B9%89%E9%80%86/">高代笔记-SVD和广义逆</a>
             </h1>
         </div>
         <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E9%AB%98%E4%BB%A3/">高代</a>
+                
+            </span>
+            
             <span class="label label-gal">
                 <i class="fa fa-calendar"></i> 2025-02-22
             </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -196,19 +209,46 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/categories/index.html">categories</a>
+                    <a href="/2025/02/22/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-SVD%E5%92%8C%E5%B9%BF%E4%B9%89%E9%80%86/">高代笔记-SVD和广义逆</a>
                 </h4>
             </div>
             <p>
                 <i class="fa fa-calendar"></i> 2025-02-22
             </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E9%AB%98%E4%BB%A3/">高代</a>
+                
+                
+                
+            </p>
         </center>
     </div>
     <div class="content-article">
-        
+        <p>首先回忆线性映射 $T:V\to W$ 的伴随 $T^*$ 的相关性质. 这里 $V,W$ 都是 $\mathbb{R}$ 上的有限维内积空间，用 $(x|y)$ 表示内积. $\dim V&#x3D;m$，$\dim W&#x3D;n$，$p&#x3D;\min{n,m}$.</p>
+<p><strong>定义（伴随）：</strong>$T^<em>$ 为满足 $(Tv|w)&#x3D;(v|T^<em>w)$ 的线性映射. 可以证明 $T^</em>$ 唯一，并且将 $T$ 视作矩阵 $A$，则 $T^</em>$ 的矩阵即为 $A^{T}$. </p>
+<p>从简单的矩阵乘法即可知道 $T^*T$ 自伴. 并且，$(T^*Tv|v)&#x3D;(Tv|Tv)\ge 0$，故 $T^*T$ 半正定.</p>
+<p>并且我们还可以知道 $\ker T&#x3D;\ker T^*T$. 首先后者包含前者是显然的. 而对于 $v\in \ker T^*T$，$0&#x3D;(T^*Tv|v)&#x3D;(Tv|Tv)$，于是 $v$ 也显然 $\in \ker T$.</p>
+<p>由此，我们也可以知道 $\text{rk }T&#x3D;\text{rk }T^*T$.</p>
+<p>然后我们进入 Singular Value Decomposition，即奇异值分解. </p>
+<p>**定义（SVD）：**存在 $V$ 的一组单位正交基 $P&#x3D;(v_1|\dots|v_m)$，$W$ 的一组单位正交基 $Q&#x3D;(w_1|…|w_n)$，非负实数 $\sigma_1\ge\dots\ge\sigma_p$，使得 $Tv_j&#x3D;\sigma_jw_j$（对于 $j\le p$），且 $Tv_j&#x3D;0$（对于 $j&gt;p$）. 用矩阵描述，即 $A&#x3D;Q\Sigma P^{T}$，或 $\Sigma&#x3D;PAQ^{T}$. $\Sigma$ 为对角线递减的对角矩阵，且唯一存在.</p>
+<p>我们会发现奇异值分解是一种和“正交对角化”有所相似的操作. 实际上，由于可以推出 $A^T&#x3D;P\Sigma Q^{T}$，简单带入即可发现 $T^<em>Tv_j&#x3D;T^</em>\sigma_jw_j&#x3D;\sigma^2_jv_j$. 所以 $\sigma_j^2$ 为 $T^<em>T$ 的所有非零特征值，并且配有特征向量 $v_j$. 同理可以得到 $w_j$ 为 $TT^</em>$ 的特征向量. 将两者扩成 $V,W$ 的基即可完成分解.</p>
+<p>这个过程同时证明了存在性和唯一性. 并且非常地构造性. </p>
+<p>**定义（广义逆）：**存在 $T$ 的广义逆 $S: W\to V$，使得 $TS|<em>{\text{im } T}&#x3D;id|</em>{\text{im T}}$. 换句话说，$TST&#x3D;T$. </p>
+<p>普通的广义逆的存在性很好说明. 将 $\text{im }T$ 的基 $w_1,\dots,w_r$ 扩充为 $W$ 的基，那么显然对于 $j\le r$ 存在 $Tv_j&#x3D;w_j$，然后再将 $v$ 扩充为 $V$ 的基即可.</p>
+<p><strong>定义（Moore-Penrose 广义逆）</strong>：再上述条件下，还需满足：$STS&#x3D;S$，$TST&#x3D;T$，$(TS)&#x3D;(TS)^<em>$，$(ST)&#x3D;(ST)^</em>$. 这样 $S$ 存在且唯一.</p>
+<p>一个想法是参考 $Tv&#x3D;w$ 的最小二乘解. 构造最小二乘解的过程中，我们先取 $w$ 对 $\text{im }T$ 的投影 $w’$，然后再取 $Tv’&#x3D;w’$，并取 $v’$ 对 $(\ker T)^{\bot}$ 的投影就行了.</p>
+<p>于是，$ST$ 是 $V\to (\ker T)^{\bot}$ 的正交投影，$TS$ 是 $W\to \text{im }T$ 的正交投影，故自伴.</p>
+<p>唯一性的证明更加神秘. 假若 $S,R$ 都是 $T$ 的广义逆，那么会发生：</p>
+<p>$S&#x3D;STS&#x3D;S(TS)^*&#x3D;SS^<em>T^</em>&#x3D;SS^*T^*R^<em>T^</em>&#x3D;STSTR&#x3D;STR$</p>
+<p>但同理，我们也能知道 $R&#x3D;STR$. 所以 $S&#x3D;R$.</p>
+<p>下面考虑如何求解该广义逆. 实际上，取奇异值分解 $T&#x3D;Q\Sigma P^{T}$ 后，取 $S&#x3D;P\Sigma^{-1}Q^{T}$ 就可以了. 其中对 $\Sigma$ 的取逆只需操作非零项. 看上去也十分可以理解.</p>
+<p>而我们考虑一下这个本质. 实际上奇异值分解所作的就是分别建立了 $V,W$ 的”坐标系”，然后再在这个坐标系上用一个简单的伸缩表达 $T$. 这样来看，广义逆中有关正交投影的部分，就和上述操作不谋而合了.</p>
+
     </div>
 </article>
-
 
 
                 </div>
@@ -316,13 +356,13 @@
 
                 
                 <li>
-                    <a href="/categories/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2025/02/22/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-SVD%E5%92%8C%E5%B9%BF%E4%B9%89%E9%80%86/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 
                 <li>
-                    <a href="/categories/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2025/02/22/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-SVD%E5%92%8C%E5%B9%BF%E4%B9%89%E9%80%86/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -330,7 +370,7 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 18.02524104360664px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 17.687193646252208px;" class="tag-cloud-link">高代</a>
     
 </div>
                 
