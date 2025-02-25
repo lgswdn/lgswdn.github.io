@@ -10,7 +10,7 @@
     
     
     
-    <title>Hello World | lgswdn-SA</title>
+    <title>高代笔记-复内积结构1 | lgswdn-SA</title>
     <link href="http://lgswdn.github.io" rel="prefetch" />
 
     
@@ -192,19 +192,26 @@
         <i class="fa fa-home"></i>
         <a href="http://lgswdn.github.io">lgswdn-SA</a>
         >
-        <span>Hello World</span>
+        <span>高代笔记-复内积结构1</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2025/02/22/hello-world/">Hello World</a>
+                <a href="/2025/02/25/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%841/">高代笔记-复内积结构1</a>
             </h1>
         </div>
         <div class="tag-article">
             
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2025-02-22
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E9%AB%98%E4%BB%A3/">高代</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-02-25
             </span>
             
         </div>
@@ -214,45 +221,95 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2025/02/22/hello-world/">Hello World</a>
+                    <a href="/2025/02/25/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%841/">高代笔记-复内积结构1</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2025-02-22
+                <i class="fa fa-calendar"></i> 2025-02-25
             </p>
             <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E9%AB%98%E4%BB%A3/">高代</a>
+                
                 
                 
             </p>
         </center>
     </div>
     <div class="content-article">
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a
-target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a
-target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a
-target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-<p><span class="math display">\[
-math \text{test}\pm
-\]</span></p>
+        <p>将实内积结构直接扩展到复数域上有一个比较大的问题，就是不能保证 <span
+class="math inline">\((v|v)\ge
+0\)</span>，于是很多好的性质也就不能保持.</p>
+<p>但是也并非没有办法. 注意到对于 <span class="math inline">\(z\in
+\mathbb C\)</span>，<span class="math inline">\(\bar zz\ge
+0\)</span>，于是我们就思考能否改变一下乘法，让内积的结构同样保持.</p>
+<p>对于拥有加法 <span class="math inline">\(+\)</span> 和乘法 <span
+class="math inline">\(\cdot\)</span> 的复数域上的向量空间 <span
+class="math inline">\(V\)</span>，定义一个 <span
+class="math inline">\(\odot\)</span> 为 <span
+class="math inline">\(z\odot v=\bar z\cdot v\)</span>. 然后就可以定义
+<span class="math inline">\(V\)</span> 的共轭向量空间 <span
+class="math inline">\(\overline V\)</span> 为将 <span
+class="math inline">\(\cdot\)</span> 替换为 <span
+class="math inline">\(\odot\)</span> 的向量空间.</p>
+<p>注意到首先 <span class="math inline">\(V\)</span>
+做两次共轭还等于自身. 其次 <span class="math inline">\(V\to \overline
+V\)</span> 存在同构，只需要映 <span class="math inline">\(v\)</span> 为
+<span class="math inline">\(\bar v\)</span> 即可（因为 <span
+class="math inline">\(\overline{z\cdot v}=\bar z\cdot \bar v=z\odot \bar
+v\)</span>）.</p>
+<p>对于复数域上的向量空间 <span class="math inline">\(V\)</span> 和
+<span
+class="math inline">\(W\)</span>，定义<strong>半线性映射</strong>为满足满足
+<span class="math inline">\(T(v_1+v_2)=Tv_1+Tv_2\)</span>，且 <span
+class="math inline">\(T(zv)=\bar z Tv\)</span> 的 <span
+class="math inline">\(V\to W\)</span> 的映射. 对于 <span
+class="math inline">\(V=\mathbb C^n\)</span>，如果我们取标准基 <span
+class="math inline">\(e_1,\dots,e_n\)</span>，那么可以认为半线性映射同构于用一个矩阵来乘
+<span class="math inline">\(\bar v\)</span>. 因为 <span
+class="math inline">\(T(zv)=A\overline{zv}=\bar  zA\bar
+v=\bar  zT(v)\)</span>.</p>
+<p>半线性映射和线性映射之间用共轭联结. <span
+class="math inline">\(T(zv)=z\oplus Tv\)</span>，所以 <span
+class="math inline">\(V\to W\)</span> 的半线性映射和 <span
+class="math inline">\(V\to \overline W\)</span> 的线性映射是一回事情.
+同理 <span class="math inline">\(T(z\odot v)=zTv\)</span>，所以和 <span
+class="math inline">\(\overline V\to W\)</span>
+的线性映射也是一回事情.</p>
+<p>考虑 <span class="math inline">\(Hom(V_1,V_2)\)</span>，即所有 <span
+class="math inline">\(V_1\to V_2\)</span> 的线性映射. 我们知道 <span
+class="math inline">\(Hom(V_1,V_2)\)</span> 应该构成向量空间. 现在考虑
+<span
+class="math inline">\(\overline{Hom(\overline{V_1},\overline{V_2})}\)</span>，这个东西应当等于
+<span class="math inline">\(Hom(V_1,V_2)\)</span>. 取 <span
+class="math inline">\(T\in Hom(V_1,V_2)\)</span>，其肯定 <span
+class="math inline">\(\in
+\overline{Hom(\overline{V_1},\overline{V_2})}\)</span>
+的集合，并且满足加法线性也是显然的，于是只需要验证数乘条件，即 <span
+class="math inline">\((z\odot T)(v)=T(z\odot
+v)\)</span>，那这显然是对的.</p>
+<p>然后我们考虑一个叫半双线性形式的东西（Sesquilinear）. 对于所有 <span
+class="math inline">\(V\times W\to \mathbb  C\)</span> 的映射 <span
+class="math inline">\(B\)</span>，若 <span
+class="math inline">\(B\)</span> 关于 <span
+class="math inline">\(V\)</span> 半线性，关于 <span
+class="math inline">\(W\)</span> 线性，那么称 <span
+class="math inline">\(B\)</span> 是半双线性形式. 在 <span
+class="math inline">\(\mathbb C^n\)</span>
+下，取标准基，那么我们有半双线性形式与矩阵的同构，其中 <span
+class="math inline">\(A\)</span> 映为 <span
+class="math inline">\(v^{\dagger}Aw\)</span>.</p>
+<p>同样，我们可以定义左根和右根和非退化形式. 并且 <span
+class="math inline">\(\dim V=\dim W\)</span> 时，左根 <span
+class="math inline">\(=\{0\}\)</span> 与右根 <span
+class="math inline">\(=\{0\}\)</span> 等价. 证明 Sesquilinear
+相关的性质可以直接调用 Bilinear 的性质，因为 <span
+class="math inline">\(B:V\times W\to C\)</span> 和 <span
+class="math inline">\(B&#39;:\overline V\times W\to C\)</span> 相等.
+同样，非退化当且仅当所对应的矩阵 <span class="math inline">\(A\)</span>
+可逆.</p>
 
     </div>
 </article>
@@ -420,13 +477,13 @@ math \text{test}\pm
 
                 
                 <li>
-                    <a href="/2025/02/22/hello-world/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2025/02/25/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%841/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 
                 <li>
-                    <a href="/2025/02/22/hello-world/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2025/02/25/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%841/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -434,11 +491,11 @@ math \text{test}\pm
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 15.179702268970981px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 11.287937202266619px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 10.072625174249234px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 15.570011704696253px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 17.60952730541224px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 17.886930288896107px;" class="tag-cloud-link">数分</a>
     
 </div>
                 
