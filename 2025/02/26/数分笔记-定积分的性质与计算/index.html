@@ -300,7 +300,20 @@ class="math inline">\(f,\phi\in C[a,b]\)</span>.</p>
 Fg=FG|_a^b-\int_a^b fG\)</span>，其中 <span
 class="math inline">\(F,G\)</span> 分别为 <span
 class="math inline">\(f,g\)</span> 的变上限积分，即 <span
-class="math inline">\(F(x)=\int_a^x f(t)dt\)</span>. 证明见习题课.</p>
+class="math inline">\(F(x)=\int_a^x f(t)dt\)</span>. 如果 <span
+class="math inline">\(f=F&#39;\)</span> 那么其实就是不定积分的分部积分.
+但要严谨证明这个 <span class="math inline">\(f\)</span> 未必是 <span
+class="math inline">\(F\)</span> 的扩展的办法的话会更加复杂一些.</p>
+<p>首先考虑引理 <span class="math inline">\(\lim_{\lambda(\Delta)\to
+0}\sum_{i=1}^nf(\xi_i)\int_{x_{i-1}}^{x_i}g(x)dx=\int_a^b
+f(x)g(x)dx\)</span>. 考虑将右边写成极限的形式后，有 <span
+class="math inline">\(RHS-LHS\le|\lim_{\lambda(\Delta)\to 0} \sum
+f(\xi_i)(\int_{x_{i-1}}^{x_i}g(x)dx-g(\xi_i))|\le\lim_{\lambda(\Delta)\to
+0} M\sum(\omega_g)_k\Delta_k\to 0\)</span>. 然后观察到 <span
+class="math inline">\(FG|_a^b=\sum
+F(x_i)(G(x_i)-G(x_{i-1}))+G(x_{i-1})(F(x_{i}-F(x_{i-1})))\)</span>.
+这步实际上就是先化成差分然后强行拆成两个式子. 然后由引理知道这个就等于
+<span class="math inline">\(\int_a^bFg+\int_a^b Gf\)</span>.</p>
 
     </div>
 </article>
@@ -506,13 +519,13 @@ class="math inline">\(F(x)=\int_a^x f(t)dt\)</span>. 证明见习题课.</p>
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 9.676325675171574px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 18.266173542616603px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 18.095983629691204px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 9.685154363306976px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 17.908616764964663px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 8.73443455634651px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/CVDL/" style="font-size: 19.57181780152908px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 14.401338067852635px;" class="tag-cloud-link">CVDL</a>
     
 </div>
                 
