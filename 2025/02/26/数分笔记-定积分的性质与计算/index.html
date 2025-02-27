@@ -10,7 +10,7 @@
     
     
     
-    <title>archive_a | lgswdn-SA</title>
+    <title>数分笔记-定积分的性质与计算 | lgswdn-SA</title>
     <link href="http://lgswdn.github.io" rel="prefetch" />
 
     
@@ -111,7 +111,7 @@
                 
                 
                 
-                <li class="current">
+                <li class="">
                     <a href="/archives">
                         <i class="fa fa-archive"></i>归档
                     </a>
@@ -190,19 +190,34 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-archive">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="http://lgswdn.github.io">lgswdn-SA</a>
         >
-        <span>归档</span>
+        <span>数分笔记-定积分的性质与计算</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/archives">归档</a>
+                <a href="/2025/02/26/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E6%80%A7%E8%B4%A8%E4%B8%8E%E8%AE%A1%E7%AE%97/">数分笔记-定积分的性质与计算</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E6%95%B0%E5%88%86/">数分</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-02-26
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -210,51 +225,108 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/archives">归档</a>
+                    <a href="/2025/02/26/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E6%80%A7%E8%B4%A8%E4%B8%8E%E8%AE%A1%E7%AE%97/">数分笔记-定积分的性质与计算</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2025-02-26
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E6%95%B0%E5%88%86/">数分</a>
+                
+                
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        
-        
-            <h1 style="font-size: 24px; margin-top: 40px;">2025年</h1>
-            
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-             
-             
-                        <a href="/2025/02/27/CVDL-Edge%20Detection/">CVDL-Edge Detection</a>
-                        <br>
-            
-             
-                        <a href="/2025/02/26/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E6%80%A7%E8%B4%A8%E4%B8%8E%E8%AE%A1%E7%AE%97/">数分笔记-定积分的性质与计算</a>
-                        <br>
-            
-             
-                        <a href="/2025/02/25/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%841/">高代笔记-复内积结构1</a>
-                        <br>
-            
-             
-                        <a href="/2025/02/24/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E9%BB%8E%E6%9B%BC%E5%8F%AF%E7%A7%AF/">数分笔记-Riemann可积</a>
-                        <br>
-            
-             
-                        <a href="/2025/02/24/AI%E5%9F%BA%E7%AC%94%E8%AE%B0-%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E7%9A%84%E6%95%B0%E5%AD%A6/">AI基笔记-一些简单的数学</a>
-                        <br>
-            
-             
-                        <a href="/2025/02/22/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-SVD%E5%92%8C%E5%B9%BF%E4%B9%89%E9%80%86/">高代笔记-SVD和广义逆</a>
-                        <br>
-            
-             
-                        <a href="/2025/02/22/hello-world/">Hello World</a>
-                        <br>
-            
-                    </div>
-        
+    <div class="content-article">
+        <p>首先一些显然的，比如可加性，以及 <span
+class="math inline">\([a,c]=[a,b]+[b,c]\)</span> 的就不说了.</p>
+<p>考虑一个性质：对于在 <span class="math inline">\([a,b]\)</span> 上
+<span class="math inline">\(f(x)\ge 0\)</span> 的函数，<span
+class="math inline">\(\int_{a}^b f(x)dx=0\)</span>，那么有 <span
+class="math inline">\(f(x)\equiv 0\)</span>.</p>
+<p>证明：假如存在 <span
+class="math inline">\(f(x_0)&gt;0\)</span>，那么存在一个小邻域使得邻域内
+<span
+class="math inline">\(f(x)&gt;\frac{f(x_0)}{2}\)</span>，那么这段积分也就
+<span class="math inline">\(&gt;0\)</span>，矛盾.</p>
+<p>然后一个最基本的介值定理：对于连续函数 <span
+class="math inline">\(f\)</span> 存在 <span
+class="math inline">\(\xi\in(a,b)\)</span> 使得 <span
+class="math inline">\(f(\xi)=\frac{1}{b-a}\int_{a}^b f(x)dx\)</span>.
+这其实就是连续函数的介质定理，然后再特判掉全相等的情况.</p>
+<p>接下来看两个例子.</p>
+<ol type="1">
+<li><p>令 <span class="math inline">\(I_n=\int_{0}^{\frac{\pi}{2}}\sin^n
+x\)</span>，证明 <span class="math inline">\(I_n\to 0\)</span>.</p>
+<p>看上去应该是显然的，因为 <span
+class="math inline">\(&lt;\frac{\pi}{2}\)</span> 的部分 <span
+class="math inline">\(\sin &lt;1\)</span>，于是当然应该 <span
+class="math inline">\(\to 0\)</span>. 于是考虑拆成 <span
+class="math inline">\([0,\frac{\pi}{2}-\delta]\)</span> 和 <span
+class="math inline">\([\frac{\pi}{2}-\delta,\frac{\pi}{2}]\)</span>，那么前者在
+<span class="math inline">\(N\)</span> 足够大的时候可以任意小，后者
+<span class="math inline">\(&lt;\delta\)</span>. 然后就好了.</p></li>
+<li><p>积分意义下的 Hölder 不等式. 即 <span
+class="math inline">\(\int_a^{b}f(x)g(x)dx\le (\int_a^b
+|f(x)|^p)^{\frac{1}{p}}\int_a^b |g(x)|^q)^{\frac{1}{q}}\)</span>，$p,q $
+且 <span class="math inline">\(\frac{1}{p}+\frac{1}{q}=1\)</span>.</p>
+<p>考虑用积分的定义化为原本的 Hölder 不等式. <span
+class="math inline">\(\int_a^b f(x)g(x)dx=\sum
+f(x_k)g(x_k)\Delta_k\)</span>. 将其变化为 <span
+class="math inline">\(\sum
+(f(x_k)(\Delta_k)^{\frac{1}{p}})(g(x_k)(\Delta_k)^{\frac{1}{q}})\)</span>
+后直接套用原来的不等式即可.</p></li>
+</ol>
+<p>考虑如何计算定积分. 首先如果存在原函数 <span
+class="math inline">\(F(x)\)</span> 使得 <span
+class="math inline">\(F&#39;(x)=f(x)\)</span>，那么就可以简单用 <span
+class="math inline">\(F(b)-F(a)\)</span> 计算.
+证明直接用微分中值定理：<span class="math inline">\(\sum
+F(x_i)-F(x&#39;_i)=\sum f(\xi i)\Delta_i\)</span>.</p>
+<p>但是也有其他的方法直接计算. 分别是运用定积分的换元法和分部积分法.</p>
+<p>换元法：定积分的换元法不需要保证 <span
+class="math inline">\(\phi\)</span> 函数可逆. 令 <span
+class="math inline">\(\phi(\alpha)=a\)</span>，<span
+class="math inline">\(\phi(\beta)=b\)</span>，直接进行换元即可：<span
+class="math inline">\(\int_a^bf(x)dx=\int_{\alpha}^{\beta}
+f(\phi(t))\phi&#39;(t)dt\)</span>. 注意这需要 <span
+class="math inline">\(f,\phi\in C[a,b]\)</span>.</p>
+<p>同样我们有分部积分 <span class="math inline">\(\int_a^b
+Fg=FG|_a^b-\int_a^b fG\)</span>，其中 <span
+class="math inline">\(F,G\)</span> 分别为 <span
+class="math inline">\(f,g\)</span> 的变上限积分，即 <span
+class="math inline">\(F(x)=\int_a^x f(t)dt\)</span>. 证明见习题课.</p>
+
     </div>
 </article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -420,13 +492,13 @@
 
                 
                 <li>
-                    <a href="/archives/2025/02/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2025/02/26/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E6%80%A7%E8%B4%A8%E4%B8%8E%E8%AE%A1%E7%AE%97/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 
                 <li>
-                    <a href="/archives/2025/02/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2025/02/26/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E6%80%A7%E8%B4%A8%E4%B8%8E%E8%AE%A1%E7%AE%97/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -434,13 +506,13 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 9.358871484525187px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 8.815777764809898px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 8.620968474966869px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 12.538232821568169px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 14.237347003934055px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 17.71774446388222px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/CVDL/" style="font-size: 9.525064933982483px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 11.747449221613927px;" class="tag-cloud-link">CVDL</a>
     
 </div>
                 
