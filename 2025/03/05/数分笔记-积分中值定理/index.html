@@ -10,7 +10,7 @@
     
     
     
-    <title>tags: CVDL | lgswdn-SA</title>
+    <title>数分笔记-积分中值定理 | lgswdn-SA</title>
     <link href="http://lgswdn.github.io" rel="prefetch" />
 
     
@@ -190,19 +190,34 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-tag">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="http://lgswdn.github.io">lgswdn-SA</a>
         >
-        <span>标签</span>
+        <span>数分笔记-积分中值定理</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/tags/CVDL/index.html">CVDL</a>
+                <a href="/2025/03/05/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E7%A7%AF%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/">数分笔记-积分中值定理</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E6%95%B0%E5%88%86/">数分</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-03-05
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -210,21 +225,141 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/tags/CVDL/index.html">CVDL</a>
+                    <a href="/2025/03/05/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E7%A7%AF%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/">数分笔记-积分中值定理</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2025-03-05
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E6%95%B0%E5%88%86/">数分</a>
+                
+                
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-            <a href="/2025/02/27/CVDL-Edge%20Detection/">CVDL-Edge Detection</a>
-            <br>
-            
-            
-        </div>
+    <div class="content-article">
+        <p>积分第一中值定理：<span class="math inline">\(f(x)\in
+C[a,b]\)</span>，<span class="math inline">\(g(x)\in R[a,b]\)</span>
+且不变号，则存在 <span class="math inline">\(\xi\in(a,b)\)</span>，使得
+<span
+class="math inline">\(\int_a^bf(x)g(x)dx=f(\xi)\int_a^bg(x)dx\)</span>.</p>
+<p>证明大抵是容易的. 不妨假设 <span class="math inline">\(g(x)\ge
+0\)</span> 且 <span class="math inline">\(\int_a^bg(x)dx\neq 0\)</span>.
+然后由于 <span class="math inline">\(m\le \int_a^bf(x)dx\le M\)</span>
+所以用连续函数的介质定理即可. 但是 <span
+class="math inline">\(\xi\)</span> 可以取到端点. 不妨设 <span
+class="math inline">\(\xi=a\)</span>. 若 <span
+class="math inline">\(f(a)\)</span> 并非唯一的最值那么就随便改，于是
+不妨设 <span class="math inline">\(f(a)\)</span> 是唯一的最小值，那么令
+<span class="math inline">\(h(x)=f(x)-m\)</span>，则可知 <span
+class="math inline">\(\int_a^b h(x)g(x)=0\)</span>. 由于 <span
+class="math inline">\(\int_a^b g(x)dx\neq 0\)</span> 所以存在一个 <span
+class="math inline">\(\delta\)</span> 使得 <span
+class="math inline">\(\int_{a+\delta}^b g(x)&gt;0\)</span> 且区间中
+<span class="math inline">\(h(x)&gt;\varepsilon\)</span>，那么 <span
+class="math inline">\(\int_{a+\delta}^b h(x)g(x)&gt;0\)</span> 矛盾.</p>
+<p>一个例子：<span class="math inline">\(f(x)&gt;0\)</span>
+单调增，<span class="math inline">\(\in C[a,b]\)</span>，证明 <span
+class="math inline">\(\int_a^b xf(x)dx\ge
+\frac{a+b}{2}\int_a^bf(x)dx\)</span>.</p>
+<p>考虑 <span
+class="math inline">\(LHS-RHS=\int_a^{\frac{a+b}{2}}(x-\frac{a+b}{2})f(x)+\int_{\frac{a+b}{2}}^b
+(\frac{a+b}{2}-x)f(x)\)</span>. 使用中值定理即可知道 <span
+class="math inline">\(LHS-RHS=-A(f(\xi_1)-f(\xi_2))\)</span>，其中 <span
+class="math inline">\(A&gt;0\)</span>，<span
+class="math inline">\(\xi_1&lt;\frac{a+b}{2}&lt;\xi_2\)</span>，完成证明.</p>
+<p>一个应用是柯西积分余项. 首先对于 <span
+class="math inline">\(f(x)=f(x_0)+\int_{x_0}^xf&#39;(t)dt=f(x)=f(x_0)-\int_{x_0}^x
+f&#39;(t)d(x-t)\)</span>，运用分部积分即可得知 <span
+class="math inline">\(f(x)=f(x_0)+f&#39;(x_0)(x-x_0)-\int_{x_0}^x
+f&#39;&#39;(t)(x-t)dt\)</span>，而后面那个积分是 <span
+class="math inline">\(\int_{x_0}^x
+f&#39;&#39;(t)d(\frac{1}{2}(x-t)^2)\)</span>，然后不断这么分部积分下去就可以得到带有柯西积分余项的泰勒展开：
+<span class="math display">\[
+f(x)=\sum_{i=0}^n \frac{f^{(i)}(x_0)(x-x_0)^i}{i!}
++\frac{1}{n!}\int_{x_0}^x f^{(n+1)}(t)(x-t)^ndt
+\]</span> 然后运用积分第一中值定理，令 <span
+class="math inline">\(F(t)=f^{(n+1)}(t)(x-t)^n\)</span>，<span
+class="math inline">\(g(t)=1\)</span>，那么得到 <span
+class="math inline">\(R_n=\frac{f^{(n+1)}(\xi)(x-\xi)^n(x-x_0)}{n!}\)</span>，代入
+<span class="math inline">\(\xi=x_0+\theta(x-x_0)\)</span> 得到 <span
+class="math inline">\(R_n=\frac{f^{(n+1)}(\xi)(1-\theta)^n(x-x_0)^{n+1}}{n!}\)</span>.
+即泰勒展开的柯西余项.</p>
+<hr />
+<p>下面看积分第二中值定理. 这是一个比较抽象的定理. 设 <span
+class="math inline">\(f(x)\)</span> 递减且 <span
+class="math inline">\(\ge 0\)</span>，<span
+class="math inline">\(g(x)\in R[a,b]\)</span>，则存在 <span
+class="math inline">\(\xi\)</span> 使得 <span
+class="math inline">\(\int_a^b f(x)g(x)dx=f(a)\int_a^\xi
+g(x)dx\)</span>. 注意 <span class="math inline">\(g(x)\)</span>
+是可变号的.</p>
+<p>Abel 变换：令 <span class="math inline">\(B\)</span> 为 <span
+class="math inline">\(b\)</span> 的前缀和，则 <span
+class="math inline">\(\sum a_ib_i=\sum a_i(B_i-B_{i-1})=\sum
+B_i(a_i-a_{i+1})+a_nB_n\)</span>. 写作积分的形式就知道 <span
+class="math inline">\(\int_a^b
+f(x)g(x)=f(b)G(b)+\lim_{\lambda(\delta)\to
+0}(f(x_i)-f(x_{i+1})G(x_i))\)</span>. 根据这个，我们就能知道上式 <span
+class="math inline">\(\in [mf(a),Mf(a)]\)</span>，其中 <span
+class="math inline">\(m,M\)</span> 为 <span
+class="math inline">\(G\)</span> 的最值. 由于 <span
+class="math inline">\(G\)</span> 连续，由介值定理就可以证明其正确.</p>
+<p>第二中值定理有若干等价描述. 首先 <span
+class="math inline">\(f(x)\)</span> 递增的情况是对称的，换成 <span
+class="math inline">\(f(b)\int_\xi^bg(x)dx\)</span> 就好了.
+然后我们还可以知道如果 <span class="math inline">\(f(x)\)</span>
+单调那么 <span class="math inline">\(=f(a)\int_a^\xi
+g(x)dx+f(b)\int_\xi^bg(x)dx\)</span>，因为只需要将两边减少 <span
+class="math inline">\(f(b)\int_a^b g(x)dx\)</span>
+就可以划归到第一种情况.</p>
+<p>一个例子，考虑 <span
+class="math inline">\(f(x)=\int_0^x\sin\frac{1}{t}dt\)</span>，且 <span
+class="math inline">\(f(0)=0\)</span>. 问 <span
+class="math inline">\(f&#39;(0)\)</span> 存在性.
+注意如果使用洛必达那么会发现不存在，意味着这不满足洛必达的使用条件.
+这里有些比较技巧性的东西. <span
+class="math inline">\(f(x)=\lim_{\delta\to 0^+}\int_{\delta}^x\sin
+\frac{1}{t}dt\)</span>，然后我们做一下翻转知道 <span
+class="math inline">\(f(x)=\lim
+\int_{\frac{1}{x}}^{\frac{1}{\delta}}\sin td\frac{1}{t}\)</span>，即
+<span class="math inline">\(\int_{\frac{1}{x}}^{\frac{1}{\delta}}
+\frac{\sin u}{u^2}du\)</span>，使用第二中值定理得到 <span
+class="math inline">\(x^2\int_{\frac{1}{x}}^\xi \sin udu\le
+2x^2\)</span>，那么除以 <span class="math inline">\(x\)</span> 后便
+<span class="math inline">\(\to 0\)</span>. 故 <span
+class="math inline">\(f&#39;(0)=0\)</span>.</p>
+
     </div>
 </article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -426,13 +561,13 @@
 
                 
                 <li>
-                    <a href="/tags/CVDL/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2025/03/05/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E7%A7%AF%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 
                 <li>
-                    <a href="/tags/CVDL/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2025/03/05/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E7%A7%AF%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -440,15 +575,15 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 17.81157837314426px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 14.821650958408998px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 15.277496964237494px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 15.969572998380832px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 15.21920606534898px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 16.040888637540757px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/CVDL/" style="font-size: 9.4085604509646px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 10.034479381069037px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 17.4416751417414px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 15.202034614775744px;" class="tag-cloud-link">音数</a>
     
 </div>
                 

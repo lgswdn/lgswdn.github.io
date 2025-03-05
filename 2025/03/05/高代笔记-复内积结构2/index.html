@@ -10,7 +10,7 @@
     
     
     
-    <title>tags: CVDL | lgswdn-SA</title>
+    <title>高代笔记-复内积结构2 | lgswdn-SA</title>
     <link href="http://lgswdn.github.io" rel="prefetch" />
 
     
@@ -190,19 +190,34 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-tag">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="http://lgswdn.github.io">lgswdn-SA</a>
         >
-        <span>标签</span>
+        <span>高代笔记-复内积结构2</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/tags/CVDL/index.html">CVDL</a>
+                <a href="/2025/03/05/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%842/">高代笔记-复内积结构2</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E9%AB%98%E4%BB%A3/">高代</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-03-05
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -210,21 +225,107 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/tags/CVDL/index.html">CVDL</a>
+                    <a href="/2025/03/05/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%842/">高代笔记-复内积结构2</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2025-03-05
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E9%AB%98%E4%BB%A3/">高代</a>
+                
+                
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-            <a href="/2025/02/27/CVDL-Edge%20Detection/">CVDL-Edge Detection</a>
-            <br>
-            
-            
-        </div>
+    <div class="content-article">
+        <p>对于半双线性形式 <span class="math inline">\(V\times V \to \mathbb
+C\)</span>，<span
+class="math inline">\(\epsilon\in\{-1,1\}\)</span>，称该形式为 <span
+class="math inline">\(\epsilon\)</span>-Hermite 形式，若 <span
+class="math inline">\(\epsilon\overline{B(w,v)}=B(v,w)\)</span>，即对应的矩阵
+<span class="math inline">\(\epsilon
+A^{\dagger}=A\)</span>，将这样的矩阵称为 <span
+class="math inline">\(\epsilon\)</span>-Hermite 矩阵. 反 Hermite 矩阵和
+Hermite 矩阵实质上只是差了一个 <span class="math inline">\(i\)</span>.
+所以下面将讨论限定在 Hermite 形式上.</p>
+<p>对于非退化的 Hermite 形式 <span
+class="math inline">\(B\)</span>，<span class="math inline">\(T\)</span>
+的左伴随与右伴随等同. 并且若 <span
+class="math inline">\(TT^*=T^*T\)</span>，则称 <span
+class="math inline">\(T\)</span> 为正规算子.
+同样我们也可以定义出自伴与反自伴算子. 这两者都显然是正规算子. 并且 <span
+class="math inline">\(T\)</span> 自伴当且仅当 <span
+class="math inline">\(iT\)</span> 反自伴.</p>
+<p>Hermite 形式也可以像实的情况一样做分类.
+这等同于做变量的替换，也等同于矩阵做合同变换. 于是任何 Hermite
+形式都可以化作 <span class="math inline">\(\sum_{i=1}^p
+|x_i|^2--\sum_{i=p+1}^{p+q}|x_i|^2\)</span>，其中 <span
+class="math inline">\(r=p+q\)</span> 为该 Hermite 形式的秩.
+惯性定理也与实情况别无二致.</p>
+<p>同样的，我们可以定义 Hermite 内积. 即满足正定性的 <span
+class="math inline">\(V\)</span> 上的 Hermite 形式. 定义长度 <span
+class="math inline">\(||v||=\sqrt{(v|v)}\)</span>. 满足 <span
+class="math inline">\((v|w)=0\)</span>
+的向量是正交的，于是我们可以定义正交子集. 正交子集线性无关，因为对于任意
+<span class="math inline">\(v=\sum a_iv_i\)</span>，这个表示一定长成
+<span class="math inline">\(a_i=\frac{(v_i|v)}{(v_i|v_i)}\)</span>.
+于是我们可以定义正交直和分解. 我们还可以运用 Gram-Shmidt 正交化获得 QR
+分解.</p>
+<p><span
+class="math inline">\(||v+w||=(v+w|v+w)=||v||^2+||w||^2+(v|w)+(w|v)=||v||^2+||w||^2+2Re(v|w)\)</span>.
+这也就意味着 <span class="math inline">\((v|w)\)</span>
+由距离确定.（因为 <span
+class="math inline">\(Im(v|w)=Re(iv|w)\)</span>）.
+这也就意味着保距的同构也保内积.</p>
+<p>然后有 Cauchy 不等式 <span class="math inline">\(|(v|w)|^2\le
+(v|v)(w|w)\)</span>. 还是从取等条件入手，<span
+class="math inline">\(0\le
+||v+tw||^2=(v|v)+(tw|tw)+2Re(v|tw)\)</span>，带入 <span
+class="math inline">\(t=-\frac{(w|v)}{(w|w)}\)</span>，得到 <span
+class="math inline">\((tw|tw)=\bar
+tt(w|w)=\frac{(v|w)(w|v)}{(w|w)}\)</span>，而 <span
+class="math inline">\(2Re(v|tw)=2Re(t(v|w))=-2\frac{(v|w)(w|v)}{(w|w)}\)</span>.
+两者叠加立刻得到 <span
+class="math inline">\((v|v)-\frac{|(v|w)|^2}{(w|w)}\ge
+0\)</span>，并且线性相关时取等.</p>
+<p>标准复内积：<span class="math inline">\((v|w)=\bar v\cdot w\)</span>.
+任何的有限维复内积都可以通过取单位正交基，取 <span
+class="math inline">\(Tv_i=e_i\)</span> 以同构于 <span
+class="math inline">\(\mathbb C^n\)</span> 上的复内积空间.</p>
+<p>定义 Unitary Operator（酉算子）为复内积空间的自同构. 也就是说有 <span
+class="math inline">\(T^{*}=T^{-1}\)</span>. 于是也可以定义酉矩阵为
+<span class="math inline">\(A^{\dagger}=A^{-1}\)</span> 的复矩阵.</p>
+
     </div>
 </article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -426,13 +527,13 @@
 
                 
                 <li>
-                    <a href="/tags/CVDL/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2025/03/05/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%842/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 
                 <li>
-                    <a href="/tags/CVDL/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2025/03/05/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%842/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -440,15 +541,15 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 17.81157837314426px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 18.917676120029604px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 15.277496964237494px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 19.75857786404132px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 15.21920606534898px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 11.139079068476356px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/CVDL/" style="font-size: 9.4085604509646px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 10.379383386624808px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 17.4416751417414px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 14.051963246519698px;" class="tag-cloud-link">音数</a>
     
 </div>
                 
