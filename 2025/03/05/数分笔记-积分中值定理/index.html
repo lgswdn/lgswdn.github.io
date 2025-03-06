@@ -252,17 +252,8 @@ class="math inline">\(\int_a^bf(x)g(x)dx=f(\xi)\int_a^bg(x)dx\)</span>.</p>
 0\)</span> 且 <span class="math inline">\(\int_a^bg(x)dx\neq 0\)</span>.
 然后由于 <span class="math inline">\(m\le \int_a^bf(x)dx\le M\)</span>
 所以用连续函数的介质定理即可. 但是 <span
-class="math inline">\(\xi\)</span> 可以取到端点. 不妨设 <span
-class="math inline">\(\xi=a\)</span>. 若 <span
-class="math inline">\(f(a)\)</span> 并非唯一的最值那么就随便改，于是
-不妨设 <span class="math inline">\(f(a)\)</span> 是唯一的最小值，那么令
-<span class="math inline">\(h(x)=f(x)-m\)</span>，则可知 <span
-class="math inline">\(\int_a^b h(x)g(x)=0\)</span>. 由于 <span
-class="math inline">\(\int_a^b g(x)dx\neq 0\)</span> 所以存在一个 <span
-class="math inline">\(\delta\)</span> 使得 <span
-class="math inline">\(\int_{a+\delta}^b g(x)&gt;0\)</span> 且区间中
-<span class="math inline">\(h(x)&gt;\varepsilon\)</span>，那么 <span
-class="math inline">\(\int_{a+\delta}^b h(x)g(x)&gt;0\)</span> 矛盾.</p>
+class="math inline">\(\xi\)</span> 可以取到端点.
+这里做若干细致的讨论就可以发现其实完全可以避免取到端点.</p>
 <p>一个例子：<span class="math inline">\(f(x)&gt;0\)</span>
 单调增，<span class="math inline">\(\in C[a,b]\)</span>，证明 <span
 class="math inline">\(\int_a^b xf(x)dx\ge
@@ -416,6 +407,18 @@ class="math inline">\(f&#39;(0)=0\)</span>.</p>
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2025/03/05/CVDL-Corner%20Detection/">CVDL-Corner Detection</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/03/05/CVDL-Line%20Fitting/">CVDL-Line Fitting</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2025/03/05/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%842/">高代笔记-复内积结构2</a>
                 </span>
             </li>
@@ -459,18 +462,6 @@ class="math inline">\(f&#39;(0)=0\)</span>.</p>
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2025/02/24/AI%E5%9F%BA%E7%AC%94%E8%AE%B0-%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E7%9A%84%E6%95%B0%E5%AD%A6/">AI基笔记-一些简单的数学</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2025/02/22/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-SVD%E5%92%8C%E5%B9%BF%E4%B9%89%E9%80%86/">高代笔记-SVD和广义逆</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2025/02/22/hello-world/">Hello World</a>
                 </span>
             </li>
             
@@ -492,18 +483,6 @@ class="math inline">\(f&#39;(0)=0\)</span>.</p>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/02/24/AI%E5%9F%BA%E7%AC%94%E8%AE%B0-%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E7%9A%84%E6%95%B0%E5%AD%A6/">AI基笔记-一些简单的数学</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2025/02/27/CVDL-Edge%20Detection/">CVDL-Edge Detection</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2025/02/22/hello-world/">Hello World</a>
                 </span>
             </li>
@@ -547,6 +526,18 @@ class="math inline">\(f&#39;(0)=0\)</span>.</p>
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2025/03/05/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%842/">高代笔记-复内积结构2</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/03/05/CVDL-Line%20Fitting/">CVDL-Line Fitting</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/03/05/CVDL-Corner%20Detection/">CVDL-Corner Detection</a>
                 </span>
             </li>
             
@@ -575,15 +566,15 @@ class="math inline">\(f&#39;(0)=0\)</span>.</p>
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 13.736550186193545px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 9.985886619388491px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 10.58367181327706px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 13.349649166954482px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 14.252323315188589px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 8.78995173045567px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 19.11771255350952px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 8.907183805255329px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 14.458225556850914px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 12.94272244131253px;" class="tag-cloud-link">音数</a>
     
 </div>
                 

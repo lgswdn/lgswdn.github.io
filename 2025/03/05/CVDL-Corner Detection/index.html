@@ -10,7 +10,7 @@
     
     
     
-    <title>音数笔记-1 | lgswdn-SA</title>
+    <title>CVDL-Corner Detection | lgswdn-SA</title>
     <link href="http://lgswdn.github.io" rel="prefetch" />
 
     
@@ -196,13 +196,13 @@
         <i class="fa fa-home"></i>
         <a href="http://lgswdn.github.io">lgswdn-SA</a>
         >
-        <span>音数笔记-1</span>
+        <span>CVDL-Corner Detection</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2025/03/03/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B0-1/">音数笔记-1</a>
+                <a href="/2025/03/05/CVDL-Corner%20Detection/">CVDL-Corner Detection</a>
             </h1>
         </div>
         <div class="tag-article">
@@ -210,12 +210,12 @@
             <span class="label label-gal">
                 <i class="fa fa-tags"></i>
                 
-                <a href="/tags/%E9%9F%B3%E6%95%B0/">音数</a>
+                <a href="/tags/CVDL/">CVDL</a>
                 
             </span>
             
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2025-03-03
+                <i class="fa fa-calendar"></i> 2025-03-05
             </span>
             
         </div>
@@ -225,17 +225,17 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2025/03/03/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B0-1/">音数笔记-1</a>
+                    <a href="/2025/03/05/CVDL-Corner%20Detection/">CVDL-Corner Detection</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2025-03-03
+                <i class="fa fa-calendar"></i> 2025-03-05
             </p>
             <p>
                 
                 <i class="fa fa-tags"></i>
                 
-                <a href="/tags/%E9%9F%B3%E6%95%B0/">音数</a>
+                <a href="/tags/CVDL/">CVDL</a>
                 
                 
                 
@@ -243,50 +243,88 @@
         </center>
     </div>
     <div class="content-article">
-        <p>音乐是什么？因声波的震动而存在（声音），在时间中展现的，通过人类的听觉而引起各种情绪反应和情感反应的艺术门类。这里重要的是，音乐是一个主观的，一种艺术门类。但是这个不一定要是积极的。可以是很搞笑很糟糕的情感体验.</p>
-<p>声波是一种纵波，即波与传播方向平行.</p>
-<p>声音的物理属性：</p>
-<ol type="1">
-<li><p>音高（pitch） —— 振动频率（frequency）</p>
-<p>A4 的频率是 440Hz</p>
-<p>人的听觉对于频率的感知是非线性的</p>
-<p>借助音高可以把音由低到高排成音阶（scale）</p></li>
-<li><p>力度（dynamics）—— 震动幅度（amplitude）</p>
-<p>注意到响度（loudness）是由于鼓膜收到的压强决定的，需要区分.</p>
-<p>声压水平（SPL），<span
-class="math inline">\(L_p=20\log_{10}\frac{p}{p_0}\)</span>，<span
-class="math inline">\(p\)</span> 为实际声压，<span
-class="math inline">\(p_0=20\mu Pa\)</span>. 单位为分贝（dB）.</p></li>
-<li><p>时值（duration）—— 时间长度</p>
-<p>振幅包络（Envelope）</p>
-<p>ADSR：Attack（起音），Decay（衰减），Sustain（延迟），Release（释音）</p>
-<p>先在 A 从无声达到最大音量，然后经过 D 达到稳定音量，然后经过 S
-的时间后，R 恢复无声.</p></li>
-<li><p>音色（timbre）—— 振动波型（waveform）</p>
-<p>频谱图：横坐标表示时间，纵坐标表示频率，用亮度表示音量</p>
-<p>把各个频率成分从低到高排列起来形成的序列为 泛音列（Harmonic
-Series）</p>
-<p>根据傅里叶级数那套理论，任何周期函数都可以用若干的简单正弦&amp;余弦函数叠加产生.
-做傅里叶变换可以把时域给变换成频域，然后就能区分出这些正弦/余弦波.</p></li>
-</ol>
-<p>传统音乐中使用的噪音主要来源为打击乐器. 打击乐器分为有音高和无音高的.
-一些比较搞笑的是柴可夫斯基 1812 序曲中的加农炮.</p>
-<p>乐音体系：具有固定音高的全体乐音构成一个集合，称为乐音体系，音列中的各个音称为音级.
-每个音级可以有不同音名. 唱名取自赞美诗的每句的首字母.</p>
-<p>然后是一些五线谱和记号. 比较简单.</p>
-<p>音程：高的音为冠音，低的音为根音（root）.
-先后发声的是旋律音程，一起发生的是和声音程. 具体音程怎么表达也很
-trivial. 不写了.</p>
-<p>毕达哥拉斯理论：振动频率之比越简单，越和谐. Eg：纯五度 3:2，纯四度
-4:3，大六度 5:3，大三度 5:4. 而小二度 16:15，增四度 45:32.</p>
-<p>拍音理论：三角函数和差化积，对于 <span
-class="math inline">\(\omega\)</span> 和 <span
-class="math inline">\(\omega+\delta\)</span> 两个频率的音，<span
-class="math inline">\(\sin(2\pi\omega t)+\sin(2\pi(\omega+\delta)
-t)\)</span>，三角函数和差化积后得到 <span
-class="math inline">\(2\sin(2\pi(\omega+\frac{\delta}{2}))\cos(\pi
-\delta t)\)</span>. 故音量会产生周期变化. 当 <span
-class="math inline">\(\delta\)</span> 较小时，就会产生拍音（beat）.</p>
+        <p>Image Matching
+的一种方法：先从两个照片中找到关键点，然后再做关键点匹配，形成
+Correpondance，再去解两个视角的关系.</p>
+<p>关键点检测的第一个要求是显著性（Saliency），必须足够具有特征.
+第二个要求是重复性（Repeatability），对于不同的图（视角，尺寸等）要能检测出相同的.
+第三个是能有足够精确的位置（Accurate localization）.
+并且最后希望量足够大（Quantity）.</p>
+<p>一种简单的 Keypoint 是 Corner.</p>
+<p>Corner 的特征是，有多个方向的梯度，而非像 Edge 一样只有正交方向.</p>
+<p>Harris Corner Detection：将一个滑动窗口，看向各个方向移动，intensity
+会不会有什么明显变化. Edge 的话只会有一个方向有极大的变化，而 Corner
+在每个方向都有剧烈变化.</p>
+<p>考虑定义一个 Window Function. 最简单的用 1 表示在窗口内，0
+表示不在窗口内. 对于 <span
+class="math inline">\((x,y)\)</span>，定义强度差为 <span
+class="math inline">\(D(x,y)=[I(x+u,y+v)-I(x,y)]^2\)</span>，而又因为对于中心
+<span class="math inline">\((x_0,y_0)\)</span>，<span
+class="math inline">\(w_{x,y}=w_{x-x_0,y-y_0}\)</span>，于是我们强度差总和为
+<span class="math inline">\(\sum w(x-x_0,y-y_0)D(x,y)=\sum
+w(x_0-x,y_0-y)D(x,y)\)</span>，写成卷积就是<span
+class="math inline">\((w*D)(x_0,y_0)\)</span>. 上述是对于固定的 <span
+class="math inline">\(u,v\)</span> 来说的.</p>
+<p>如果将 <span class="math inline">\(I(x+u,y+v)-I(x,y)\)</span>
+做一阶泰勒近似，得到 <span
+class="math inline">\(uI_x+vI_y\)</span>，其中 <span
+class="math inline">\(I_x\)</span> 为 <span
+class="math inline">\(x\)</span> 方向 <span
+class="math inline">\(I\)</span> 的偏导数，<span
+class="math inline">\(I_y\)</span> 为 <span
+class="math inline">\(y\)</span> 方向的偏导数，那么 <span
+class="math inline">\(D(x,y)=[u,v]\left[\begin{matrix}I_x^2(x,y)&amp;
+I_xI_y(x,y)\\I_xI_y(x,y)&amp; I_y^2(x,y)\end{matrix}\right][u\
+v]^T\)</span>. 也就是说对于位置 <span
+class="math inline">\((x,y)\)</span>，<span
+class="math inline">\((u,v)\)</span>
+方向的强度差可以用一个双线性形式表示.</p>
+<p>那么我们考虑令中间那个矩阵为 <span
+class="math inline">\(B_{x,y}\)</span>，那么我们考虑用卷积的形式（注意，<span
+class="math inline">\(B\)</span> 的每个元素是一个矩阵），那么对于位置
+<span class="math inline">\(x_0,y_0\)</span>，这个总和的双线性形式就是
+<span class="math inline">\(M_{x_0,y_0}=(w*B)_{x_0,y_0}\)</span>.</p>
+<p>我们把内部的 <span class="math inline">\((x,y)\)</span>
+给提出去（这样矩阵的元素就是算子），可以得到 <span
+class="math inline">\(M=\left[\begin{matrix}w*I_x^2&amp;
+w*I_xI_y\\w*I_xI_y&amp; w*I_y^2\end{matrix}\right]\)</span>.</p>
+<p>上一步是为了方便并行计算. 无论如何，我们已经能得知了 <span
+class="math inline">\((x_0,y_0)\)</span>
+处的双线性形式，现在就是该如何判断一个点是否是 Corner 或者 Edge.</p>
+<p>我们要关注的对象是是否对于所有向量 <span
+class="math inline">\(v\)</span>，<span
+class="math inline">\(vM_{x_0,y_0}v^T\)</span> 都比较大.
+那么我们自然地想到对 <span class="math inline">\(M_{x_0,y_0}\)</span>
+进行对角化，得到特征值 <span
+class="math inline">\(\lambda_1,\lambda_2\)</span>.
+若两者都较大，那么就意味着是 Corner.
+若一者相比于另一者过大，那就以为这是 Edge. 否则就是 Flat.
+我们想要寻找一个合理的算子来体现这件事情.</p>
+<p>首先是要都比较大. Harris Corner Detector 的这套理论选择了使用 <span
+class="math inline">\(\lambda_1\lambda_2-2t\)</span> 作为贡献.</p>
+<p>然后是比值要比较大. 这里选择了 <span
+class="math inline">\(\lambda_1\lambda_2-2a(\lambda_1+\lambda_2)^2&gt;0\)</span>，可以解出来
+<span class="math inline">\(a=\frac{1}{2}(k+1/k)^2\)</span>，其中 <span
+class="math inline">\(\lambda_1/\lambda_2\in(\frac{1}{k},k)\)</span>.
+<span class="math inline">\(k=3\)</span> 的时候有 <span
+class="math inline">\(\alpha=0.045\)</span>.</p>
+<p>然后我们把这两项叠加起来，化简得到 <span
+class="math inline">\(\theta=\lambda_1\lambda_2-\alpha(\lambda_1+\lambda_2)^2-t\)</span>.
+有人知道为什么会这么设计这个函数吗？？？？？</p>
+<p>反正我们发现这个其实就是原矩阵的行列式，减去 <span
+class="math inline">\(\alpha\)</span> 倍的 Trace 的平方，再减去 <span
+class="math inline">\(t\)</span>.</p>
+<p>并且还有一件事情，就是 <span class="math inline">\(w\)</span>
+太方方正正了，不满足对旋转的不变性. 所以不如选择一个 Gaussian Filter
+<span class="math inline">\(g\)</span> 作为 Window Function.</p>
+<p>然后我们再看回算子，得到 <span
+class="math inline">\(\theta=(g(I_x^2)g(I_y^2)-[g(I_xI_y)]^2)-\alpha[g(I_x^2)+g(I_y^2)]^2-t\)</span>.</p>
+<p>真实操作中，我们先求 <span class="math inline">\(I_x,I_y\)</span>
+作用得到的 Image，再求 <span
+class="math inline">\(I_x^2,I_y^2,I_xI_y\)</span>，再分别卷上 <span
+class="math inline">\(g\)</span>，然后最后拼拼凑凑得到 <span
+class="math inline">\(\theta\)</span>.</p>
+<p>然后再做一个 Thresholding 和 Non-maximum Suppression.</p>
 
     </div>
 </article>
@@ -469,12 +507,6 @@ class="math inline">\(\delta\)</span> 较小时，就会产生拍音（beat）.<
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/02/26/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E6%80%A7%E8%B4%A8%E4%B8%8E%E8%AE%A1%E7%AE%97/">数分笔记-定积分的性质与计算</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2025/03/05/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E7%A7%AF%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/">数分笔记-积分中值定理</a>
                 </span>
             </li>
@@ -499,6 +531,12 @@ class="math inline">\(\delta\)</span> 较小时，就会产生拍音（beat）.<
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2025/03/05/CVDL-Line%20Fitting/">CVDL-Line Fitting</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2025/03/05/CVDL-Corner%20Detection/">CVDL-Corner Detection</a>
                 </span>
             </li>
@@ -514,13 +552,13 @@ class="math inline">\(\delta\)</span> 较小时，就会产生拍音（beat）.<
 
                 
                 <li>
-                    <a href="/2025/03/03/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B0-1/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2025/03/05/CVDL-Corner%20Detection/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 
                 <li>
-                    <a href="/2025/03/03/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B0-1/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2025/03/05/CVDL-Corner%20Detection/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -528,15 +566,15 @@ class="math inline">\(\delta\)</span> 较小时，就会产生拍音（beat）.<
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 15.036734112370896px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 14.143624907873097px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 12.675798543613304px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 13.295444850774764px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 8.674355010239921px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 16.350771318039598px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 15.7665783616773px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 19.41165379625782px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 18.034852731247668px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 11.34854415560714px;" class="tag-cloud-link">音数</a>
     
 </div>
                 
