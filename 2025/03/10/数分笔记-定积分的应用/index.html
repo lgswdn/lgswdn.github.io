@@ -10,7 +10,7 @@
     
     
     
-    <title>tags: 高代 | lgswdn-SA</title>
+    <title>数分笔记-定积分的应用 | lgswdn-SA</title>
     <link href="http://lgswdn.github.io" rel="prefetch" />
 
     
@@ -190,19 +190,34 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-tag">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="http://lgswdn.github.io">lgswdn-SA</a>
         >
-        <span>标签</span>
+        <span>数分笔记-定积分的应用</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/tags/%E9%AB%98%E4%BB%A3/index.html">高代</a>
+                <a href="/2025/03/10/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E5%BA%94%E7%94%A8/">数分笔记-定积分的应用</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E6%95%B0%E5%88%86/">数分</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-03-10
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -210,27 +225,101 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/tags/%E9%AB%98%E4%BB%A3/index.html">高代</a>
+                    <a href="/2025/03/10/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E5%BA%94%E7%94%A8/">数分笔记-定积分的应用</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2025-03-10
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E6%95%B0%E5%88%86/">数分</a>
+                
+                
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-            <a href="/2025/03/05/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%842/">高代笔记-复内积结构2</a>
-            <br>
-            
-            <a href="/2025/02/25/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%841/">高代笔记-复内积结构1</a>
-            <br>
-            
-            <a href="/2025/02/22/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-SVD%E5%92%8C%E5%B9%BF%E4%B9%89%E9%80%86/">高代笔记-SVD和广义逆</a>
-            <br>
-            
-            
-        </div>
+    <div class="content-article">
+        <p>对于参数方程给出的封闭曲线 <span
+class="math inline">\(x=x(t)\)</span>，<span
+class="math inline">\(y=y(t)\)</span>，假设随 <span
+class="math inline">\(t\)</span>
+增长曲线沿逆时针方向，那么我们有曲线围成的<strong>面积</strong> <span
+class="math display">\[
+S=\sum_{\lambda(\Delta)\to 0} y_i(x_{i-1}-x_i)=-\sum_{\lambda(\Delta)\to
+0} y_i x&#39;(t_i)\Delta t_i=-\int_a^by(t) dx(t)
+\]</span> 同理，<span
+class="math inline">\(S=-\int_a^by(t)dx(t)=\int_a^bx(t)dy(t)=\frac{1}2{[\int_a^bxdy-\int_a^bydx]}\)</span>.</p>
+<p>对于极坐标给的方程 <span
+class="math inline">\(r(\theta)\)</span>，可以推得 <span
+class="math inline">\(S=\int_0^{2\pi}
+\frac{1}{2}r(\theta)^2d\theta\)</span>.</p>
+<p>现在考虑如何求<strong>弧长</strong>. 我们先考虑如何定义弧长.
+我们分割成若干部分，然后每一个用直线估计. <span class="math display">\[
+\lim_{\lambda(\Delta)\to 0} \sum
+\sqrt{(x_k-x_{k-1})^2+(y_k-y_{k-1})^2}dt
+\]</span> 我们声称所有 <span class="math inline">\(C^1\)</span>
+的函数都是可求长的，且 <span
+class="math inline">\(=\int_a^b\sqrt{x&#39;(t)^2+y&#39;(t)^2}dt\)</span>.
+证明考虑由于连续所以一直连续，根号相减小于相减后开根，而相减直接可以被一直连续性控制.</p>
+<p>同样可以推得极坐标给出的方程，<span
+class="math inline">\(L=\int_a^b\sqrt{r(\theta)^2+r&#39;(\theta)^2)}dt\)</span>.</p>
+<p><strong>旋转体表面积</strong>：对于曲线 <span
+class="math inline">\(x(t),y(t)\)</span>，考虑将其绕着 <span
+class="math inline">\(x\)</span> 轴转一圈得到旋转体.
+我们关心这个旋转体的表面积. 我们还是分割成若干部分，然后每一段用圆台估计
+<span class="math display">\[
+\lim_{\lambda(\Delta)\to 0}\sum
+\pi[y_{k-1}+y_k]\sqrt{(x_k-x_{k-1})^2+(y_k-y_{k-1})^2}dt
+\]</span> 仍然所有 <span class="math inline">\(C^1\)</span>
+的曲线都是可以求表面积的，且 <span class="math inline">\(=\int_a^b2\pi
+y(t)\sqrt{x&#39;(t)^2+y&#39;(t)^2}dt\)</span>.</p>
+<p>比如我们想要求球的表面积，直接 <span
+class="math inline">\(y=\sqrt{R^2-x^2}\)</span>，带进去后发现全都消掉了，剩下一个
+<span class="math inline">\(4\pi R^2\)</span>.</p>
+<p><strong>投针估 <span
+class="math inline">\(\pi\)</span></strong>：平面上若干相隔 <span
+class="math inline">\(h\)</span> 的平行线，现随机投 <span
+class="math inline">\(N\)</span> 根长度为 <span
+class="math inline">\(l\)</span> 的针. 令其中有 <span
+class="math inline">\(n\)</span> 根针与平行线有相交，则相交概率约为
+<span class="math inline">\(p=\frac{n}{N}\)</span>. 现在考虑如何算出
+<span class="math inline">\(p\)</span>. 令针的中心距离平行线为 <span
+class="math inline">\(y\in [0,\frac{h}{2}]\)</span>，角度为 <span
+class="math inline">\(\theta\in[0,\pi]\)</span>，那么与线相交即 <span
+class="math inline">\(y\le \frac{1}{2}l\sin \theta\)</span>，积起来即
+<span class="math inline">\(\int_0^{\pi}\frac{1}{2}l\sin
+\theta=\frac{2l}{h\pi}\)</span>. 于是就可以估算 <span
+class="math inline">\(\pi\)</span>.</p>
+
     </div>
 </article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -381,13 +470,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/02/26/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E6%80%A7%E8%B4%A8%E4%B8%8E%E8%AE%A1%E7%AE%97/">数分笔记-定积分的性质与计算</a>
+                    <a href="/2025/02/24/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E9%BB%8E%E6%9B%BC%E5%8F%AF%E7%A7%AF/">数分笔记-Riemann可积</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/05/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E7%A7%AF%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/">数分笔记-积分中值定理</a>
+                    <a href="/2025/02/26/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E6%80%A7%E8%B4%A8%E4%B8%8E%E8%AE%A1%E7%AE%97/">数分笔记-定积分的性质与计算</a>
                 </span>
             </li>
             
@@ -411,13 +500,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/05/CVDL-Corner%20Detection/">CVDL-Corner Detection</a>
+                    <a href="/2025/03/05/CVDL-Line%20Fitting/">CVDL-Line Fitting</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/10/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E5%BA%94%E7%94%A8/">数分笔记-定积分的应用</a>
+                    <a href="/2025/03/05/CVDL-Corner%20Detection/">CVDL-Corner Detection</a>
                 </span>
             </li>
             
@@ -432,13 +521,13 @@
 
                 
                 <li>
-                    <a href="/tags/%E9%AB%98%E4%BB%A3/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2025/03/10/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E5%BA%94%E7%94%A8/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 
                 <li>
-                    <a href="/tags/%E9%AB%98%E4%BB%A3/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2025/03/10/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E5%BA%94%E7%94%A8/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -446,15 +535,15 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 16.31724973783442px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 19.279571806495884px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 17.928658850395948px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 17.696219800315625px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 13.808514736367176px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 8.886252175517104px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 19.586717183014883px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 16.824930253129935px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 12.352408141539408px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 17.487241354640148px;" class="tag-cloud-link">音数</a>
     
 </div>
                 
