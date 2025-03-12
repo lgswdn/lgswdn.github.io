@@ -10,7 +10,7 @@
     
     
     
-    <title>tags: AI基 | lgswdn-SA</title>
+    <title>高代笔记-复内积结构3-谱定理与酉对角化 | lgswdn-SA</title>
     <link href="http://lgswdn.github.io" rel="prefetch" />
 
     
@@ -190,19 +190,34 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-tag">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="http://lgswdn.github.io">lgswdn-SA</a>
         >
-        <span>标签</span>
+        <span>高代笔记-复内积结构3-谱定理与酉对角化</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/tags/AI%E5%9F%BA/index.html">AI基</a>
+                <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%843-%E8%B0%B1%E5%AE%9A%E7%90%86%E4%B8%8E%E9%85%89%E5%AF%B9%E8%A7%92%E5%8C%96/">高代笔记-复内积结构3-谱定理与酉对角化</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E9%AB%98%E4%BB%A3/">高代</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-03-12
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -210,21 +225,127 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/tags/AI%E5%9F%BA/index.html">AI基</a>
+                    <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%843-%E8%B0%B1%E5%AE%9A%E7%90%86%E4%B8%8E%E9%85%89%E5%AF%B9%E8%A7%92%E5%8C%96/">高代笔记-复内积结构3-谱定理与酉对角化</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2025-03-12
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E9%AB%98%E4%BB%A3/">高代</a>
+                
+                
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-            <a href="/2025/02/24/AI%E5%9F%BA%E7%AC%94%E8%AE%B0-%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E7%9A%84%E6%95%B0%E5%AD%A6/">AI基笔记-一些简单的数学</a>
-            <br>
-            
-            
-        </div>
+    <div class="content-article">
+        <p><strong>谱定理</strong>：对于 <span class="math inline">\(T\in
+End(V)\)</span>，<span class="math inline">\(T\)</span>
+为正规算子当且仅当 <span class="math inline">\(T\)</span>
+可酉对角化，即存在 ONB 使得 <span
+class="math inline">\(Tv_i=\lambda_iv_i\)</span>.</p>
+<p>用矩阵形式表达即 <span
+class="math inline">\(A^{\dagger}A=AA^\dagger\)</span>
+当且仅当存在酉矩阵 <span class="math inline">\(P\)</span> 使得 <span
+class="math inline">\(P^\dagger A P\)</span> 为复对角矩阵.</p>
+<p>从右推到左是显然的. 考虑从左推到右.
+谱定理的证明会比实数情景简单一些，因为复数域是代数封闭的.</p>
+<p>先考虑 <span class="math inline">\(T\)</span> 自伴的情况.
+这个和实数情况是相似的. 引理：<span class="math inline">\(V_0\)</span>
+是 <span class="math inline">\(T-\)</span>不变子空间，则 <span
+class="math inline">\(V_0^\perp\)</span> 为 <span
+class="math inline">\(T^*-\)</span> 不变子空间. 证明：若 <span
+class="math inline">\(V_0\)</span> 为 <span
+class="math inline">\(T-\)</span>不变，则取 <span
+class="math inline">\(v\in V_0^{\perp}\)</span>，<span
+class="math inline">\((T^*v|v_0)=(v|Tv_0)=0\)</span>，故 <span
+class="math inline">\(V_0^\perp\)</span> 为 <span
+class="math inline">\(T^*-\)</span>不变子空间.</p>
+<p>于是由于复数域是代数闭域所以就随便取一个特征值 <span
+class="math inline">\(\lambda\)</span> 和特征向量 <span
+class="math inline">\(v\)</span>，然后令 <span
+class="math inline">\(V_0=&lt;v&gt;\)</span>，那么由于 <span
+class="math inline">\(T=T^*\)</span> 故 <span
+class="math inline">\(T^*\)</span> 为 <span
+class="math inline">\(V_0^\perp-\)</span>不变子空间，于是可以往下归纳.</p>
+<p>然后反自伴其实是一样的. 乘一个 <span class="math inline">\(i\)</span>
+可以直接规到自伴的情况.</p>
+<p>然后考虑普通的正规算子 <span class="math inline">\(T\)</span>.
+显然我们可以将 <span class="math inline">\(T=T_0+T_1\)</span> 而 <span
+class="math inline">\(T_0\)</span> 自伴 <span
+class="math inline">\(T_1\)</span> 反自伴，并且由于 <span
+class="math inline">\(T\)</span> 正规所以两者交换，故可同步对角化.
+于是完成了证明.</p>
+<p>关于自伴算子，还有一个性质就是其特征值都是实数. 考虑取任意特征值
+<span class="math inline">\(\lambda\in C\)</span> 与特征向量 <span
+class="math inline">\(v\)</span>，考虑 <span
+class="math inline">\((Tv|v)=\bar\lambda (v|v)\)</span>，而另一方面
+<span class="math inline">\((Tv|v)=(v|Tv)=\lambda(v|v)\)</span>，故
+<span class="math inline">\(\lambda\)</span> 一定是实数.</p>
+<p>另一个简单的结论是，如果 <span class="math inline">\(T\)</span>
+是酉算子那么 <span class="math inline">\(|\lambda_i|=1\)</span>.
+这就很显然了.</p>
+<p>运用酉对角化，我们很容易将有关实内积空间的一些理论给照搬到复内积上：</p>
+<ol type="1">
+<li><p>对于 Hermite 形式 <span class="math inline">\(f\)</span>，<span
+class="math inline">\(f\)</span> 正定当且仅当特征值均 <span
+class="math inline">\(&gt;0\)</span>.</p>
+<p>证明大概就由于酉对角化也同时构造了二次型的对角化，于是 <span
+class="math inline">\(f\)</span> 等价于 <span class="math inline">\(\sum
+\lambda |x_i|^2\)</span>.</p></li>
+<li><p><span class="math inline">\(TT^*\)</span> 半正定，且正定当且仅当
+<span class="math inline">\(T\)</span> 满.</p>
+<p><span class="math inline">\((TT^*v|v)=(Tv|Tv)\ge 0\)</span>.</p></li>
+<li><p>对于(半)正定 <span
+class="math inline">\(T\)</span>，存在唯一(半)正定 <span
+class="math inline">\(S\)</span> 使得 <span
+class="math inline">\(S^2=T\)</span>. 记为 <span
+class="math inline">\(\sqrt T\)</span>.</p>
+<p>酉对角化之后特征值开根.</p></li>
+<li><p>(RU 分解) <span class="math inline">\(T\)</span>
+可逆，当且仅当存在唯一 <span class="math inline">\(T=RU\)</span> 使得
+<span class="math inline">\(R\)</span> 自伴正定且 <span
+class="math inline">\(U\)</span> 酉.</p>
+<p>取 <span class="math inline">\(R=\sqrt{TT^*}\)</span>，<span
+class="math inline">\(U=R^{-1}T\)</span>.</p></li>
+<li><p>(SVD 分解) <span
+class="math inline">\(A=PIQ^{\dagger}\)</span>，其中 <span
+class="math inline">\(P,Q\)</span> 为 <span
+class="math inline">\(V,W\)</span> 单位正交基且 <span
+class="math inline">\(I\)</span> 为对角矩阵.</p>
+<p><span class="math inline">\(A^\dagger A\)</span>
+有实特征值，开根即可.</p></li>
+</ol>
+
     </div>
 </article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -357,7 +478,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/02/27/CVDL-Edge%20Detection/">CVDL-Edge Detection</a>
+                    <a href="/2025/02/24/AI%E5%9F%BA%E7%AC%94%E8%AE%B0-%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E7%9A%84%E6%95%B0%E5%AD%A6/">AI基笔记-一些简单的数学</a>
                 </span>
             </li>
             
@@ -375,13 +496,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2025/03/05/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E7%A7%AF%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/">数分笔记-积分中值定理</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2025/02/22/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-SVD%E5%92%8C%E5%B9%BF%E4%B9%89%E9%80%86/">高代笔记-SVD和广义逆</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/03/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B0-1/">音数笔记-1</a>
+                    <a href="/2025/02/25/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%841/">高代笔记-复内积结构1</a>
                 </span>
             </li>
             
@@ -399,19 +526,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/10/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E5%BA%94%E7%94%A8/">数分笔记-定积分的应用</a>
+                    <a href="/2025/03/10/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B0-2/">音数笔记-2</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%843-%E8%B0%B1%E5%AE%9A%E7%90%86%E4%B8%8E%E9%85%89%E5%AF%B9%E8%A7%92%E5%8C%96/">高代笔记-复内积结构3-谱定理与酉对角化</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E6%AD%A3%E4%BA%A4%E5%8F%98%E6%8D%A2/">高代笔记-正交变换</a>
                 </span>
             </li>
             
@@ -426,13 +547,13 @@
 
                 
                 <li>
-                    <a href="/tags/AI%E5%9F%BA/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%843-%E8%B0%B1%E5%AE%9A%E7%90%86%E4%B8%8E%E9%85%89%E5%AF%B9%E8%A7%92%E5%8C%96/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 
                 <li>
-                    <a href="/tags/AI%E5%9F%BA/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%843-%E8%B0%B1%E5%AE%9A%E7%90%86%E4%B8%8E%E9%85%89%E5%AF%B9%E8%A7%92%E5%8C%96/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -440,15 +561,15 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 13.534840225969553px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 8.990367368097196px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 8.247978835917849px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 18.364045751821607px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 12.36719443528338px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 15.712747704370244px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 17.72112596972029px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 14.608479440691323px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 8.93367982826533px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 12.02094958932126px;" class="tag-cloud-link">音数</a>
     
 </div>
                 

@@ -10,7 +10,7 @@
     
     
     
-    <title>tags: AI基 | lgswdn-SA</title>
+    <title>高代笔记-正交变换 | lgswdn-SA</title>
     <link href="http://lgswdn.github.io" rel="prefetch" />
 
     
@@ -190,19 +190,34 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-tag">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="http://lgswdn.github.io">lgswdn-SA</a>
         >
-        <span>标签</span>
+        <span>高代笔记-正交变换</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/tags/AI%E5%9F%BA/index.html">AI基</a>
+                <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E6%AD%A3%E4%BA%A4%E5%8F%98%E6%8D%A2/">高代笔记-正交变换</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E9%AB%98%E4%BB%A3/">高代</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-03-12
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -210,21 +225,134 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/tags/AI%E5%9F%BA/index.html">AI基</a>
+                    <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E6%AD%A3%E4%BA%A4%E5%8F%98%E6%8D%A2/">高代笔记-正交变换</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2025-03-12
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E9%AB%98%E4%BB%A3/">高代</a>
+                
+                
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-            <a href="/2025/02/24/AI%E5%9F%BA%E7%AC%94%E8%AE%B0-%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E7%9A%84%E6%95%B0%E5%AD%A6/">AI基笔记-一些简单的数学</a>
-            <br>
-            
-            
-        </div>
+    <div class="content-article">
+        <p>考虑配备标准内积的 <span class="math inline">\(\mathbb R^n\)</span>
+空间中探讨正交变换.</p>
+<p>引理：正规算子 <span class="math inline">\(T\)</span>，若 <span
+class="math inline">\(T^k=0\)</span> 则 <span
+class="math inline">\(T=0\)</span>.
+证明考虑放到复数域中，进行酉对角化，然后发现显然所有特征值都为 <span
+class="math inline">\(0\)</span>，故 <span
+class="math inline">\(T=0\)</span>.</p>
+<p>现在考虑 <span class="math inline">\(n=2\)</span> 的空间，即平面.
+对于矩阵 <span class="math inline">\(\left(\begin{matrix}a \ b \\ c \
+d\end{matrix}\right)\)</span>，要让其正交，则必须满足：<span
+class="math inline">\(a^2+c^2=b^2+d^2=1\)</span>，且 <span
+class="math inline">\(ab+cd=0\)</span>. 取 <span
+class="math inline">\(\theta\)</span> 使得 <span
+class="math inline">\(a=\cos\theta\)</span>，<span
+class="math inline">\(c=\sin \theta\)</span>，那么容易发现这个矩阵要么是
+<span class="math inline">\(\left(\begin{matrix}\cos \theta &amp; -\sin
+\theta \\ \sin \theta &amp; \cos
+\theta\end{matrix}\right)\)</span>，要么是 <span
+class="math inline">\(\left(\begin{matrix}\cos \theta &amp; \sin \theta
+\\ \sin \theta &amp; -\cos \theta\end{matrix}\right)\)</span>.
+前者行列式为 <span class="math inline">\(1\)</span>，后者为 <span
+class="math inline">\(-1\)</span>. <span
+class="math inline">\(\det=1\)</span> 的时候，这个矩阵的意义就是进行一个
+<span class="math inline">\(\theta\)</span> 角度的旋转，记作 <span
+class="math inline">\(R(\theta)\)</span>. <span
+class="math inline">\(\det =-1\)</span> 的话还要附上一个翻转.</p>
+<p><span class="math inline">\(\pm 1\)</span> 的矩阵之间可以互相变换. 令
+<span class="math inline">\(\det P=\epsilon\in\{1,-1\}\)</span>，则
+<span
+class="math inline">\(P^{-1}R(\theta)P=R(\epsilon\theta)\)</span>.</p>
+<p>以上就是 <span class="math inline">\(n=2\)</span> 的情形.
+现在考虑更高阶的拓展. 任何正交 <span class="math inline">\(T\)</span>
+都可以通过换基来表达成如下的形式： <span class="math display">\[
+\left(\begin{matrix}
+1_{a\times a}\\
+&amp; (-1)_{b\times b}\\
+&amp; &amp; R(\theta_1)_{2\times 2}\\
+&amp; &amp; &amp;...\\
+&amp; &amp; &amp; &amp;R(\theta_m)_{2\times 2}
+\end{matrix}\right)
+\]</span> 其中 <span class="math inline">\(a+b+2m=n\)</span>.
+直观上理解是容易的. 下面来看一看这个很神奇的证明.</p>
+<p>先一个引理：<span class="math inline">\(T+T^{-1}\)</span> 自伴且
+<span class="math inline">\(\lambda\in[-2,2]\)</span>. 首先 <span
+class="math inline">\((T+T^{-1})^*=T^*+T^{**}=T+T^{-1}\)</span>
+故显然自伴，于是 <span class="math inline">\(\lambda\in
+\mathbb  R\)</span>. 然后 <span class="math inline">\(T,T^{-1}\)</span>
+显然可以同步对角化且相加得到的特征值为 <span
+class="math inline">\(\lambda_T+(\lambda_T)^{-1}\)</span>. 由于 <span
+class="math inline">\(|\lambda|=1\)</span> 所以加起来也肯定 <span
+class="math inline">\(\in[-2,2]\)</span>.</p>
+<p>然后考虑证明该定理.</p>
+<p>令 <span class="math inline">\(S=T+T^{-1}\)</span>，令 <span
+class="math inline">\(S\)</span> 对角化后得到的特征值 <span
+class="math inline">\(\lambda\)</span> 和特征子空间 <span
+class="math inline">\(V_{\lambda}\)</span>，显然 <span
+class="math inline">\(S,T\)</span> 交换，故 <span
+class="math inline">\(V_{\lambda}\)</span> 也为 <span
+class="math inline">\(T-\)</span>不变子空间. 于是划归到 <span
+class="math inline">\(\lambda\in[-2,2]\)</span> 的情况.</p>
+<p><span class="math inline">\(\lambda=\pm 2\)</span> 的情况就是上面的
+<span class="math inline">\(\pm1\)</span>. 考虑 <span
+class="math inline">\(\lambda\in(-2,2)\)</span>.</p>
+<p>那么此时有 <span class="math inline">\((T+T^{-1})v=\lambda
+v\)</span>，即 <span class="math inline">\(T^2-\lambda T+1=0\)</span>.
+于是 <span class="math inline">\(f(x)=x^2-\lambda x+1\)</span> 为 <span
+class="math inline">\(T\)</span> 的最小多项式，故 <span
+class="math inline">\(T\)</span> 无实特征根.</p>
+<p>取任意 <span class="math inline">\(v,Tv\)</span> 构成 <span
+class="math inline">\(V_{\lambda}\)</span>. 下面只需证明 <span
+class="math inline">\(V_{\lambda}^{\perp}\)</span> 为 <span
+class="math inline">\(T-\)</span>不变子空间即可完成证明.</p>
+<p>首先由于 <span class="math inline">\(T^2v=\lambda Tv-v\)</span> 故
+<span class="math inline">\(V_{\lambda}\)</span> 为 <span
+class="math inline">\(T-\)</span>不变子空间. 故 <span
+class="math inline">\(V_{\lambda}^{\perp}\)</span> 为 <span
+class="math inline">\(T^*\)</span> 不变子空间. 这意味着 <span
+class="math inline">\(T^{-1}(V_\lambda)=T^*(V\lambda)\subseteq
+V_{\lambda}^{\perp}\)</span>，而由于两者 <span
+class="math inline">\(\dim\)</span> 相等故相等. 两侧复合上 <span
+class="math inline">\(T\)</span> 即可得到 <span
+class="math inline">\(V_{\lambda}^\perp=T(V_{\lambda}^{\perp})\)</span>.
+所以确实不变.</p>
+
     </div>
 </article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -363,7 +491,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/02/24/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E9%BB%8E%E6%9B%BC%E5%8F%AF%E7%A7%AF/">数分笔记-Riemann可积</a>
+                    <a href="/2025/02/22/hello-world/">Hello World</a>
                 </span>
             </li>
             
@@ -375,13 +503,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2025/03/05/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E7%A7%AF%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/">数分笔记-积分中值定理</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2025/02/22/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-SVD%E5%92%8C%E5%B9%BF%E4%B9%89%E9%80%86/">高代笔记-SVD和广义逆</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/03/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B0-1/">音数笔记-1</a>
+                    <a href="/2025/02/25/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%841/">高代笔记-复内积结构1</a>
                 </span>
             </li>
             
@@ -393,19 +527,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/05/CVDL-Corner%20Detection/">CVDL-Corner Detection</a>
+                    <a href="/2025/03/05/CVDL-Line%20Fitting/">CVDL-Line Fitting</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/10/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E5%BA%94%E7%94%A8/">数分笔记-定积分的应用</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%843-%E8%B0%B1%E5%AE%9A%E7%90%86%E4%B8%8E%E9%85%89%E5%AF%B9%E8%A7%92%E5%8C%96/">高代笔记-复内积结构3-谱定理与酉对角化</a>
+                    <a href="/2025/03/10/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B0-2/">音数笔记-2</a>
                 </span>
             </li>
             
@@ -426,13 +554,13 @@
 
                 
                 <li>
-                    <a href="/tags/AI%E5%9F%BA/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E6%AD%A3%E4%BA%A4%E5%8F%98%E6%8D%A2/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 
                 <li>
-                    <a href="/tags/AI%E5%9F%BA/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E6%AD%A3%E4%BA%A4%E5%8F%98%E6%8D%A2/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -440,15 +568,15 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 13.534840225969553px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 13.58043894255852px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 8.247978835917849px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 10.121465604439436px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 12.36719443528338px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 16.179747518941838px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 17.72112596972029px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 8.843406063883794px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 8.93367982826533px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 11.997213718773647px;" class="tag-cloud-link">音数</a>
     
 </div>
                 
