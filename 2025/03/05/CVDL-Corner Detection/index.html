@@ -319,13 +319,9 @@ class="math inline">\(t\)</span>.</p>
 <span class="math inline">\(g\)</span> 作为 Window Function.</p>
 <p>然后我们再看回算子，得到 <span
 class="math inline">\(\theta=(g(I_x^2)g(I_y^2)-[g(I_xI_y)]^2)-\alpha[g(I_x^2)+g(I_y^2)]^2-t\)</span>.</p>
-<p>真实操作中，我们先求 <span class="math inline">\(I_x,I_y\)</span>
-作用得到的 Image，再求 <span
-class="math inline">\(I_x^2,I_y^2,I_xI_y\)</span>，再分别卷上 <span
-class="math inline">\(g\)</span>，然后最后拼拼凑凑得到 <span
-class="math inline">\(\theta\)</span>.</p>
+<p>总体来说操作其实就像是，写好几个卷积核，然后跑.</p>
 <p>然后再做一个 <span class="math inline">\(\theta&gt;0\)</span> 的
-Thresholding 和 Non-maximum Suppression.</p>
+Thresholding 和 Non-maximum Suppression 就好了.</p>
 <hr />
 <p>实际上上面所谓的不变性其实应该叫一种等变性 (Equivariance).
 即图片发生变化的时候，输出也跟着发生相同的变化.</p>
@@ -336,6 +332,16 @@ class="math inline">\(T[f(x)]=f(T(x))\)</span>.</p>
 <p>如果是不变性，那么就是 <span
 class="math inline">\(f(x)=f(T(x))\)</span>.</p>
 <p>语义类的（比如分类问题）我们希望不变，而检查类的（比如位置方向）我们希望等变.</p>
+<p>有关平移的等变性是操演定义的. 考虑如何检查旋转的等变性.
+我们将图片先看成连续光滑函数. 如果将图片旋转 <span
+class="math inline">\(\theta\)</span>，那么 Gradient 操作，由于 <span
+class="math inline">\(I_x I_y\)</span> 的对称性显然是等变的.
+而卷积的变化在于卷积中心位置绕着旋转中心转了，而我们希望卷积核是旋转不变的.</p>
+<p>但实际上真实操作，由于像素的离散性就杜绝了旋转的严格等变的可能性.
+并且实现上 Gaussian Filter 写起来也是一个 <span
+class="math inline">\(k\times k\)</span>
+的卷积核，所以其实旋转不变性也没法保证.</p>
+<p>并且卷积对于拉伸也是无法等变的.</p>
 <p>参考讲义：<a
 href="lgswdn.github.io/file/file/CVDL/Lecture%203%20-%20Classic%20Vision%20II.pdf">Lecture
 3 - Classic Vision II</a> 和 <a
@@ -505,6 +511,18 @@ href="lgswdn.github.io/file/file/CVDL/Lecture%204%20-%20Deep%20Learning%20I.pdf"
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2025/02/22/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/02/24/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E9%BB%8E%E6%9B%BC%E5%8F%AF%E7%A7%AF/">数分笔记-Riemann可积</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2025/02/26/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E6%80%A7%E8%B4%A8%E4%B8%8E%E8%AE%A1%E7%AE%97/">数分笔记-定积分的性质与计算</a>
                 </span>
             </li>
@@ -523,7 +541,7 @@ href="lgswdn.github.io/file/file/CVDL/Lecture%204%20-%20Deep%20Learning%20I.pdf"
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/02/25/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%841/">高代笔记-复内积结构1</a>
+                    <a href="/2025/03/05/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%842/">高代笔记-复内积结构2</a>
                 </span>
             </li>
             
@@ -542,18 +560,6 @@ href="lgswdn.github.io/file/file/CVDL/Lecture%204%20-%20Deep%20Learning%20I.pdf"
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%843-%E8%B0%B1%E5%AE%9A%E7%90%86%E4%B8%8E%E9%85%89%E5%AF%B9%E8%A7%92%E5%8C%96/">高代笔记-复内积结构3-谱定理与酉对角化</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E6%AD%A3%E4%BA%A4%E5%8F%98%E6%8D%A2/">高代笔记-正交变换</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2025/03/12/CVDL-/">CVDL-</a>
                 </span>
             </li>
             
@@ -582,15 +588,15 @@ href="lgswdn.github.io/file/file/CVDL/Lecture%204%20-%20Deep%20Learning%20I.pdf"
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 11.349853606655252px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 11.342532703663196px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 11.887200242066559px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 9.959829371189269px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 17.07817005473064px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 8.189174047942196px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 17.19732381094149px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 10.06836151133682px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 8.059286144719005px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 18.43788999984043px;" class="tag-cloud-link">音数</a>
     
 </div>
                 
