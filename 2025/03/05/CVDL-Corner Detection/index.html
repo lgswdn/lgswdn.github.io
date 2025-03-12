@@ -324,7 +324,23 @@ class="math inline">\(\theta=(g(I_x^2)g(I_y^2)-[g(I_xI_y)]^2)-\alpha[g(I_x^2)+g(
 class="math inline">\(I_x^2,I_y^2,I_xI_y\)</span>，再分别卷上 <span
 class="math inline">\(g\)</span>，然后最后拼拼凑凑得到 <span
 class="math inline">\(\theta\)</span>.</p>
-<p>然后再做一个 Thresholding 和 Non-maximum Suppression.</p>
+<p>然后再做一个 <span class="math inline">\(\theta&gt;0\)</span> 的
+Thresholding 和 Non-maximum Suppression.</p>
+<hr />
+<p>实际上上面所谓的不变性其实应该叫一种等变性 (Equivariance).
+即图片发生变化的时候，输出也跟着发生相同的变化.</p>
+<p>等变性最基础的定义就是，对于 <span class="math inline">\(f:V\to
+V\)</span>（比如卷积，网络）和简单的变换 <span
+class="math inline">\(T\)</span>（比如旋转，平移），<span
+class="math inline">\(T[f(x)]=f(T(x))\)</span>.</p>
+<p>如果是不变性，那么就是 <span
+class="math inline">\(f(x)=f(T(x))\)</span>.</p>
+<p>语义类的（比如分类问题）我们希望不变，而检查类的（比如位置方向）我们希望等变.</p>
+<p>参考讲义：<a
+href="lgswdn.github.io/file/file/CVDL/Lecture%203%20-%20Classic%20Vision%20II.pdf">Lecture
+3 - Classic Vision II</a> 和 <a
+href="lgswdn.github.io/file/file/CVDL/Lecture%204%20-%20Deep%20Learning%20I.pdf">Lecture
+4 - Deep Learning I</a>.</p>
 
     </div>
 </article>
@@ -483,31 +499,19 @@ class="math inline">\(\theta\)</span>.</p>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/02/24/AI%E5%9F%BA%E7%AC%94%E8%AE%B0-%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E7%9A%84%E6%95%B0%E5%AD%A6/">AI基笔记-一些简单的数学</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2025/02/27/CVDL-Edge%20Detection/">CVDL-Edge Detection</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/02/22/hello-world/">Hello World</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2025/02/24/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E9%BB%8E%E6%9B%BC%E5%8F%AF%E7%A7%AF/">数分笔记-Riemann可积</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2025/02/26/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E6%80%A7%E8%B4%A8%E4%B8%8E%E8%AE%A1%E7%AE%97/">数分笔记-定积分的性质与计算</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/03/05/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E7%A7%AF%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/">数分笔记-积分中值定理</a>
                 </span>
             </li>
             
@@ -525,6 +529,12 @@ class="math inline">\(\theta\)</span>.</p>
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2025/03/05/CVDL-Line%20Fitting/">CVDL-Line Fitting</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2025/03/05/CVDL-Corner%20Detection/">CVDL-Corner Detection</a>
                 </span>
             </li>
@@ -532,6 +542,12 @@ class="math inline">\(\theta\)</span>.</p>
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%843-%E8%B0%B1%E5%AE%9A%E7%90%86%E4%B8%8E%E9%85%89%E5%AF%B9%E8%A7%92%E5%8C%96/">高代笔记-复内积结构3-谱定理与酉对角化</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E6%AD%A3%E4%BA%A4%E5%8F%98%E6%8D%A2/">高代笔记-正交变换</a>
                 </span>
             </li>
             
@@ -566,15 +582,15 @@ class="math inline">\(\theta\)</span>.</p>
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 9.470665279084068px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 11.349853606655252px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 18.77591054247732px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 11.887200242066559px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 10.958606393787171px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 17.07817005473064px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 8.735913006206566px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 17.19732381094149px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 19.551678295928603px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 8.059286144719005px;" class="tag-cloud-link">音数</a>
     
 </div>
                 
