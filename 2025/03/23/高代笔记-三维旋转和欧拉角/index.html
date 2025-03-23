@@ -10,7 +10,7 @@
     
     
     
-    <title>Hello World | lgswdn-SA</title>
+    <title>高代笔记-三维旋转与欧拉角 | lgswdn-SA</title>
     <link href="http://lgswdn.github.io" rel="prefetch" />
 
     
@@ -196,19 +196,26 @@
         <i class="fa fa-home"></i>
         <a href="http://lgswdn.github.io">lgswdn-SA</a>
         >
-        <span>Hello World</span>
+        <span>高代笔记-三维旋转与欧拉角</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2025/02/22/hello-world/">Hello World</a>
+                <a href="/2025/03/23/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E4%B8%89%E7%BB%B4%E6%97%8B%E8%BD%AC%E5%92%8C%E6%AC%A7%E6%8B%89%E8%A7%92/">高代笔记-三维旋转与欧拉角</a>
             </h1>
         </div>
         <div class="tag-article">
             
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2025-02-22
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E9%AB%98%E4%BB%A3/">高代</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-03-23
             </span>
             
         </div>
@@ -218,45 +225,102 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2025/02/22/hello-world/">Hello World</a>
+                    <a href="/2025/03/23/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E4%B8%89%E7%BB%B4%E6%97%8B%E8%BD%AC%E5%92%8C%E6%AC%A7%E6%8B%89%E8%A7%92/">高代笔记-三维旋转与欧拉角</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2025-02-22
+                <i class="fa fa-calendar"></i> 2025-03-23
             </p>
             <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E9%AB%98%E4%BB%A3/">高代</a>
+                
                 
                 
             </p>
         </center>
     </div>
     <div class="content-article">
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a
-target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a
-target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a
-target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-<p><span class="math display">\[
-math \text{test}\pm
-\]</span></p>
+        <p>对于单位向量 <span class="math inline">\(u\)</span> 以及一组标架
+<span class="math inline">\((u,u_2,u_3)\)</span>. 定义 <span
+class="math inline">\(R_u(\theta)\)</span> 为以 <span
+class="math inline">\(u\)</span> 为转轴，转 <span
+class="math inline">\(\theta\)</span> 角. 在矩阵形式即为 <span
+class="math display">\[
+R_u(\theta)=\left(\begin{matrix}
+1\\
+&amp; R(\theta)
+\end{matrix}\right)
+\]</span>
+但更多情况下，我们希望只以标架为转轴的情况下，从一个标价过渡到另一个标架.
+具体而言，对于原来的标价 <span
+class="math inline">\(e_1,e_2,e_3\)</span>，我们知道旋转是一个 <span
+class="math inline">\(\det = 1\)</span> 的正交变换 <span
+class="math inline">\(T\)</span>，那么令 <span
+class="math inline">\(u=(Te_1,Te_2,Te_3)\)</span>，那么旋转其实将标架
+<span class="math inline">\(e\)</span> 旋转至标架 <span
+class="math inline">\(u\)</span>. 我们想用 <span
+class="math inline">\(R_{x}(\theta)\)</span> 的合成来表达出这个旋转.</p>
+<p>在具体使用中，有两种表示方法. 第一种是内在的描述.
+我们的旋转是从“物体”的内在的，主观的角度去描述的，即所有转轴都为当前过渡到的标架中的一个轴.
+而第二种是外在的描述，即转轴为 <span
+class="math inline">\(e_1,e_2,e_3\)</span>.
+可以说明我们需要三步的轴旋转达成这个目标.</p>
+<p>我们先看第一种内在的描述. 首先需要注意到关键在于，只有以 <span
+class="math inline">\(x,y\)</span> 构成平面的的法向量 <span
+class="math inline">\(f\)</span> 为转轴可以将 <span
+class="math inline">\(x\)</span> 转到 <span
+class="math inline">\(y\)</span>.那么我们的想法是，前两步将 <span
+class="math inline">\(e_3\)</span> 转到 <span
+class="math inline">\(u_3\)</span>，那么最后一步显然是可以转成功的.
+问题是如何将 <span class="math inline">\(e_3\)</span> 转到 <span
+class="math inline">\(u_3\)</span>. 我们考虑求出 <span
+class="math inline">\(e_3,u_3\)</span> 平面的法向量 <span
+class="math inline">\(f_2\)</span>，那么以 <span
+class="math inline">\(f_2\)</span> 为轴就可以将 <span
+class="math inline">\(e_3\)</span> 转到 <span
+class="math inline">\(u_3\)</span>. 又由于 <span
+class="math inline">\(f_2,u_2\)</span> 垂直于 <span
+class="math inline">\(e_3\)</span> 所以第一步就是将 <span
+class="math inline">\(e_2\)</span> 转至 <span
+class="math inline">\(f_2\)</span>. 这里的 <span
+class="math inline">\(f_2\)</span> 其实就是平面 <span
+class="math inline">\((e_1,e_2)\)</span> 与 <span
+class="math inline">\((u_1,u_2)\)</span> 的交.</p>
+<p>思路清楚了，实践起来就简单了. 首先先求出 <span
+class="math inline">\(f_2=e_3\times u_3\)</span>. 然后取 <span
+class="math inline">\(\psi\)</span> 使得 <span
+class="math inline">\(R_{e_3}(\psi)e_2=f_2\)</span>. 然后取 <span
+class="math inline">\(\theta\)</span> 使得 <span
+class="math inline">\(R_{f_2}(\theta)e_3=u_3\)</span>. 最后取 <span
+class="math inline">\(\varphi\)</span> 使得 <span
+class="math inline">\(R_{u_3}(\varphi)e_1=u_1\)</span>.
+那么旋转就是这三者的合成. 我们称旋转由 Euler 角 <span
+class="math inline">\((\varphi,\theta,\psi)\)</span> 描述. 即 <span
+class="math inline">\(T=R_{u_3}(\varphi)R_{f_2}(\theta)R_{e_3}(\psi)\)</span>.</p>
+<p>然后我们再看看外在版本. 直接给出式子，是 <span
+class="math inline">\(T=R_{e_3}(\psi)R_{e_2}(\theta)R_{e_1}(\varphi)\)</span>.
+顺序刚好反了过来.</p>
+<p>引理：令 <span class="math inline">\(\epsilon=\det P\)</span>，则
+<span
+class="math inline">\(R_{Pu}(\epsilon\theta)=PR_u(\theta)P^{-1}\)</span>.
+即以 <span class="math inline">\(Pu\)</span>
+为转轴的旋转，相当于先换基为 <span
+class="math inline">\(P\)</span>，再以 <span
+class="math inline">\(u\)</span> 为转轴的旋转. 感性上很容易理解.</p>
+<p>用了上述引理之后证明其实也就是暴力展开了. 首先 <span
+class="math inline">\(f_2=R_{e_3}(\psi)e_2\)</span>，故 <span
+class="math inline">\(R_{f_2(\theta)}=R_{e_3}(\psi)R_{e_2}(\theta)R^{-1}_{e_3}(\psi)\)</span>.
+而 <span
+class="math inline">\(u_3=R_{f_2}(\theta)e_3=R_{e_3}(\psi)R_{e_2}(\theta)e_3\)</span>（绕
+<span class="math inline">\(e_3\)</span> 转显然不会改变 <span
+class="math inline">\(e_3\)</span>），于是 <span
+class="math inline">\(R_{u_3}(\varphi)=R_{e_3}(\psi)R_{e_2}(\theta)R_{e_3}(\varphi)R_{e_3}(\theta)^{-1}R_{e_3}(\psi)^{-1}\)</span>，然后代入即证.</p>
+<p>万向节锁：以某些方式在局部上连续地变动欧拉角，使得旋转不变. 例如
+<span class="math inline">\(\theta=0\)</span> 时旋转只与 <span
+class="math inline">\(\varphi+\psi\)</span> 有关.</p>
 
     </div>
 </article>
@@ -415,13 +479,7 @@ math \text{test}\pm
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/02/26/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E6%80%A7%E8%B4%A8%E4%B8%8E%E8%AE%A1%E7%AE%97/">数分笔记-定积分的性质与计算</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2025/03/05/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E7%A7%AF%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/">数分笔记-积分中值定理</a>
+                    <a href="/2025/02/24/AI%E5%9F%BA%E7%AC%94%E8%AE%B0-%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E7%9A%84%E6%95%B0%E5%AD%A6/">AI基笔记-一些简单的数学</a>
                 </span>
             </li>
             
@@ -433,37 +491,43 @@ math \text{test}\pm
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/03/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B0-1/">音数笔记-1</a>
+                    <a href="/2025/03/05/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%842/">高代笔记-复内积结构2</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/05/CVDL-Corner%20Detection/">CVDL-Corner Detection</a>
+                    <a href="/2025/03/05/CVDL-Line%20Fitting/">CVDL-Line Fitting</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/10/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E5%BA%94%E7%94%A8/">数分笔记-定积分的应用</a>
+                    <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%843-%E8%B0%B1%E5%AE%9A%E7%90%86%E4%B8%8E%E9%85%89%E5%AF%B9%E8%A7%92%E5%8C%96/">高代笔记-复内积结构3-谱定理与酉对角化</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/16/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-1/">程设笔记-1</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2025/03/19/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%B9%BF%E4%B9%89%E7%A7%AF%E5%88%86/">数分笔记-广义积分</a>
+                    <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E6%AD%A3%E4%BA%A4%E5%8F%98%E6%8D%A2/">高代笔记-正交变换</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2025/03/17/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B02/">音数笔记-2</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/03/19/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E7%91%95%E7%A7%AF%E5%88%86/">数分笔记-瑕积分</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/03/23/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%9B%9B%E5%85%83%E6%95%B0/">高代笔记-四元数</a>
                 </span>
             </li>
             
@@ -484,13 +548,13 @@ math \text{test}\pm
 
                 
                 <li>
-                    <a href="/2025/02/22/hello-world/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2025/03/23/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E4%B8%89%E7%BB%B4%E6%97%8B%E8%BD%AC%E5%92%8C%E6%AC%A7%E6%8B%89%E8%A7%92/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 
                 <li>
-                    <a href="/2025/02/22/hello-world/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2025/03/23/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E4%B8%89%E7%BB%B4%E6%97%8B%E8%BD%AC%E5%92%8C%E6%AC%A7%E6%8B%89%E8%A7%92/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -498,17 +562,17 @@ math \text{test}\pm
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 8.726260180533107px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 17.06120636652214px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 18.632396284978316px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 11.238313684309723px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 9.953245781502858px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 18.199884938617906px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 8.743340637380541px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 10.42866470996255px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 10.785801096560675px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 18.64808803144713px;" class="tag-cloud-link">音数</a>
     
-    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 12.905672118655685px;" class="tag-cloud-link">程设</a>
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 12.531304867775564px;" class="tag-cloud-link">程设</a>
     
 </div>
                 

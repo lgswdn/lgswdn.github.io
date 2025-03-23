@@ -10,7 +10,7 @@
     
     
     
-    <title>Hello World | lgswdn-SA</title>
+    <title>程设笔记-Locally Sensitive Hashing | lgswdn-SA</title>
     <link href="http://lgswdn.github.io" rel="prefetch" />
 
     
@@ -196,19 +196,26 @@
         <i class="fa fa-home"></i>
         <a href="http://lgswdn.github.io">lgswdn-SA</a>
         >
-        <span>Hello World</span>
+        <span>程设笔记-Locally Sensitive Hashing</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2025/02/22/hello-world/">Hello World</a>
+                <a href="/2025/03/22/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-Locally%20Sensitive%20Hashing/">程设笔记-Locally Sensitive Hashing</a>
             </h1>
         </div>
         <div class="tag-article">
             
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2025-02-22
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E7%A8%8B%E8%AE%BE/">程设</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-03-22
             </span>
             
         </div>
@@ -218,45 +225,92 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2025/02/22/hello-world/">Hello World</a>
+                    <a href="/2025/03/22/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-Locally%20Sensitive%20Hashing/">程设笔记-Locally Sensitive Hashing</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2025-02-22
+                <i class="fa fa-calendar"></i> 2025-03-22
             </p>
             <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E7%A8%8B%E8%AE%BE/">程设</a>
+                
                 
                 
             </p>
         </center>
     </div>
     <div class="content-article">
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a
-target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a
-target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a
-target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-<p><span class="math display">\[
-math \text{test}\pm
-\]</span></p>
+        <h2 id="hamming-distance">Hamming Distance</h2>
+<p>问题：给定 <span class="math inline">\(d\)</span> 维 01
+向量集合和若干次问询，每次问询求出最小 Hamming Distance 的 <span
+class="math inline">\(c-\)</span>近似.</p>
+<p>人类智慧：在对字符串做随机排列意义下，Hamming Distance 小意味着 LCP
+有较高概率大.</p>
+<p>所以考虑随机 <span class="math inline">\(M\)</span>
+个排列，然后对于每个排列，问询时求出 LCP 最大的。然后比较这 <span
+class="math inline">\(M\)</span> 则结果即可.</p>
+<p><span class="math inline">\(M\)</span> 要取在 <span
+class="math inline">\(O(n^{\frac{1}{c}})\)</span>. 下面是分析.</p>
+<p>令答案为 <span class="math inline">\(r\)</span>，<span
+class="math inline">\(p_1=1-r/d\)</span>，<span
+class="math inline">\(p_2=1-cr/d\)</span>，<span
+class="math inline">\(k=\log_{p_2}(1/n)\)</span>. 那么对于集合中的 <span
+class="math inline">\(q&#39;\)</span> 和问询点 <span
+class="math inline">\(q\)</span>，若距离 <span
+class="math inline">\(&gt;cr\)</span>，则在两者 LCP <span
+class="math inline">\(\ge k\)</span> 的概率至多 <span
+class="math inline">\(p_2^k=1/poly(n)\)</span>.</p>
+<p>而另一方面，最优点和询问点 LCP <span class="math inline">\(\ge
+k\)</span> 的概率为 <span
+class="math inline">\(p_1^k=1/n^{\frac{1}{c}}\)</span>. 于是令 <span
+class="math inline">\(M=O(n^\frac{1}{c})\)</span>
+就能大概率使得存在一个排列使得两点 LCP <span class="math inline">\(\ge
+k\)</span>.</p>
+<h2 id="sim-hash">Sim Hash</h2>
+<p>Cosine Similarity：对于两个向量 <span
+class="math inline">\(x,y\)</span>，定义他们的 Cosine Similarity
+为两者的夹角的 Cosine 值，即 <span class="math inline">\(\frac{x\cdot
+y}{|x||y|}\)</span>.</p>
+<p>我们想要找到一个函数 <span class="math inline">\(H(x)\)</span>，使得
+<span class="math inline">\(Pr(H(x)=H(y))\)</span> 能反应两者的距离.</p>
+<p>考虑取随机向量 <span class="math inline">\(w\)</span>，令 <span
+class="math inline">\(H(x)=\operatorname{sgn}(w\cdot x)\)</span>.
+分析一下即可知道 <span class="math inline">\(Pr(H(x)=H(y))\)</span> 等于
+<span class="math inline">\(1-\theta/\pi\)</span>.</p>
+<p>若我们随机取 <span class="math inline">\(T\)</span> 个独立的这样的
+<span class="math inline">\(H(x)\)</span>，那么每个向量就变成了一个 01
+向量，然后距离也就转化为了上面的 Hamming 距离.</p>
+<h2 id="locality-sensitive-hashing">Locality Sensitive Hashing</h2>
+<p>给出一个一般化的 Locality Sensitive Hashing：</p>
+<ul>
+<li>在 <span
+class="math inline">\({\mathbb  R}^{d}\)</span>向量空间中，LSH
+为一族随机哈希函数 <span class="math inline">\(H\)</span>，满足：</li>
+<li><span class="math inline">\(||x-y||\le r\)</span> 的 <span
+class="math inline">\(x,y\)</span> 有 <span
+class="math inline">\(Pr(H(x)=H(y))\ge p_1\)</span>.</li>
+<li><span class="math inline">\(||x-y||\ge cr\)</span> 的 <span
+class="math inline">\(x,r\)</span> 有 <span
+class="math inline">\(Pr(H(x)=H(y))\le p_2\)</span>.</li>
+</ul>
+<p>对于这样的 Hashing，定义 <span class="math inline">\(\rho=\frac{\log
+p_1}{\log p_2}\)</span>. 那么有了这个 Hashing，我们就能在 <span
+class="math inline">\(O(n^{1+\rho})\)</span> 预处理 <span
+class="math inline">\(O(n^{\rho})\)</span> 查询的时间复杂度下解决 <span
+class="math inline">\(c-\)</span>近似的判定问题.</p>
+<p>所以 LSH 的目标就是设计一个哈希，使得 <span
+class="math inline">\(\rho\)</span> 尽量小.</p>
+<p>上面提到的 Hamming 空间的 LSH 就有 <span
+class="math inline">\(\rho\le O(1/c)\)</span>.</p>
+<p>而比如单位球空间上欧式空间中，若使用上述的 Sim Hash，那么也有 <span
+class="math inline">\(\rho\le O(1/c)\)</span>.</p>
+<p>一个更好的算法是，对向量做随机旋转（即被随机旋转矩阵 <span
+class="math inline">\(M\)</span> 作用），然后返回最近的标准基单位向量.
+然后若干个这样的独立的 LSH 拼接得到最终的 LSH. 这样的 <span
+class="math inline">\(\rho\le O(1/c^2)\)</span>.</p>
 
     </div>
 </article>
@@ -415,7 +469,7 @@ math \text{test}\pm
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/02/26/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E6%80%A7%E8%B4%A8%E4%B8%8E%E8%AE%A1%E7%AE%97/">数分笔记-定积分的性质与计算</a>
+                    <a href="/2025/02/22/hello-world/">Hello World</a>
                 </span>
             </li>
             
@@ -439,7 +493,7 @@ math \text{test}\pm
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/05/CVDL-Corner%20Detection/">CVDL-Corner Detection</a>
+                    <a href="/2025/03/05/CVDL-Line%20Fitting/">CVDL-Line Fitting</a>
                 </span>
             </li>
             
@@ -451,13 +505,13 @@ math \text{test}\pm
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/16/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-1/">程设笔记-1</a>
+                    <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%843-%E8%B0%B1%E5%AE%9A%E7%90%86%E4%B8%8E%E9%85%89%E5%AF%B9%E8%A7%92%E5%8C%96/">高代笔记-复内积结构3-谱定理与酉对角化</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/19/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%B9%BF%E4%B9%89%E7%A7%AF%E5%88%86/">数分笔记-广义积分</a>
+                    <a href="/2025/03/16/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-1/">程设笔记-1</a>
                 </span>
             </li>
             
@@ -469,7 +523,7 @@ math \text{test}\pm
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/23/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E4%B8%89%E7%BB%B4%E6%97%8B%E8%BD%AC%E5%92%8C%E6%AC%A7%E6%8B%89%E8%A7%92/">高代笔记-三维旋转与欧拉角</a>
+                    <a href="/2025/03/23/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%9B%9B%E5%85%83%E6%95%B0/">高代笔记-四元数</a>
                 </span>
             </li>
             
@@ -484,13 +538,13 @@ math \text{test}\pm
 
                 
                 <li>
-                    <a href="/2025/02/22/hello-world/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2025/03/22/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-Locally%20Sensitive%20Hashing/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 
                 <li>
-                    <a href="/2025/02/22/hello-world/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2025/03/22/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-Locally%20Sensitive%20Hashing/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -498,17 +552,17 @@ math \text{test}\pm
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 8.726260180533107px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 13.530818989877897px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 18.632396284978316px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 10.622899941267992px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 9.953245781502858px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 19.46114737465145px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 8.743340637380541px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 8.470148735382331px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 10.785801096560675px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 18.689723163149px;" class="tag-cloud-link">音数</a>
     
-    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 12.905672118655685px;" class="tag-cloud-link">程设</a>
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 8.554660651109712px;" class="tag-cloud-link">程设</a>
     
 </div>
                 

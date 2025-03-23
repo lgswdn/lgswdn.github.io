@@ -10,7 +10,7 @@
     
     
     
-    <title>Hello World | lgswdn-SA</title>
+    <title>高代笔记-四元数 | lgswdn-SA</title>
     <link href="http://lgswdn.github.io" rel="prefetch" />
 
     
@@ -196,19 +196,26 @@
         <i class="fa fa-home"></i>
         <a href="http://lgswdn.github.io">lgswdn-SA</a>
         >
-        <span>Hello World</span>
+        <span>高代笔记-四元数</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2025/02/22/hello-world/">Hello World</a>
+                <a href="/2025/03/23/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%9B%9B%E5%85%83%E6%95%B0/">高代笔记-四元数</a>
             </h1>
         </div>
         <div class="tag-article">
             
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2025-02-22
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E9%AB%98%E4%BB%A3/">高代</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-03-23
             </span>
             
         </div>
@@ -218,45 +225,96 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2025/02/22/hello-world/">Hello World</a>
+                    <a href="/2025/03/23/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%9B%9B%E5%85%83%E6%95%B0/">高代笔记-四元数</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2025-02-22
+                <i class="fa fa-calendar"></i> 2025-03-23
             </p>
             <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E9%AB%98%E4%BB%A3/">高代</a>
+                
                 
                 
             </p>
         </center>
     </div>
     <div class="content-article">
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a
-target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a
-target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a
-target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-<p><span class="math display">\[
-math \text{test}\pm
-\]</span></p>
+        <p>令 <span class="math inline">\(\mathbb H\)</span> 为带有基 <span
+class="math inline">\(1,i,j,k\)</span> 的 <span
+class="math inline">\(\mathbb R-\)</span>向量空间. 并携带有运算</p>
+<ul>
+<li><span class="math inline">\(\forall x\)</span>，<span
+class="math inline">\(1x=x1=x\)</span>.</li>
+<li><span class="math inline">\(i^2=j^2=k^2=-1\)</span>.</li>
+<li><span class="math inline">\(ij=-ji=k\)</span>，<span
+class="math inline">\(jk=-kj=i\)</span>，<span
+class="math inline">\(ki=-ik=j\)</span>.</li>
+</ul>
+<p>可以发现四元数的加法和乘法成环，但不交换.</p>
+<p><span class="math inline">\(\mathbb C\)</span>
+可以自然作为子环嵌入四元数. 并且四元数也可以表示成 <span
+class="math inline">\(\mathbb C-\)</span>向量空间. 具体而言就是将 <span
+class="math inline">\(q\in \mathbb H\)</span> 表示为 <span
+class="math inline">\(z+jw\)</span>，其中 <span
+class="math inline">\(z,w\in \mathbb C\)</span>.</p>
+<p>对于四元数，定义其共轭为 <span
+class="math inline">\(a-bi-cj-dk\)</span>，迹为 <span
+class="math inline">\(q+\bar q=2a\)</span>，范数 <span
+class="math inline">\(N(q)=q\bar q=a^2+b^2+c^2+d^2\)</span>.</p>
+<p>容易发现 <span class="math inline">\(\mathbb H\setminus\{0\}\)</span>
+是除环，并且 <span class="math inline">\(q^{-1}=N(q)^{-1}\bar
+q\)</span>.</p>
+<p>定义 <span class="math inline">\(\mathbb H_0\)</span> 为满足 <span
+class="math inline">\(Tr(q)=0\)</span>，即 <span
+class="math inline">\(a=0\)</span> 的 <span
+class="math inline">\(\mathbb H\)</span> 的子空间，则可以将 <span
+class="math inline">\(\mathbb R^3\)</span> 等同于 <span
+class="math inline">\(\mathbb H_0\)</span>.</p>
+<p>对于 <span class="math inline">\(x\in \mathbb
+H^{\times}\)</span>，容易发现 <span class="math inline">\(q\to
+xqx^{-1}\)</span> 为 <span class="math inline">\(\mathbb H_0\)</span>
+的自同构，记为 <span class="math inline">\(R_x\)</span>. 显然 <span
+class="math inline">\(\det R_x=1\)</span>.
+所以我们可以将三维空间的旋转和 <span class="math inline">\(\mathbb
+H^{\times}\)</span> 做一个对应. 并且 <span
+class="math inline">\(R_xR_y=R_{xy}\)</span></p>
+<p>实际上，任意三维空间的旋转 <span
+class="math inline">\(T\)</span>，都能找到 <span
+class="math inline">\(x\in \mathbb H^{\times}\)</span> 使得 <span
+class="math inline">\(N(x)=1\)</span> 且 <span
+class="math inline">\(T=R_x\)</span> 且 <span
+class="math inline">\(x\)</span> 精确到乘以 <span
+class="math inline">\(\pm 1\)</span> 是唯一的.</p>
+<p>先看存在性. 考虑回到欧拉角. 如果我们能证明绕轴旋转等价于 <span
+class="math inline">\(R_x\)</span> 那么通过上面的 <span
+class="math inline">\(R_xR_y=R_{xy}\)</span> 就能说明 <span
+class="math inline">\(T=R_{x&#39;}\)</span>. 对于任意 <span
+class="math inline">\(N(x)=1\)</span>，<span
+class="math inline">\(x=\cos\theta+\sin \theta i\)</span>.
+于是我们就能知道 <span class="math inline">\(xjx^{-1}=\cos2\theta j
++\sin 2\theta k\)</span>，而 <span class="math inline">\(xkx^{-1}=-\sin
+2\theta j+\cos2\theta k\)</span>，<span
+class="math inline">\(xix^{-1}=i\)</span>.
+所以写成矩阵的形式就发现是一样的. 然后就好了.</p>
+<p>然后看唯一性. <span class="math inline">\(R_x=R_y\)</span> 等价于
+<span class="math inline">\(R_{xy^{-1}}=id\)</span>. 下面只需要证明
+<span class="math inline">\(R_x=id\)</span> 等价于 <span
+class="math inline">\(x=\pm 1\)</span>. 而 <span
+class="math inline">\(R_x=id\)</span> 蕴含了 <span
+class="math inline">\(xi=ix\)</span>，<span
+class="math inline">\(xj=jx\)</span>，<span
+class="math inline">\(zj=jz\)</span>. 故 <span
+class="math inline">\(x=\pm 1\)</span>.</p>
+<p>于是考虑以 <span class="math inline">\(u\)</span> 为转轴（<span
+class="math inline">\(u\in \mathbb H^{\times}\)</span>），<span
+class="math inline">\(R_{u}(\theta)\)</span> 所对应的 <span
+class="math inline">\(R_x\)</span>，满足 <span
+class="math inline">\(R_x=\cos {\frac{\theta}{2}} +u\sin
+\frac{\theta}{2}\)</span>. 这也是一个有若干用处的结果.</p>
 
     </div>
 </article>
@@ -415,7 +473,13 @@ math \text{test}\pm
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/02/26/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E6%80%A7%E8%B4%A8%E4%B8%8E%E8%AE%A1%E7%AE%97/">数分笔记-定积分的性质与计算</a>
+                    <a href="/2025/02/24/AI%E5%9F%BA%E7%AC%94%E8%AE%B0-%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E7%9A%84%E6%95%B0%E5%AD%A6/">AI基笔记-一些简单的数学</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/02/22/hello-world/">Hello World</a>
                 </span>
             </li>
             
@@ -433,7 +497,13 @@ math \text{test}\pm
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/03/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B0-1/">音数笔记-1</a>
+                    <a href="/2025/02/25/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%841/">高代笔记-复内积结构1</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/03/05/CVDL-Line%20Fitting/">CVDL-Line Fitting</a>
                 </span>
             </li>
             
@@ -445,25 +515,13 @@ math \text{test}\pm
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/10/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E5%BA%94%E7%94%A8/">数分笔记-定积分的应用</a>
+                    <a href="/2025/03/22/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-Locally%20Sensitive%20Hashing/">程设笔记-Locally Sensitive Hashing</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/16/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-1/">程设笔记-1</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2025/03/19/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%B9%BF%E4%B9%89%E7%A7%AF%E5%88%86/">数分笔记-广义积分</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2025/03/17/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B02/">音数笔记-2</a>
+                    <a href="/2025/03/23/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%9B%9B%E5%85%83%E6%95%B0/">高代笔记-四元数</a>
                 </span>
             </li>
             
@@ -484,13 +542,13 @@ math \text{test}\pm
 
                 
                 <li>
-                    <a href="/2025/02/22/hello-world/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2025/03/23/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%9B%9B%E5%85%83%E6%95%B0/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 
                 <li>
-                    <a href="/2025/02/22/hello-world/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2025/03/23/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%9B%9B%E5%85%83%E6%95%B0/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -498,17 +556,17 @@ math \text{test}\pm
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 8.726260180533107px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 9.53484207575503px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 18.632396284978316px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 18.21898029613611px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 9.953245781502858px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 12.22762435986832px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 8.743340637380541px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 13.043567066996221px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 10.785801096560675px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 15.632682193923653px;" class="tag-cloud-link">音数</a>
     
-    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 12.905672118655685px;" class="tag-cloud-link">程设</a>
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 19.221967910413653px;" class="tag-cloud-link">程设</a>
     
 </div>
                 
