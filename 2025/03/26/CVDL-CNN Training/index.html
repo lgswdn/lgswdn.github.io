@@ -391,8 +391,7 @@ Mean（越靠后权值越大）. 于是在测试的时候，Batch Norm
 Initialization 更 Robust.</p>
 <p>但代价是什么呢？首先 Train 和 Eval 的表现是不一样的. 这在 Batch Size
 小的时候是很有问题的. 所以可以发现这会导致 Eval Mode 的影响很不好.</p>
-<p><img
-src="C:\Users\AD\hexo-blog\source_posts\image-20250326175530111.png" /></p>
+<p><img src="../../../../file/normalization.png" /></p>
 <p>Layer Norm 对所有的 Channel 共同算出一个 Mean. 在 CNN 中，不同的
 Channel 代表不同的 Feature，Layer Norm 其实表现是不好的. 而 Instance
 Norm 则对不同的 Channel 不同的 Batch 都分别做归一化. 而 Group Norm 则将
@@ -560,7 +559,7 @@ href="../../../../file/CVDL/Lecture%206%20-%20Deep%20Learning%20III.pdf">Lecture
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/02/22/hello-world/">Hello World</a>
+                    <a href="/2025/02/24/AI%E5%9F%BA%E7%AC%94%E8%AE%B0-%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E7%9A%84%E6%95%B0%E5%AD%A6/">AI基笔记-一些简单的数学</a>
                 </span>
             </li>
             
@@ -572,7 +571,7 @@ href="../../../../file/CVDL/Lecture%206%20-%20Deep%20Learning%20III.pdf">Lecture
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/02/22/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-SVD%E5%92%8C%E5%B9%BF%E4%B9%89%E9%80%86/">高代笔记-SVD和广义逆</a>
+                    <a href="/2025/03/05/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E7%A7%AF%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/">数分笔记-积分中值定理</a>
                 </span>
             </li>
             
@@ -590,7 +589,13 @@ href="../../../../file/CVDL/Lecture%206%20-%20Deep%20Learning%20III.pdf">Lecture
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/05/CVDL-Corner%20Detection/">CVDL-Corner Detection</a>
+                    <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E6%AD%A3%E4%BA%A4%E5%8F%98%E6%8D%A2/">高代笔记-正交变换</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/03/19/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%B9%BF%E4%B9%89%E7%A7%AF%E5%88%86/">数分笔记-广义积分</a>
                 </span>
             </li>
             
@@ -602,19 +607,13 @@ href="../../../../file/CVDL/Lecture%206%20-%20Deep%20Learning%20III.pdf">Lecture
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/23/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%9B%9B%E5%85%83%E6%95%B0/">高代笔记-四元数</a>
+                    <a href="/2025/03/23/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E4%B8%89%E7%BB%B4%E6%97%8B%E8%BD%AC%E5%92%8C%E6%AC%A7%E6%8B%89%E8%A7%92/">高代笔记-三维旋转与欧拉角</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2025/03/26/CVDL-CNN%20Training/">CVDL-CNN Training</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2025/03/26/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E7%BA%A7%E6%95%B0/">数分笔记-级数</a>
                 </span>
             </li>
             
@@ -643,17 +642,17 @@ href="../../../../file/CVDL/Lecture%206%20-%20Deep%20Learning%20III.pdf">Lecture
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 12.960682283960757px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 17.721465621359147px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 10.717087805182146px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 19.233078120598368px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 19.83042527140394px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 11.80573050287681px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 18.693907449260276px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 8.907279985696128px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 8.262398886598522px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 11.363993676352194px;" class="tag-cloud-link">音数</a>
     
-    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 15.422092198911372px;" class="tag-cloud-link">程设</a>
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 16.029595374132064px;" class="tag-cloud-link">程设</a>
     
 </div>
                 
