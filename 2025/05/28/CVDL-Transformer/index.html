@@ -10,7 +10,7 @@
     
     
     
-    <title>404 | lgswdn-SA</title>
+    <title>CVDL-Transformer | lgswdn-SA</title>
     <link href="http://lgswdn.github.io" rel="prefetch" />
 
     
@@ -194,10 +194,252 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <!-- 搜索页面(尽可能接近ZanBlog搜索功能) -->
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>CVDL-Transformer</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/05/28/CVDL-Transformer/">CVDL-Transformer</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/CVDL/">CVDL</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-05-28
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2025/05/28/CVDL-Transformer/">CVDL-Transformer</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2025-05-28
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/CVDL/">CVDL</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>primitive：基本的结构单元（例如 cnn, 全连接, attention）</p>
+<p>假如我们现在有输出的句子的当前隐藏状态 <span
+class="math inline">\(s_i\)</span>，那么对于输入序列的第 <span
+class="math inline">\(t\)</span> 个时间步，用一个全连接层算出是一个
+alignment score <span
+class="math inline">\(e_{i,t}=f(s_i,h_t)\)</span>，然后做 softmax 后得到
+<span class="math inline">\(t\to i\)</span> 的一个注意力，将所有 <span
+class="math inline">\(h\)</span> 带权相加得一个综合的 <span
+class="math inline">\(c_{i}\)</span>. 然后将 <span
+class="math inline">\(y_i,c_i,s_i\)</span> 三个再通过 RNN 得到 <span
+class="math inline">\(y_{i+1}\)</span>.</p>
+<p>这巧妙地将 skip link 用到 seq2seq 问题上. 这个算注意力的 FC
+不是通过监督学习的，而是因为整个过程是可微的所以直接反向传递得到.</p>
+<p>将这个东西化做一个更加抽象的但更加底层的东西. <span
+class="math inline">\(h_t\)</span> 为存储了数据的 data vector，而我们用
+<span class="math inline">\(s_i\)</span> 去找哪些 <span
+class="math inline">\(h_t\)</span> 应该被注意，称为 query
+vector，最终得到 <span class="math inline">\(c_i\)</span> 为 output
+vector.</p>
+<p>将这个问题抽象出来，并且做一个化简：有维度为 <span
+class="math inline">\(D_q=D_x\)</span> 的 query vector <span
+class="math inline">\(q\)</span>，维度为 <span
+class="math inline">\(N\times D_X\)</span> 的 data vector <span
+class="math inline">\(X\)</span>，计算过程为计算出维度为 <span
+class="math inline">\(N_X\)</span> 的 alignment score <span
+class="math inline">\(e_i=q\cdot X_i/\sqrt{D_X}\)</span>，然后求得注意力
+<span class="math inline">\(a=softmax(e)\)</span>，然后算出 <span
+class="math inline">\(y=\sum a_iX_i\)</span>.</p>
+<p>注意到我们把 <span class="math inline">\(f\)</span> 优化掉了. <span
+class="math inline">\(f\)</span>
+本质可以看作求两个向量的相似程度，那么不妨用更简单的 cos
+similarity：<span class="math inline">\(\frac{a\cdot
+b}{|a||b|}\)</span>. 那么化到 <span class="math inline">\(e\)</span>
+上就是 <span class="math inline">\(q\cdot X_i/\sqrt{D_q}\)</span>.</p>
+<p>但是注意到我们这里擅自把 <span
+class="math inline">\(D_Q=D_X\)</span>. 实际上并不是这样. 考虑引入一个
+Key Matrix <span class="math inline">\(W_K\)</span>，大小为 <span
+class="math inline">\(D_X\times D_Q\)</span>，那么得到 <span
+class="math inline">\(N_X\times D_Q\)</span> 的 <span
+class="math inline">\(K=XW_K\)</span>. 于是得到 <span
+class="math inline">\(E=QK^{T}/\sqrt{D_Q}\)</span>，其中 <span
+class="math inline">\(E_{i,j}=Q_i\cdot K_j/\sqrt{D_Q}\)</span>. 然后做
+softmax 过后得到 <span class="math inline">\(A\)</span>.</p>
+<p>然后我们其实也可能希望输出的维数不一样，设为 <span
+class="math inline">\(D_V\)</span>，那么还是考虑引入 Value Matrix <span
+class="math inline">\(W_V\)</span>，大小为 <span
+class="math inline">\(D_X\times D_V\)</span>，那么得到 <span
+class="math inline">\(N_X\times D_V\)</span> 的 <span
+class="math inline">\(V=XW_V\)</span>. 然后就可以得到输出 <span
+class="math inline">\(Y=AV\)</span>.</p>
+<p>这就是 cross-attention 机制，将两个不同的东西融合在了一起. 里面每个
+cell 都对 data 有全局的 receptive field，而对 query 只能看到自己.</p>
+<p>self attention：加入一个 <span
+class="math inline">\(W_Q\)</span>，并将 <span
+class="math inline">\(X\)</span> 通过 <span
+class="math inline">\(XW_Q\)</span> 来获得 <span
+class="math inline">\(Q\)</span>. 并同一一下 <span
+class="math inline">\(D_Q=D_V=D_{out}\)</span>，然后 <span
+class="math inline">\(D_x=D_{in}\)</span>.</p>
+<p>我们发现这个东西输入为 <span class="math inline">\(N\times
+D_{in}\)</span>，并输出为 <span class="math inline">\(N\times
+D_{out}\)</span>. 其本质是新的，对一族 vector 进行了一次加工，其
+receptive field 为全局.</p>
+<hr />
+<p>考虑 cross-attetion，其对 data vector <span
+class="math inline">\(X\)</span> 是 permutation invariance 的，而对于
+query vector <span class="math inline">\(Q\)</span> 是 permutation
+equivariance 的. 而对于 self-attention，则对 <span
+class="math inline">\(X\)</span> 是 permutation invariance 的.</p>
+<p>然后从某个角度讲，每个 query 生成 <span
+class="math inline">\(y\)</span> 和 pointnet
+有所相似性：每个东西内部做一个 FC 然后某种方式 pool 一下就好了.</p>
+<p>当然这带来了一个问题. self attention 根本不知道序列的位置信息.
+解决这个也很简单，搞一个位置函数，将位置 <span
+class="math inline">\(n\)</span> 通过这个函数得到一个 positional
+embedding 然后 concat 到 <span class="math inline">\(X\)</span> 上.</p>
+<p>但是对于一个预测下一个词的任务，我们无法知道完整序列信息直接运用
+self-attention.</p>
+<p>于是引入 Masked self-attention Layer（Causal Mask，因果
+mask，不能让未来的事情被过去的事情看到）. 我们只需要在 所有 <span
+class="math inline">\(i&lt;j\)</span> 的地方强制 <span
+class="math inline">\(E_{i,j}=-\infty\)</span>，这样注意力就为 <span
+class="math inline">\(0\)</span>.</p>
+<p>于是我们就得到了一个 RNN 的替代. 这相比于 RNN 来说，一个优势是 RNN 是
+sequential 的，而上述的训练可以并行地训练！</p>
+<hr />
+<p>Multiheaded Self Attention Layer：<span
+class="math inline">\(m\)</span> 个独立的 attention 可以独立运作，形成
+<span class="math inline">\(m\)</span> 个 head，输出 <span
+class="math inline">\(m\)</span> 套 <span
+class="math inline">\(y\)</span>，然后再合并起来.</p>
+<p>令输入维数=最终输出维数= <span class="math inline">\(D\)</span> 维.
+令 <span class="math inline">\(D_H=D/H\)</span>，每个 attention 都是
+<span class="math inline">\(D_{H}\)</span> 维的，然后 最后将 <span
+class="math inline">\(H\times N\times D_{H}\)</span> 的 <span
+class="math inline">\(Y\)</span> 叠成 <span
+class="math inline">\(N\times D\)</span> 的 size 之后有 output <span
+class="math inline">\(O=YW_{O}\)</span>.</p>
+<p>Self Attention 本质上就是 四次矩阵乘法.</p>
+<p>第一次矩阵乘法是 QKV Projoection，<span
+class="math inline">\([N\times D]\times [D\times 3HD_{H}]\)</span> 得到
+<span class="math inline">\(N\times 3HD_H\)</span> 然后 split and
+reshape 之后 <span class="math inline">\(Q,K,V\)</span>.</p>
+<p>第二次矩阵乘法是做 <span class="math inline">\(QK\)</span>
+similarity，即计算 <span class="math inline">\(QK^{T}\)</span>.</p>
+<p>第三次是作用上 <span class="math inline">\(V\)</span>. <span
+class="math inline">\([H\times N\times N][H\times N\times D_H]\to
+[H\times N\times D_H]\)</span>.</p>
+<p>第四次则是最后做 <span class="math inline">\([N\times D][D\times
+D]\to [D\times D]\)</span> 的 output projection.</p>
+<p>多头注意力在计算上计算量并没有怎么减少，但是表达能力是更强的.</p>
+<p>上述的一个问题就是需要存 <span class="math inline">\(N\times
+N\)</span> 的大矩阵，memory 无法承受.</p>
+<p>Flash Attention：将第二三步化作同一步，获得 <span
+class="math inline">\(O(N)\)</span> 的存储复杂度. 这样就能加大 <span
+class="math inline">\(N\)</span>.</p>
+<hr />
+<p>对比三种 process sequence 的方法：RNN
+理论上是线性的可以处理比较长的东西，但是并不那么靠谱并且不并行化；而 CNN
+要建立大 receptive field layer 要叠太多了；而 Self Attention
+并行化并且有全局的 receptive field，但是复杂度很大，很贵.</p>
+<p>Transformer：完全使用 Attention 搭网络.</p>
+<p>Transformer Block：<span class="math inline">\(x\)</span> 通过
+multiheaded self attention 得到 <span
+class="math inline">\(y\)</span>，加 residual connection。然后做 Layer
+Normalization，这使得每个 token 的参数都对应相同的分布. 然后对于每个
+vector 单独做 MLP（称为 FFN 层），然后加 residual connection，加 layer
+norm.</p>
+<p>不同 token 间交流的时间只有 self-attention，而剩下的 layernorm 和 FFN
+都是每个 token 单独完成的.</p>
+<p>上面的计算只有来自 self-attention 的 4 个 MatMul，然后 FNN 有两个
+MatMul. 很并行化.</p>
+<p>online / offline processing：前者的任务需要 causal mask
+而后者就不需要了. 训练和推理的时候 causal mask 必须同时用/不用.</p>
+<p>处理语言任务的时候要学习一个 Embedding matrix（将词映成 vector） 和
+Projection matrix（将 vector 映成词）.</p>
+<hr />
+<p>ViT：将图片切成若干个大小为 <span class="math inline">\(16\times
+16\times 3\)</span> 的 patches，然后每个 patch 提一个特征，然后 256 个
+token 喂给 transformer. 对于提特征，由于图很小，所以直接 MLP 也没啥.
+跑完之后做一个 global average pooling 然后过 linear layer 做
+classification. 需要 positional embedding 以及不需要 causal mask.</p>
+<p>一些改进：Pre-Norm. 在 residual link 之后做 norm 还是不是很好学到
+identity function. 所以考虑如下的形式：把 layer norm 放到 self attention
+/ MLP 之前，被 residual link 包裹. 这样训练更加稳定.</p>
+<p>RMS Norm（Root Mean Square）：要学一个 <span
+class="math inline">\(\gamma\)</span>，然后令 RMS 为 <span
+class="math inline">\(\sqrt{\frac{1}{n}\sum
+x_i^2+\epsilon}\)</span>，然后 <span
+class="math inline">\(y_i=\frac{x_i}{RMS}\gamma\)</span>. 这会使得最终的
+RMS 为 <span class="math inline">\(\gamma\)</span>.</p>
+<p>还有一个对 FFN 做优化的 SwiGLU.</p>
+<p>MoE（混合专家模型）. 考虑原本是一个 <span
+class="math inline">\(W_1=D\times 4D\)</span>，<span
+class="math inline">\(W_2=4D\times D\)</span>
+的矩阵，然后现在我们扩展成有 <span class="math inline">\(E\)</span> 个
+<span class="math inline">\(W_1\)</span> 和 <span
+class="math inline">\(E\)</span> 和 <span
+class="math inline">\(W_2\)</span>. 每个 MLP 被称为 Expert. 然后每个
+token 会被 route 到 <span class="math inline">\(A\)</span> 个
+Expert（<span class="math inline">\(A&lt;E\)</span>）. 那么当参数量
+<span class="math inline">\(E\)</span> 增加了并不会增加计算量，而只有
+<span class="math inline">\(A\)</span> 会控制 Foward 的计算量. Routing
+的学习挺困难的，因为是否选择由 Top-A 决定，这是不可导的.</p>
+<hr />
+<p>参考讲义：<a
+href="../../../../file/CVDL/Lecture%2014%20-%20Transformer.pdf">Lecture
+14 - Transformer</a></p>
 
-<!-- 404 自定义页面 -->
-<!-- 有其他想自定义的page在这里添加判断条件, 并且写好对应的模板渲染文件 -->
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
 
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
@@ -331,13 +573,31 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/10/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E5%BA%94%E7%94%A8/">数分笔记-定积分的应用</a>
+                    <a href="/2025/02/24/AI%E5%9F%BA%E7%AC%94%E8%AE%B0-%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E7%9A%84%E6%95%B0%E5%AD%A6/">AI基笔记-一些简单的数学</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/23/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E4%B8%89%E7%BB%B4%E6%97%8B%E8%BD%AC%E5%92%8C%E6%AC%A7%E6%8B%89%E8%A7%92/">高代笔记-三维旋转与欧拉角</a>
+                    <a href="/2025/02/22/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/03/03/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B0-1/">音数笔记-1</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%843-%E8%B0%B1%E5%AE%9A%E7%90%86%E4%B8%8E%E9%85%89%E5%AF%B9%E8%A7%92%E5%8C%96/">高代笔记-复内积结构3-谱定理与酉对角化</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/03/17/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B02/">音数笔记-2</a>
                 </span>
             </li>
             
@@ -349,7 +609,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/04/09/CVDL-CNN%20Training3/">CVDL-CNN Training3</a>
+                    <a href="/2025/04/02/CVDL-CNN%20Training2/">CVDL-CNN Training2</a>
                 </span>
             </li>
             
@@ -361,31 +621,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/04/23/CVDL-3D%20Vision%202/">CVDL-3D Vision 2</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2025/05/06/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%87%BD%E6%95%B0%E9%A1%B9%E7%BA%A7%E6%95%B0/">数分笔记-函数序列</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2025/05/14/CVDL-LSTM&Attention/">CVDL-LSTM&amp;Attention</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/05/21/CVDL-Object%20Detection/">CVDL-Object Detection</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2025/05/28/CVDL-Transformer/">CVDL-Transformer</a>
+                    <a href="/2025/05/17/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E7%AE%80%E5%8D%95%E6%A8%A1%E8%AE%BA/">高代笔记-简单模论</a>
                 </span>
             </li>
             
@@ -400,13 +642,13 @@
 
                 
                 <li>
-                    <a href="/404/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2025/05/28/CVDL-Transformer/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 
                 <li>
-                    <a href="/404/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2025/05/28/CVDL-Transformer/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -414,17 +656,17 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 10.471167468171334px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 15.039696937999084px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 15.162824626283758px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 17.466849879569427px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 9.018735493127448px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 9.116764947959572px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 14.399752173275154px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 12.417707682188444px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 8.40831601732949px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 18.376962538177082px;" class="tag-cloud-link">音数</a>
     
-    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 15.366244478655375px;" class="tag-cloud-link">程设</a>
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 13.887513153883358px;" class="tag-cloud-link">程设</a>
     
 </div>
                 
