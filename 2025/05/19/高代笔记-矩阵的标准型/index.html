@@ -280,7 +280,7 @@ V\)</span> 的映射要是线性的）.</p>
 那么根据前面的结构定理，应该唯一存在一列 <span
 class="math inline">\(f_1\mid f_2\mid \dots \mid f_k\)</span>，使得
 <span class="math inline">\(M=(F[X]/f_1)\oplus\dots\oplus
-(F[X]/f_2)\)</span>.</p>
+(F[X]/f_k)\)</span>.</p>
 <p>模的直和分解应该直接对应于 <span class="math inline">\(T\)</span>
 的分块对角. 那么我们看子模 <span class="math inline">\(F[X]/f_i\)</span>
 再对应回矩阵形式是什么样的，即找到 <span class="math inline">\(rank=\deg
@@ -300,6 +300,95 @@ class="math inline">\(A\)</span> 的不变因子，而 <span
 class="math inline">\(Min_A=f_k\)</span>，<span
 class="math inline">\(Char_A=\prod f_i\)</span>.</li>
 </ul>
+<p>如何求解有理标准型？本质就是求解不变因子. 那么实际上我们就是要求
+<span class="math inline">\(F[X]\)</span> 商掉的那些理想.</p>
+<p>选定一组 <span class="math inline">\(M\)</span> 的基 <span
+class="math inline">\(v_i\)</span>，以及 <span
+class="math inline">\(F[X]^{\oplus n}\)</span> 的标准基 <span
+class="math inline">\(e_i\)</span>，我们探讨 <span
+class="math inline">\(F[X]^{\oplus n}\to M\)</span> 的线性映射 <span
+class="math inline">\(\varphi\)</span>，根据上面的结论肯定是 <span
+class="math inline">\(\varphi(\sum g_ie_i)=\sum g_i(T) v_i\)</span>.</p>
+<p>令 <span
+class="math inline">\(x_i=Xe_i-\sum_{j=1}^{n}a_{i,j}e_j\)</span>，则
+<span class="math inline">\(\langle x_1,\dots,x_n\rangle\)</span>
+生成的子模 <span class="math inline">\(N\)</span> 即为 <span
+class="math inline">\(\ker \varphi\)</span>. 验证是容易的：<span
+class="math inline">\(\varphi(x_i)=T v_i-\sum_{j=1}^{n}
+a_{i,j}v_i=0\)</span>. 通过这个核 <span
+class="math inline">\(N\)</span>，我们知道了 <span
+class="math inline">\(M\)</span> 通过 <span
+class="math inline">\(\varphi\)</span> 诱导的同态 <span
+class="math inline">\(\overline\varphi\)</span>，同构于 <span
+class="math inline">\(F[X]^{\oplus n}/N\)</span>.</p>
+<p>下面关注子模 <span class="math inline">\(N\)</span>. 我们已经求得子模
+<span class="math inline">\(N\)</span> 的矩阵表法 <span
+class="math inline">\(\langle
+x_1,\dots,x_n\rangle=XI-T\)</span>，那么下面只需要套用 Smith
+标准型的理论，即可知存在可逆 <span class="math inline">\(P,Q\)</span>
+使得 <span class="math inline">\(N=PDQ\)</span>，其中 <span
+class="math inline">\(D=diag(d_1,\dots,d_k)\)</span>，<span
+class="math inline">\(d_1|d_2|\dots |d_k\)</span>. 于是 <span
+class="math inline">\(F[X]^{\oplus n}/N\)</span> 同构于 <span
+class="math inline">\(F[X]^{\oplus n}/D\)</span> 同构于 <span
+class="math inline">\(\bigoplus_{i=1}^{n} F[X]/d_i\)</span>.</p>
+<p>取所有 <span class="math inline">\(d_i\neq 1\)</span> 的 <span
+class="math inline">\(d\)</span> 即得到所有的不变因子.</p>
+<p>于是步骤就是：对 <span class="math inline">\(XI-T\)</span> 求 Smith
+标准型，然后提出所有 <span class="math inline">\(\neq 1\)</span>
+的项即得到不变因子，然后再得到友矩阵组成的分块对角矩阵.</p>
+<hr />
+<p>下面关注 Jordan 标准型. Jordan 标准型的出发点是幂零矩阵.
+幂零矩阵的特点在于特征多项式是 <span
+class="math inline">\(X^n\)</span>，且存在 <span
+class="math inline">\(k\)</span> 使得最小多项式为 <span
+class="math inline">\(X^k\)</span>. 并且一个重要特征是 <span
+class="math inline">\(A\)</span> 幂零等价于 <span
+class="math inline">\(V=V_{[0]}\)</span>.</p>
+<p>定义 Jordan 块 <span class="math inline">\(J_d(\lambda)\)</span>
+为满足对角线上为 <span
+class="math inline">\(\lambda\)</span>，而次对角线为 <span
+class="math inline">\(1\)</span> 的上三角矩阵. 同理可以定义下 Jordan
+块为其专制. 容易发现下 <span class="math inline">\(J_d(0)\)</span> 即
+<span class="math inline">\(X^d\)</span> 的友矩阵，而下 Jordan
+块显然相似于上 Jordan 块，所以幂零矩阵同构于若干个 <span
+class="math inline">\(J_{d_i}(\lambda)\)</span> 的分块对角.</p>
+<p>然后再看到普通的矩阵. 对于矩阵 <span
+class="math inline">\(A\)</span>，若其特征多项式分裂，则有广义特征子空间分解
+<span class="math inline">\(V=\bigoplus_i V_{[\lambda
+_i]}\)</span>，于是考虑对于每个广义特征子空间，其减去 <span
+class="math inline">\(\lambda_i\)</span> 后显然应该满足幂零.
+而每个幂零矩阵可以写成若干个 Jordan 块的形式，所以 <span
+class="math inline">\(A\)</span> 也可以写成 Jordan 块的分块对角.</p>
+<p>注意到这是一个严格比矩阵的上三角化更加强的结论.</p>
+<p>这可以引出 Jordan-Chevalley 分解. 对于特征多项式分裂的 <span
+class="math inline">\(A\)</span>，存在唯一一对 <span
+class="math inline">\(S,N\)</span> 使得 <span
+class="math inline">\(S\)</span> 可对角化，<span
+class="math inline">\(N\)</span> 幂零，而 <span
+class="math inline">\(T=S+N\)</span> 且 <span
+class="math inline">\(SN=NS\)</span>. 存在性由 Jordan
+标准型直接得到：同构于若干个 Jordan 块后，每个 Jordan
+就可以直接拆分成对角矩阵和幂零矩阵. 唯一性考虑对于每个 <span
+class="math inline">\(S\)</span> 的特征值 <span
+class="math inline">\(\lambda_i\)</span> 和特征子空间 <span
+class="math inline">\(V_i\)</span>，由于 <span
+class="math inline">\(N-\lambda_i\)</span> 幂零，所以 <span
+class="math inline">\(V_i\subset V_{[\lambda_i]}\)</span>. 而由于 <span
+class="math inline">\(V_i\)</span> 的直和为整个空间，所以 <span
+class="math inline">\(V_i=V_{[\lambda_i]}\)</span>，故 <span
+class="math inline">\(\lambda_i\)</span> 也为 <span
+class="math inline">\(T\)</span> 的特征值，进而得到唯一性.</p>
+<p>我们来看如何求解 Jordan 标准型.
+这里直接给出结论——相关证明和幂零性直接相关并且可能不是很困难，但我不想证了.
+以下论述对于幂零矩阵成立.</p>
+<ul>
+<li>Jordan 块的总数为 <span class="math inline">\(n-rk(T)\)</span>.</li>
+<li><span class="math inline">\(d\times d\)</span> 的 Jordan 块的数量为
+<span
+class="math inline">\(rk(T^{d+1})-2rk(T^d)+rk(T^{d-1})\)</span>.</li>
+</ul>
+<p>对于非幂零矩阵，求解特征多项式之后对于每个特征子空间求解然后分块对角即可.</p>
 <hr />
 <p>参考讲义：<a
 target="_blank" rel="noopener" href="https://www.wwli.asia/downloads/books/EAlg-Notes.pdf">李文威-代数学讲义</a></p>
@@ -385,6 +474,18 @@ target="_blank" rel="noopener" href="https://www.wwli.asia/downloads/books/EAlg-
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2025/06/04/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%BC%A0%E9%87%8F%E4%BB%A3%E6%95%B0/">高代笔记-张量代数</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/05/31/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%BC%A0%E9%87%8F%E7%A7%AF/">高代笔记-张量积</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2025/05/28/CVDL-Transformer/">CVDL-Transformer</a>
                 </span>
             </li>
@@ -431,18 +532,6 @@ target="_blank" rel="noopener" href="https://www.wwli.asia/downloads/books/EAlg-
                 </span>
             </li>
             
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2025/05/06/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%87%BD%E6%95%B0%E9%A1%B9%E7%BA%A7%E6%95%B0/">数分笔记-函数序列</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2025/05/06/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%87%BD%E6%95%B0%E5%BA%8F%E5%88%97/">数分笔记-函数序列</a>
-                </span>
-            </li>
-            
         </ul>
     </div>
 </aside>
@@ -461,25 +550,25 @@ target="_blank" rel="noopener" href="https://www.wwli.asia/downloads/books/EAlg-
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/02/27/CVDL-Edge%20Detection/">CVDL-Edge Detection</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2025/02/24/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E9%BB%8E%E6%9B%BC%E5%8F%AF%E7%A7%AF/">数分笔记-Riemann可积</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2025/02/25/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%841/">高代笔记-复内积结构1</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E6%AD%A3%E4%BA%A4%E5%8F%98%E6%8D%A2/">高代笔记-正交变换</a>
+                    <a href="/2025/03/05/CVDL-Line%20Fitting/">CVDL-Line Fitting</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/03/10/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E5%BA%94%E7%94%A8/">数分笔记-定积分的应用</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%843-%E8%B0%B1%E5%AE%9A%E7%90%86%E4%B8%8E%E9%85%89%E5%AF%B9%E8%A7%92%E5%8C%96/">高代笔记-复内积结构3-谱定理与酉对角化</a>
                 </span>
             </li>
             
@@ -491,31 +580,31 @@ target="_blank" rel="noopener" href="https://www.wwli.asia/downloads/books/EAlg-
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/04/13/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-%E6%AC%A7%E5%BC%8F%E7%A9%BA%E9%97%B4%E7%9A%84%E8%BF%91%E4%BC%BC/">程设笔记-欧式空间的近似</a>
+                    <a href="/2025/03/19/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%B9%BF%E4%B9%89%E7%A7%AF%E5%88%86/">数分笔记-广义积分</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/04/16/CVDL-3D%20Vision%201/">CVDL-3D Vision 1</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2025/05/06/CVDL-3D%20Vision%203/">CVDL-3D Vision 1</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2025/05/06/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%87%BD%E6%95%B0%E5%BA%8F%E5%88%97/">数分笔记-函数序列</a>
+                    <a href="/2025/03/17/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B02/">音数笔记-2</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2025/05/17/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E7%AE%80%E5%8D%95%E6%A8%A1%E8%AE%BA/">高代笔记-简单模论</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/05/28/CVDL-Transformer/">CVDL-Transformer</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/06/04/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%BC%A0%E9%87%8F%E4%BB%A3%E6%95%B0/">高代笔记-张量代数</a>
                 </span>
             </li>
             
@@ -544,17 +633,17 @@ target="_blank" rel="noopener" href="https://www.wwli.asia/downloads/books/EAlg-
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 8.78095942709055px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 13.356199729624908px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 8.841540143396998px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 19.06713599944607px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 14.658759918107055px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 17.404448995240486px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 15.137311024994972px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 8.427748934922676px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 11.300801248149982px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 12.946659550244991px;" class="tag-cloud-link">音数</a>
     
-    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 9.559014317140138px;" class="tag-cloud-link">程设</a>
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 9.246350971205489px;" class="tag-cloud-link">程设</a>
     
 </div>
                 
