@@ -10,7 +10,7 @@
     
     
     
-    <title>音数笔记-2 | lgswdn-SA</title>
+    <title>tags: 数分 | lgswdn-SA</title>
     <link href="http://lgswdn.github.io" rel="prefetch" />
 
     
@@ -194,34 +194,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    
-<article class="article well article-body" id="article">
+                    <article class="article well article-body" id="article-tag">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="http://lgswdn.github.io">lgswdn-SA</a>
         >
-        <span>音数笔记-2</span>
+        <span>标签</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2025/03/17/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B02/">音数笔记-2</a>
+                <a href="/tags/%E6%95%B0%E5%88%86/page/2/index.html">数分</a>
             </h1>
-        </div>
-        <div class="tag-article">
-            
-            <span class="label label-gal">
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/%E9%9F%B3%E6%95%B0/">音数</a>
-                
-            </span>
-            
-            <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2025-03-17
-            </span>
-            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -229,135 +214,21 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2025/03/17/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B02/">音数笔记-2</a>
+                    <a href="/tags/%E6%95%B0%E5%88%86/page/2/index.html">数分</a>
                 </h4>
             </div>
-            <p>
-                <i class="fa fa-calendar"></i> 2025-03-17
-            </p>
-            <p>
-                
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/%E9%9F%B3%E6%95%B0/">音数</a>
-                
-                
-                
-            </p>
         </center>
     </div>
-    <div class="content-article">
-        <h2 id="一维振动方程">一维振动方程</h2>
-<p>乐器有气（例如管乐器）/弦（弓弦，弹弦，击弦...）/电/体（木琴等）/膜（鼓，卡祖笛）鸣乐器.</p>
-<h3 id="弦乐">弦乐</h3>
-<p>令 <span class="math inline">\(u(x,t)\)</span> 表示弦上位置 <span
-class="math inline">\(x\)</span> 在时间 <span
-class="math inline">\(t\)</span> 的位移. 我们希望知道 <span
-class="math inline">\(u\)</span>.</p>
-<p>设弦受到张力 <span class="math inline">\(T\)</span>，线密度为 <span
-class="math inline">\(\rho\)</span>，令 <span
-class="math inline">\(c=\sqrt{T/p}\)</span> 为波速. 则一维振动方程 <span
-class="math inline">\(\frac{d^2u}{dt^2}=c^2\frac{d^2u}{dx^2}\)</span>.</p>
-<p>由于弦两端固定，所以 <span class="math inline">\(u\)</span>
-有边值条件 <span class="math inline">\(u(0,t)=u(L,t)=0\)</span>.</p>
-<p>运用神秘数学技巧，解得 <span
-class="math inline">\(u(x,t)=\sum_{n=1}^{\infty}(a_n\cos\frac{n\pi
-c}{L}t+b_n\sin\frac{n\pi
-c}{L}t)\sin(\frac{n\pi}{L}x)\)</span>.sweq435</p>
-<p>这告诉我们其实弦振动产生的声音一定是无限多个声音的叠加. 令 <span
-class="math inline">\(u_n\)</span> 为第 <span
-class="math inline">\(n\)</span> 项，令 <span
-class="math inline">\(\omega_n=\frac{n\pi
-c}{L}\)</span>，则利用辅助角公式知道 <span
-class="math inline">\(u_n(x,t)=\sqrt{a_n^2+b_n^2}\sin(\omega_nt+\theta_n)\sin(\frac{n\pi}{L}x)\)</span>.</p>
-<p>称 <span class="math inline">\(u_n(x,t)\)</span> 为第 <span
-class="math inline">\(n\)</span> 个振动模态. 于是第 <span
-class="math inline">\(n\)</span> 个振动模态的频率为 <span
-class="math inline">\(f_n=\frac{n}{2L}c\)</span>. 特别地，<span
-class="math inline">\(n=1\)</span> 时 <span
-class="math inline">\(f_1=\frac{1}{2L}\sqrt{\frac{T}{\rho}}\)</span>.</p>
-<p>这符合我们的直觉：<span class="math inline">\(L\)</span>
-越大频率越低，<span class="math inline">\(T\)</span> 越大频率越高，<span
-class="math inline">\(\rho\)</span> 越大（粗）频率越低. 但是注意是正比于
-$ $.</p>
-<p>并且我们发现弦的振动频率虽说有很多，但是都是 <span
-class="math inline">\(f_1\)</span> 的整数倍. 将 <span
-class="math inline">\(f_1\)</span> 称为基频，相应的声音称为基因. 而
-<span class="math inline">\(n&gt;1\)</span> 的则称为泛音. <span
-class="math inline">\(f_2\)</span> 为第一泛音，<span
-class="math inline">\(f_3\)</span> 为第二泛音.</p>
-<p>令 <span class="math inline">\(f=f_1\)</span>，则有泛音列（Harmonic
-series）<span class="math inline">\(f,\ 2f,\ 3f,\ ...\)</span>.</p>
-<p>对于固定的 <span class="math inline">\(n\)</span>，我们看振幅 <span
-class="math inline">\(\sqrt{a_n^2+b_n^2}\sin(\frac{n\pi}{L}x)\)</span>.
-有些位置振幅为 <span class="math inline">\(0\)</span>，称为波节；而
-<span class="math inline">\(k=1,3,\dots\)</span> 时取到 <span
-class="math inline">\(\pm 1\)</span>，称为波腹.</p>
-<p>赫尔姆霍兹的泛音列重合理论：音程和谐，相当于泛音列重合多.</p>
-<h3 id="管乐">管乐</h3>
-<p>振动主体为空气柱，不满足上述的 <span
-class="math inline">\(u(0,t)=u(L,t)=0\)</span>.</p>
-<p>开口为波腹，闭口为波节.</p>
-<p>在开管模型（长笛）下，有 <span
-class="math inline">\(\lambda=2L\)</span>. 于是开管时泛音列 <span
-class="math inline">\(f,2f,3f...\)</span>.</p>
-<p>而闭管（单簧管）则 <span class="math inline">\(L\)</span> 只能等于
-<span
-class="math inline">\(\frac{(2k+1)\lambda}{4}\)</span>，故泛音列只有
-<span
-class="math inline">\(f,3f,5f...\)</span>，即偶次泛音，并且基频低一倍.</p>
-<p>在管乐中有超吹（overblow），即产生泛音列第二项的音.
-故长笛超吹得到高八度，单簧管得到高十二度的音.</p>
-<p>方波：<span class="math inline">\(f(x)=\frac{4}{\pi}(\sin
-x+\frac{\sin 3x}{3}+\frac{\sin 5x}{5}+...)\)</span></p>
-<p>方波和单簧管有所相似，因为泛音列都是只有奇数.</p>
-<h2 id="律制">律制</h2>
-<p>三分损益：从宫（81）开始，乘 4/3 得到徵（108），再乘 2/3
-得到商（72），再乘 4/3 得到羽（96），再乘 2/3 得到角（64）.
-这就能得到五省音阶.</p>
-<p>接着三分损益得到变宫（85）和变徵（57）. 将宫音对
-C，则得到七声音阶宫（C），商（D），角（E），变徵（#F），徵（G），羽（A），变宫（B）.
-称为雅乐音阶 / 古音阶.</p>
-<p>十二律：做 11 次三分损益（其中某一次要连升两次）得到十二个音.
-但是显然做到最后显然回不到宫音，称之为旋宫不归.</p>
-<p>五度相生：五度比例为 2:3. 不断往上做纯五度. 做 12 次，然后降 7
-个八度，得到 <span
-class="math inline">\((\frac{3}{2})^{12}(\frac{1}{2})^7\)</span>.
-这理论上应该得到 C，但是最终回到比 1 多一些的地方.
-这个叫毕达哥拉斯音差.</p>
-<p>音分：<span
-class="math inline">\(1200\log_2(\frac{f_2}{f_1})\)</span>.
-在平均律中，一个半音为 <span class="math inline">\(100\)</span>
-音分.</p>
-<p>平均律中大三度比理想大三度高 14 个音分，而大六度则高 16 个音分.</p>
-<p>音乐会音高：A4 = 440Hz. 但演奏的时候也可以随便改.</p>
-<p>这是变高过的. 贝多芬时代大概都在 420Hz. 这对女高音很不友好.</p>
-
+    <div class="content-article" style="margin-top: 30px;">
+        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
+            
+            <a href="/2025/02/24/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E9%BB%8E%E6%9B%BC%E5%8F%AF%E7%A7%AF/">数分笔记-Riemann可积</a>
+            <br>
+            
+            
+        </div>
     </div>
 </article>
-
-
-
-
-  
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-  });
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -490,19 +361,25 @@ class="math inline">\(1200\log_2(\frac{f_2}{f_1})\)</span>.
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/02/24/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E9%BB%8E%E6%9B%BC%E5%8F%AF%E7%A7%AF/">数分笔记-Riemann可积</a>
+                    <a href="/2025/02/24/AI%E5%9F%BA%E7%AC%94%E8%AE%B0-%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E7%9A%84%E6%95%B0%E5%AD%A6/">AI基笔记-一些简单的数学</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/05/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E7%A7%AF%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/">数分笔记-积分中值定理</a>
+                    <a href="/2025/03/05/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%842/">高代笔记-复内积结构2</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/16/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-1/">程设笔记-1</a>
+                    <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%843-%E8%B0%B1%E5%AE%9A%E7%90%86%E4%B8%8E%E9%85%89%E5%AF%B9%E8%A7%92%E5%8C%96/">高代笔记-复内积结构3-谱定理与酉对角化</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/03/19/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%B9%BF%E4%B9%89%E7%A7%AF%E5%88%86/">数分笔记-广义积分</a>
                 </span>
             </li>
             
@@ -514,19 +391,19 @@ class="math inline">\(1200\log_2(\frac{f_2}{f_1})\)</span>.
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/04/02/CVDL-CNN%20Training2/">CVDL-CNN Training2</a>
+                    <a href="/2025/03/23/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E4%B8%89%E7%BB%B4%E6%97%8B%E8%BD%AC%E5%92%8C%E6%AC%A7%E6%8B%89%E8%A7%92/">高代笔记-三维旋转与欧拉角</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/05/14/CVDL-LSTM&Attention/">CVDL-LSTM&amp;Attention</a>
+                    <a href="/2025/03/26/CVDL-CNN%20Training/">CVDL-CNN Training</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/05/17/%E9%9F%B3%E6%95%B0%E5%A4%A7%E4%BD%9C%E4%B8%9A-%E5%AE%9A%E9%9F%B3%E9%BC%93%E7%9A%84%E5%8F%91%E5%A3%B0%E6%9C%BA%E7%90%86/">音数大作业-定音鼓的发声机理</a>
+                    <a href="/2025/04/16/CVDL-3D%20Vision%201/">CVDL-3D Vision 1</a>
                 </span>
             </li>
             
@@ -538,13 +415,7 @@ class="math inline">\(1200\log_2(\frac{f_2}{f_1})\)</span>.
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/06/04/CVDL-Generative%20Model/">CVDL-Visual Generative Model</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2025/06/13/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0/">数分笔记-傅里叶级数</a>
+                    <a href="/2025/06/04/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%BC%A0%E9%87%8F%E4%BB%A3%E6%95%B0/">高代笔记-张量代数</a>
                 </span>
             </li>
             
@@ -559,13 +430,13 @@ class="math inline">\(1200\log_2(\frac{f_2}{f_1})\)</span>.
 
                 
                 <li>
-                    <a href="/2025/03/17/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B02/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/tags/%E6%95%B0%E5%88%86/page/2/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 
                 <li>
-                    <a href="/2025/03/17/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B02/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/tags/%E6%95%B0%E5%88%86/page/2/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -573,17 +444,17 @@ class="math inline">\(1200\log_2(\frac{f_2}{f_1})\)</span>.
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 17.95352354601613px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 16.60044196995765px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 16.4255112392606px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 17.935867915155498px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 8.654073354493558px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 9.88684506419943px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 12.546807579930276px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 10.344017202296891px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 19.863824695780423px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 10.030951774151298px;" class="tag-cloud-link">音数</a>
     
-    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 10.159933142096564px;" class="tag-cloud-link">程设</a>
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 19.327223172224464px;" class="tag-cloud-link">程设</a>
     
 </div>
                 
