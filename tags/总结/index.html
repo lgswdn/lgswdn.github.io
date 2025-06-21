@@ -10,7 +10,7 @@
     
     
     
-    <title>程设笔记-Locally Sensitive Hashing | lgswdn-SA</title>
+    <title>tags: 总结 | lgswdn-SA</title>
     <link href="http://lgswdn.github.io" rel="prefetch" />
 
     
@@ -198,34 +198,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    
-<article class="article well article-body" id="article">
+                    <article class="article well article-body" id="article-tag">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="http://lgswdn.github.io">lgswdn-SA</a>
         >
-        <span>程设笔记-Locally Sensitive Hashing</span>
+        <span>标签</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2025/03/22/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-Locally%20Sensitive%20Hashing/">程设笔记-Locally Sensitive Hashing</a>
+                <a href="/tags/%E6%80%BB%E7%BB%93/index.html">总结</a>
             </h1>
-        </div>
-        <div class="tag-article">
-            
-            <span class="label label-gal">
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/%E7%A8%8B%E8%AE%BE/">程设</a>
-                
-            </span>
-            
-            <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2025-03-22
-            </span>
-            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -233,118 +218,21 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2025/03/22/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-Locally%20Sensitive%20Hashing/">程设笔记-Locally Sensitive Hashing</a>
+                    <a href="/tags/%E6%80%BB%E7%BB%93/index.html">总结</a>
                 </h4>
             </div>
-            <p>
-                <i class="fa fa-calendar"></i> 2025-03-22
-            </p>
-            <p>
-                
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/%E7%A8%8B%E8%AE%BE/">程设</a>
-                
-                
-                
-            </p>
         </center>
     </div>
-    <div class="content-article">
-        <h2 id="hamming-distance">Hamming Distance</h2>
-<p>问题：给定 <span class="math inline">\(d\)</span> 维 01
-向量集合和若干次问询，每次问询求出最小 Hamming Distance 的 <span
-class="math inline">\(c-\)</span>近似.</p>
-<p>人类智慧：在对字符串做随机排列意义下，Hamming Distance 小意味着 LCP
-有较高概率大.</p>
-<p>所以考虑随机 <span class="math inline">\(M\)</span>
-个排列，然后对于每个排列，问询时求出 LCP 最大的。然后比较这 <span
-class="math inline">\(M\)</span> 则结果即可.</p>
-<p><span class="math inline">\(M\)</span> 要取在 <span
-class="math inline">\(O(n^{\frac{1}{c}})\)</span>. 下面是分析.</p>
-<p>令答案为 <span class="math inline">\(r\)</span>，<span
-class="math inline">\(p_1=1-r/d\)</span>，<span
-class="math inline">\(p_2=1-cr/d\)</span>，<span
-class="math inline">\(k=\log_{p_2}(1/n)\)</span>. 那么对于集合中的 <span
-class="math inline">\(q&#39;\)</span> 和问询点 <span
-class="math inline">\(q\)</span>，若距离 <span
-class="math inline">\(&gt;cr\)</span>，则在两者 LCP <span
-class="math inline">\(\ge k\)</span> 的概率至多 <span
-class="math inline">\(p_2^k=1/poly(n)\)</span>.</p>
-<p>而另一方面，最优点和询问点 LCP <span class="math inline">\(\ge
-k\)</span> 的概率为 <span
-class="math inline">\(p_1^k=1/n^{\frac{1}{c}}\)</span>. 于是令 <span
-class="math inline">\(M=O(n^\frac{1}{c})\)</span>
-就能大概率使得存在一个排列使得两点 LCP <span class="math inline">\(\ge
-k\)</span>.</p>
-<h2 id="sim-hash">Sim Hash</h2>
-<p>Cosine Similarity：对于两个向量 <span
-class="math inline">\(x,y\)</span>，定义他们的 Cosine Similarity
-为两者的夹角的 Cosine 值，即 <span class="math inline">\(\frac{x\cdot
-y}{|x||y|}\)</span>.</p>
-<p>我们想要找到一个函数 <span class="math inline">\(H(x)\)</span>，使得
-<span class="math inline">\(Pr(H(x)=H(y))\)</span> 能反应两者的距离.</p>
-<p>考虑取随机向量 <span class="math inline">\(w\)</span>，令 <span
-class="math inline">\(H(x)=\operatorname{sgn}(w\cdot x)\)</span>.
-分析一下即可知道 <span class="math inline">\(Pr(H(x)=H(y))\)</span> 等于
-<span class="math inline">\(1-\theta/\pi\)</span>.</p>
-<p>若我们随机取 <span class="math inline">\(T\)</span> 个独立的这样的
-<span class="math inline">\(H(x)\)</span>，那么每个向量就变成了一个 01
-向量，然后距离也就转化为了上面的 Hamming 距离.</p>
-<h2 id="locality-sensitive-hashing">Locality Sensitive Hashing</h2>
-<p>给出一个一般化的 Locality Sensitive Hashing：</p>
-<ul>
-<li>在 <span
-class="math inline">\({\mathbb  R}^{d}\)</span>向量空间中，LSH
-为一族随机哈希函数 <span class="math inline">\(H\)</span>，满足：</li>
-<li><span class="math inline">\(||x-y||\le r\)</span> 的 <span
-class="math inline">\(x,y\)</span> 有 <span
-class="math inline">\(Pr(H(x)=H(y))\ge p_1\)</span>.</li>
-<li><span class="math inline">\(||x-y||\ge cr\)</span> 的 <span
-class="math inline">\(x,r\)</span> 有 <span
-class="math inline">\(Pr(H(x)=H(y))\le p_2\)</span>.</li>
-</ul>
-<p>对于这样的 Hashing，定义 <span class="math inline">\(\rho=\frac{\log
-p_1}{\log p_2}\)</span>. 那么有了这个 Hashing，我们就能在 <span
-class="math inline">\(O(n^{1+\rho})\)</span> 预处理 <span
-class="math inline">\(O(n^{\rho})\)</span> 查询的时间复杂度下解决 <span
-class="math inline">\(c-\)</span>近似的判定问题.</p>
-<p>所以 LSH 的目标就是设计一个哈希，使得 <span
-class="math inline">\(\rho\)</span> 尽量小.</p>
-<p>上面提到的 Hamming 空间的 LSH 就有 <span
-class="math inline">\(\rho\le O(1/c)\)</span>.</p>
-<p>而比如单位球空间上欧式空间中，若使用上述的 Sim Hash，那么也有 <span
-class="math inline">\(\rho\le O(1/c)\)</span>.</p>
-<p>一个更好的算法是，对向量做随机旋转（即被随机旋转矩阵 <span
-class="math inline">\(M\)</span> 作用），然后返回最近的标准基单位向量.
-然后若干个这样的独立的 LSH 拼接得到最终的 LSH. 这样的 <span
-class="math inline">\(\rho\le O(1/c^2)\)</span>.</p>
-
+    <div class="content-article" style="margin-top: 30px;">
+        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
+            
+            <a href="/2025/06/17/2025%E4%B8%8A%E5%8D%8A%E5%B9%B4%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/">2024-25 预科第二学期总结</a>
+            <br>
+            
+            
+        </div>
     </div>
 </article>
-
-
-
-
-  
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-  });
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -477,31 +365,37 @@ class="math inline">\(\rho\le O(1/c^2)\)</span>.</p>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/05/CVDL-Corner%20Detection/">CVDL-Corner Detection</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2025/03/10/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E5%BA%94%E7%94%A8/">数分笔记-定积分的应用</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2025/03/17/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B02/">音数笔记-2</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2025/03/23/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%9B%9B%E5%85%83%E6%95%B0/">高代笔记-四元数</a>
+                    <a href="/2025/03/26/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E7%BA%A7%E6%95%B0/">数分笔记-级数</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2025/04/09/CVDL-CNN%20Training3/">CVDL-CNN Training3</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/04/21/AI%E5%9F%BA%E7%AC%94%E8%AE%B0-%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/">AI基笔记-期中复习</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/04/13/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-%E6%AC%A7%E5%BC%8F%E7%A9%BA%E9%97%B4%E7%9A%84%E8%BF%91%E4%BC%BC/">程设笔记-欧式空间的近似</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/04/16/CVDL-3D%20Vision%201/">CVDL-3D Vision 1</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/05/06/CVDL-3D%20Vision%203/">CVDL-3D Vision 1</a>
                 </span>
             </li>
             
@@ -519,19 +413,13 @@ class="math inline">\(\rho\le O(1/c^2)\)</span>.</p>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/06/04/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%BC%A0%E9%87%8F%E4%BB%A3%E6%95%B0/">高代笔记-张量代数</a>
+                    <a href="/2025/05/21/CVDL-Object%20Detection/">CVDL-Object Detection</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/06/06/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E7%BE%A4/">高代笔记-群</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2025/06/13/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0/">数分笔记-傅里叶级数</a>
+                    <a href="/2025/06/17/2025%E4%B8%8A%E5%8D%8A%E5%B9%B4%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/">2024-25 预科第二学期总结</a>
                 </span>
             </li>
             
@@ -546,13 +434,13 @@ class="math inline">\(\rho\le O(1/c^2)\)</span>.</p>
 
                 
                 <li>
-                    <a href="/2025/03/22/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-Locally%20Sensitive%20Hashing/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/tags/%E6%80%BB%E7%BB%93/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 
                 <li>
-                    <a href="/2025/03/22/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-Locally%20Sensitive%20Hashing/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/tags/%E6%80%BB%E7%BB%93/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -560,19 +448,19 @@ class="math inline">\(\rho\le O(1/c^2)\)</span>.</p>
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 13.129728711799144px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 16.70930232873315px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 12.566290305874347px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 15.419511731500377px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 11.914287624039108px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 10.423575774164224px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 10.093104531786091px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 17.309872018993048px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 13.287864818897834px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 10.69005365091872px;" class="tag-cloud-link">音数</a>
     
-    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 12.574914107866263px;" class="tag-cloud-link">程设</a>
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 9.471370998467405px;" class="tag-cloud-link">程设</a>
     
-    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 13.922199392712502px;" class="tag-cloud-link">总结</a>
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 9.358235211894836px;" class="tag-cloud-link">总结</a>
     
 </div>
                 
