@@ -10,7 +10,7 @@
     
     
     
-    <title>数分笔记-Riemann可积 | lgswdn-SA</title>
+    <title>阅读笔记-中国的亚洲内陆边疆-1 | lgswdn-SA</title>
     <link href="http://lgswdn.github.io" rel="prefetch" />
 
     
@@ -208,13 +208,13 @@
         <i class="fa fa-home"></i>
         <a href="http://lgswdn.github.io">lgswdn-SA</a>
         >
-        <span>数分笔记-Riemann可积</span>
+        <span>阅读笔记-中国的亚洲内陆边疆-1</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2025/02/24/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E9%BB%8E%E6%9B%BC%E5%8F%AF%E7%A7%AF/">数分笔记-Riemann可积</a>
+                <a href="/2025/07/08/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86-1/">阅读笔记-中国的亚洲内陆边疆-1</a>
             </h1>
         </div>
         <div class="tag-article">
@@ -222,12 +222,12 @@
             <span class="label label-gal">
                 <i class="fa fa-tags"></i>
                 
-                <a href="/tags/%E6%95%B0%E5%88%86/">数分</a>
+                <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/">中国的亚洲内陆边疆</a>
                 
             </span>
             
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2025-02-24
+                <i class="fa fa-calendar"></i> 2025-07-08
             </span>
             
         </div>
@@ -237,17 +237,17 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2025/02/24/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E9%BB%8E%E6%9B%BC%E5%8F%AF%E7%A7%AF/">数分笔记-Riemann可积</a>
+                    <a href="/2025/07/08/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86-1/">阅读笔记-中国的亚洲内陆边疆-1</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2025-02-24
+                <i class="fa fa-calendar"></i> 2025-07-08
             </p>
             <p>
                 
                 <i class="fa fa-tags"></i>
                 
-                <a href="/tags/%E6%95%B0%E5%88%86/">数分</a>
+                <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/">中国的亚洲内陆边疆</a>
                 
                 
                 
@@ -255,117 +255,21 @@
         </center>
     </div>
     <div class="content-article">
-        <p>考虑在 <span class="math inline">\([a,b]\)</span> 上定义的函数 <span
-class="math inline">\(f\)</span>. 我们取一个分割 <span
-class="math inline">\(\Delta:a=x_0&lt;x_1&lt;\dots&lt;x_n=b\)</span>，划分成
-<span class="math inline">\(n\)</span> 个段. 然后我们从每段中随便取一个
-<span
-class="math inline">\(\xi_i\in[x_{i-1},x_i]\)</span>，作为这个段的代表.
-那么就可以得到一个有关类似"面积"或"期望"的式子 <span
-class="math inline">\(\sum f(\xi_i)\Delta_i\)</span>，其中 <span
-class="math inline">\(\Delta_i=x_{i}-x_{i-1}\)</span>. 令 <span
-class="math inline">\(\lambda(\Delta)=\max \Delta_i\)</span>，那么在
-<span class="math inline">\(\lambda(\Delta)\to 0\)</span> 的时候，<span
-class="math inline">\(\sum f(\xi_i)\Delta_i\)</span>
-就应该趋向于一个真实的"面积".</p>
-<p>于是，若 <span class="math inline">\(\lambda(\Delta)\to 0\)</span>
-的时候，存在极限 <span class="math inline">\(\lim \sum
-f(\xi_i)\Delta_i\)</span>，那么就称 <span
-class="math inline">\(f(x)\)</span> 是 <strong>Riemann 可积</strong>的.
-同时，将这个极限 <span class="math inline">\(I\)</span> 记作 <span
-class="math inline">\(\int_a^b f(x)dx\)</span>.</p>
-<p>关于判断一个函数是否 Riemann 可积，有 <strong>Lesbegue
-定理</strong>：函数在闭区间上 Riemann
-可积等价于函数有界且间断点为零测度集.</p>
-<p>后者的定义就是说，对于任意 <span
-class="math inline">\(\varepsilon\)</span>，存在可数覆盖，将点集覆盖并且总长不超过
-<span class="math inline">\(\varepsilon\)</span>.</p>
-<p>直观上是很容易理解的. 但是严谨证明是略复杂的.
-下面引入一个比较有道理的东西.</p>
-<p><strong>Darboux 和</strong>：上面那个定义给人最不便的地方是 <span
-class="math inline">\(\xi_i\)</span> 是任选择的. 那么对于一段 <span
-class="math inline">\([x_{i-1},x_i]\)</span>，令 <span
-class="math inline">\(m_i\)</span> 为下确界，<span
-class="math inline">\(M_i\)</span> 为上确界，那么可以引入达布小和 <span
-class="math inline">\(\underline{S}(\Delta)=\sum_{k=1}^{n}m_k\Delta_k\)</span>，以及大和
-<span
-class="math inline">\(\overline{S}(\Delta)=\sum_{k=1}^{n}M_k\Delta_k\)</span>.
-若两者能有相同极限 <span
-class="math inline">\(I\)</span>，那么显然函数就是 Riemann 可积的.
-相反，若黎曼可积，那么显然两者也有相同极限 <span
-class="math inline">\(I\)</span>.</p>
-<p>先研究有关达布大/小和的性质. 首先对于分割 <span
-class="math inline">\(\Delta\)</span>，如果我们将它加细（即多划几刀），那么
-<span class="math inline">\(\underline S\)</span> 会变大，<span
-class="math inline">\(\overline S\)</span> 会变小. 这启发我们当 <span
-class="math inline">\(\Delta\)</span> 越来越细致，<span
-class="math inline">\(\lambda(\Delta)\to 0\)</span> 的时候，<span
-class="math inline">\(\lim \underline S=\sup \underline S\)</span> 而
-<span class="math inline">\(\lim \overline S=\inf \overline S\)</span>.
-当然注意这是在 <span class="math inline">\(f\)</span> 有界 <span
-class="math inline">\(M\)</span> 的情况下.</p>
-<p>证明考虑用定义. 对于任意 <span
-class="math inline">\(\varepsilon\)</span>，令上确界为 <span
-class="math inline">\(I\)</span> 由上确界的定义可知存在 <span
-class="math inline">\(\Delta_0\)</span> 使得 <span
-class="math inline">\(\underline S&gt;I-\frac{\varepsilon}{2}\)</span>.
-令段数为 <span class="math inline">\(n\)</span>，那其他的 <span
-class="math inline">\(\underline{S}(\Delta)\)</span>
-最小也不会比这个减掉 <span class="math inline">\(2nM\)</span>
-更小了，于是取 <span
-class="math inline">\(\delta=\frac{\varepsilon}{4nM}\)</span> 即可.</p>
-<p>这带来了一个重要的有关 <strong>振幅</strong> 的引理：令一段的振幅
-<span class="math inline">\(w_i=M_i-m_i\)</span>，那么 Riemann
-可积等价于对于任意 <span
-class="math inline">\(\varepsilon\)</span>，存在 <span
-class="math inline">\(\Delta\)</span> 使得 <span
-class="math inline">\(\sum w_k\Delta_k&lt;\epsilon\)</span>.</p>
-<p>接下来就是考虑去推导 <span class="math inline">\(\sum
-w_k\Delta_k&lt;\epsilon\)</span> 和间断点为零测度集之间的等价关系了.</p>
-<p>首先前者推后者. 令间断点集合为 <span
-class="math inline">\(E\)</span>. 对于 <span
-class="math inline">\(E\)</span> 中的点 <span class="math inline">\(x\in
-E\)</span>，令 <span class="math inline">\(w_x\)</span> 表示 <span
-class="math inline">\(x\)</span> 周围小领域的振幅的极限.</p>
-<p>令 <span class="math inline">\(P_k\)</span> 为满足 <span
-class="math inline">\(w_k&gt;\frac{2M}{k}\)</span> 的点组成的集合.
-对于任意 <span class="math inline">\(\delta\)</span>，我们只需要对任意
-<span class="math inline">\(k\)</span> 证明存在一个覆盖使得总长 <span
-class="math inline">\(&lt;\frac{\delta}{2^k}\)</span>，那么就大功告成了.</p>
-<p>另一方面，对于任意一个 <span
-class="math inline">\(\varepsilon\)</span>，取其相应的 <span
-class="math inline">\(\Delta\)</span>. 令 <span
-class="math inline">\(Q\)</span> 为 <span
-class="math inline">\(\Delta\)</span> 中包含 <span
-class="math inline">\(P_k\)</span> 中点的段的集合，那么 <span
-class="math inline">\(\varepsilon&gt;\sum
-w_i\Delta_i&gt;\frac{2M}{k}\sum \Delta_i\)</span>，也就是说对于任意的
-<span class="math inline">\(k\)</span>，<span class="math inline">\(\sum
-\Delta_i\)</span> 即覆盖总长，完全可以被这样一个 <span
-class="math inline">\(\varepsilon\)</span> 给简单控制. 取 <span
-class="math inline">\(\varepsilon=\frac{\delta k}{2^k2M}\)</span>
-即可.</p>
-<p>然后后者推前者. 我们的大体想法是，间断点虽振幅不可控但是 $$
-可控，于是运用有限开覆盖的 Lesbegue 数将其控制. 但实际上我们可以推对任意
-<span class="math inline">\(\lambda(\Delta)&lt;\delta\)</span> 的 <span
-class="math inline">\(\Delta\)</span> 都成立.</p>
-<p>对于任意 <span
-class="math inline">\(\varepsilon\)</span>，首先对于每个 <span
-class="math inline">\(x\in E\)</span> 取小领域 <span
-class="math inline">\(U(x,\delta_x)\)</span> 使得总长 <span
-class="math inline">\(&lt;\frac{\varepsilon}{4M}\)</span>.
-同时，对每个连续点取小领域使得振幅 <span
-class="math inline">\(&lt;\frac{\varepsilon}{2(b-a)}\)</span>.
-用这些小区间形成 <span class="math inline">\([a,b]\)</span>
-的有限开覆盖. 于是存在 Lesbegue 数 <span class="math inline">\(\hat
-\delta\)</span>，使得任 <span
-class="math inline">\(|x_1-x_2|&lt;\hat\delta\)</span>
-使得存在开区间同时覆盖 <span class="math inline">\(x_1,x_2\)</span>.
-那么对于任意 <span
-class="math inline">\(\lambda(\Delta)&lt;\delta\)</span> 的 <span
-class="math inline">\(\Delta\)</span>，任意的分割的段都已经被控制了，于是显然
-<span class="math inline">\(\sum
-w_k\Delta_k&lt;\varepsilon\)</span>.</p>
+        <p>原作：拉铁摩尔，《中国的亚洲内陆边疆》，第一、二章</p>
+<p><strong>历史上的大陆及海洋时代</strong></p>
+<p>中国的古代历史上，重要事件都是发生在内陆地区。这在旧欧洲，中东等地区也是一样的，而地中海区域的海洋活动旧很多了。</p>
+<p>新海权时代产生于欧洲的原因，和近代资本主义的发生发展有很大的联系。与之冲突的旧社会结构仍保持着路权时代的权益，于是资本主义的社会力量则与海权取得了联系。</p>
+<p><strong>陆权与海权对中国历史的影响</strong></p>
+<p>在哥伦布时代之前，中国的外务基本旨在长城边境，而海外的外务直到明朝才有所发展，例如欧洲的火炮在那个时候传入中国。满人入关是长城边界上发生决定性作用的最后一浪，而在此之后的近代，海上涌入中国的势力已经不可抗拒。</p>
+<p>我们可以看到日本侵略东北表现了海上势力与陆地势力的直接冲突。这是让原本的内陆边疆受到海上势力支配的企图。</p>
+<p><strong>中国的边疆扩展</strong></p>
+<p>在中国古代，汉族挤在两河流域附近生活，并没有移民于长城之外。在早期的中国历史上，移民于政府方向都是从北到南，从西向东。</p>
+<p>而在近代，则有了汉族向东北地区的大规模移民。但这个移民并不是古代中国的方式，而是近代修建铁路所促成的移民，是由西方工业化和随之而来的政治运动造成的移民。原本汉人的人口压力，经济和军事力量都无法完全控制东北地区，使得东北地区完成中国化。而近代向蒙古草原和东北的森林移民，则完全是新式军械，工业，金融以及贸易活动的产物。</p>
+<p>内蒙古地区的边疆和东北地区的发展有类似的过程，但程度不明显，程度也不怎么深刻。这也是因为在这个边疆上，铁路建设不如东北发达，没有外来的投资。再往西去，则完全没有铁路。在甘肃，西藏这块区域，即使在近代，边疆关系也还是更接近于唐代的形式。</p>
+<p><strong>长城边疆的地域构成</strong></p>
+<p>长城线是一个很重要的边界。长城内外气候不同，语系也不同。长城内农业发达，人口众多；而长城外人口少，较为稀疏，过游牧的生活。</p>
+<p>群体生活方式对个人有很大的影响。一个在蒙古的游牧人的体态，语言，宗教，都是是由“他是一个牧人而非农夫”的事实所决定的。”种族“的差异本质上是通过像饮食这样的日常生活方式所表现出来的。</p>
+<p>当然环境的差异也不是在长城的每一段都如此明显。这和历史上长城本质上是由战国时期各国的长城所拼接起来的事实相符。</p>
 
     </div>
 </article>
@@ -524,19 +428,13 @@ w_k\Delta_k&lt;\varepsilon\)</span>.</p>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/02/24/AI%E5%9F%BA%E7%AC%94%E8%AE%B0-%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E7%9A%84%E6%95%B0%E5%AD%A6/">AI基笔记-一些简单的数学</a>
+                    <a href="/2025/02/26/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E6%80%A7%E8%B4%A8%E4%B8%8E%E8%AE%A1%E7%AE%97/">数分笔记-定积分的性质与计算</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/02/25/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%841/">高代笔记-复内积结构1</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2025/03/05/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%842/">高代笔记-复内积结构2</a>
+                    <a href="/2025/03/03/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B0-1/">音数笔记-1</a>
                 </span>
             </li>
             
@@ -548,13 +446,31 @@ w_k\Delta_k&lt;\varepsilon\)</span>.</p>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/19/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%B9%BF%E4%B9%89%E7%A7%AF%E5%88%86/">数分笔记-广义积分</a>
+                    <a href="/2025/03/10/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E5%BA%94%E7%94%A8/">数分笔记-定积分的应用</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/04/21/AI%E5%9F%BA%E7%AC%94%E8%AE%B0-%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/">AI基笔记-期中复习</a>
+                    <a href="/2025/03/17/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B02/">音数笔记-2</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/03/22/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-Locally%20Sensitive%20Hashing/">程设笔记-Locally Sensitive Hashing</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/04/09/CVDL-CNN%20Training3/">CVDL-CNN Training3</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/05/07/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%B9%82%E7%BA%A7%E6%95%B0/">数分笔记-幂级数</a>
                 </span>
             </li>
             
@@ -566,19 +482,7 @@ w_k\Delta_k&lt;\varepsilon\)</span>.</p>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/05/21/CVDL-Object%20Detection/">CVDL-Object Detection</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2025/06/29/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E6%B3%A2%E4%BC%8F%E5%A8%83-1-%E5%B0%8F%E4%BC%A0/">阅读笔记-波伏娃-1-小传</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2025/07/10/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86-2/">阅读笔记-中国的亚洲内陆边疆-2</a>
+                    <a href="/2025/07/08/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86-1/">阅读笔记-中国的亚洲内陆边疆-1</a>
                 </span>
             </li>
             
@@ -593,13 +497,13 @@ w_k\Delta_k&lt;\varepsilon\)</span>.</p>
 
                 
                 <li>
-                    <a href="/2025/02/24/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E9%BB%8E%E6%9B%BC%E5%8F%AF%E7%A7%AF/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2025/07/08/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86-1/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 
                 <li>
-                    <a href="/2025/02/24/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E9%BB%8E%E6%9B%BC%E5%8F%AF%E7%A7%AF/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2025/07/08/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86-1/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -607,23 +511,23 @@ w_k\Delta_k&lt;\varepsilon\)</span>.</p>
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 9.33731497715193px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 8.286717563159081px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 14.895396194059256px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 12.059474615981124px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 12.824683063336078px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 8.016843293942777px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 8.100437595474624px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 15.774582313949988px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 15.967147543533066px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 14.123945454939406px;" class="tag-cloud-link">音数</a>
     
-    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 14.150990714801868px;" class="tag-cloud-link">程设</a>
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 18.14327334861404px;" class="tag-cloud-link">程设</a>
     
-    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 10.069925823639366px;" class="tag-cloud-link">总结</a>
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 10.942270837805225px;" class="tag-cloud-link">总结</a>
     
-    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 19.49108746390835px;" class="tag-cloud-link">波伏娃</a>
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 19.091497955233404px;" class="tag-cloud-link">波伏娃</a>
     
-    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 19.96695682935572px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 16.8787604823734px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
     
 </div>
                 
