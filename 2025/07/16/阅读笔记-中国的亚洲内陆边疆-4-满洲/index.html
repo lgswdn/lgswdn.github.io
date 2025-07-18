@@ -10,7 +10,7 @@
     
     
     
-    <title>CVDL-CNN Training2 | lgswdn-SA</title>
+    <title>阅读笔记-中国的亚洲内陆边疆-4-满洲 | lgswdn-SA</title>
     <link href="http://lgswdn.github.io" rel="prefetch" />
 
     
@@ -208,13 +208,13 @@
         <i class="fa fa-home"></i>
         <a href="http://lgswdn.github.io">lgswdn-SA</a>
         >
-        <span>CVDL-CNN Training2</span>
+        <span>阅读笔记-中国的亚洲内陆边疆-4-满洲</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2025/04/02/CVDL-CNN%20Training2/">CVDL-CNN Training2</a>
+                <a href="/2025/07/16/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86-4-%E6%BB%A1%E6%B4%B2/">阅读笔记-中国的亚洲内陆边疆-4-满洲</a>
             </h1>
         </div>
         <div class="tag-article">
@@ -222,12 +222,12 @@
             <span class="label label-gal">
                 <i class="fa fa-tags"></i>
                 
-                <a href="/tags/CVDL/">CVDL</a>
+                <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/">中国的亚洲内陆边疆</a>
                 
             </span>
             
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2025-04-02
+                <i class="fa fa-calendar"></i> 2025-07-16
             </span>
             
         </div>
@@ -237,17 +237,17 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2025/04/02/CVDL-CNN%20Training2/">CVDL-CNN Training2</a>
+                    <a href="/2025/07/16/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86-4-%E6%BB%A1%E6%B4%B2/">阅读笔记-中国的亚洲内陆边疆-4-满洲</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2025-04-02
+                <i class="fa fa-calendar"></i> 2025-07-16
             </p>
             <p>
                 
                 <i class="fa fa-tags"></i>
                 
-                <a href="/tags/CVDL/">CVDL</a>
+                <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/">中国的亚洲内陆边疆</a>
                 
                 
                 
@@ -255,77 +255,56 @@
         </center>
     </div>
     <div class="content-article">
-        <h2 id="residual-net">Residual Net</h2>
-<p>当 CNN 变得很深的时候，反而 Train Error 变高了.</p>
-<p>一个问题是，30 层的网络其实训一个 identity 是困难的. 那原本 20
-层的网络，再经过 30 层的网络，都可能无法保证这 20
-层的网络的好的结果能够被保留下来. 于是训练就很困难.</p>
-<p>于是就有一个 Residual Link / Skip Link：对于一系列操作 <span
-class="math inline">\(F\)</span>，原本就是 <span
-class="math inline">\(x\to F(x)\)</span>，现在变成 <span
-class="math inline">\(x\to x+F(x)\)</span>. 最不济 <span
-class="math inline">\(F(x)\)</span> 学成 <span
-class="math inline">\(0\)</span> 就好了（由于 Relu
-这是极容易的），至少也能保证一个 identity. 这样构成了一个 Residual
-Block. 这些 Block 可以无害地无限垒叠起来.</p>
-<p>而从另一个角度去理解，最上面的梯度要穿过很多层的梯度才能传到最底下，只要有若干个小的后面就梯度没了，导致底下很难训练.
-而加上了残差之后梯度可以直接沿着 Skip Link 往下走.</p>
-<p>而又另一方面，神经网络足够深的时候，Loss Landscape 也会变得很古神.
-而加了残差的就平滑软糯了很多.</p>
-<h2 id="overfitting">Overfitting</h2>
-<p>解决 Overfitting 可以做数据增强.</p>
-<p>最简单的是水平的翻转. 除非要分类左右手.</p>
-<p>还可以旋转，移动，拉近，模糊，对比度，明亮度，饱和度，仿射变换（模拟其他视角）等.</p>
-<p>但是不能做过了. 检测的办法就是随便采样一些图片让人看一看.</p>
-<hr />
-<p>Regularization.</p>
-<p>Loss 加上 <span class="math inline">\(\lambda R(W)\)</span>. <span
-class="math inline">\(\lambda\)</span> 是一个重要的超参.</p>
-<p>其中可以选择 L2 Regularization <span class="math inline">\(R(W)=\sum
-W_{i,j}^2\)</span>，以及 L1 Regularization <span
-class="math inline">\(R(W)=\sum |W_{i,j}|\)</span>.
-或者可以将这两个拼起来，<span class="math inline">\(R(W)=\beta
-W_{i,j}^2+|W_{i,j}|\)</span>.</p>
-<p>一个训练的方法是先不加 Regularization，先确保网络 Main Loss
-下降，再去调 <span class="math inline">\(\lambda\)</span>.</p>
-<hr />
-<p>Dropout.</p>
-<p>Foward 中每次随机 <span class="math inline">\(p\)</span> 概率点设置成
-<span class="math inline">\(0\)</span>.</p>
-<p>Dropout 强迫网络能重复表达一个东西，并且尽量避免 co-adaptation.</p>
-<hr />
-<p>Batchnorm.</p>
-<p>很神奇，Batchnorm 也可以减少过拟合. 并且很多时候用了 Batchnorm 让
-Dropout 不是特别需要了.</p>
-<p>其实 Batchnorm 对模型的表达加了一些限制（迫使网络的输出在 Relu
-前服从高斯分布），所以也是一种正则项.</p>
-<hr />
-<p>数据增强和 Batchnorm 是很好用的.</p>
-<p>但最后一层 FC - SoftMax 中间就不用 BatchNorm 了.
-因为最后答案真不是高斯分布.</p>
-<hr />
-<p>下面是有关图像分类的东西.</p>
-<h2 id="图像分类">图像分类</h2>
-<h4 id="knn">KNN</h4>
-<p>对于空间中的点，选取离自己最近的 <span
-class="math inline">\(k\)</span> 个关键点，然后按关键点的颜色做 majority
-vote.</p>
-<p>对一些别的东西有点用. 对图片分类没啥用.</p>
-<h4 id="softmax">Softmax</h4>
-<p>一个对 Sigmoid 的扩展. <span
-class="math inline">\(p_i=\frac{e^{x_i}}{\sum e^{x_i}}\)</span>.</p>
-<h4 id="kl-散度">KL 散度</h4>
-<p>两个分布 <span class="math inline">\(P,Q\)</span> 的 KL 散度 <span
-class="math inline">\(D(P||Q)=\sum_x
-P(x)\log(\frac{P(x)}{Q(x)})\)</span>. 化简一下就知道 <span
-class="math inline">\(-\sum P(x)\log Q(x)+\sum P(x)\log
-P(x)\)</span>.</p>
-<p>令 <span class="math inline">\(P\)</span> 为真实分布，那么 <span
-class="math inline">\(\sum P(x)\log P(x)\)</span> 是常量. 得到交叉熵
-<span class="math inline">\(-\sum P(x)\log Q(x)\)</span>.</p>
-<p>参考讲义：<a
-href="../../../../file/CVDL/Lecture%207-%20Deep%20Learning%20IV.pdf">Lecture
-7- Deep Learning IV</a></p>
+        <p>原作：拉铁摩尔，《中国的亚洲内陆边疆》 ，第五章</p>
+<p><strong>满洲历史上的分裂</strong></p>
+<p>东北可以分为三个地区：南部辽河下游的耕地，西部的草原，以及东北部的森林。这三个地区时互相有所渗透，边界特征并不明显。</p>
+<p>满洲是一个外来名词，来自于西方侵略者。“满洲国”的概念是一个政治虚构，强迫东北民众承认被征服的地位。满洲本身只是一个地理概念。</p>
+<p><strong>东北南部与中国的关系</strong></p>
+<p>气候上和环境上，东北南部与中原地带类似，都适合精耕，且水运方便。但是在贸易上和中原的往来不方便。所以直到较晚的时期，这个地方更加高丽化。</p>
+<p>在南部“汉边”之外的地区也有精耕区域，但是精耕区域的分布比较散，而每片小的精耕地区又在森林或草原居民附近；汉族也无法容易地越过山地来到那片区域。于是汉边就成了一个孤立的区域。沟通这个区域和中原的路径可能会受热河山地的威胁，所以和山东的海运就成了一个重要的通道。</p>
+<p><strong>东北地区北部及东部的环境与经济条件</strong></p>
+<p>新石器时期开始，农耕在这个森林地带成为了最重要的中心活动，但同时也有采果子和养猪和打猎。男子更多负责打猎和砍伐，女子更多负责农耕和养猪，是社会中最稳定的分子，所以这是一个更多以女性为中心的社会。</p>
+<p>再往北部，气候较冷。松花江上游河流缓慢，于是捕鱼得以发展。在往北，气候更加寒冷，农耕和养猪的工作开展较少，反之渔猎技术逐渐发作战，男子的活动比女子的活动就更重要。</p>
+<p>环绕东北地区顶部，养猪就不再有了，而是依靠驯鹿。驯鹿的运输是大量的，所以在这里梗依赖于狩猎的经济。再往北部，西伯利亚的森林变成版北冰洋的苔原。在这里驯鹿更加重要了，相当于别的地方的羊和马。他们在苔原上放牧驯鹿为生。</p>
+<p><strong>清朝始祖努尔哈赤</strong></p>
+<p>努尔哈赤的祖先起源于金朝的女真的外围部落。爱新觉罗也是从金朝的金字对应的。努尔哈赤早起征战的时候自称为后金。满这个概念是清朝才有的。</p>
+<p>努尔哈赤的事业发自汉边的边缘。努尔哈赤也是一个没落的贵族，青年时想为丧生的父亲复仇。早时，努尔哈赤也只是一个一个联军的小将领，但当帝国的掌权者和有势力的人被既得利益所累，他们的利益遭到重大损失之后，努尔哈赤这样的小贵族就获得了利益和权力。</p>
+<p><strong>16世纪末东北地区的政治</strong></p>
+<p>满足是12及13世纪建立金朝的女真的后裔。14世纪的明朝，在东北地区的势力不如蒙元时期，于是一些北方部落重新回到了他们认为其先祖所在的南方。</p>
+<p>其中一些部落来到了汉族贸易及政治势力所及的地方，融入汉族的生活。这种转变并不困难，因为他们原本就是有多个生活方式的农耕文化，于是他们要做的只是调整文化的偏重。由于这样的原因，他们的南下比汉族北上更简单一些。当他们接近汉族的时候，他们成为汉族和森林居民之间的中介，并可以控制新兴贸易。当然这个利益背后是他们减少了移动性，受到汉族的行政制度的支配。这制造出了一种封建组织，但又不是并非像真正的封建制度（真正的封建制度建立于个人的附庸关系，而他们并没有作皇帝个人直属附庸的资格）。</p>
+<p>这还带来了一个变化，由于农田职业的细分，没法在想之前一样女人农耕男人狩猎。男子需要在田中工作，而狩猎成了贵族的权力。王公占据土地，拥有自己的农田，用奴隶，佣工和佃农承担农活，而打猎成为了自己的娱乐活动。</p>
+<p><strong>东北边疆上汉族统治的衰微 &amp;
+努尔哈赤的工业与清朝的建立</strong></p>
+<p>努尔哈赤的祖先们根本不可能想象政府汉族。他们最大的支援是能受中国皇室的接待，因为这有助于提升他们的地位，比做边疆官吏的属员地位更高。他们依赖于发展农耕，以及贸易。他们更倾向于将势力伸向原来的野莽之地，索取真皮和猎获品。就算边疆不安，其他民族侵入的环境已备，保护既得利益的本能限制了非汉族的边疆人物的政治眼光和活动范围。就像俺答汗，他用忠诚敲诈获得了权力，但为了保护自己的特殊利益，并不会将自己的权力作为征服中国的企图。</p>
+<p>于是，只有努尔哈赤这种小的贵族阶层可以自由利用汉族统治衰微导致的新兴的不平衡势力。</p>
+<p>由于明代末年的腐败，导致努尔哈赤的父亲的权益受到更高贵族的侵害。父亲的死亡让他在同阶层中更不利，所以他要发展自己的势力，领导并庇护地位更低于他的人。通过不断给予部属权力和利益，一批新贵族被早就。这批新贵族必须不断与旧贵族对抗以保卫得到的权益。</p>
+<p>努尔哈赤占领了汉边边缘上的军事战略地区。草原与森林居民联合抗击努尔哈赤，但是失败了。这可能是因为努尔哈赤出身自森林，又熟悉汉族对草原地区的影响。控制了森林居民就可以将森林和河谷居民并入满足，控制了草原居民就可以进入草原深处。1616
+年，努尔哈赤自称为金汗，标示着一种部族的领导权。1618年，他发表了讨明檄文，宣告独立。努尔哈赤逝世的时候已经征服了汉边的大部分。</p>
+<p><strong>清朝开国时的军事与政治组织</strong></p>
+<p>从征服边疆到大规模征战，一个重要的问题是对汉人的利用。这个问题的要点是，当外族压力增加且无法从中国获得援助，那么边疆汉族社会就会脱离中国，投入到入侵者的政治力量中。</p>
+<p>原本满族也只是若干个部落。为了将这些部落形成更强大的军事力量，努尔哈赤发明了旗制。他从原有的“牛录”出发，将部落人口按旗编入统一的牛录。旗没有明确的地域。八个旗组成了一个有职业军队的国家。</p>
+<p>关于吴三桂降清，拉铁摩尔认为不能忽略吴三桂本来就是东北"汉边"人，他在那里有降清的旧友以及产业关系。而他降清的目的，也友想要从满族手中夺取满汉集团，控制汉边区域的目的。</p>
+<p><strong>汉人在满洲的影响</strong></p>
+<p>明朝时候，朝廷限制向汉边的农业发展，防止那里发生独立。而在清朝，他们需要留下可靠的人员防卫边疆，还要阻止早期满足部落与草原部落建立联合的传统。于是他们派遣贵族和蒙古王公向那里大力发展汉族的农耕、城池和工艺。这不会发生分离的倾向，因为这些人的政治目的不是独立而是升迁。</p>
+<p><strong>对草原与森林居民的影响</strong></p>
+<p>满族从通古斯语的森林以及河谷部落中征兵，以避免被在汉边征募的汉人势力压倒。满清给边远部落以“新满”的名号，以类似于旗但是比较松散的方式阻止他们；而对于草原，则利用联姻的方式。</p>
+<p>通古斯族一直以来，在进攻时为“内侵“，败退时为”回撤“，并不会像清朝/金朝在灭亡时，边缘部属直接分裂解散。但是通古斯族一直保持着自己的社会方式。西伯利亚通古斯族，12世纪和17世纪的生活方式没有什么变化，虽说这些传统制度在20世纪已经被现代科技摧毁。但在努尔哈赤时代，清朝的通古斯族有功能良好的制度，可以到南方服役，可以升为将军，可以做官。</p>
+<p><strong>19世纪的满洲</strong></p>
+<p>这里主要探讨的是俄国的影响。19世纪，清朝作为一个中国的朝代，和明朝一样，限制汉人向东北发展。但是俄国在西伯利亚的发展使得移民东北防止俄国的入侵变得有必要。19世纪中，随着俄国本部的西方化，西伯利亚作为有殖民地属性的地区，急需商品的殖民地市场与农业移民。于是他们找到了蒙古和满洲。</p>
+<p>这和西方在沿海的活动有所差别。俄国的影响是一个旧关系的转变，不像沿海的活动是一种突然的接触。东北地区则是俄国的陆上发展和各国（主要是日本）的海上发展相遇的地方。</p>
+<p>但是移民防止俄国人入侵的政策失败了。汉族只在东北的南部和中部大量发展，吸收了东北汉旗的大部分，使得汉边更像一个内地而不是边疆。但仅仅于此了。东北方面，汉人的社会力量不能够充分占据东北部分的北部。而北蒙古方面，汉人与中国内地也没有足够的经济联系而成了游牧经济的附庸。</p>
+<p><strong>铁路的影响</strong></p>
+<p>铁路对东北很特别，因为在东北的铁道里数比别的地区高。这增加了中国在东北的利益，但是却减少了中国在东北的统治。因为这些铁路所增加的农产品的输出，都是通过外国的贸易用外国的货币供外国铁路投资以盈利，这一套系统都是在西方人的手里。整个中国实际上都是受到外来势力的控制。</p>
+<p>特别的，在这样的情形下，有一些集团自行分出，受雇佣从事商业活动，也经营自己的事业，获得利益，并剥削其他中国人和边疆民族，形成了次帝国主义的现象。而士大夫阶级来自控制农业经济的地主阶级，他们支持着官僚。这两个阶级形成了对立关系，构成了内战时期的背景。</p>
+<p>在满洲，两条主要铁路分别由俄国和日本控制。张作霖是上述中的旧阶级，但是他却不能按旧的方式做，因为他实际上是处于俄国和日本的包围下。</p>
+<p>后续俄国的退出，导致了日本得到了控制东北的专利。注意到，外国帝国主义没能直接统治中国其实来源于列强内部的侵轧。列强原本支持日本在东北的活动，是为了抗衡俄国。而当俄国被淘汰之后，东北就陷入了比别的地方更加殖民化的地位。</p>
+<p>于是在东北地区的防卫上，中国无法利用别的列强势力与日本抗衡。苏联放弃了一部分帝俄国时代对中国东部铁路的专利权，这让中国方面可以去建设一个中国的铁路网，防止日本侵略的深入。中国人通过没收土地的方式增加了对蒙古草原的压迫，也给了新兴阶级剥削贫苦移民的机会。但另一方面，这种亚帝国主义和剥削也是一件对抗帝国主义的防卫措施。</p>
+<p><strong>日本的地位</strong></p>
+<p>首先先分析日本本身：日本在西方化后，权力集中在了贵族的手中。这些贵族是封建的贵族，同时也是资本的贵族，而不是被新兴的资本主义阶级取缔。贵族阶级控制着征服金融和工业以及军队，于是军队和政府是联系在一起的。这增强了对原料的控制而非购买的需求，于是对外扩张紧跟着贸易的发展而来。</p>
+<p>日本无法和之前的民族一样，在历史上继承满洲，而只是在地理上控制满洲。日本仍然在压迫农民，这使得国内市场无法得到有效开发。而日本有需要将满洲的生活水平压得比农民的生活水平更低，否则会引起军队的不满。于是满洲市场也无法开发。</p>
+<p>这种对封建压迫的固执导致了其不得不不断征战，从高丽，到满洲。不像努尔哈赤那样，日本人不愿意分享其侵略所得，反要让他们付出代价，于是无法获得在满洲的中国人的自动服役。努尔哈赤到后面是步步积累，越打越容易；而日本的侵略方法则是硬干，越干越难。</p>
+<p>拉铁摩尔认为，日本的侵略会更早达到利润耗尽的失败点。在此之后，由于列强原本放弃了联合监督的制度，后面再想恢复也是不可能的了。这会使得东北的边疆出现一个稳定的局势。在此之后，需要放弃次帝国主义的做法，而是用新工业技术来整合农田、草原、森林经济。</p>
+<p>读者注：从后续的历史上来看，拉铁摩尔的在1939年的预测并不正确。相反，日本以东北为起点，在二战中对中国开展了大规模的侵略。我认为这和当时日本与中国的军事实力差距远超历史上任何时期有关。但是，其大体的思想在抗日战争胜利的结果上有所体现。日本的封建固执以及对殖民地区的压迫不断成为自身侵略的阻碍，和历史上别的民族的征服有着本质的差别。</p>
 
     </div>
 </article>
@@ -484,61 +463,61 @@ href="../../../../file/CVDL/Lecture%207-%20Deep%20Learning%20IV.pdf">Lecture
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/02/24/AI%E5%9F%BA%E7%AC%94%E8%AE%B0-%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E7%9A%84%E6%95%B0%E5%AD%A6/">AI基笔记-一些简单的数学</a>
+                    <a href="/2025/03/03/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B0-1/">音数笔记-1</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/02/24/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E9%BB%8E%E6%9B%BC%E5%8F%AF%E7%A7%AF/">数分笔记-Riemann可积</a>
+                    <a href="/2025/03/05/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%842/">高代笔记-复内积结构2</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%843-%E8%B0%B1%E5%AE%9A%E7%90%86%E4%B8%8E%E9%85%89%E5%AF%B9%E8%A7%92%E5%8C%96/">高代笔记-复内积结构3-谱定理与酉对角化</a>
+                    <a href="/2025/03/05/CVDL-Line%20Fitting/">CVDL-Line Fitting</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E6%AD%A3%E4%BA%A4%E5%8F%98%E6%8D%A2/">高代笔记-正交变换</a>
+                    <a href="/2025/03/05/CVDL-Corner%20Detection/">CVDL-Corner Detection</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/19/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%B9%BF%E4%B9%89%E7%A7%AF%E5%88%86/">数分笔记-广义积分</a>
+                    <a href="/2025/03/10/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E5%BA%94%E7%94%A8/">数分笔记-定积分的应用</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/22/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-Locally%20Sensitive%20Hashing/">程设笔记-Locally Sensitive Hashing</a>
+                    <a href="/2025/04/13/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-%E6%AC%A7%E5%BC%8F%E7%A9%BA%E9%97%B4%E7%9A%84%E8%BF%91%E4%BC%BC/">程设笔记-欧式空间的近似</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/23/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%9B%9B%E5%85%83%E6%95%B0/">高代笔记-四元数</a>
+                    <a href="/2025/05/17/%E9%9F%B3%E6%95%B0%E5%A4%A7%E4%BD%9C%E4%B8%9A-%E5%AE%9A%E9%9F%B3%E9%BC%93%E7%9A%84%E5%8F%91%E5%A3%B0%E6%9C%BA%E7%90%86/">音数大作业-定音鼓的发声机理</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/03/26/CVDL-CNN%20Training/">CVDL-CNN Training</a>
+                    <a href="/2025/06/06/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E7%BE%A4/">高代笔记-群</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/06/04/CVDL-Generative%20Model/">CVDL-Visual Generative Model</a>
+                    <a href="/2025/07/03/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E6%B3%A2%E4%BC%8F%E5%A8%83-2-%E9%81%93%E5%BE%B7%E8%A7%82%E4%B8%8E%E8%A7%A3%E6%94%BE/">阅读笔记-波伏娃-2-道德观与解放</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2025/06/29/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E6%B3%A2%E4%BC%8F%E5%A8%83-1-%E5%B0%8F%E4%BC%A0/">阅读笔记-波伏娃-1-小传</a>
+                    <a href="/2025/07/16/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86-4-%E6%BB%A1%E6%B4%B2/">阅读笔记-中国的亚洲内陆边疆-4-满洲</a>
                 </span>
             </li>
             
@@ -553,13 +532,13 @@ href="../../../../file/CVDL/Lecture%207-%20Deep%20Learning%20IV.pdf">Lecture
 
                 
                 <li>
-                    <a href="/2025/04/02/CVDL-CNN%20Training2/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2025/07/16/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86-4-%E6%BB%A1%E6%B4%B2/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 
                 <li>
-                    <a href="/2025/04/02/CVDL-CNN%20Training2/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2025/07/16/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86-4-%E6%BB%A1%E6%B4%B2/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -567,23 +546,23 @@ href="../../../../file/CVDL/Lecture%207-%20Deep%20Learning%20IV.pdf">Lecture
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 12.796830142065165px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 13.8216614654017px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 14.312089864828952px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 16.830948216710222px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 11.707650690697577px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 12.414328983869602px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 10.301587063783227px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 12.064988193704643px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 15.739197048025352px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 10.371038761018763px;" class="tag-cloud-link">音数</a>
     
-    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 15.448242725257597px;" class="tag-cloud-link">程设</a>
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 10.21249097838224px;" class="tag-cloud-link">程设</a>
     
-    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 9.959181410477896px;" class="tag-cloud-link">总结</a>
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 17.106342613061784px;" class="tag-cloud-link">总结</a>
     
-    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 8.003065179525386px;" class="tag-cloud-link">波伏娃</a>
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 10.717397923909406px;" class="tag-cloud-link">波伏娃</a>
     
-    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 14.799489577300461px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 17.930251824065145px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
     
 </div>
                 
