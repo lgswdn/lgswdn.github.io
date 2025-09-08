@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>具身-Policy | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E9%A1%B9%E7%9B%AE%E8%AE%B0%E5%BD%95/">项目记录</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/%E6%95%B0%E5%88%86/">数分</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>具身-Policy</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/09/07/%E5%85%B7%E8%BA%AB-Policy/">具身-Policy</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E5%85%B7%E8%BA%AB/">具身</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-09-07
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2025/09/07/%E5%85%B7%E8%BA%AB-Policy/">具身-Policy</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2025-09-07
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E5%85%B7%E8%BA%AB/">具身</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>Notation：</p>
+<ul>
+<li><span class="math inline">\(s_t\)</span>
+state，环境&amp;物体状态</li>
+<li><span class="math inline">\(o_t\)</span>
+observation，观测（图片/点云）</li>
+<li><span class="math inline">\(a_t\)</span> action，采取的策略</li>
+<li><span
+class="math inline">\(\pi_{\theta}(a_t|o_t)\)</span>：policy</li>
+<li><span class="math inline">\(\pi_{\theta}(a_t|o_t)\)</span>：fully
+observed 下的 policy，比较理想，在理论分析上能有简化</li>
+</ul>
+<p>一些传统的算法可以作为一个 supervision 去 train policy.</p>
+<p>当我们无法建立一个 optimal policy 的时候，无法使用 imitation learning
+的时候就需要用 reinforcement learning.</p>
+<h1 id="imitation-learning">Imitation Learning</h1>
+<p>可以采取一个 Markov 过程，只根据上一个状态做出决定.
+但是实际上也是可以说去有一个记忆，根据历史的状态做出判断.</p>
+<p>最基本的方案：behavioral cloning</p>
+<p>这个方案很早就又提出了，但是有一个问题是 <strong>distribution
+shift</strong>：每一步都出一点小差错，然后最后就倒闭了. 这是因为你的
+state 是由 action 决定的，于是 distribution 就会变得不同.
+但在数据足够大的情况下，表现还是相当好的.</p>
+<p>一个经典的方法是直接采取 teleoperation. 这个的好处是不存在 sim2real
+gap. 但是取而代之的是 real2real gap，比如如何做
+generalization，因为环境变化非常小. 还可以在虚拟环境中进行摇操，这些
+data 就会更加丰富一点.</p>
+<p>为了消除 distribution shift，有两种方向：可以去让 <span
+class="math inline">\(p_{data}\)</span>
+更靠近真实情况，也可以让我们更好地去 fit 到专家的轨迹.</p>
+<p><strong>DAgger: Dataset Aggregation</strong>：很暴力地将 <span
+class="math inline">\(p_{\pi_\theta}\)</span> 加入数据集.
+先按原来的数据去学 policy，然后用这个 policy
+在环境中去探索，然后对于探索到的 state，再让人去 label，并入数据集.
+不断这样循环往复，就得到了一个能够去适应 <span
+class="math inline">\(p_{\pi_{\theta}}\)</span> 的数据集.</p>
+<p>但是 human label 很难. 有两种思路：对于有传统 optimal solution
+的东西（比如 navigation） 那么显然就可以直接自己 label. 第二种思路是
+from a teacher policy.
+比如我们假如已经有基于有完整信息时的开环的抓取策略，那么就可以用这个策略去训练一个基于
+RGB 的闭环的抓取 policy.</p>
+<p>探讨为什么我们的策略会 fail to fit expert? 一个原因就是我们的 policy
+是 non-markovian 的，</p>
+<p><strong>casual
+confusion</strong>：比如在开车，然后学到“刹车灯亮了就去踩刹车”.
+而不是学到了一些环境因素才去踩刹车.</p>
+<p><strong>multimodal
+behaviour</strong>：绕一棵树，然后一半数据是向左绕的，一半数据是向右绕的，然后
+regression 的结果就会直接往中间撞上去.
+一个方法是预测一个多峰的分布，比如使用 diffusion model，或者
+autoregressive discretization（依次autoregressive
+地去求解每个维度的概率分布）</p>
+<p><strong>multitask training</strong>：很多个目标一起去 train.
+具体而言，就是将 goal 和 state 一起作为 condition 加进去，这样就能很多个
+task 一起学，让所有 task 都学的更好. 当然这也会带来一定的挑战
+，就是没见过的 goal 带来的 distribution shift.</p>
+<h1 id="reinforcement-learning">Reinforcement Learning</h1>
+<p>强化学习也 assume markovian policy</p>
+<p>Markov Decision Process (MDP): <span class="math inline">\(S\)</span>
+为状态空间，<span class="math inline">\(A\)</span> 为动作空间，<span
+class="math inline">\(T\)</span> 为状态转移，<span
+class="math inline">\(r\)</span> 为 <span class="math inline">\(S\times
+A\to r\)</span> 的奖励函数.</p>
+<p>但是我们观测到的可能并不是整个环境. 于是有 partially observed MDP：令
+<span class="math inline">\(O\)</span> 为 observation space，<span
+class="math inline">\(\varepsilon\)</span> 为 emission probability <span
+class="math inline">\(p(o_t|s_t)\)</span>：在状态下观测到 <span
+class="math inline">\(o\)</span> 的概率.</p>
+<p>我们的目标就是，首先我们有 MDP 的分布：<span
+class="math inline">\(p(s_1,a_1,\dots,s_T,a_T)=p(s_1)\prod
+\pi_{\theta}(a_t|s_t)p(s_{t+1}|s_t,a_t)\)</span>. 然后我们就能算出奖励
+<span class="math inline">\(E_{\tau\sim p_{\theta}(\tau)} \sum
+r(s_t,a_t)\)</span>. 目标就是最大化这个期望奖励.</p>
+<p>reward 函数不连续，所以不可导. 但是之后的期望收益是连续的.
+所以这个期望其实很重要.</p>
+
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/09/07/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0-20250908/">初恋日记-20250908</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/09/07/%E5%85%B7%E8%BA%AB-Policy/">具身-Policy</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/08/27/%E5%85%B7%E8%BA%AB-Vision&Grasping/">具身-Vision&amp;Grasping</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/08/19/%E5%85%B7%E8%BA%AB-Robotics/">具身-Robotics</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/07/30/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-ATT&CK/">学习笔记-ATT&amp;CK</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/07/23/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86-6-%E8%A5%BF%E8%97%8F/">阅读笔记-中国的亚洲内陆边疆-6-西藏</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/07/19/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86-5-%E6%96%B0%E7%96%86/">阅读笔记-中国的亚洲内陆边疆-5-新疆</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/07/16/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86-4-%E6%BB%A1%E6%B4%B2/">阅读笔记-中国的亚洲内陆边疆-4-满洲</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/07/13/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86-3-%E8%92%99%E5%8F%A4/">阅读笔记-中国的亚洲内陆边疆-3-蒙古</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/07/10/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86-2/">阅读笔记-中国的亚洲内陆边疆-2</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/02/22/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/03/05/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E7%A7%AF%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/">数分笔记-积分中值定理</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/02/22/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-SVD%E5%92%8C%E5%B9%BF%E4%B9%89%E9%80%86/">高代笔记-SVD和广义逆</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/03/05/CVDL-Corner%20Detection/">CVDL-Corner Detection</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E6%AD%A3%E4%BA%A4%E5%8F%98%E6%8D%A2/">高代笔记-正交变换</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/03/23/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%9B%9B%E5%85%83%E6%95%B0/">高代笔记-四元数</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/03/26/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E7%BA%A7%E6%95%B0/">数分笔记-级数</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/04/02/CVDL-CNN%20Training2/">CVDL-CNN Training2</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/05/07/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%B9%82%E7%BA%A7%E6%95%B0/">数分笔记-幂级数</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2025/07/30/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-ATT&CK/">学习笔记-ATT&amp;CK</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2025/09/07/%E5%85%B7%E8%BA%AB-Policy/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/09/07/%E5%85%B7%E8%BA%AB-Policy/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 11.025046334931352px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 19.778903284790303px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 15.951961620105134px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 12.321077429270616px;" class="tag-cloud-link">高代</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 14.073556118308602px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 13.927597007501387px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 13.995066881186908px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 15.973391537745876px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 10.390516141502811px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 8.018218415899623px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 13.559371374669343px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 9.322900414978566px;" class="tag-cloud-link">初恋日记</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>
