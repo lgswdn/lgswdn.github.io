@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>CVDL-LSTM&amp;Attention | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>CVDL-LSTM&amp;Attention</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/05/14/CVDL-LSTM&Attention/">CVDL-LSTM&amp;Attention</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/CVDL/">CVDL</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-05-14
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2025/05/14/CVDL-LSTM&Attention/">CVDL-LSTM&amp;Attention</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2025-05-14
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/CVDL/">CVDL</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>Sequential Data 可以有两个作用. 一个是 Fitting，另一个是
+Generation.</p>
+<p>大语言模型中是基于每个 word 的.</p>
+<p>Truncation：训练的时候限制 Sequence 的长度，否则 backward 太耗时了.
+每次训练使用一个长度为 <span class="math inline">\(t\)</span> 的 Chunk
+of sequence，来形成一个 data point，进行 <span
+class="math inline">\(t\)</span> 次 backward.</p>
+<p>但是一个 chunk 的 <span class="math inline">\(h_0\)</span>
+怎么来呢？一个方法是 forward 的时候 forward 一整个 sequence，backward
+的时候在 chunk 里面 backward，好处是 <span
+class="math inline">\(h_0\)</span> 可以记录上文 context 的信息.
+但是这个问题就是每个 Iteration 都要 forward 一遍，太耗时间了.
+所以另一个方法就是直接 <span class="math inline">\(h_0=0\)</span>.</p>
+<p>使用 Chunk 的代价是根本没有长时间的记忆，只有最多 <span
+class="math inline">\(t\)</span> 长度的时间的记忆.</p>
+<p>如果每次贪心选择概率最大的作为下一个词，那么只能获得一个可能的句子.
+一个方法是采用 Weighted Sampling，按概率随机采样一个作为下一个词.
+但是这个显然太垃圾了.</p>
+<p>Beam Search：取一个 <span class="math inline">\(k\)</span> 作为 Beam
+Size，先 sample top K 个，然后每个再 sample top K，然后在这 <span
+class="math inline">\(k^2\)</span> 个中挑选概率乘积最大的 top <span
+class="math inline">\(k\)</span>，然后继续下去. 每次就是 <span
+class="math inline">\(k\to k^2\to k\to k^2\to \dots\)</span>.
+这个方法权衡了效率和优性.</p>
+<p>Vanilla RNN 的梯度消失问题. 很显然.</p>
+<p>梯度爆炸可以用 gradient clipping，将其方向不变然后缩小. 但是 Gradient
+小的时候，对噪声很敏感，所以不能放大.</p>
+<p>LSTM 中 forget gate 那一条路形成了一个 uninterrupted gradient flow.
+这是因为长期记忆和新来的状态是一个 Additive Interaction.</p>
+<p>剩下 LSTM 没啥额外的东西.</p>
+<p>Seq2seq：先对输入得到最终隐藏状态 <span
+class="math inline">\(c\)</span>，然后输出的时候将<span
+class="math inline">\(y_i\)</span> 和 <span
+class="math inline">\(c\)</span> concat 起来得到然后算得 <span
+class="math inline">\(y_{i+1}\)</span>. 引入 START token 作为 <span
+class="math inline">\(y_0\)</span>，然后和一个 STOP token.</p>
+<p>Image Capturing：给一个图，输出一段话去形容. 这个和 Seq2seq
+内容类似，将 CNN 提出的 feature 作为 <span
+class="math inline">\(c\)</span> 即可. 训练上，CNN 先用 Imagenet 的
+CNN，然后要么寻 Capturing 的时候 freeze 住这个 CNN，要么做一个 fine
+tune. Freeze 的话，forward 的时候 memory 一样，backward 的时候 memory
+开销被减小.</p>
+<p>Visual Question Answering：给图和文字然后回答问题. 也是一样的. 是一个
+Multimodal Understanding 的任务. 但将模态分开处理后，就做的很烂.</p>
+<p>信息融合（Information Fusion）可以用直接相加，相乘，或者
+concatenate.</p>
+<p>Ablation Study：别的不变改变一个东西，去测试是会改变结果.</p>
+<hr />
+<p>考虑我们 s2s 的一个问题，就是 decoder 只能看到一个 <span
+class="math inline">\(c\)</span>. 我们希望输出的时候能看到 Encoder 的
+<span class="math inline">\(h\)</span>.</p>
+<p>令一个注意力 MLP <span class="math inline">\(f_{a}\)</span>，<span
+class="math inline">\(e_{t,j}=f_a(s_{t-1},h_j)\)</span>，然后对 <span
+class="math inline">\(e\)</span> 做 softmax 得到注意力权重 <span
+class="math inline">\(a\)</span>，于是得到这一步的 <span
+class="math inline">\(c_t=\sum a_{t,j}h_j\)</span>，然后再让 <span
+class="math inline">\([c_t\ y_{t-1}\ s_{t-1}]\)</span> 计算获得 <span
+class="math inline">\(y_t\)</span>.</p>
+
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2025/05/14/CVDL-LSTM&Attention/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/05/14/CVDL-LSTM&Attention/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 13.290493447544085px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 15.34363400479181px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 13.320742536096304px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 9.156212271241838px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 8.4079294890647px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 12.76285141804372px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 8.62822482610817px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 19.33289478774671px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 19.271992755227487px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 18.477572252358875px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 18.327091148286588px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 17.999016053170873px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 9.217491244755266px;" class="tag-cloud-link">高代</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

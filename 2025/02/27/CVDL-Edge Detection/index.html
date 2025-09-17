@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>CVDL-Edge Detection | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>CVDL-Edge Detection</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/02/27/CVDL-Edge%20Detection/">CVDL-Edge Detection</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/CVDL/">CVDL</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-02-27
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2025/02/27/CVDL-Edge%20Detection/">CVDL-Edge Detection</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2025-02-27
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/CVDL/">CVDL</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>图片可以看作 <span class="math inline">\(R^2\to R^M\)</span> 的函数.
+对于灰度（Grayscale）图，则为 <span class="math inline">\(f:[a,b]\times
+[c,d]\to [0,255]\)</span>，其中后者为 Intensity，有一个 channel.
+而对于彩色图片，则可以看作 <span
+class="math inline">\([r(x,y),g(x,y),b(x,y)]\)</span> 的向量，有三个
+channel.</p>
+<p>计算机图片一个很大的特点是空间是离散的（像素点），而颜色也是离散的，形成一个网格状（Grid-like）的数据.
+灰度图片可以看作一个 <span class="math inline">\(H\times W\)</span>
+的矩阵，而彩色图片则形成了 <span class="math inline">\(H\times W\times
+3\)</span> 的 tensor.</p>
+<p>既然图片是函数，那么我们可以求这个函数的梯度.
+但由于是离散的，所以用有限的差分去替代这个梯度. 例如 <span
+class="math inline">\(f\)</span> 在 <span
+class="math inline">\(x_0\)</span> 的梯度直接用 <span
+class="math inline">\(\frac{f(x_0+1,y_0)-f(x_0-1,y_0)}{2}\)</span> 计算.
+梯度的方向由黑向白.</p>
+<p>先在 <span class="math inline">\(x\)</span> 上求导，再在 <span
+class="math inline">\(y\)</span> 上求导，然后可以得到 Gradient Magnitude
+<span class="math inline">\(||\nabla
+f||=\sqrt{(\frac{df}{dx})^2+(\frac{df}{dx})^2}\)</span>.
+当且仅当一个地方有一个剧烈的颜色变化，即 Edge，才会有很大的 Gradient
+Magnitude. Gradient 的方向垂直于 Edge.
+于是仅用求梯度的方法，我们可以获取图片的边缘相关信息.</p>
+<p>Filtering：通过原来的 <span
+class="math inline">\(f\)</span>，进行一系列算子的操作，得到一个新的图片.
+Filtering 是信号处理的术语，而图片可以视作一个二维的信号.</p>
+<p>一个一维离散信号的 Filter 的例子：Moving Average.</p>
+<p>取 <span class="math inline">\(h_n\)</span> 为 <span
+class="math inline">\(f_{[n-k,n+k]}\)</span> 的均值.
+想法是噪声独立随机的话，取一个均值就可以把噪声给消去. 这个 Filter
+由于是对原信号进行线性组合，所以是一个 Linear Filter.</p>
+<p>这个东西可以扩展到一维离散卷积. 取一个数组 <span
+class="math inline">\(g[n]\)</span>，定义 <span
+class="math inline">\(h[n]=(f*g)[n]=\sum f[m]g[n-m]\)</span>. 相当于对
+<span class="math inline">\(g\)</span>
+做翻转后，从左到右做一个邻域的带权相加. 称 <span
+class="math inline">\(g\)</span> 为卷积核.</p>
+<p>考虑离散傅里叶变换 <span class="math inline">\(\mathcal
+F\)</span>，根据我们所熟知的 FFT 那套理论，有卷积定理：<span
+class="math inline">\(\mathcal F(f*g)=\mathcal F(f)\cdot \mathcal
+F(f)\)</span>，于是我们将实域的卷积变成了频域的点乘. 理解一个 Filter
+干了什么，可以考虑看它做傅里叶变换后的频谱. 而从频域的角度看，Moving
+Average 的频谱集中在了 <span class="math inline">\(0\)</span>
+附近，高频处值很小，所以其实就是一个 Low-pass Filter.
+但其实我什么也不懂. FFT，谁会？</p>
+<p>对于任何 Linear Filter <span class="math inline">\(\cal
+G\)</span>，一定能够通过卷积的形式来描述.</p>
+<p>考虑扩展到二维的图片上. 定义二维的卷积核（Convolution Kernel）<span
+class="math inline">\(g\)</span>，那么可以定义卷积 <span
+class="math inline">\((f*g)[m,n]=\sum_{k,l}
+f[k,l]g[m-k,n-l]\)</span>.</p>
+<p>对二维图片做 Moving Average 会让边界变模糊.</p>
+<p>一个非线性的例子：二值化 Binarization（via
+Threshold），即设立一个阈值，并令 <span
+class="math inline">\(h[m,n]=[f[n,m]&gt;\tau]\)</span>.</p>
+<hr />
+<p>下面可以通过上述两个很简单的操作实现 Edge Detection.
+这个方法也是至今使用的方法.</p>
+<p>Edge 的定义：沿着一个方向有剧烈的 Intensity
+的变化，并且沿着正交方向变化较小的区域. 注意 Gradient Magnitude
+大不等于是 Edge. 比如 Corner 就是沿着多个方向变化都大.</p>
+<p>Edge Detection 的 Criteria：Precision = <span
+class="math inline">\(\frac{TP}{TP+FP}\)</span>，Recall = <span
+class="math inline">\(\frac{TP}{TP+FN}\)</span>. Localization &amp;
+Response.</p>
+<p>考虑之前做的求梯度.
+如果图片有高频的噪声，那么就会变得很搞笑，因为哪里都有巨大的梯度.
+所以就要抑制噪声，对整个图片做一个 Low Pass Filter.</p>
+<p>Gaussian Filter：取 <span
+class="math inline">\(g=\frac{1}{\sqrt{2\pi\sigma^2}}\exp(-\frac{x^2}{2\sigma^2})\)</span>
+做卷积. 做傅里叶变换后有 <span class="math inline">\(\cal
+F(g)=\exp(-\frac{\sigma^2\omega^2}{2})\)</span>.</p>
+<p>首先这个 Filter 满足 <span class="math inline">\(0\)</span>
+处很高，且积分为 <span
+class="math inline">\(1\)</span>（不然会导致整张图片能量产生变化）.
+并且这个 Filter 受到 <span class="math inline">\(\sigma\)</span> 控制.
+<span class="math inline">\(\sigma\)</span> 越大，高频抑制作用越大.
+<span class="math inline">\(\sigma \to 0\)</span> 时相当于啥都不做.
+而这个 Filter 好就好在不管在哪个域，都是一个高斯函数.</p>
+<p>运用 Gaussian Filter 之后，影响 Edge Detection 的高频噪音就被去除了.
+我们的步骤就是先卷积，再求导.</p>
+<p>卷积求导定律：<span
+class="math inline">\(\frac{d}{dx}(f*g)=f*\frac{d}{dx}g\)</span>.
+于是可以从两步变成一步. 这本质其实就是因为求导本身也是卷积. 但是由于要求
+Magnitude 所以要对 <span class="math inline">\(x\)</span> 和 <span
+class="math inline">\(y\)</span> 两个维度分开求. 然后再做一个二值化.</p>
+<p>但是就算这样，一个 edge 的宽度太大了.
+于是我们需要做一个去冗余的操作.</p>
+<p>Non-Maximal Suppression：对于留下来的点 <span
+class="math inline">\(q\)</span> 和 gradient magnitude <span
+class="math inline">\(g(q)\)</span>，沿着 <span
+class="math inline">\(g(q)\)</span> 找两个邻居 <span
+class="math inline">\(r=q+g(q)\)</span> 和 <span
+class="math inline">\(p=q-g(q)\)</span>. <span
+class="math inline">\(r,p\)</span> 未必是整点，所以需要插值计算 <span
+class="math inline">\(g(r)\)</span>，<span
+class="math inline">\(g(p)\)</span>. 如果 <span
+class="math inline">\(g(q)\)</span>
+为三者中最大值，那么保留，否则抛弃.</p>
+<p>插值采用 Bilinear Interpolation. 对于 <span
+class="math inline">\((x,y)\)</span>
+邻域的四个形成正方形的格点，能分割成四个长方形。按照对角的长方形的面积作为权值，进行带权平均.
+也相当于先算两个关于 <span class="math inline">\(x\)</span>
+轴的投影的点的值通过线性插值算出来的值，在用这两个点对于目标点做一个线性插值.</p>
+<p>一个另一个简化的 NMS：先看 Gradient
+的方向按照上下左右以及斜上下左右去分类，然后直接比较两个 pixel 的 <span
+class="math inline">\(g\)</span> 值.</p>
+<p>现在我们已经获得了 Pixel 的信息，现在问题是如何将这些 Pixel
+给穿起来，形成 Edges. 即 Edge Linking.</p>
+<p>Hysteresis
+Thresholding：从高可信的地方开始画线，然后串线的时候可以容忍低可信度.
+对于所有通过 NMS 的点，求得平均 magnitude，然后据此设置 maxVal 和
+minVal. 具体的原则就是起笔的条件是 &gt;maxVal，断掉的条件是
+&lt;minVal.</p>
+<p>这个 Edge Detector 的名字是 Canny Edge Detector.
+其中有若干超参：Gaussian Filter 的 <span
+class="math inline">\(\sigma\)</span>，NMS 的步长，Linking 的 minVal
+maxVal. 其中 <span class="math inline">\(\sigma\)</span> 越大，细的 edge
+就更可能会被 blur 掉.</p>
+<p>参考讲义：<a
+href="../../../../file/CVDL/Lecture%202%20-%20Classic%20Vision%20I.pdf">Lecture
+2 - Classic Vision I</a>.</p>
+
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2025/02/27/CVDL-Edge%20Detection/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/02/27/CVDL-Edge%20Detection/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 17.196621744609885px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 17.21350270744813px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 17.458275490289726px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 8.366963445838177px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 12.362690316527818px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 11.733154416364393px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 11.974397576404566px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 12.226855642667104px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 9.075109616146506px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 8.807252455399613px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 12.596889110879005px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 15.689639816805395px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 17.98859797634876px;" class="tag-cloud-link">高代</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

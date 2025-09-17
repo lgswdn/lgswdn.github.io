@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>数分笔记-广义积分 | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>数分笔记-广义积分</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/03/19/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%B9%BF%E4%B9%89%E7%A7%AF%E5%88%86/">数分笔记-广义积分</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E6%95%B0%E5%88%86/">数分</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-03-19
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2025/03/19/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%B9%BF%E4%B9%89%E7%A7%AF%E5%88%86/">数分笔记-广义积分</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2025-03-19
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E6%95%B0%E5%88%86/">数分</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>定义 <span class="math inline">\(\int_a^{+\infty}f(x)dx\)</span> 为
+<span class="math inline">\(\lim_{A\to +\infty}\int_a^A f(x)dx\)</span>.
+于是我们就可以定义收敛和发散.</p>
+<p>并且如果上下都是 <span class="math inline">\(\infty\)</span>
+那么要求从 <span class="math inline">\(\int_0^{+\infty}\)</span> 和
+<span class="math inline">\(\int_{-\infty}^{0}\)</span> 都收敛.
+不然你平移一下可能敛散性就变了.</p>
+<p>但是如果 <span class="math inline">\(\lim_{A\to
++\infty}\int_{-A}^Af(x)dx\)</span>
+收敛那么有时候也有用，称其为在主值意义下收敛.</p>
+<p>这个不是我们主要研究的对象，还是回到最本质的这个广义积分上来.</p>
+<p>判断敛散性有若干方法. 第一种是直接求出原函数.
+这种方法我们可以得到两个相当重要的敛散性结论：</p>
+<ol type="1">
+<li><span class="math inline">\(\int_1^{+\infty}\frac{dx}{x^p}\)</span>
+在 <span class="math inline">\(p&gt;1\)</span> 时收敛，<span
+class="math inline">\(p\le 1\)</span> 时发散.</li>
+<li><span
+class="math inline">\(\int_2^{+\infty}\frac{dx}{x(\ln_x)^p}\)</span> 在
+<span class="math inline">\(p &gt;1\)</span> 时收敛，<span
+class="math inline">\(p\le 1\)</span> 时发散.</li>
+</ol>
+<p>同样，判断极限是否收敛显然也可以使用 Cauchy 准则. 即若对于任意 <span
+class="math inline">\(\varepsilon\)</span> 存在 <span
+class="math inline">\(\hat  A\)</span> 使得 <span
+class="math inline">\(\forall a,b&gt;\hat A\)</span> 有 <span
+class="math inline">\(|\int_a^bf(x)dx|&lt;\varepsilon\)</span> 那么就有
+<span class="math inline">\(f\)</span> 收敛.</p>
+<p>这给我们带来一个显而易见的推论，就是若 <span
+class="math inline">\(|f(x)|\le g(x)\)</span>，则若 <span
+class="math inline">\(\int g\)</span> 收敛则 <span
+class="math inline">\(\int f\)</span> 收敛. 证明由 Cauchy
+准则直接得到.</p>
+<p>下面是这个放缩的两个例子.</p>
+<p><span class="math inline">\(\int_0^{+\infty} e^{-x^2}dx\)</span>.
+放缩成 <span class="math inline">\(\int_0^{+\infty}
+e^{-x}dx\)</span>.</p>
+<p><span class="math inline">\(\int_0^{+\infty}\frac{\cos  x\sin
+\frac{1}{x}}{\sqrt{x}}dx\)</span>. 将 <span class="math inline">\(\cos
+x\)</span> 放缩掉后，再将 <span class="math inline">\(\sin
+\frac{1}{x}\)</span> 放缩成 <span
+class="math inline">\(\frac{1}{x}\)</span>，变成 <span
+class="math inline">\(\int_0^{+\infty}\frac{1}{x^{\frac{3}{2}}}\)</span>.</p>
+<p>这个结论还可以继续强化. 考虑 <span class="math inline">\(\lim_{x\to
++\infty} \frac{f(x)}{g(x)}=a\)</span>. 则若 <span
+class="math inline">\(a\in(0,+\infty)\)</span> 则 <span
+class="math inline">\(f,g\)</span> 显然敛散性相同. 而若 <span
+class="math inline">\(a=0\)</span>，则只能知道若 <span
+class="math inline">\(g\)</span> 敛则 <span
+class="math inline">\(f\)</span> 敛；<span
+class="math inline">\(a=+\infty\)</span> 则若 <span
+class="math inline">\(g\)</span> 散则 <span
+class="math inline">\(f\)</span> 散.</p>
+<p>下面是这个强化结论的例子.</p>
+<p><span class="math inline">\(\int_2^{+\infty}\frac{1}{x^p(\ln
+x)^q}\)</span>. 若 <span class="math inline">\(p&gt;1\)</span>，则可以取
+<span class="math inline">\(\delta&gt;0\)</span> 使得 <span
+class="math inline">\(p-\delta&gt;1\)</span>. 取 <span
+class="math inline">\(g(x)=\frac{1}{x^{p-\delta}}\)</span>，于是 <span
+class="math inline">\(f/g=\frac{1}{x^{\delta}(\ln(x))^q}\to
+0\)</span>，于是收敛.</p>
+<p><span class="math inline">\(p&lt;1\)</span> 时同理知发散. <span
+class="math inline">\(p=1\)</span> 即之前的经典结论.</p>
+<p>接下来介绍一个很有用的 Dirichlet - Abel 判别法.
+这个判别法基于第二中值定理.</p>
+<p><span
+class="math inline">\(\int_a^Af(x)g(x)dx=f(a)\int_a^{\xi}g(x)dx+f(A)\int_\xi^Ag(x)dx\)</span>.
+我们要让极限收敛，那么只有两种可能：<span
+class="math inline">\(f(a)\)</span> 有界且 <span
+class="math inline">\(\int g(x)\)</span> 收敛；或者 <span
+class="math inline">\(f(a)\to 0\)</span> 且 <span
+class="math inline">\(\int g(x)\)</span> 有界.</p>
+<p>于是我们得到了两种判别法. 注意这两者条件都一定要 <span
+class="math inline">\(f(x)\)</span> 单调，否则无法使用第二中值定理.</p>
+<p>（Dirichlet）若 <span class="math inline">\(f(x)\)</span> 单调 <span
+class="math inline">\(\to 0\)</span>，且 <span
+class="math inline">\(|\int_a^{A}g(x)dx|\le M\)</span>，则收敛.</p>
+<p>（Abel）若 <span class="math inline">\(f(x)\)</span> 单调有界，且
+<span class="math inline">\(\int_a^{+\infty}g(x)dx\)</span>
+收敛，则收敛.</p>
+<p>下面看几个使用 DA 判别法的例子.</p>
+<p><span class="math inline">\(\int_1^{+\infty}\frac{\sin
+x}{x}\)</span>. 令 <span
+class="math inline">\(f(x)=\frac{1}{x}\)</span>，<span
+class="math inline">\(g(x)=\sin x\)</span>. 使用 Dirichlet
+判别法知收敛.</p>
+<p><span class="math inline">\(\int_1^{+\infty}\frac{\sin x\arctan
+x}{x}\)</span>. 令 <span class="math inline">\(f(x)=\arctan
+x\)</span>，<span class="math inline">\(g(x)=\frac{\sin x}{x}\)</span>.
+使用 Abel 判别法知收敛.</p>
+<p>绝对收敛和条件收敛：如果 <span
+class="math inline">\(\int_a^{+\infty}|f(x)|dx\)</span> 收敛，则称 <span
+class="math inline">\(f(x)\)</span> 绝对收敛.
+否则如果收敛称为条件收敛.</p>
+<p>一个例子是 <span class="math inline">\(\frac{\sin x}{x}\)</span>
+并非绝对收敛. 考虑 <span class="math inline">\(|\frac{\sin x}{x}|\ge
+\frac{\sin^2 x}{x}=\frac{1-\cos 2x}{2x}\)</span>. <span
+class="math inline">\(\frac{1}{2x}\)</span> 发散而 <span
+class="math inline">\(\frac{\cos 2x}{2x}\)</span> 收敛，故不收敛.</p>
+<p>一个比较复杂的例子：<span
+class="math inline">\(I=\int_1^{+\infty}\ln(1+\frac{\sin
+x}{x^p})\)</span> 的敛散性.</p>
+<p>考虑泰勒展开. <span
+class="math inline">\(I=\int_1^{+\infty}(\frac{\sin
+x}{x^p}-\frac{\sin^2x}{2x^{2p}}+o(\frac{1}{x^{2p}}))dx\)</span>. 将
+<span class="math inline">\(\sin^2 x\)</span> 化成 <span
+class="math inline">\(\frac{1-\cos 2x}{2}\)</span> 后可以将其写成 <span
+class="math inline">\(I_1+I_2+I_3\)</span> 的形式，其中 <span
+class="math inline">\(I_1=\frac{\sin xdx}{x^p}\)</span>，<span
+class="math inline">\(I_2=\frac{\cos2xdx}{4x^{2p}}\)</span>，<span
+class="math inline">\(I_3=(\frac{1}{4}-o(1))\frac{dx}{x^{2p}}\)</span>.
+在 <span class="math inline">\(p\in(0,\frac{1}{2}]\)</span> 时 <span
+class="math inline">\(I_1,I_2\)</span> 收敛而 <span
+class="math inline">\(I_3\)</span> 发散，故发散；<span
+class="math inline">\(p\in(\frac{1}{2},1]\)</span> 时 <span
+class="math inline">\(I_1\)</span> 条件收敛，<span
+class="math inline">\(I_2,I_3\)</span> 绝对收敛，故条件收敛；而 <span
+class="math inline">\(p\ge 1\)</span> 时绝对收敛.f</p>
+
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2025/03/19/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%B9%BF%E4%B9%89%E7%A7%AF%E5%88%86/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/03/19/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%B9%BF%E4%B9%89%E7%A7%AF%E5%88%86/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 12.945520549695413px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 13.605299833886319px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 19.187257681421926px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 17.4403333385505px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 17.51765764938119px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 18.639576259540124px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 13.56960397470343px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 11.277066926057968px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 11.520140365483744px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 19.994402325149665px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 10.487604390311075px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 12.877771811549634px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 10.16976182539783px;" class="tag-cloud-link">高代</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

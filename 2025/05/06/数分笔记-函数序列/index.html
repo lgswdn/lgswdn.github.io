@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>数分笔记-函数序列 | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>数分笔记-函数序列</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/05/06/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%87%BD%E6%95%B0%E5%BA%8F%E5%88%97/">数分笔记-函数序列</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E6%95%B0%E5%88%86/">数分</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-05-06
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2025/05/06/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%87%BD%E6%95%B0%E5%BA%8F%E5%88%97/">数分笔记-函数序列</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2025-05-06
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E6%95%B0%E5%88%86/">数分</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>现在考虑一列函数序列 <span
+class="math inline">\(f_n(x)\)</span>，以及其极限 <span
+class="math inline">\(f(x)=\lim_{n\to +\infty} f_n(x)\)</span>.</p>
+<p><span class="math inline">\(f_n(x)\)</span>
+的许多性质都无法直接推演到 <span class="math inline">\(f(x)\)</span>
+上，如：</p>
+<ul>
+<li>连续性. 反例：<span class="math inline">\(f_n(x)=x^n\)</span>.</li>
+<li>可积性. 反例：<span
+class="math inline">\(f_n(x)=\sqrt[n]{R(n)}\)</span>.</li>
+<li><span class="math inline">\(lim\)</span> 和 <span
+class="math inline">\(\int\)</span> 的交换. 反例：<span
+class="math inline">\(f_n(x)=nx(1-x^2)^n\)</span>. <span
+class="math inline">\(f(x)=0\)</span> 而 <span
+class="math inline">\(\int_0^1 f_n(x)dx=\frac{n}{2n+2}\)</span>.</li>
+<li><span class="math inline">\(lim\)</span> 和 <span
+class="math inline">\(\frac{d}{dx}\)</span> 的交换. 反例：<span
+class="math inline">\(f_n(x)=\frac{\sin nx}{n}\)</span>. <span
+class="math inline">\(f(x)=0\)</span> 而 <span
+class="math inline">\(f&#39;_n(x)=\cos nx\)</span>.</li>
+</ul>
+<p>我们发现罪魁祸首是其收敛步调不一致导致的. 于是引入一致收敛的概念：称
+<span class="math inline">\(f_n(x)\)</span> 一致收敛于 <span
+class="math inline">\(f(x)\)</span>，若 <span
+class="math inline">\(\forall \epsilon&gt;0\)</span>，<span
+class="math inline">\(\exist N=N(\epsilon)\)</span> 使得 <span
+class="math inline">\(n\ge N\)</span> 时 <span
+class="math inline">\(\forall x\)</span> 有 <span
+class="math inline">\(|f_n(x)-f(x)|&lt;\epsilon\)</span>.</p>
+<p>一致收敛的定义等价于 <span class="math inline">\(\sup |f_n(x)-f(x)|
+\to 0\)</span>.</p>
+<p>当我们无法得知 <span class="math inline">\(f(x)\)</span>
+的时候，我们可以用 Cauchy 收敛准则：<span class="math inline">\(\forall
+\varepsilon\)</span>，<span class="math inline">\(\exist
+N=N(\varepsilon)\)</span> 使 <span class="math inline">\(\forall n,m\ge
+N\)</span>，<span class="math inline">\(\sup
+|f_n(x)-f_m(x)|&lt;\varepsilon\)</span>.</p>
+<p>在 <span class="math inline">\(f_n(x)\)</span> 一致收敛于 <span
+class="math inline">\(f(x)\)</span> 的情况下，连续性，可积性，以及 <span
+class="math inline">\(\lim\)</span> 与 <span
+class="math inline">\(\int\)</span> 的交换都是可以可以证明的.
+导数则是另一回事.</p>
+<ul>
+<li><p>连续性. <span class="math inline">\(|f(x)-f(x_0)|\le
+|f(x)-f_n(x)|+|f_n(x)-f_n(x_0)|+|f_n(x_0)-f(x_0)|\)</span>，三者皆可被
+<span class="math inline">\(N\)</span> 控制.</p></li>
+<li><p>可积性. 令 <span class="math inline">\(f_n(x)\)</span>
+不连续点集为 <span class="math inline">\(E_n\)</span>，并采用长度总和
+<span class="math inline">\(&lt;\frac{\varepsilon}{2^n}\)</span>
+的区间覆盖 <span class="math inline">\(E_n\)</span>，于是覆盖 <span
+class="math inline">\(\cup E_n\)</span> 的区间长度总和 <span
+class="math inline">\(&lt;\varepsilon\)</span>，故为零测集.</p></li>
+<li><p>与 <span class="math inline">\(\int\)</span> 的交换. <span
+class="math inline">\(\int f(x)dx-\int f_n(x)dx\le (b-a)(\sup
+|f(x)-f_n(x)|)\)</span> 可以被 <span class="math inline">\(N\)</span>
+控制.</p>
+<p>当然显然这点对于无穷积分不使用.</p></li>
+</ul>
+<hr />
+<p>接下来更加细致地去看连续性和导数.</p>
+<h3 id="连续性">连续性</h3>
+<p><strong>Dini 定理：</strong> <span class="math inline">\(f_n(x)\in
+C[a,b]\)</span>，且 <span class="math inline">\(\forall
+x\)</span>，<span class="math inline">\(f_n(x)\)</span> 单调 <span
+class="math inline">\(\to f(x)\)</span>. 则 <span
+class="math inline">\(f(x)\in C[a,b]\)</span> 等价于 <span
+class="math inline">\(f_n(x)\)</span> 一致收敛.
+注意此处一定是闭区间.</p>
+<p>开区间的反例：<span class="math inline">\(f_n(x)=x^n\)</span> 在
+<span class="math inline">\((0,1)\)</span> 上. 不单调的反例：<span
+class="math inline">\(f_n(x)\)</span> 在 <span
+class="math inline">\(1/n\)</span> 处有波峰.</p>
+<blockquote>
+<p>证明：考虑对于每个单独的 <span class="math inline">\(x_0\)</span>
+求证小领域内一致收敛，然后用有限开覆盖定理得知区间上一致收敛.</p>
+<p>对于 <span class="math inline">\(x_0\)</span>，存在 <span
+class="math inline">\(N\)</span> 使得 <span
+class="math inline">\(|f(x_0)-f_N(x_0)|&lt;\varepsilon\)</span>，而又因连续性知存在小领域使得
+<span class="math inline">\(|f(x)-f(x_0)|\)</span>，<span
+class="math inline">\(|f_N(x)-f_N(x_0)|&lt;\varepsilon\)</span>.
+所以小领域内 <span
+class="math inline">\(f(x)-f_N(x)&lt;\epsilon\)</span>。而又因为单调性得知
+<span class="math inline">\(\forall n\ge N\)</span>，<span
+class="math inline">\(|f_n(x)-f(x)|&lt;|f_N(x)-f(x)|&lt;\epsilon\)</span>.
+所以一致收敛.</p>
+</blockquote>
+<p>Dini 定理可以用来证明 <strong>Visser 引理：</strong> 存在多项式序列
+<span class="math inline">\(P_n(x)\)</span> 使得 <span
+class="math inline">\(P_n(x)\)</span> 在 <span
+class="math inline">\([-1,1]\)</span> 上一致逼近于 <span
+class="math inline">\(|x|\)</span>.</p>
+<blockquote>
+<p>证明：取序列 <span
+class="math inline">\(a_{n+1}(x)=a_n(x)+\frac{1}{2}(x^2-a_n(x)^2)\)</span>.</p>
+<p>可以归纳证明 <span class="math inline">\(a_{n}(x)\le |x|\)</span>.
+然后可以知 <span class="math inline">\(a_n(x)\)</span>
+单调，故极限存在且单调收敛. 应用 Dini 定理知一致逼近.</p>
+</blockquote>
+<p>这个可以用来证明 <strong>Weierstrass
+第一逼近定理</strong>：任意闭区间上连续函数 <span
+class="math inline">\(f(x)\)</span>，存在多项式序列一致逼近于 <span
+class="math inline">\(f(x)\)</span>.</p>
+<blockquote>
+<p>证明：由于 <span class="math inline">\(f(x)\)</span>
+一致连续，所以存在 <span class="math inline">\(n\)</span> 段的折线函数
+<span class="math inline">\(g(x)\)</span> 使得 <span
+class="math inline">\(|g(x)-f(x)|\le \varepsilon\)</span>.</p>
+<p>取 <span class="math inline">\(H(x)\)</span> 为 ReLU 函数，则 <span
+class="math inline">\(g(x)=g(0)+\sum c_kH(x-x_k)\)</span>，其中 <span
+class="math inline">\(c_k\)</span> 为两端折线斜率差.</p>
+<p>然后再应用 Visser 引理，将 <span
+class="math inline">\(H(x-x_k)\)</span> 用多项式逼近即可.</p>
+</blockquote>
+<h3 id="导数">导数</h3>
+<p>上面没有讲求导可交换的条件.
+实际上求导可交换需要导数一致收敛且本身收敛.</p>
+<p>如果导函数不一致逼近则和积分的反例一样. 而如果本身不收敛则取 <span
+class="math inline">\(f_n(x)=n\)</span> 即为反例.</p>
+<blockquote>
+<p>证明：<span class="math inline">\(f&#39;_n(x)\)</span> 一致收敛于
+<span class="math inline">\(\phi(x)\)</span>.</p>
+<p>令 <span
+class="math inline">\(\Phi_n(x)=\begin{cases}\frac{f_n(x)-f_n(x_0)}{x-x_0}
+&amp; x\neq x_0 \\ f&#39;_n(x_0) &amp; x=x_0\end{cases}\)</span>.
+那么由条件知，<span
+class="math inline">\(\Phi(x)=\begin{cases}\frac{f(x)-f(x_0)}{x-x_0}
+&amp; x\neq x_0 \\ \phi(x_0) &amp; x=x_0\end{cases}\)</span>.</p>
+<p><span class="math inline">\(\Phi_n(x)\)</span> 显然在 <span
+class="math inline">\(x_0\)</span> 处连续. 并且我们要证明 <span
+class="math inline">\(f&#39;_n(x)\)</span> 一致收敛于 <span
+class="math inline">\(\phi(x)\)</span>，其实相当于就是要证明 <span
+class="math inline">\(\Phi(x)\)</span> 也连续.</p>
+<p>所以现在需要目标是证明 <span class="math inline">\(\Phi\)</span>
+一致收敛即可.</p>
+<p>使用 Cauchy 准则. <span
+class="math inline">\(\Phi_m(x)-\Phi_n(x)=\frac{1}{x-x_0}(f_m(x)-f_m(x_0)-f_n(x)+f_n(x_0))\)</span>.
+令 <span class="math inline">\(g=f_m-f_n\)</span>，则相当于 <span
+class="math inline">\(\frac{1}{x-x_0}(g(x)-g(x_0))=g&#39;(\xi)=f&#39;_m(\xi)-f&#39;_n(\xi)\)</span>.
+而由于 <span class="math inline">\(f&#39;\)</span>
+一致收敛，所以后者可以被 <span class="math inline">\(N\)</span>
+控制.</p>
+<p>这个证明同时可以告诉我们 <span class="math inline">\(f\)</span>
+本身也是一致收敛的，因为两侧都乘上 <span
+class="math inline">\(|x-x_0|\)</span> 则知 <span
+class="math inline">\(g(x)-g(x_0)\)</span> 被 <span
+class="math inline">\(N\)</span> 控制. 再加上 <span
+class="math inline">\(x_0\)</span> 收敛所以 <span
+class="math inline">\(g(x_0)\)</span> 可以被控制，故 <span
+class="math inline">\(g(x)\)</span> 也可以被控制.</p>
+</blockquote>
+<p>实际上条件可以弱化为存在 <span class="math inline">\(x_0\)</span>
+使得 <span class="math inline">\(f(x_0)\)</span>
+收敛，而不需要所有都收敛.</p>
+<blockquote>
+<p>证明：可以直接证明其余点一定收敛.</p>
+<p><span class="math inline">\(f_m(x)-f_n(x)\le
+|f_m(x_0)-f_n(x_0)|+|g_m(x)-g_n(x)|\)</span>. 前一项可被 <span
+class="math inline">\(N\)</span> 控制，后一项如上述证明，也可被 <span
+class="math inline">\(N\)</span> 控制，所以其余点都收敛. 并且若 <span
+class="math inline">\(b-a&lt;+\infty\)</span> 也可推出一致收敛.</p>
+</blockquote>
+<p>实际上导数和连续性的条件都只与单点的小领域相关，所以条件可以削弱称在
+<span class="math inline">\((a,b)\)</span> 上内闭一致收敛（即对所有
+<span class="math inline">\((a,b)\)</span> 内的闭区间一致收敛即可）.</p>
+
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+
+<aside id="sidebar-toc">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-list-ul"></i>  
+            文章目录 
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        
+        
+        <div class="panel-body toc-container">
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E8%BF%9E%E7%BB%AD%E6%80%A7"><span class="toc-list-text">连续性</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E5%AF%BC%E6%95%B0"><span class="toc-list-text">导数</span></a></li></ol>
+        </div>
+    </div>
+</aside>
+
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2025/05/06/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%87%BD%E6%95%B0%E5%BA%8F%E5%88%97/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/05/06/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%87%BD%E6%95%B0%E5%BA%8F%E5%88%97/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 9.752836519955345px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 9.057651322209939px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 15.450327886363656px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 8.114540394774327px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 9.333976989354742px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 11.37093498888893px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 11.166852131913487px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 12.724470678813734px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 13.513377652575734px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 16.843540210233318px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 12.452579392815128px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 18.120057882900067px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 12.080447961101662px;" class="tag-cloud-link">高代</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

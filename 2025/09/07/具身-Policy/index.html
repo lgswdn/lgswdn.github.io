@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>具身-Policy | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>具身-Policy</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/09/07/%E5%85%B7%E8%BA%AB-Policy/">具身-Policy</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E5%85%B7%E8%BA%AB/">具身</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-09-07
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2025/09/07/%E5%85%B7%E8%BA%AB-Policy/">具身-Policy</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2025-09-07
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E5%85%B7%E8%BA%AB/">具身</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>Notation：</p>
+<ul>
+<li><span class="math inline">\(s_t\)</span>
+state，环境&amp;物体状态</li>
+<li><span class="math inline">\(o_t\)</span>
+observation，观测（图片/点云）</li>
+<li><span class="math inline">\(a_t\)</span> action，采取的策略</li>
+<li><span
+class="math inline">\(\pi_{\theta}(a_t|o_t)\)</span>：policy</li>
+<li><span class="math inline">\(\pi_{\theta}(a_t|o_t)\)</span>：fully
+observed 下的 policy，比较理想，在理论分析上能有简化</li>
+</ul>
+<p>一些传统的算法可以作为一个 supervision 去 train policy.</p>
+<p>当我们无法建立一个 optimal policy 的时候，无法使用 imitation learning
+的时候就需要用 reinforcement learning.</p>
+<h1 id="imitation-learning">Imitation Learning</h1>
+<p>可以采取一个 Markov 过程，只根据上一个状态做出决定.
+但是实际上也是可以说去有一个记忆，根据历史的状态做出判断.</p>
+<p>最基本的方案：behavioral cloning</p>
+<h4 id="distribution-shift">Distribution Shift</h4>
+<p>这个方案很早就又提出了，但是有一个问题是 <strong>distribution
+shift</strong>：每一步都出一点小差错，然后最后就倒闭了. 这是因为你的
+state 是由 action 决定的，于是 distribution 就会变得不同.
+但在数据足够大的情况下，表现还是相当好的.</p>
+<p>一个经典的方法是直接采取 teleoperation. 这个的好处是不存在 sim2real
+gap. 但是取而代之的是 real2real gap，比如如何做
+generalization，因为环境变化非常小. 还可以在虚拟环境中进行摇操，这些
+data 就会更加丰富一点.</p>
+<p>为了消除 distribution shift，有两种方向：可以去让 <span
+class="math inline">\(p_{data}\)</span>
+更靠近真实情况，也可以让我们更好地去 fit 到专家的轨迹.</p>
+<h4 id="dagger">DAgger</h4>
+<p><strong>DAgger: Dataset Aggregation</strong>：很暴力地将 <span
+class="math inline">\(p_{\pi_\theta}\)</span> 加入数据集.
+先按原来的数据去学 policy，然后用这个 policy
+在环境中去探索，然后对于探索到的 state，再让人去 label，并入数据集.
+不断这样循环往复，就得到了一个能够去适应 <span
+class="math inline">\(p_{\pi_{\theta}}\)</span> 的数据集.</p>
+<p>但是 human label 很难. 有两种思路：对于有传统 optimal solution
+的东西（比如 navigation） 那么显然就可以直接自己 label. 第二种思路是
+from a teacher policy.
+比如我们假如已经有基于有完整信息时的开环的抓取策略，那么就可以用这个策略去训练一个基于
+RGB 的闭环的抓取 policy.</p>
+<h4 id="casual-confusion">Casual confusion</h4>
+<p>探讨为什么我们的策略会 fail to fit expert? 一个原因就是我们的 policy
+是 non-markovian 的.</p>
+<p><strong>casual
+confusion</strong>：比如在开车，然后学到“刹车灯亮了就去踩刹车”.
+而不是学到了一些环境因素才去踩刹车.</p>
+<h4 id="multimodal-behaviour">Multimodal behaviour</h4>
+<p>绕一棵树，然后一半数据是向左绕的，一半数据是向右绕的，然后 regression
+的结果就会直接往中间撞上去. 一个方法是预测一个多峰的分布，比如使用
+diffusion model，或者 autoregressive discretization（依次autoregressive
+地去求解每个维度的概率分布）</p>
+<h4 id="multitask-training">Multitask training</h4>
+<p>很多个目标一起去 train. 具体而言，就是将 goal 和 state 一起作为
+condition 加进去，这样就能很多个 task 一起学，让所有 task 都学的更好.
+当然这也会带来一定的挑战 ，就是没见过的 goal 带来的 distribution
+shift.</p>
+<h1 id="reinforcement-learning">Reinforcement Learning</h1>
+<h4 id="intro">Intro</h4>
+<p>强化学习也 assume markovian policy</p>
+<p>Markov Decision Process (MDP): <span class="math inline">\(S\)</span>
+为状态空间，<span class="math inline">\(A\)</span> 为动作空间，<span
+class="math inline">\(T\)</span> 为状态转移，<span
+class="math inline">\(r\)</span> 为 <span class="math inline">\(S\times
+A\to r\)</span> 的奖励函数.</p>
+<p>但是我们观测到的可能并不是整个环境. 于是有 partially observed MDP：令
+<span class="math inline">\(O\)</span> 为 observation space，<span
+class="math inline">\(\varepsilon\)</span> 为 emission probability <span
+class="math inline">\(p(o_t|s_t)\)</span>：在状态下观测到 <span
+class="math inline">\(o\)</span> 的概率.</p>
+<p>我们的目标就是，首先我们有 MDP 的分布：<span
+class="math inline">\(p(s_1,a_1,\dots,s_T,a_T)=p(s_1)\prod
+\pi_{\theta}(a_t|s_t)p(s_{t+1}|s_t,a_t)\)</span>. 然后我们就能算出奖励
+<span class="math inline">\(E_{\tau\sim p_{\theta}(\tau)} \sum
+r(s_t,a_t)\)</span>. 目标就是最大化这个期望奖励.</p>
+<p>显然我们是不知道 <span
+class="math inline">\(p(s_{t+1}|s_t,a_t)\)</span> 的.
+有些方法会去学这些，称为 model-based. 下面讲的是不去学这个的，即
+model-free.</p>
+<p>reward 函数不连续，所以不可导. 但是之后的期望收益是连续的.
+所以这个期望其实很重要.</p>
+<hr />
+<h4 id="gradient">Gradient</h4>
+<p>怎么对奖励导呢？首先 先把期望写作积分的形式：<span
+class="math inline">\(\int r(\tau)p_{\theta}(\tau) d\tau\)</span>.
+然后我们希望求导后的积分中还有项 <span
+class="math inline">\(p(\tau)\)</span>（这样才能重新转化回期望）. 由于
+<span class="math inline">\(p_{\theta}(\tau)\nabla_\theta \log
+p_{\theta}(\tau)=\nabla_\theta
+p_{\theta}(\tau)\)</span>，所以我们对积分求导就可以直接变换成 <span
+class="math inline">\(\int p_{\theta}(\tau)\nabla_\theta r(\tau)\log
+p_{\theta}(\tau)=E[\nabla_\theta \log
+p_{\theta}(\tau)r(\tau)]\)</span>.</p>
+<p>对这个 <span class="math inline">\(\log p_{\theta}(\tau)\)</span>
+求个导，乘法变成了加法，然后 <span class="math inline">\(\theta\)</span>
+无关项也没了，只剩下 <span class="math inline">\(\sum \log
+\pi_{\theta}(a_t|s_t)\)</span> 了. 于是就变成了 <span
+class="math inline">\(E_{\tau}[\left(\sum \nabla_{\theta}\log
+\pi_{\theta}(a_t|s_t)\right)(\sum r(s_t,a_t))]\)</span></p>
+<p>期望显然不大好算. 于是直接 Monte Carlo，采 <span
+class="math inline">\(n\)</span> 条 trajectory 即可.</p>
+<p>我们对比一下和模仿学习的. 模仿学习其实就是一条好的轨迹给出来，然后
+gradient 就是 <span class="math inline">\(\sum \nabla_\theta \log
+\pi_{\theta}(a_t|s_t)\)</span>. 所以本质上就是所有 reward 都是 1.</p>
+<p>模仿学习是 offline policy. 强化学习是一种 online policy. online
+policy 又分为 on policy 和 off policy. on policy 严格要求 gradient
+由当前 policy 生成，而 off policy 则可以根据 old policy 进行更新. 上面的
+RL 就是一种 on policy. 这是因为 policy 变了，你的 trajectory state
+就完全变了，你的 training data 的分布也就变了.</p>
+<hr />
+<h4 id="example-gaussian-policy">Example: Gaussian Policy</h4>
+<p>如果我们每一步的 <span class="math inline">\(p\)</span> 看作一个
+gaussian，神经网络计算出来的 policy 是 <span
+class="math inline">\((f,\sigma)\)</span>，那么 <span
+class="math inline">\(\log p(a_t|s_t)\)</span> 就是一个常数加上 <span
+class="math inline">\(||a_t-f(s_t)||_{\Sigma}\)</span> ，于是取 gradient
+得到 <span class="math inline">\(-\frac{1}{2}\Sigma^{-1}
+(f(s_t)-a_t)\frac{df}{d\theta}\)</span>.</p>
+<p>这个和 L2 Loss 的模仿学习差不多. 但是不同点就在于一个 training data
+和你的 Policy 息息相关，不同的 policy 对应的 data 的分布都是不同的.</p>
+<p>这是最 naive 的 algo，称为 REINFORCE algo（全大写）.</p>
+<p>但这也带来一个问题，就是 sample efficienty 太低了.</p>
+<p>其实设定上我们还没提到之前提到的 partial observability.
+但是实际上，带上那个，重新推导一下，发现只需要把 <span
+class="math inline">\(p(a_t|s_t)\)</span> 换成 <span
+class="math inline">\(p(a_t|o_t)\)</span> 就行了，还是一样的.</p>
+<hr />
+<h4 id="reward">Reward</h4>
+<p><span class="math inline">\(\frac{1}{N}\sum \nabla_{\theta} \log
+p_{\theta}(\tau)r(\tau)\)</span> 的问题：首先这个 <span
+class="math inline">\(r\)</span> variance 很大；其次实际上应该只有 <span
+class="math inline">\(r\)</span>
+的相对值有关系，而不是绝对值（有时候环境给的奖励也不是很好控制）.</p>
+<h5 id="reduce-variance">reduce variance</h5>
+<p>首先一个方法是，原本 <span class="math inline">\(\nabla
+p(a_i,s_i)\)</span> 的权重都是 <span
+class="math inline">\(\sum_{i=0}^{T}
+r(a_i,s_i)\)</span>，但是实际上我们根本不应该关心之前的 <span
+class="math inline">\(r\)</span>. 所以应该替换成 <span
+class="math inline">\(\sum_{j=i}^{T}r(a_j,s_j)\)</span>，即 "reward to
+go". 这也符合我们的 Markov Decision Process.</p>
+<h5 id="baseline">baseline</h5>
+<p>即我们要取一个 <span class="math inline">\(b\)</span>，然后所有 <span
+class="math inline">\(r(\tau)\)</span> 都减去 <span
+class="math inline">\(b\)</span>，使得所有 <span
+class="math inline">\(r\)</span> 的均值取在 <span
+class="math inline">\(0\)</span>.</p>
+<p>取 <span class="math inline">\(b=\frac{1}{N}\sum_{i=1}^{n}
+r(\tau_i)\)</span>. 这个 monte carlo sample 出来的 baseline
+估计是无偏的. 效果上还不错.</p>
+<p>当然也可以通过求导来算出最好的 baseline，但是一般也不那么做.</p>
+<h4 id="value-function-fitting">Value Function Fitting</h4>
+<p>但是实际上一个更好的 reward to go 是要考虑这一步之后所有可能的路径的
+expectation <span
+class="math inline">\(Q^{\pi}_{\theta}(s_t,a_t)=\sum_{i=t}^{T}E[r(s_i,a_i)|s_t,a_t]\)</span>
+而不是单单这一条 trajectory 的 reward.</p>
+<p>我们还可以定义状态的价值 <span
+class="math inline">\(V^{\pi}_{\theta}=\sum_{i=t}^{T}E[r(s_i,a_i)|s_t]=E_{a_t\sim
+\pi_{\theta}(a_t,s_t)}[Q(s_t,a^t)]\)</span>. 这个价值其实就很适合作为
+baseline.</p>
+<p>也就是说我们直接把最原本式子中的 <span
+class="math inline">\(r\)</span> 替换成 <span
+class="math inline">\(Q-V\)</span> 看上去就很好. 称之为 Value Function
+Fitting.</p>
+<p>定义函数 <span
+class="math inline">\(A^{\pi}(s_i,a_i)=Q^{\pi}(s_i,a_i)-V^{\pi}(s_i)\)</span>.
+我们把 <span class="math inline">\(Q\)</span> 用 <span
+class="math inline">\(V\)</span> 来表示，就是 <span
+class="math inline">\(Q^{\pi}(s_i,a_i)=r(s_i,a_i)+E_{s_{i+1}\sim
+p(s_{i+1}|s_i,a_i)} [V^{\pi}(s_{i+1})]\)</span>. 我们暴力一点，直接把
+<span class="math inline">\(E\)</span> 删掉，得到 <span
+class="math inline">\(A^{\pi}(s_i,a_i)=r(s_i,a_i)+V^{\pi}(s_{i+1})-V^{\pi}(s_i)\)</span>.</p>
+<p>实际上，我们会用一个神经网络去学习 <span
+class="math inline">\(V^{\pi}(s_i)\)</span>. 为什么呢？因为 monte carlo
+得到的原本的 <span class="math inline">\(V\)</span>
+噪声太大了，用一个神经网络去 fit 可以显著降低这种噪声.
+我们使用的训练数据就是 <span
+class="math inline">\((s_{i,t},y_{i,t}=r(s_i,a_i)+\sum_{j=t+1}^T
+r(a_j,s_j))\)</span>. 令这个网络参数是 <span
+class="math inline">\(\phi\)</span>，我们就得到 <span
+class="math inline">\(\hat V_{\phi}(s_t)\)</span>.</p>
+<p>这样噪声还是很大. 我们不如直接用上一次训练出来的 <span
+class="math inline">\(\hat V_{\phi}(s_{t+1})\)</span> 直接代替掉 monte
+carlo 得到的 <span
+class="math inline">\(\sum_{j=t+1=}^{T}r(a_j,s_j)\)</span>.
+这样能够继续减小 variance.</p>
+<h5 id="discount-factor">discount factor</h5>
+<p>改为 <span class="math inline">\(y_{i,t}=r(s_{i,t},a_{i,t})+\gamma
+V_{\phi}(s_{i},t+1)\)</span>. 即时间离得远的 reward 要打一个
+discount.</p>
+<p><span class="math inline">\(\gamma\)</span> 称为 discount factor. 取
+<span class="math inline">\(0.99\)</span> 挺好.</p>
+<p>并且这个天然地会去鼓励模型尽早完成任务</p>
+<p>同时，<span class="math inline">\(A\)</span> 也要改为 <span
+class="math inline">\(r(a_t,s_t)-V(s_t)+\gamma V(s_{t+1})\)</span>.</p>
+<h4 id="actor-critic-algo">Actor-critic algo</h4>
+<p>有两种，一种是 batch，一种是 online.</p>
+<p>batch / episodic 就是，先 sample 一些
+trajectory，然后再据此做后面的部分.</p>
+<p>online 的话，就是每个环境走一步，然后用 <span
+class="math inline">\(N\)</span> 个环境得到的<span
+class="math inline">\(N\)</span> 个步去更新一下后面的部分.</p>
+<p>实际训练中，我们更多地使用
+online，因为这样效率就会比较高，一边走一边也在训练.</p>
+<p>actor 就是 <span class="math inline">\(\theta\)</span>，critic 就是
+<span class="math inline">\(\phi\)</span>. critic 能够帮助 actor
+的训练.</p>
+<p>actor 和 critic 可以 share 一些参数.</p>
+<p>Asynchronous Advantage Actor-Critic：（？）可以节省时间.</p>
+<p>一般的 actor critic 长这样：</p>
+<ul>
+<li>sample <span class="math inline">\(a\sim
+\pi_{\theta}(a|s)\)</span>，得到一组 <span
+class="math inline">\((s,a,s&#39;,r)\)</span>.</li>
+<li>用 <span class="math inline">\((s,r+\gamma \hat
+V^{\pi}_{\phi}(s&#39;))\)</span> 更新 <span
+class="math inline">\(\phi\)</span>.</li>
+<li>计算 <span class="math inline">\(A^{\pi}(s,a)\)</span>.</li>
+<li>用 <span class="math inline">\(\nabla_{\theta} \log
+\pi_{\theta}(a|s) A^{\pi}(s,a)\)</span> 做梯度更新.</li>
+</ul>
+<h5 id="generalized-advantage-estimation">Generalized advantage
+estimation</h5>
+<p>这有一个问题，就是直接用 <span class="math inline">\(\hat
+V^\pi_{\phi}(s)\)</span> 会有 bias，但是只用 monte carlo 又有巨大的
+variance.</p>
+<p>一个方法是，monte carlo <span class="math inline">\(n\)</span>
+步（使得这 <span class="math inline">\(n\)</span> 步 variance
+不会很大），然后再用 <span class="math inline">\(\hat
+V^\pi_{\phi}(s_{t+n})\)</span>. 大概 <span
+class="math inline">\(n=2\)</span> 或者 <span
+class="math inline">\(n=4\)</span> 什么的.</p>
+<p>但是我们也可以搞一个类似 discount factor 的东西. 取一个 discount
+factor <span class="math inline">\(\lambda\)</span>，然后令 <span
+class="math inline">\(\delta_{t&#39;}=r(s_{t&#39;},a_{t})-V(s_{t&#39;})+\gamma
+V(s_{t&#39;+1})\)</span>，并取 <span
+class="math inline">\(A(s_t,a_t)=\sum_{t&#39;}
+(\gamma\lambda)^{t&#39;-t}\delta_{t&#39;}\)</span>.</p>
+<hr />
+<p>实际训练的时候，RL 的 gradient 的 variance 特别大，很 noisy.</p>
+<p>一个视觉 observation 要过一个 encoder 得到 feature 之后再
+RL，一般需要把 encoder 训好了，freeze 了再训 RL，否则这个 encoder
+就会训不好.</p>
+<p>调 learning rate 很难.</p>
+<h4 id="off-policy">off policy</h4>
+<p>on policy 的一个问题是 太 inefficient 了. 而且有 curse of
+dimension：维度大的时候，很容易走好都没有什么正样本，全是负样本.</p>
+
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+
+<aside id="sidebar-toc">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-list-ul"></i>  
+            文章目录 
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        
+        
+        <div class="panel-body toc-container">
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#imitation-learning"><span class="toc-list-text">Imitation Learning</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#distribution-shift"><span class="toc-list-text">Distribution Shift</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#dagger"><span class="toc-list-text">DAgger</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#casual-confusion"><span class="toc-list-text">Casual confusion</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#multimodal-behaviour"><span class="toc-list-text">Multimodal behaviour</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#multitask-training"><span class="toc-list-text">Multitask training</span></a></li></ol></li></ol></li></ol></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#reinforcement-learning"><span class="toc-list-text">Reinforcement Learning</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#intro"><span class="toc-list-text">Intro</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#gradient"><span class="toc-list-text">Gradient</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#example-gaussian-policy"><span class="toc-list-text">Example: Gaussian Policy</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#reward"><span class="toc-list-text">Reward</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-5"><a class="toc-list-link" href="#reduce-variance"><span class="toc-list-text">reduce variance</span></a></li><li class="toc-list-item toc-list-level-5"><a class="toc-list-link" href="#baseline"><span class="toc-list-text">baseline</span></a></li></ol></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#value-function-fitting"><span class="toc-list-text">Value Function Fitting</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-5"><a class="toc-list-link" href="#discount-factor"><span class="toc-list-text">discount factor</span></a></li></ol></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#actor-critic-algo"><span class="toc-list-text">Actor-critic algo</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-5"><a class="toc-list-link" href="#generalized-advantage-estimation"><span class="toc-list-text">Generalized advantage
+estimation</span></a></li></ol></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#off-policy"><span class="toc-list-text">off policy</span></a></li></ol></li></ol></li></ol></li></ol>
+        </div>
+    </div>
+</aside>
+
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2025/09/07/%E5%85%B7%E8%BA%AB-Policy/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/09/07/%E5%85%B7%E8%BA%AB-Policy/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 19.063203585574485px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 12.370507971474225px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 12.043274742527437px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 8.775746501676563px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 18.64602038532881px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 8.533938368554697px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 11.088407987404805px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 18.957455593728298px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 18.83089777373129px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 19.726968226290246px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 9.045669619511596px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 10.100658539846986px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 16.42966728636035px;" class="tag-cloud-link">高代</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

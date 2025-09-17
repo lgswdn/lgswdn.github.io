@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>CVDL-3D Vision 2 | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>CVDL-3D Vision 2</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/04/23/CVDL-3D%20Vision%202/">CVDL-3D Vision 2</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/CVDL/">CVDL</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-04-23
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2025/04/23/CVDL-3D%20Vision%202/">CVDL-3D Vision 2</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2025-04-23
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/CVDL/">CVDL</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>真 3D 要求能够给出任意两个点的 metric distance（度量距离）.</p>
+<p>而显然深度图中给出的信息（一个点的 pixel 坐标以及
+depth）单位对不上，所以无法得知 metric distance.</p>
+<p>Depth Sensors 不是无限远的. 有一个最近 &amp; 最远的距离（near plane
+&amp; far plane）. 可以测量到的空间为一个棱台.
+所以比如人脸检测的时候不能靠太近.</p>
+<p>Depth Sensor 要四个东西. RGB &amp; IR Projector &amp; 2 IR Receiver.
+（IR：红外）</p>
+<p>最简单的用两个 RGB 即可得到 Stereo Sensor.
+即用两个水平的相机，找到同一个点在两个相机分别的位置. 设在两张纸上的
+pixel 坐标，一个在 <span class="math inline">\(u\)</span> 一个在 <span
+class="math inline">\(u&#39;\)</span>，视差为 <span
+class="math inline">\(u-u&#39;\)</span>. 两个相机相隔 <span
+class="math inline">\(B\)</span>，则 <span
+class="math inline">\(u-u&#39;=\frac{Bf}{z}\)</span>.</p>
+<p><img src="C:\Users\AD\AppData\Roaming\Typora\typora-user-images\image-20250423161923655.png" alt="image-20250423161923655" style="zoom:33%;" /></p>
+<p>我们先让两张图片处于同一水品. 然后对同一水平线做 line search.
+然后找同一个点的方法是做特征提取，然后每个 Pixel 的特征两张图做点积.
+点积最大的意味着对应.</p>
+<p>图中有若干部分是左眼看得见而右眼看不见的.
+可能是因为在边缘，也可能因为是被挡住了.</p>
+<p>一个较大的问题是对应关系很难找.
+比如纹理缺失的墙就根本对应不起来，重复的东西也对应不起来.
+并且如果有镜子的话，左右两眼看到的同一个点对应的是不同的东西（画一画就能明白），因为我们看到的是镜子反射出的别的东西，所以就无法建立两张图图片中的正确的
+correspondance. 并且透明的物体也有类似的问题，因为光的折射.</p>
+<p>所以这个方法只能做一个 diffuse
+surface（漫反射表面）的工作，而做不了镜面（specular）和透明（transparent）；点是两个眼睛都能看到的
+texture 缺失或者过于.</p>
+<p>结构光：发射红外射线，形成红外光斑，来打上 texture.
+不能在户外使用，因为会有别的红外干扰（太阳光）.</p>
+<p>之前直接做的是 Passive Stereo. 而主动发射红外光线的 Active Stereo
+解决了 textureless 的问题，但是却还是无法解决镜面和透明的问题.</p>
+<p>黑色会吸收光，所以会导致 Missing Value. 而透明的可能不会有什么
+Missing Value 但是会导致很多塌陷（相当于折射之后透过去了）.
+反光肯定也还是测不标准的.</p>
+<p>激光雷达：获得 Ray Depth. 但是还是无法很好地处理透明和镜面.</p>
+<p>这是一个很难办的问题. 接下来还是先假定这些没遇到上述问题比较好.</p>
+<hr />
+<p>Voxels：Volumetric Pixels</p>
+<p>清晰度很小的时候就已经量级很大了. 比如 <span
+class="math inline">\(32^3\)</span> 所需存储量已经大于了 <span
+class="math inline">\(256^2\)</span>.</p>
+<p>离散带来的几何偏差很大，刻画能力和精细度很差.</p>
+<p>但是好处是确实够简单. 比如可以应用一个 3D 的 CNN.
+不过参数量也很巨大.</p>
+<p>Mesh，Point Cloud 和 Implicit representation（<span
+class="math inline">\(F(x)=0\)</span>）都可以给出表面信息.</p>
+<hr />
+<p>Mesh：对表面的一个分段线性（Piecewise
+Linear）的近似，用一个简单的线性平面来近似每一个局部.</p>
+<p>Triangle Mesh 表面近似成很多个三角形拼凑起来. Quad Mesh
+则可以用四边形平面，但由于一些拓扑的问题会导致有奇点所以不常用.
+最多用的就是三角面片.</p>
+<p>实际上我们可以用一个 Graph 来表示. 每个三角形的顶点用一个 Vertex
+<span class="math inline">\(V\subset R^3\)</span>
+表示，然后三角形的边就形成了 Edge <span class="math inline">\(\subset
+V\times V\)</span>，然后三个 Vertex 可以组成一个 Face <span
+class="math inline">\(\subset V\times V\times V\)</span>. 所以一个 Mesh
+可以用 Vertex 集合，Edge 集合，Face 集合三个来一起表征.</p>
+<p>下面探讨几何属性，略去材质，颜色等属性.</p>
+<p>数据存储方法：OBJ Format，存每个 Vertex 的坐标，和每个 Triangle
+由哪几个 Vertex 组成. 每个 Triangle 的点按照逆时针列出（符合右手定则）.
+如果在此基础上，钦定字典序最小，那么就能唯一确定了.
+如果转向错了的话，法向量就反了，会导致渲染出错，或者法向量作为 feature
+的时候出错.</p>
+<p>Geodesic Distance：表面上两个点的最短距离. 算这个东西一个很 Naive
+且不准确的做法是直接计算最短路. 存在一点更好且更快的近似算法.</p>
+<hr />
+<p>Point Cloud：只保留 <span class="math inline">\(V\)</span>. 是
+Irregular 且 Orderless 的. 很轻量级.</p>
+<p>点云本质是一个 Point Set. 点的顺序无意义. 在同等的存储量上，Point
+Cloud 的集合刻画最好.</p>
+<p>点云是在 Surface 这个二维流形中的采样. 对于同一个
+Surface，可以有很多不同的采样方式.</p>
+<p>均匀采样：即任取一个面积，除以总面积之后，点数比约等于面积比.我们第一步需要得到一个
+Mesh. 然后再去从 Mesh 上把点云采下来. 假如有 <span
+class="math inline">\(M\)</span>
+个三角形，我们按三角形的面积作为权，每次以这个为权随机选一个三角形，然后再在三角形中随机采点.
+如何在三角形中随机采点？考虑镜像扩充成一个平行四边形，然后在平行四边形的坐标中采点，然后再镜像回三角形.</p>
+<p>但是这种纯随机还是会有很多不令人满意的地方.
+因为随机，只是期望正确，所以有的地方稀疏有的地方密集.</p>
+<p>Farthest Point Sampling：使得任两个 Sample 的点的距离之和最大.
+这样显然会导致分布的很均匀，但这是个 NP Hard 问题. 考虑做点贪心近似.</p>
+<p>首先做 <span class="math inline">\(N\)</span> 更大的 Uniform
+Sampling，然后再在这些点中去找尽量的 FPS 子集.
+考虑一个贪心：先找一个随机的点，然后再找一个点使得到那个点距离最大，然后再找一个点使得到这两个点距离和最大...
+这样找 <span class="math inline">\(K\)</span> 个点，得到 <span
+class="math inline">\(O(NK)\)</span> 的贪心算法. 这个就更加 Evenly
+Distributed 了，并且更少丢掉一些 local 信息.</p>
+<p>而实际上我们也不一定要用 Mesh 去做. 我们也可以直接从深度图中得到
+<span class="math inline">\(H\times W\)</span> 个点，然后再 FPS.</p>
+<p>如何比较两个点云呢？</p>
+<p>Chamfer Distance：对于点云 <span class="math inline">\(A\)</span>
+的每个点，找其在 <span class="math inline">\(B\)</span>
+中的最近邻，距离和加起来. 对于 <span class="math inline">\(B\)</span>
+同理. 两个距离和加起来得到 Chamfer Distance.</p>
+<p>Earth Mover's Distance：找 <span class="math inline">\(A,B\)</span>
+的最小二分图匹配 <span class="math inline">\(\phi\)</span>. 令 <span
+class="math inline">\(d_{EMD}(A,B)\)</span> 为最小权匹配的距离和.</p>
+<p>EMD 对于每个区域的密度很敏感，而 CD 则好一些.</p>
+<hr />
+<p>3D Deep Learning</p>
+<p>直接把 <span class="math inline">\(3n\)</span> 长度的 vector 喂给 MLP
+很糟糕. 因为点云无关顺序，但是 vector 换个顺序输出就会变很大.</p>
+<p>如果只是 sorting，那么删一个点增一个点，变化也太大了，很糟糕.</p>
+<p>PointNet：先对每个 <span class="math inline">\((x,y,z)\)</span> 通过
+MLP 变成长 <span class="math inline">\(c\)</span> 向量（<span
+class="math inline">\(n\times 3\to n\times c\)</span>），然后再 MLP
+变成长 <span class="math inline">\(d\)</span> 向量.
+然后再对每个维取一个对称函数 <span class="math inline">\(g\)</span>
+（比如 max pool）得到一个 <span class="math inline">\(c\)</span> 维向量
+<span class="math inline">\(z\)</span>（<span
+class="math inline">\(n\times d\to 1\times d\)</span>），然后再 MLP 做
+classification.</p>
+<p>如果我们要做 Segmentation，那么就直接暴力将 <span
+class="math inline">\(z\)</span> 拼接在每个点的长 <span
+class="math inline">\(c\)</span> 向量之后得到 <span
+class="math inline">\(n\times(d+c)\)</span> 然后直接还原.</p>
+<p>PointNet 对加删点非常鲁棒. 因为只有那个维度的 Max
+被删掉才会导致发生变化.</p>
+<p>PointNet 的局限性在于并没有局部信息. 只有单点信息和全局信息.
+比如所有点都 <span class="math inline">\(+1\)</span> 那么就变化剧烈.</p>
+<p>如何提取局部特征，做有层级的特征提取呢？</p>
+<p>考虑选一个点 <span class="math inline">\(c\)</span>，考虑其半径为
+<span class="math inline">\(r\)</span> 的领域，用其关于 <span
+class="math inline">\(c\)</span> 的相对坐标，再 append 上 <span
+class="math inline">\(c\)</span> 的绝对坐标，去做 Point Net.
+将最后得到的向量放在 <span class="math inline">\(c\)</span> 处.
+于是点数变少，通道数增加，完成了 Down Sampling.</p>
+<p>如何做 Up Sampling
+呢？我们先对于每个被删去的点，找到在保留的点中的三近邻，然后做线性插值
+得到其信息. 然后再结合其 Skip Link 得到的 Feature，Concatenate
+之后再对每个单点做 Pointnet 得到新的 Feature.</p>
+
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2025/04/23/CVDL-3D%20Vision%202/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/04/23/CVDL-3D%20Vision%202/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 18.35444712328605px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 18.96155181712082px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 13.708580923975177px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 12.219391998319608px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 10.03122048426578px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 11.858395772609473px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 17.08455141358397px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 13.41849833784309px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 11.232113309103262px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 10.041231316755303px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 13.718097812588407px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 9.193737925981363px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 15.192687477797708px;" class="tag-cloud-link">高代</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

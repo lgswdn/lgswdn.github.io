@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>CVDL-Visual Generative Model | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>CVDL-Visual Generative Model</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/06/04/CVDL-Generative%20Model/">CVDL-Visual Generative Model</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/CVDL/">CVDL</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-06-04
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2025/06/04/CVDL-Generative%20Model/">CVDL-Visual Generative Model</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2025-06-04
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/CVDL/">CVDL</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>生成模型本质上，是给定一个服从某个分布 <span
+class="math inline">\(p_{data}(x)\)</span> 的数据集，然后学到一个 <span
+class="math inline">\(p_{model}(x)\)</span> 来尽量拟合 <span
+class="math inline">\(p_{data}(x)\)</span>，使得一方面可以学到 <span
+class="math inline">\(x\)</span> 的 probability，另一方面可以从 <span
+class="math inline">\(p_{model}\)</span> 中去采样 <span
+class="math inline">\(x\)</span>.</p>
+<p>一个天然的训练目标是 MLE，即最大化 <span class="math inline">\(\sum_i
+\log p_{model}(x_i)\)</span>，这样就显示地将 <span
+class="math inline">\(p_{model}\)</span> 给建模出来.
+但是这不意味就可以从中采样了. 而要想要进行 sample 也未必一定需要去能够
+estimate density. 后者称为 Implicit density
+estimation，即可以采样但是不可以去直接计算出 density. 而有 density
+这个概念的称为 Explicit density
+estimation，于是就可以通过优化这个的方式去训练网络. 这分为 tractable
+density（可以直接 forward 出概率），也有 approximate
+density（用近似的方式优化概率）.</p>
+<p>Discriminative Model 本质上学的是，给 Label <span
+class="math inline">\(Y\)</span> 和 Inputs <span
+class="math inline">\(x\)</span>，学 <span
+class="math inline">\(P(Y|X)\)</span> 的条件概率，去给定 <span
+class="math inline">\(X\)</span>， sample 出 <span
+class="math inline">\(Y\)</span>. 而生成模型，则学的是 <span
+class="math inline">\(P(X)\)</span> 或 <span
+class="math inline">\(P(X,Y)\)</span>. 这里的 <span
+class="math inline">\(X,Y\)</span>
+的联合分布概率，而非条件概率，并从这样的模型中去 sample 出 <span
+class="math inline">\(X\)</span> 或者 <span
+class="math inline">\((X,Y)\)</span>.</p>
+<p>一个非常简洁的模型就是一个 Pixel 一个 Pixel 去生成，去坐一个
+autoregressive 的生成，这个和序列的 generative 没有啥区别.
+但是显而易见效果很差.</p>
+<hr />
+<p>第一个能看的模型是 Autoencoder. 这是一个 self-supervised model. <span
+class="math inline">\(x\)</span> 通过 encoder 变成 latent space 上的一个
+feature <span class="math inline">\(z\)</span>，然后再通过 decoder 变成
+<span class="math inline">\(\hat x\)</span>，然后以 <span
+class="math inline">\(||x-\hat x||\)</span> 作为 Loss.</p>
+<p>但是这是不能直接随便选一个 <span class="math inline">\(z\)</span>
+然后 decode 的. 这是因为符合要求的 <span
+class="math inline">\(x_{data}\)</span> 在 <span
+class="math inline">\(x\)</span> 空间中占无限小（实际上是一个
+manifold，流形），于是映过去的 <span
+class="math inline">\(z_{data}\)</span> 也在 <span
+class="math inline">\(z\)</span> 空间中占无限小，所以直接从 <span
+class="math inline">\(z\)</span> 空间随机一个肯定是错的. 我们只有确保
+<span class="math inline">\(z\)</span>
+是一个可采样的分布才可以去做生成.</p>
+<p>VAE：一个很简单的解决方法是直接令 <span
+class="math inline">\(p(z)\)</span> 为高斯分布. 我们只需要操控 encoder
+学完之后是标准正太分布即可. 当然这有很多的不合理性，所以也是 VAE
+的一个很大局限，但至少高斯分布是一个合理的可采样的分布了，比随便乱采合理不少.
+然后 decoder 的 <span class="math inline">\(p_{\theta}(x\mid z)\)</span>
+可以写成一个预测 <span class="math inline">\(\mu\)</span> 和 <span
+class="math inline">\(\Sigma\)</span>
+的网络，相当于预测它的高斯分布.（？）</p>
+<p>对于模型 <span class="math inline">\(\theta\)</span>，<span
+class="math inline">\(p_{\theta}(x)=\int p(z)p_{\theta}(x\mid
+z)dz\)</span>，这是算不出来的.
+如果用蒙特卡洛进行随机采样估计，虽说是无偏的，但是噪声太大了.</p>
+<p>我们做点变形，<span
+class="math inline">\(p_{\theta}(x)=\frac{p_{\theta}(x,z)}{p_{\theta(z\mid
+x)}}=\frac{1}{p_{\theta}(z\mid x)} p(z)p_{\theta}(x\mid z)\)</span>.
+所以我们看能不能求出 <span class="math inline">\(p_{\theta}(z\mid
+x)\)</span>. 这个本质就是我们的 encoder 的形式. 将 encoder <span
+class="math inline">\(\phi\)</span> 也写成一个高斯分布，<span
+class="math inline">\(q_{\phi}(z\mid x)\)</span>.</p>
+<p>推导出来之后，<span class="math inline">\(\log
+p_{\theta}(x^{(i)})\)</span> 等于 <span class="math inline">\(E_z[\log
+p_{\theta}(x^{(i)}\mid
+z)]-D_{KL}(q_{\phi}(z|x^{(i)})||p(z))+D_{KL}(q_{\phi}||p_{\theta})\)</span>.
+最后一项我们根本不知道，所以丢掉，得到 Lowerbound！然后去最优化这个
+Lowerbound 即可. 这个称为 ELBO.</p>
+<p>一个问题就是我们 <span class="math inline">\(z\)</span>
+是从高斯分布中 sample 出来的，这个 sample 怎么求导呢？Reparameterization
+trick: sample 的方式等价于 <span
+class="math inline">\(z=\mu+\epsilon\sigma\)</span>，<span
+class="math inline">\(\epsilon\)</span> 为从 <span
+class="math inline">\(N(0,1)\)</span> 中 sample
+看作常数，于是就可导了.</p>
+<p>这个 Loss 项的第一项表面上就是某种 L2 Loss，称为 Reconstruction
+Loss；然后第二个 Loss 项表面上是控制 <span
+class="math inline">\(z\)</span> 空间的分布为标准正太分布. 如果强制让
+Decoder 的 <span class="math inline">\(\sigma=1\)</span>，那么 VAE
+和普通 Autoencoder 的表面上就是多了一个控制分布的 loss.
+但是我们发现这两项 loss 是打架的. 因为你不可能在让 <span
+class="math inline">\(z\)</span> 有 <span
+class="math inline">\(x\)</span> 的特征的情况下还让对于任意 <span
+class="math inline">\(x\)</span> 都能给出标准正态分布. 所以 VAE
+在这里就是矛盾的，所以就卡在这里了，生成质量就很不好. 不过 VAE
+确实可以给出一个 Approximate 的 density estimation，即这个 ELBO.</p>
+<p>L2 是一个很不好的东西. 因为它会默认带一个 Gaussian 分布.
+这些都生成的很不好，显然会有高斯噪声.</p>
+<hr />
+<p>GAN 则分为 discriminator 和 generator.</p>
+<p>训练主要是一个 minimax game.我们希望 minimax <span
+class="math inline">\(\min_{\theta g}\max_{\theta d}\)</span>
+真图被判别为真图的期望概率 + 假图被判别为假图的期望概率.</p>
+<p>对于 discriminator，就是最大化 <span
+class="math inline">\(E_{x\sim{p_{data}}}[\log D(x)]+E_{z\sim
+p(z)}[\log(1-D(G(z)))]\)</span>，而对于 generator，就是最小化 <span
+class="math inline">\(E_{z\sim p(z)}[\log(1-D(G(z)))]\)</span>.</p>
+<p>但是这个任务 discriminator 更简单，于是很快 generator 就没梯度了.</p>
+<p>于是我们修改为增加自己生成真图的概率，即 <span
+class="math inline">\(E_{z\sim p(z)}[\log(D(G(z)))]\)</span>，这样如果是
+<span class="math inline">\(0\)</span> 的时候梯度会很大.</p>
+<p>非常难以训练. 当时有很多篇论文研究如何训练，形成了 Gan Zoo.
+Progressive GAN 是逐层训练 GAN，不断增加分辨率.</p>
+<p>当分布 Diverse 的时候，GAN 做不到. 所以生成人脸中，分布比较 narrative
+的前景就比较好，但是背景就很烂.</p>
+<p>Mode Collapse: GAN
+没有义务去生成足够有丰富性的图，而是可能会'打游击'，来来回回生成一张图，被干了之后再换一张图.
+而 VAE 就不会这样.</p>
+<p>FID: 拿一个另外一个 pretrained 的网络抽生成的图的 feature，然后假定
+feature 遵从 gaussian distribution，然后比较和 real data 的 feature
+分布.</p>
+<p>GAN 的 latent space
+中有线性的，语义的结构，可以做语义层面的加减法.</p>
+<hr />
+<p>Diffusion Model 回到对 Density 的 modeling，也是一个 approximately
+density.</p>
+<p>Diffusion 的每一次加噪/去噪都是弄一个高斯噪声，和 VAE 有一定相似性.
+每步都加高斯，最后一堆高斯分布的叠加几乎就是任意的分布.</p>
+<p>没时间讲了.</p>
+<hr />
+<p>参考讲义：<a
+href="../../../../file/CVDL/Lecture%2015%20-%20Generative%20Model.pdf">Lecture
+15 - Generative Model</a></p>
+
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2025/06/04/CVDL-Generative%20Model/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/06/04/CVDL-Generative%20Model/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 15.310415315548536px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 16.148371375274774px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 16.78199513334621px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 8.585961964280724px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 12.333790188713953px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 18.337134192409046px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 16.00585198152494px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 13.592175489306406px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 8.059650701086115px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 9.75489186201532px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 12.73334539390051px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 14.792305686102452px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 15.413447496824105px;" class="tag-cloud-link">高代</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

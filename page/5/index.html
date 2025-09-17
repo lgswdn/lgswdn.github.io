@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<div class="alert well fade in" id="gal-issue" role="alert">
+    <!-- TODO 添加关闭公告框功能 -->
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <!-- 这里自行配置公告内容 -->
+    <h1 align="center"> ​<b> 潰えぬ夢へ 燃え上がれ </b> </h1>
+    <!-- 自行配置公告内容结束 -->
+</div>
+
+<div id="article-list">
+     
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">03月</span>
+        <span class="day">23</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/03/23/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%9B%9B%E5%85%83%E6%95%B0/">
+                    <span>高代笔记-四元数</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E9%AB%98%E4%BB%A3/">高代</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2025/03/23/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%9B%9B%E5%85%83%E6%95%B0/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2025/03/23/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%9B%9B%E5%85%83%E6%95%B0/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview12.jpg" alt="高代笔记-四元数">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2025/03/23/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%9B%9B%E5%85%83%E6%95%B0/">
+                        <span>高代笔记-四元数</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2025-03-23
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/%E9%AB%98%E4%BB%A3/">高代</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2025/03/23/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%9B%9B%E5%85%83%E6%95%B0/">
+                    
+                    <img src="/imgs/preview/preview11.jpg" alt="高代笔记-四元数">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2025/03/23/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%9B%9B%E5%85%83%E6%95%B0/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">03月</span>
+        <span class="day">23</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/03/23/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E4%B8%89%E7%BB%B4%E6%97%8B%E8%BD%AC%E5%92%8C%E6%AC%A7%E6%8B%89%E8%A7%92/">
+                    <span>高代笔记-三维旋转与欧拉角</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E9%AB%98%E4%BB%A3/">高代</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2025/03/23/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E4%B8%89%E7%BB%B4%E6%97%8B%E8%BD%AC%E5%92%8C%E6%AC%A7%E6%8B%89%E8%A7%92/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2025/03/23/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E4%B8%89%E7%BB%B4%E6%97%8B%E8%BD%AC%E5%92%8C%E6%AC%A7%E6%8B%89%E8%A7%92/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview5.jpg" alt="高代笔记-三维旋转与欧拉角">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2025/03/23/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E4%B8%89%E7%BB%B4%E6%97%8B%E8%BD%AC%E5%92%8C%E6%AC%A7%E6%8B%89%E8%A7%92/">
+                        <span>高代笔记-三维旋转与欧拉角</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2025-03-23
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/%E9%AB%98%E4%BB%A3/">高代</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2025/03/23/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E4%B8%89%E7%BB%B4%E6%97%8B%E8%BD%AC%E5%92%8C%E6%AC%A7%E6%8B%89%E8%A7%92/">
+                    
+                    <img src="/imgs/preview/preview11.jpg" alt="高代笔记-三维旋转与欧拉角">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2025/03/23/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E4%B8%89%E7%BB%B4%E6%97%8B%E8%BD%AC%E5%92%8C%E6%AC%A7%E6%8B%89%E8%A7%92/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">03月</span>
+        <span class="day">22</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/03/22/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-Locally%20Sensitive%20Hashing/">
+                    <span>程设笔记-Locally Sensitive Hashing</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E7%A8%8B%E8%AE%BE/">程设</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2025/03/22/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-Locally%20Sensitive%20Hashing/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2025/03/22/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-Locally%20Sensitive%20Hashing/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview7.jpg" alt="程设笔记-Locally Sensitive Hashing">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2025/03/22/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-Locally%20Sensitive%20Hashing/">
+                        <span>程设笔记-Locally Sensitive Hashing</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2025-03-22
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/%E7%A8%8B%E8%AE%BE/">程设</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2025/03/22/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-Locally%20Sensitive%20Hashing/">
+                    
+                    <img src="/imgs/preview/preview9.jpg" alt="程设笔记-Locally Sensitive Hashing">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2025/03/22/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-Locally%20Sensitive%20Hashing/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">03月</span>
+        <span class="day">19</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/03/19/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E7%91%95%E7%A7%AF%E5%88%86/">
+                    <span>数分笔记-瑕积分</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E6%95%B0%E5%88%86/">数分</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2025/03/19/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E7%91%95%E7%A7%AF%E5%88%86/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2025/03/19/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E7%91%95%E7%A7%AF%E5%88%86/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview2.jpg" alt="数分笔记-瑕积分">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2025/03/19/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E7%91%95%E7%A7%AF%E5%88%86/">
+                        <span>数分笔记-瑕积分</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2025-03-19
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/%E6%95%B0%E5%88%86/">数分</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2025/03/19/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E7%91%95%E7%A7%AF%E5%88%86/">
+                    
+                    <img src="/imgs/preview/preview4.jpg" alt="数分笔记-瑕积分">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2025/03/19/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E7%91%95%E7%A7%AF%E5%88%86/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">03月</span>
+        <span class="day">19</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/03/19/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%B9%BF%E4%B9%89%E7%A7%AF%E5%88%86/">
+                    <span>数分笔记-广义积分</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E6%95%B0%E5%88%86/">数分</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2025/03/19/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%B9%BF%E4%B9%89%E7%A7%AF%E5%88%86/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2025/03/19/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%B9%BF%E4%B9%89%E7%A7%AF%E5%88%86/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview2.jpg" alt="数分笔记-广义积分">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2025/03/19/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%B9%BF%E4%B9%89%E7%A7%AF%E5%88%86/">
+                        <span>数分笔记-广义积分</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2025-03-19
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/%E6%95%B0%E5%88%86/">数分</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2025/03/19/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%B9%BF%E4%B9%89%E7%A7%AF%E5%88%86/">
+                    
+                    <img src="/imgs/preview/preview4.jpg" alt="数分笔记-广义积分">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2025/03/19/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%B9%BF%E4%B9%89%E7%A7%AF%E5%88%86/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">03月</span>
+        <span class="day">17</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/03/17/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B02/">
+                    <span>音数笔记-2</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E9%9F%B3%E6%95%B0/">音数</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2025/03/17/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B02/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2025/03/17/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B02/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview5.jpg" alt="音数笔记-2">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2025/03/17/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B02/">
+                        <span>音数笔记-2</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2025-03-17
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/%E9%9F%B3%E6%95%B0/">音数</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2025/03/17/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B02/">
+                    
+                    <img src="/imgs/preview/preview2.jpg" alt="音数笔记-2">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2025/03/17/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B02/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">03月</span>
+        <span class="day">16</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/03/16/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-1/">
+                    <span>程设笔记-1</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E7%A8%8B%E8%AE%BE/">程设</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2025/03/16/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-1/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2025/03/16/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-1/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview3.jpg" alt="程设笔记-1">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2025/03/16/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-1/">
+                        <span>程设笔记-1</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2025-03-16
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/%E7%A8%8B%E8%AE%BE/">程设</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2025/03/16/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-1/">
+                    
+                    <img src="/imgs/preview/preview2.jpg" alt="程设笔记-1">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2025/03/16/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-1/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">03月</span>
+        <span class="day">12</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E6%AD%A3%E4%BA%A4%E5%8F%98%E6%8D%A2/">
+                    <span>高代笔记-正交变换</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E9%AB%98%E4%BB%A3/">高代</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E6%AD%A3%E4%BA%A4%E5%8F%98%E6%8D%A2/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E6%AD%A3%E4%BA%A4%E5%8F%98%E6%8D%A2/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview7.jpg" alt="高代笔记-正交变换">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E6%AD%A3%E4%BA%A4%E5%8F%98%E6%8D%A2/">
+                        <span>高代笔记-正交变换</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2025-03-12
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/%E9%AB%98%E4%BB%A3/">高代</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E6%AD%A3%E4%BA%A4%E5%8F%98%E6%8D%A2/">
+                    
+                    <img src="/imgs/preview/preview3.jpg" alt="高代笔记-正交变换">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E6%AD%A3%E4%BA%A4%E5%8F%98%E6%8D%A2/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">03月</span>
+        <span class="day">12</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%843-%E8%B0%B1%E5%AE%9A%E7%90%86%E4%B8%8E%E9%85%89%E5%AF%B9%E8%A7%92%E5%8C%96/">
+                    <span>高代笔记-复内积结构3-谱定理与酉对角化</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E9%AB%98%E4%BB%A3/">高代</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%843-%E8%B0%B1%E5%AE%9A%E7%90%86%E4%B8%8E%E9%85%89%E5%AF%B9%E8%A7%92%E5%8C%96/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%843-%E8%B0%B1%E5%AE%9A%E7%90%86%E4%B8%8E%E9%85%89%E5%AF%B9%E8%A7%92%E5%8C%96/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview3.jpg" alt="高代笔记-复内积结构3-谱定理与酉对角化">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%843-%E8%B0%B1%E5%AE%9A%E7%90%86%E4%B8%8E%E9%85%89%E5%AF%B9%E8%A7%92%E5%8C%96/">
+                        <span>高代笔记-复内积结构3-谱定理与酉对角化</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2025-03-12
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/%E9%AB%98%E4%BB%A3/">高代</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%843-%E8%B0%B1%E5%AE%9A%E7%90%86%E4%B8%8E%E9%85%89%E5%AF%B9%E8%A7%92%E5%8C%96/">
+                    
+                    <img src="/imgs/preview/preview6.jpg" alt="高代笔记-复内积结构3-谱定理与酉对角化">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2025/03/12/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%843-%E8%B0%B1%E5%AE%9A%E7%90%86%E4%B8%8E%E9%85%89%E5%AF%B9%E8%A7%92%E5%8C%96/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">03月</span>
+        <span class="day">10</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/03/10/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E5%BA%94%E7%94%A8/">
+                    <span>数分笔记-定积分的应用</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E6%95%B0%E5%88%86/">数分</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2025/03/10/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E5%BA%94%E7%94%A8/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2025/03/10/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E5%BA%94%E7%94%A8/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview11.jpg" alt="数分笔记-定积分的应用">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2025/03/10/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E5%BA%94%E7%94%A8/">
+                        <span>数分笔记-定积分的应用</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2025-03-10
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/%E6%95%B0%E5%88%86/">数分</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2025/03/10/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E5%BA%94%E7%94%A8/">
+                    
+                    <img src="/imgs/preview/preview10.jpg" alt="数分笔记-定积分的应用">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2025/03/10/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E5%BA%94%E7%94%A8/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+</div>
+<!-- 前方最多7个 < 1 2 3 4 5 6 -->
+<!-- 前方超过第7页则分为 < 1 ... (n - 3) (n - 2) (n - 1) n, 此时前面为固定的6个 -->
+
+<!-- 后方最多8个 (n + 1) 到 (n + 7) > -->
+<!-- 如果末页和当前页相差超过7, 此时后面为固定的6个, (n + 1) (n + 2) (n + 3) ... total > -->
+
+
+
+<div id="gal-pagination" class="clearfix">
+    <ul class="pagination pagination-gal pull-right">
+        
+        <li class="prev">
+            <a href="/page/4/">«</a>
+        </li>
+        
+        
+        
+        <li>
+            <a href="/">1</a>
+        </li>
+        
+        <li>
+            <a href="/page/2 ">2</a>
+        </li>
+        
+        <li>
+            <a href="/page/3 ">3</a>
+        </li>
+        
+        <li>
+            <a href="/page/4 ">4</a>
+        </li>
+        
+        
+        <li class="current">
+            <span>5</span>
+        </li>
+        
+        
+        <li>
+            <a href="/page/6">6</a>
+        </li>
+        
+        <li>
+            <a href="/page/7">7</a>
+        </li>
+        
+        
+        
+        <li class="next">
+            <a href="/page/6/">»</a>
+        </li>
+        
+    </ul>
+</div>
+
+<!-- 加上这段代码原因： gitment在首页加载时, 如果找不到对应的控件会报错，此处加上，同时设置为none，防止报错 -->   
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/page/5/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/page/5/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 9.521177599484957px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 13.812237685695322px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 10.674288823274269px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 18.386321004728625px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 10.756742766033103px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 8.618072389348834px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 18.61292869353114px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 19.058566065396633px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 14.4913327916024px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 13.716302531144166px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 18.872077579468574px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 17.63193034087716px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 14.271070029193762px;" class="tag-cloud-link">高代</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

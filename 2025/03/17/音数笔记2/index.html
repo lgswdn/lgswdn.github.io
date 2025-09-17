@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>音数笔记-2 | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>音数笔记-2</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/03/17/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B02/">音数笔记-2</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E9%9F%B3%E6%95%B0/">音数</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-03-17
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2025/03/17/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B02/">音数笔记-2</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2025-03-17
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E9%9F%B3%E6%95%B0/">音数</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h2 id="一维振动方程">一维振动方程</h2>
+<p>乐器有气（例如管乐器）/弦（弓弦，弹弦，击弦...）/电/体（木琴等）/膜（鼓，卡祖笛）鸣乐器.</p>
+<h3 id="弦乐">弦乐</h3>
+<p>令 <span class="math inline">\(u(x,t)\)</span> 表示弦上位置 <span
+class="math inline">\(x\)</span> 在时间 <span
+class="math inline">\(t\)</span> 的位移. 我们希望知道 <span
+class="math inline">\(u\)</span>.</p>
+<p>设弦受到张力 <span class="math inline">\(T\)</span>，线密度为 <span
+class="math inline">\(\rho\)</span>，令 <span
+class="math inline">\(c=\sqrt{T/p}\)</span> 为波速. 则一维振动方程 <span
+class="math inline">\(\frac{d^2u}{dt^2}=c^2\frac{d^2u}{dx^2}\)</span>.</p>
+<p>由于弦两端固定，所以 <span class="math inline">\(u\)</span>
+有边值条件 <span class="math inline">\(u(0,t)=u(L,t)=0\)</span>.</p>
+<p>运用神秘数学技巧，解得 <span
+class="math inline">\(u(x,t)=\sum_{n=1}^{\infty}(a_n\cos\frac{n\pi
+c}{L}t+b_n\sin\frac{n\pi
+c}{L}t)\sin(\frac{n\pi}{L}x)\)</span>.sweq435</p>
+<p>这告诉我们其实弦振动产生的声音一定是无限多个声音的叠加. 令 <span
+class="math inline">\(u_n\)</span> 为第 <span
+class="math inline">\(n\)</span> 项，令 <span
+class="math inline">\(\omega_n=\frac{n\pi
+c}{L}\)</span>，则利用辅助角公式知道 <span
+class="math inline">\(u_n(x,t)=\sqrt{a_n^2+b_n^2}\sin(\omega_nt+\theta_n)\sin(\frac{n\pi}{L}x)\)</span>.</p>
+<p>称 <span class="math inline">\(u_n(x,t)\)</span> 为第 <span
+class="math inline">\(n\)</span> 个振动模态. 于是第 <span
+class="math inline">\(n\)</span> 个振动模态的频率为 <span
+class="math inline">\(f_n=\frac{n}{2L}c\)</span>. 特别地，<span
+class="math inline">\(n=1\)</span> 时 <span
+class="math inline">\(f_1=\frac{1}{2L}\sqrt{\frac{T}{\rho}}\)</span>.</p>
+<p>这符合我们的直觉：<span class="math inline">\(L\)</span>
+越大频率越低，<span class="math inline">\(T\)</span> 越大频率越高，<span
+class="math inline">\(\rho\)</span> 越大（粗）频率越低. 但是注意是正比于
+$ $.</p>
+<p>并且我们发现弦的振动频率虽说有很多，但是都是 <span
+class="math inline">\(f_1\)</span> 的整数倍. 将 <span
+class="math inline">\(f_1\)</span> 称为基频，相应的声音称为基因. 而
+<span class="math inline">\(n&gt;1\)</span> 的则称为泛音. <span
+class="math inline">\(f_2\)</span> 为第一泛音，<span
+class="math inline">\(f_3\)</span> 为第二泛音.</p>
+<p>令 <span class="math inline">\(f=f_1\)</span>，则有泛音列（Harmonic
+series）<span class="math inline">\(f,\ 2f,\ 3f,\ ...\)</span>.</p>
+<p>对于固定的 <span class="math inline">\(n\)</span>，我们看振幅 <span
+class="math inline">\(\sqrt{a_n^2+b_n^2}\sin(\frac{n\pi}{L}x)\)</span>.
+有些位置振幅为 <span class="math inline">\(0\)</span>，称为波节；而
+<span class="math inline">\(k=1,3,\dots\)</span> 时取到 <span
+class="math inline">\(\pm 1\)</span>，称为波腹.</p>
+<p>赫尔姆霍兹的泛音列重合理论：音程和谐，相当于泛音列重合多.</p>
+<h3 id="管乐">管乐</h3>
+<p>振动主体为空气柱，不满足上述的 <span
+class="math inline">\(u(0,t)=u(L,t)=0\)</span>.</p>
+<p>开口为波腹，闭口为波节.</p>
+<p>在开管模型（长笛）下，有 <span
+class="math inline">\(\lambda=2L\)</span>. 于是开管时泛音列 <span
+class="math inline">\(f,2f,3f...\)</span>.</p>
+<p>而闭管（单簧管）则 <span class="math inline">\(L\)</span> 只能等于
+<span
+class="math inline">\(\frac{(2k+1)\lambda}{4}\)</span>，故泛音列只有
+<span
+class="math inline">\(f,3f,5f...\)</span>，即偶次泛音，并且基频低一倍.</p>
+<p>在管乐中有超吹（overblow），即产生泛音列第二项的音.
+故长笛超吹得到高八度，单簧管得到高十二度的音.</p>
+<p>方波：<span class="math inline">\(f(x)=\frac{4}{\pi}(\sin
+x+\frac{\sin 3x}{3}+\frac{\sin 5x}{5}+...)\)</span></p>
+<p>方波和单簧管有所相似，因为泛音列都是只有奇数.</p>
+<h2 id="律制">律制</h2>
+<p>三分损益：从宫（81）开始，乘 4/3 得到徵（108），再乘 2/3
+得到商（72），再乘 4/3 得到羽（96），再乘 2/3 得到角（64）.
+这就能得到五省音阶.</p>
+<p>接着三分损益得到变宫（85）和变徵（57）. 将宫音对
+C，则得到七声音阶宫（C），商（D），角（E），变徵（#F），徵（G），羽（A），变宫（B）.
+称为雅乐音阶 / 古音阶.</p>
+<p>十二律：做 11 次三分损益（其中某一次要连升两次）得到十二个音.
+但是显然做到最后显然回不到宫音，称之为旋宫不归.</p>
+<p>五度相生：五度比例为 2:3. 不断往上做纯五度. 做 12 次，然后降 7
+个八度，得到 <span
+class="math inline">\((\frac{3}{2})^{12}(\frac{1}{2})^7\)</span>.
+这理论上应该得到 C，但是最终回到比 1 多一些的地方.
+这个叫毕达哥拉斯音差.</p>
+<p>音分：<span
+class="math inline">\(1200\log_2(\frac{f_2}{f_1})\)</span>.
+在平均律中，一个半音为 <span class="math inline">\(100\)</span>
+音分.</p>
+<p>平均律中大三度比理想大三度高 14 个音分，而大六度则高 16 个音分.</p>
+<p>音乐会音高：A4 = 440Hz. 但演奏的时候也可以随便改.</p>
+<p>这是变高过的. 贝多芬时代大概都在 420Hz. 这对女高音很不友好.</p>
+
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+
+<aside id="sidebar-toc">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-list-ul"></i>  
+            文章目录 
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        
+        
+        <div class="panel-body toc-container">
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E4%B8%80%E7%BB%B4%E6%8C%AF%E5%8A%A8%E6%96%B9%E7%A8%8B"><span class="toc-list-text">一维振动方程</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E5%BC%A6%E4%B9%90"><span class="toc-list-text">弦乐</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E7%AE%A1%E4%B9%90"><span class="toc-list-text">管乐</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%BE%8B%E5%88%B6"><span class="toc-list-text">律制</span></a></li></ol>
+        </div>
+    </div>
+</aside>
+
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2025/03/17/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B02/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/03/17/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B02/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 16.028761280732567px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 8.692359751796218px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 19.338217253165336px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 11.024980662440107px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 11.915860490178774px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 15.522023727053888px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 10.64141482668403px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 8.598452446414036px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 9.763474559477812px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 11.383453436877126px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 12.19055062252422px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 13.353798468536937px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 16.227823522885735px;" class="tag-cloud-link">高代</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>
