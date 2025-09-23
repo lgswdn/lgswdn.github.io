@@ -512,6 +512,115 @@ RL，一般需要把 encoder 训好了，freeze 了再训 RL，否则这个 enco
 <h4 id="off-policy">off policy</h4>
 <p>on policy 的一个问题是 太 inefficient 了. 而且有 curse of
 dimension：维度大的时候，很容易走好都没有什么正样本，全是负样本.</p>
+<p>off-policy actor-critic：维护一个 replay
+buffer，记录之前最近一段时间见过的一些 <span
+class="math inline">\((s,a,s&#39;,r)\)</span> 的 tuple. 然后这些 tuple
+都可以去当作训练的 data，大幅度提升了效率.</p>
+<p>如何使用这些 off-policy 的数据呢？直接用肯定是错的，所以需要进行修正.
+显然旧的 <span class="math inline">\((s,a,s&#39;,r)\)</span>
+对于新的应该全是错的，所以我们需要容忍一些错误，修正一些错误.
+需要注意我们其实主要是想减少通过 <span
+class="math inline">\((s,a)\)</span> 计算出 <span
+class="math inline">\(s&#39;\)</span> 的这一个步骤，通过 <span
+class="math inline">\(s\)</span> 计算 <span
+class="math inline">\(a\)</span> 倒无所谓.</p>
+<p>首先看这一步：“用 <span class="math inline">\((s,r+\gamma \hat
+V^{\pi}_{\phi}(s&#39;))\)</span> 更新 <span
+class="math inline">\(\phi\)</span>”. 我们考虑 <span
+class="math inline">\(V(s&#39;)\)</span> 是从 <span
+class="math inline">\(\hat Q^{\pi}(s,a)\)</span> 来的. 所以我们不妨用新
+policy 跑出一个 <span class="math inline">\(s\)</span> 对应的新的 <span
+class="math inline">\(a^{\pi}\)</span>，然后用 <span
+class="math inline">\(\hat  Q^{\pi}(s,a^{\pi})\)</span> 来代替.
+这就要求我们不用去 fit <span class="math inline">\(V\)</span>，而是去
+fit <span class="math inline">\(\hat Q^{\pi}(s,a)\)</span>. 每次用 <span
+class="math inline">\(r(s,a^{\pi})+\gamma \hat
+Q^{\pi}(s,a^{\pi})\)</span> 去更新 <span class="math inline">\(\hat
+Q^{\pi}\)</span>. 于是解决了 <span
+class="math inline">\(a,s&#39;,r\)</span> 的问题.</p>
+<p>然后是这一步："用 <span class="math inline">\(\nabla_{\theta} \log
+\pi_{\theta}(a|s) A^{\pi}(s,a)\)</span> 做梯度更新". 这里的 <span
+class="math inline">\(\log \pi_{\theta}(a|s)\)</span> 肯定不能用老的.
+所以我们还是去跑一个新的 <span
+class="math inline">\(a^{\pi}\)</span>，然后用 <span
+class="math inline">\(\log \pi_{\theta}(a^{\pi}|s)\)</span>.
+然后一点就是 <span class="math inline">\(A^{\pi}(s,a)\)</span> 由于没有
+<span class="math inline">\(V\)</span> 了所以有点不好求.
+所以我们直接使用 <span class="math inline">\(\hat
+Q^{\pi}(s,a^{\pi})\)</span>. 兜兜转转最后回到了 <span
+class="math inline">\(Q\)</span>.</p>
+<p>所以现在唯一的问题只有 <span class="math inline">\(s\)</span> 的分布.
+但是其实 <span class="math inline">\(s\)</span>
+的分布只是比以前更广，所以也不是个坏事，反而可能更 robust 了.</p>
+<p>当然如果能有更高的 interactive sample efficiency 的话，还是更多的
+on-policy 会更有针对性.</p>
+<h4 id="importance-sampling">Importance Sampling</h4>
+<p><span class="math display">\[
+E_{x\sim p(x)}[f(x)]=\int p(x)f(x)dx=\int
+q(x)\frac{p(x)}{q(x)}f(x)=E_{x\sim q(x)}[\frac{p(x)}{q(x)}f(x)]
+\]</span></p>
+<p>所以我们可以从旧的分布中
+sample，然后用上面这个式子得到其在新的分布中的信息. <span
+class="math display">\[
+\frac{p_{\theta}(\tau)}{\bar p(\tau)}=\frac{\prod
+\pi_{\theta}(a_t|s_t)}{\prod \bar \pi(a_t|s_t)}
+\]</span> 带入那个 <span
+class="math inline">\(\nabla_{\theta&#39;}\)</span>
+的式子会发现还是有这样一个很难受的乘积. 注意到其本质等于 <span
+class="math inline">\(\frac{\pi_{\theta&#39;}(s_t)}{\pi_{\theta(s_t)}}\frac{\pi_{\theta&#39;}(a_t|s_t)}{\pi_{\theta}(a_t|s_t)}\)</span>.
+当 <span class="math inline">\(s\)</span>
+的分布差的不多的时候，所以直接不管前面这项了.</p>
+<p>所以就变成了对于 old policy <span
+class="math inline">\(\theta_k\)</span>，我们的 new policy 的优化目标是
+<span class="math display">\[
+L_{\theta_k,\theta}=E_{s,a\sim
+\pi_{\theta_k}}[\frac{\pi_{\theta}(a|s)}{\pi_{\theta_k}(a|s)}
+A^{\pi_{\theta_k}} (s,a)]
+\]</span> 但是如果分布差的太多那么就完蛋了.</p>
+<h5 id="trpo">TRPO</h5>
+<p>TRPO 的工作在于，找到 <span
+class="math inline">\(L_{\theta_k,\theta}\)</span> 的最小的，并满足
+<span class="math inline">\(D_{KL}(\theta||\theta_k)&lt;\delta\)</span>
+的 <span class="math inline">\(\theta\)</span>.</p>
+<p>数学思想是，对 objective 和 constriant 做泰勒展开，然后取低阶项.
+然后针对这个低阶项做拉格朗日乘子法.</p>
+<h5 id="ppo">PPO</h5>
+<p>TRPO 有点变态而且用的也比较少. 用的比较多的是 PPO.</p>
+<p>PPO follow TRPO 的 intuition，但是方法改成了给 KL Penalty 和 clipped
+surrogate objective. 这是种 soft constraint.</p>
+<p>clipped surrogate：如果 <span class="math inline">\(A\)</span>
+正，则将 <span
+class="math inline">\(\frac{\pi_{\theta}(a|s)}{\pi_{\theta_k}(a|s)}\)</span>
+clip 到对 <span class="math inline">\(1+\epsilon\)</span> 取 min；否则
+clip 到 对 <span class="math inline">\(1-\epsilon\)</span> 取 max.</p>
+<p>adaptive KL Penalty：即加上 <span class="math inline">\(\beta
+KL(\pi_{\theta_{old}},\pi_{\theta})\)</span> 的惩罚项. 这个 adaptive
+是指，令 <span class="math inline">\(d=KL\)</span>，设一个 <span
+class="math inline">\(d_{targ}\)</span>，如果 <span
+class="math inline">\(d&gt;1.5d_{targ}\)</span> 就让 <span
+class="math inline">\(\beta=\beta\times 2\)</span>，如果 <span
+class="math inline">\(d&lt;d_{targ}/1.5\)</span> 就让 <span
+class="math inline">\(\beta=\beta/2\)</span>.</p>
+<p>并且采用 Generalized Advantage Estimation.</p>
+<p>PPO 训练时候的方法：每轮新采数据，但是每次采完数据之后，做 <span
+class="math inline">\(k\)</span> 个 epoch 的 update，每个 epoch 的
+update 都使用这轮采的全部数据. 和之前完全 on-policy（<span
+class="math inline">\(k=1\)</span>）相比效率提升很多，但是 <span
+class="math inline">\(k\)</span> 也不能太大（不然分布就差太多了）.</p>
+<p>PPO 的 number of environments 有 <span
+class="math inline">\(16384\)</span> 个，mini-batch size 设为 <span
+class="math inline">\(512\)</span>，<span
+class="math inline">\(k\)</span> 设为 <span
+class="math inline">\(5\)</span>. <span
+class="math inline">\(\epsilon\)</span> 设为 <span
+class="math inline">\(0.2\)</span>. 反正超参数很多.</p>
+<p>一些 trick：对于一个 minibatch 对 <span
+class="math inline">\(A\)</span> 做一个 normalization（使得 center at
+<span class="math inline">\(0\)</span>），然后对 state 做
+normalization（和 batchnorm 类似，要记录 running mean 什么的然后 test
+time 要用这个 running mean），然后对 reward 做 scaling. Initialization
+和 Activation 什么的也有研究.</p>
+<p>RL 需要调整很多超参！</p>
 
     </div>
 </article>
@@ -582,7 +691,7 @@ dimension：维度大的时候，很容易走好都没有什么正样本，全�
         
         <div class="panel-body toc-container">
             <ol class="toc-list"><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#imitation-learning"><span class="toc-list-text">Imitation Learning</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#distribution-shift"><span class="toc-list-text">Distribution Shift</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#dagger"><span class="toc-list-text">DAgger</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#casual-confusion"><span class="toc-list-text">Casual confusion</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#multimodal-behaviour"><span class="toc-list-text">Multimodal behaviour</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#multitask-training"><span class="toc-list-text">Multitask training</span></a></li></ol></li></ol></li></ol></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#reinforcement-learning"><span class="toc-list-text">Reinforcement Learning</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#intro"><span class="toc-list-text">Intro</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#gradient"><span class="toc-list-text">Gradient</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#example-gaussian-policy"><span class="toc-list-text">Example: Gaussian Policy</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#reward"><span class="toc-list-text">Reward</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-5"><a class="toc-list-link" href="#reduce-variance"><span class="toc-list-text">reduce variance</span></a></li><li class="toc-list-item toc-list-level-5"><a class="toc-list-link" href="#baseline"><span class="toc-list-text">baseline</span></a></li></ol></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#value-function-fitting"><span class="toc-list-text">Value Function Fitting</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-5"><a class="toc-list-link" href="#discount-factor"><span class="toc-list-text">discount factor</span></a></li></ol></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#actor-critic-algo"><span class="toc-list-text">Actor-critic algo</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-5"><a class="toc-list-link" href="#generalized-advantage-estimation"><span class="toc-list-text">Generalized advantage
-estimation</span></a></li></ol></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#off-policy"><span class="toc-list-text">off policy</span></a></li></ol></li></ol></li></ol></li></ol>
+estimation</span></a></li></ol></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#off-policy"><span class="toc-list-text">off policy</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#importance-sampling"><span class="toc-list-text">Importance Sampling</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-5"><a class="toc-list-link" href="#trpo"><span class="toc-list-text">TRPO</span></a></li><li class="toc-list-item toc-list-level-5"><a class="toc-list-link" href="#ppo"><span class="toc-list-text">PPO</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
         </div>
     </div>
 </aside>
@@ -614,31 +723,31 @@ estimation</span></a></li></ol></li><li class="toc-list-item toc-list-level-4"><
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 14.181974109304612px;" class="tag-cloud-link">总结</a>
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 11.85009131384221px;" class="tag-cloud-link">总结</a>
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 17.561733340933138px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 15.175804922702383px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 16.9793304926694px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 13.80078080594036px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/ICS/" style="font-size: 8.580506518977117px;" class="tag-cloud-link">ICS</a>
+    <a href="/tags/ICS/" style="font-size: 10.583626510799938px;" class="tag-cloud-link">ICS</a>
     
-    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 14.422830910832992px;" class="tag-cloud-link">具身</a>
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 9.484167562979978px;" class="tag-cloud-link">具身</a>
     
-    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 12.057163469027644px;" class="tag-cloud-link">初恋日记</a>
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 17.665196276429178px;" class="tag-cloud-link">初恋日记</a>
     
-    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 13.045311980887px;" class="tag-cloud-link">腾讯星火营</a>
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 13.261091658736246px;" class="tag-cloud-link">腾讯星火营</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 10.26779849812496px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 19.14261197145042px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 9.759784450506832px;" class="tag-cloud-link">程设</a>
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 18.08006232892082px;" class="tag-cloud-link">程设</a>
     
-    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 9.159210756330253px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 14.329515086791115px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
     
-    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 11.856493619043189px;" class="tag-cloud-link">波伏娃</a>
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 10.32644421797173px;" class="tag-cloud-link">波伏娃</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 16.17960437668538px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 13.939377472205317px;" class="tag-cloud-link">音数</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 15.135231577155814px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 12.996731014282933px;" class="tag-cloud-link">高代</a>
     
 </div>
                 

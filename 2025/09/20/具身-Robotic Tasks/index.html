@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>具身-Robotic Tasks | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>具身-Robotic Tasks</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/09/20/%E5%85%B7%E8%BA%AB-Robotic%20Tasks/">具身-Robotic Tasks</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E5%85%B7%E8%BA%AB/">具身</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-09-20
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2025/09/20/%E5%85%B7%E8%BA%AB-Robotic%20Tasks/">具身-Robotic Tasks</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2025-09-20
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E5%85%B7%E8%BA%AB/">具身</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h2 id="body-control">Body Control</h2>
+<h4 id="proprioception">Proprioception</h4>
+<p>Robot state (Exteroception / proprioception) -&gt; (through policy)
+-&gt; PD control -&gt; (get torque for joints) -&gt; Motor driver -&gt;
+(through current) -&gt; Robot</p>
+<p>Proprioception 包含了机器人内部的各种信息，比如 joint position /
+velocity，IMU (Inertial Measurement Unit) 有 accelerometer
+(线加速度器)，gyroscope（陀螺仪，感受角速度）.</p>
+<p>一些 Exteroception 包括了一些比如 vision 信息，lidar point
+cloud，RGBD 什么的.</p>
+<p>Sim2real gap 很大，所以需要在 stimulator 中加噪声.</p>
+<p>Represent body pose 可以通过 joint space 和 Link space. Joint space
+只记录角度和角加速度，Link space 记录了每个 link 的 position
+和速度和加速度. Link space 可以记录在世界坐标系下的东西，可以 encode
+spatial relation，所以在跳舞这种 task 一般用 Link space. Joint space
+只记录自己坐标系下的，维度更低，相对更容易
+train，维护自身平衡什么的更多.</p>
+<p>Policy 的输出是一个 residual DoF Position，<span
+class="math inline">\(\theta_0\)</span> 是每个关节的不动的一个 reference
+position，<span class="math inline">\(\theta\)</span> 是当前
+position，网络输出 target position 关于 <span
+class="math inline">\(\theta_0\)</span> 的 shift，然后通过 <span
+class="math inline">\(e(t)=\pi(s_t)+\theta_0-\theta\)</span> 得出 error
+term，然后再 PD Control <span
+class="math inline">\(\tau_t=K_pe(t)+K_d\frac{d}{dt}e(t)\)</span>.</p>
+<p>当然也可以用关于 velocity 的 PD control，或者直接做 torque control.
+但是这两者的 sim2real gap 太大了. 还有一个事情就是 torque
+的更新频率要很高（1000Hz），显然不能直接用 policy 算 torque.</p>
+<hr />
+<h4 id="reward">reward</h4>
+<p>terminal reward：只有最后结果有 reward. 不容易学好.
+但是真机就只能这样.</p>
+<p>在 stimulator 中信息都可以得到，所以可以做更多的 reward.</p>
+<p>一个四足机器人的可能的一些 reward: height（保证高度），feet
+contact（保证脚在地面上），upright（保证是背的法向指着天），energy（penalize
+太高的 energy），joint limit（penalize 太大的 joint angle）</p>
+<p>reward 的系数并不好调.
+和需要先做到哪个再做到哪个也有关系（先做到什么什么系数就大一点）.</p>
+<hr />
+<p>Q Learning：通过学 <span
+class="math inline">\(a=\mu(s)\)</span>，然后最大化 <span
+class="math inline">\(Q(s,\mu(s))\)</span>. 可以支持更 off-policy
+的东西，有更高的 sample efficiency. 比如 DDDG，SAC.</p>
+<p>真机的强化学习可以使用 SAC 这样的方法. 因为真机环境需要很高的 sample
+efficiency.</p>
+<hr />
+<p>耗能问题：如果纯靠 RL 学出来，为了能在 domain randomization
+中存活下来，动作偏保守，在真实世界中耗能很大.</p>
+<hr />
+<p>Curriculum Learning：不断在学习中加入 obstacle，环境不断变困难.</p>
+<p>Hierarchical Learning：划分层级，从 high level perception
+module，往下走到 navigation module，再往下到 locomotion module.
+locomotion 有 skill library 供 navigation module 调用. (ANYmal
+Parkour)</p>
+<h4 id="privileged-learning">Privileged Learning</h4>
+<p>Privileged Learning：现在考虑加入视觉信息. 但是一个问题是直接接入
+visual encoder 之后其实也还是训不好. 因为一方面很大，一方面 variance
+也很大，传到 visual encoder 的信息已经没什么营养了. 如果直接先训
+locomotion 锁住再训 encoder 那么又会导致 locomotion 也在学 high level
+的东西，显然不大好. 一个方法是，在训 locomotion
+的时候直接把能通过视觉得到的一些 state 信息（称为 privilege
+information，即 proprioception 无法得到的 state
+信息）给传进去（即训出一个 state-based model，而不是
+proprioception-based model）.</p>
+<h5 id="policy-distill">Policy Distill</h5>
+<p>Policy Distillation：在我们有了一个 state-based model 之后，对于从
+<span class="math inline">\(\pi_{\theta}\)</span> 中采的 state <span
+class="math inline">\(s\)</span>，我们可以用这个 teacher model 去得到
+<span class="math inline">\(a\)</span>，然后让 <span
+class="math inline">\(\theta\)</span> 去学这个 <span
+class="math inline">\(a\)</span>. 所以就直接监督学习就完了.
+注意，当我们的 state 太强了，超越了视觉能看到的信息，就会效果很不好.</p>
+<p>一个需要注意的一点是，RL 出来的 teacher 可能也不知道在一个随机的
+student 的分布上应该怎么走. 如果 student 能够成功走到 teacher
+的轨迹上那就可以学，否则可能怎么学都学不到 teacher 的轨迹上.</p>
+<p>Asymmetric Actor-Critic: actor-critic 中，Critic 可以拥有 privilege
+information，可以 state based. 但效果不如 Policy Distill.</p>
+<h4 id="bipedel">Bipedel</h4>
+<p>双足比四足难很多.</p>
+<p>双足非常依赖 IMU. 这个也容易导致 sim2real，因为实际中 IMU
+有若干噪声，所以必须在 sim 中加上对 IMU 的噪声.</p>
+<p>一个方法是人动捕，然后将这个信息适配到机器人的上面，然后再一帧一帧修，得到机器人应该做的动作.</p>
+<p>每个舞都是在一个基础的 model 上单独去 overfit 的，而不是很 universal
+的.</p>
+<p>unitree 的小人比较轻，关节负担小，适合做一点比较大的动作.</p>
+<p>Domain Randomization 可以 randomize 一些 center of
+mass，mass，friction.</p>
+<p>RL in sim 然后再 2 real 实际效果有点神秘，还要调一大堆参数.</p>
+<h2 id="manipulation">Manipulation</h2>
+<p>最基本的是 pick，然后 place. 稍微难一点就 assembly，还有 peg-in
+hole，这种 contact-rich 的操作.</p>
+<h4 id="gail">GAIL</h4>
+<p>一个 on-policy 的 grasping RL：先分为若干个 stage，然后每个 stage
+需要一个 RL，结合了 IL（GAIL，用 GAN 训练一个 reward generator）和
+RL（PPO）.</p>
+<p>GAIL 的思想：有 demonstration 但是不想自己造 reward 怎么训 RL？GAIL
+提出的想法是，使用 GAN 的思想，训一个 discriminator 来看生成的轨迹和
+demo 的轨迹是否足够像，然后 reward 就用 discriminator
+给的分数，然后再用一个 PPO.</p>
+<h4 id="ga-ddpg">GA-DDPG</h4>
+<p>使用以 Q-Learning 为中心的方法. Q Learning 先学 <span
+class="math inline">\(Q(s,a)\)</span>（用 bootstrap loss (or, Bellman
+Loss)），最小化 <span class="math inline">\(E_{(s,a,r,s&#39;)\sim
+D}[||Q(s,a)-(r+\gamma Q(s&#39;,\mu_{\theta}(s&#39;))||_2]\)</span>）,
+<span class="math inline">\(\theta\)</span> 的目标是最大化 <span
+class="math inline">\(E_{s\sim D}[Q(s,\pi_{\theta}(s))]\)</span>，其中
+<span class="math inline">\(D\)</span> 为 replay buffer.</p>
+<p>GA 指的是在 DDPG 的基础上，考虑 replay buffer 里面放一些 goal
+oriented 的数据.</p>
+<h4 id="dex-manipulation">Dex Manipulation</h4>
+
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+
+<aside id="sidebar-toc">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-list-ul"></i>  
+            文章目录 
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        
+        
+        <div class="panel-body toc-container">
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#body-control"><span class="toc-list-text">Body Control</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#proprioception"><span class="toc-list-text">Proprioception</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#reward"><span class="toc-list-text">reward</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#privileged-learning"><span class="toc-list-text">Privileged Learning</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-5"><a class="toc-list-link" href="#policy-distill"><span class="toc-list-text">Policy Distill</span></a></li></ol></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#bipedel"><span class="toc-list-text">Bipedel</span></a></li></ol></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#manipulation"><span class="toc-list-text">Manipulation</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#gail"><span class="toc-list-text">GAIL</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#ga-ddpg"><span class="toc-list-text">GA-DDPG</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#dex-manipulation"><span class="toc-list-text">Dex Manipulation</span></a></li></ol></li></ol></li></ol>
+        </div>
+    </div>
+</aside>
+
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2025/09/20/%E5%85%B7%E8%BA%AB-Robotic%20Tasks/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/09/20/%E5%85%B7%E8%BA%AB-Robotic%20Tasks/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 19.57615771999692px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 16.2313168710824px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 18.69632874445257px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 17.219273889533035px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 17.33674941788324px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 15.117114419141675px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 18.937145316931133px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 8.941043972494748px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 15.866072683933426px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 11.781382401285416px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 19.41028454188502px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 12.109692032013239px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 13.327946901878267px;" class="tag-cloud-link">高代</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>
