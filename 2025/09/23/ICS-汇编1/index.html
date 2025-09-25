@@ -263,7 +263,184 @@
         </center>
     </div>
     <div class="content-article">
-        <h2 id="lecture-4">Lecture 4</h2>
+        <h2 id="lecture-4-machine-level-programming-i-basics">Lecture 4 <a
+href="https://lgswdn.github.io/file/ICS/slide-04.pdf">Machine-Level
+Programming I: Basics</a></h2>
+<h4 id="intro">intro</h4>
+<p>Architecture（架构）：指令集.</p>
+<p>Microarchitecture：指令集的一些实现.</p>
+<p>Machine code：机器代码（binary）.</p>
+<p>Assembly code：汇编代码（text representation of machine code）.</p>
+<p>CPU 上的一些东西：</p>
+<ul>
+<li>PC: Program Counter，记录程序跑到哪一行 (address of next
+instruction, <code>%rip</code>).</li>
+<li>Register file: Registers.</li>
+<li>Condition Code: Condition Code.</li>
+</ul>
+<p>Memory: 存储了 Code, data, stack. Memory 给 CPU 传 instruction 和
+data，CPU 反过来给 Memory 传 data 和 addresses.</p>
+<p>一个 C 程序 <code>x.c</code> 通过 <code>gcc -Og -S</code>
+得到汇编程序 Asm Program <code>x.s</code>. Asm Program 再通过 Assembler
+转化为 binary 的 Object Program <code>x.o</code>. 然后再结合 Static
+Library (一些 printf 类的东西依赖这个) ，通过 Linker
+得到最终的可执行文件 <code>x</code>.</p>
+<hr />
+<h4 id="registers">registers</h4>
+<p>64 位寄存器：</p>
+<p><code>rax, rbx, rcx, rdx, rdi, rsi, rsp, rbp, r[8,15]</code>.</p>
+<p>其对应的后 32 位是：</p>
+<p><code>eax, ebx, ecx, edx, edi, esi, esp, ebp, r[8,15]d</code></p>
+<p>其对应的后 16 位是：</p>
+<p><code>ax, bx, cx, dx, di, si, sp, bp, r[8,15]w</code>.</p>
+<p>其对应的最后一个 byte 是：</p>
+<p><code>al, bl, cl, dl, dil, sil, spl, bpl, r[8,15]b</code></p>
+<p>其中 <code>rsp</code> 存 stack
+pointer，不能被肆意使用，其他都可以随便用，然后可能会在某些情境下被指定使用.</p>
+<p>其中 <code>rax</code>
+记录函数的返回值，<code>rdi rsi rdx rcx r8 r9</code>
+分别作为传递进函数的第 <span class="math inline">\([1,6]\)</span>
+个参数.</p>
+<hr />
+<h4 id="operations">operations</h4>
+<p>在 Linux 中，为 <code>op Src Dest</code>. 但是在 Intel 下是
+<code>op Dest Src</code>. 书中全部采用前者，即 <code>addq x y</code> 为
+<span class="math inline">\(y+=x\)</span>.</p>
+<p><code>q</code> 表示四字（quadword，64位），<code>l</code>
+表示双字（longword，32位），<code>w</code> 表示字（word，16位）,
+<code>b</code> 表示字节（byte）.</p>
+<p><code>mov</code> 相关注意事项：</p>
+<ul>
+<li><code>mov</code> 指令 Src 是立即数而 Dest 是内存地址，必须指定是
+<code>movq</code> 还是 <code>movl</code> 还是 <code>movw</code> 还是
+<code>movb</code>.</li>
+<li><code>movl</code> 会自动置零更高的 32 位，而其他不会.</li>
+<li><code>movz</code>（move with zero-extend），从一个较小的 src
+移到较大的 dest（eg. <code>movzwq</code>，<code>movbl</code>），用 0
+扩充. 注意没有 <code>movzlq</code> 因为等价于 <code>movq</code>.</li>
+<li><code>movs</code>（move with sign-extend），同上，用符号位扩充.</li>
+</ul>
+<p><code>rax</code> 相关特殊指令：</p>
+<ul>
+<li><p><code>cltq</code>：针对 <code>eax</code>，将 <code>eax</code>
+符号扩充到 <code>rax</code> 变成 64 位数.</p>
+<p><code>cqto</code>：针对 <code>rax</code>，将 <code>rax</code>
+符号扩充到 <code>rdx:rax</code> 变成 128 位数.</p></li>
+<li><p><code>imulq S</code>：<code>rdx:rax = rax * S</code>（有符号）</p>
+<p><code>mulq S</code>：<code>rdx:rax = rax * S</code>（无符号）</p></li>
+<li><p><code>idivq S</code>：对于 128 位有符号整数
+<code>rdx:rax</code>，除以 <span
+class="math inline">\(S\)</span>，得到的商在 <code>rax</code>，余数在
+<code>rdx</code>.</p>
+<p>执行前必须先 <code>cqto</code>.</p>
+<p><code>divq S</code> 为无符号.</p></li>
+</ul>
+<p><code>D(Rb,Ri,S) = Mem[D+Rb+Ri*S]</code>. 注意 <span
+class="math inline">\(S\)</span> 只能是 1,2,4,8.</p>
+<p><code>lea D(Rb,Ri,S), %rax</code> 等于
+<code>rax = D+Rb+Ri*S</code>，或者 <code>rax=&amp;...</code>.</p>
+<p><code>mov D(Rb,Ri,S), %rax</code> 等于
+<code>rax = Mem[D+Rb+Ri*S]</code></p>
+<p><code>add</code>，<code>sub</code>，<code>imul</code>
+字面意思，加减乘.</p>
+<p><code>sal / shl</code>，<code>sar</code>，<code>shr</code>
+为左右移，其中 <code>h</code> 为逻辑，<code>a</code> 为算数.</p>
+<p><code>xor</code>，<code>and</code>，<code>or</code>
+字面意思，异或，与，或.</p>
+<p><code>in</code>，<code>dec</code>，<code>neg</code>，<code>not</code>
+分别为 <span class="math inline">\(++\)</span>，<span
+class="math inline">\(--\)</span>，<span
+class="math inline">\(-\)</span>，<span
+class="math inline">\(\sim\)</span>.</p>
+<h2 id="lecture-05-machine-level-programming-ii-control"><a
+href="https://lgswdn.github.io/file/ICS/slide-05.pdf">Lecture 05:
+Machine-Level Programming II: Control</a></h2>
+<h4 id="conditional-codes">Conditional Codes</h4>
+<p>For any arithmetic operation (EXCLUDING <code>leaq</code>
+instruction)</p>
+<p><code>CF</code>：Carry Flag（unsigned overflow, borrow/carry from the
+MSB）</p>
+<p><code>ZF</code>：Zero Flag（if =0）</p>
+<p><code>SF</code>：Sign Flag（&lt;0 as signed）</p>
+<p><code>OF</code>：Overflow Flag (if signed overflow, eg. <span
+class="math inline">\(a,b&gt;0\)</span> but <span
+class="math inline">\(a+b&lt;0\)</span>, or <span
+class="math inline">\(a,b&lt;0\)</span> but <span
+class="math inline">\(a+b\ge 0\)</span>)</p>
+<p>Explicit Settings</p>
+<p><code>cmpq a b</code></p>
+<blockquote>
+<p><span class="math inline">\(b-a\)</span>, calculate w/o setting
+destination.</p>
+<p><code>CF</code>：unsigned comparison, <span
+class="math inline">\(=[b&lt;a]\)</span>.</p>
+<p><code>ZF</code>：eq, <span class="math inline">\(=[a=b]\)</span>.</p>
+<p><code>SF</code>：signed comparison, <span
+class="math inline">\(=[b&lt;a ]\)</span>.</p>
+<p><code>OF</code>：2's compliment signed overflow</p>
+</blockquote>
+<p><code>testq a b</code></p>
+<blockquote>
+<p><span class="math inline">\(b\text{ and }a\)</span>, calculate w/o
+setting destination</p>
+<p><code>ZF</code>：<span
+class="math inline">\(=[b\text{&amp;}a=0]\)</span>.</p>
+<p><code>SF</code>：<span
+class="math inline">\(=[b\text{&amp;}a&lt;0]\)</span>.</p>
+<p>use <code>testq a a</code> to test equal.</p>
+</blockquote>
+<p>Reading</p>
+<p>setX：set the low byte of destination to:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 49%" />
+</colgroup>
+<thead>
+<tr>
+<th>setX &amp; Description</th>
+<th>Condition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sete / setne</code> (equal)</td>
+<td><code>ZF / ~ZF</code></td>
+</tr>
+<tr>
+<td><code>sets / setns</code> (negative)</td>
+<td><code>SF / ~SF</code></td>
+</tr>
+<tr>
+<td><code>setge / setg</code> (<span class="math inline">\(b\ge
+a\)</span>, <span class="math inline">\(b&gt;a\)</span>, signed)</td>
+<td><code>~(SF^OF)</code>, <code>&amp;(~ZF)</code> if not equal</td>
+</tr>
+<tr>
+<td><code>setle / setl</code> (<span class="math inline">\(b\ge
+a\)</span>,<span class="math inline">\(b&lt;a\)</span>, signed)</td>
+<td><code>(SF^OF)</code>, <code>&amp;ZF</code> if equal</td>
+</tr>
+<tr>
+<td><code>seta / setb</code> (above=<span
+class="math inline">\(b&gt;a\)</span>, below=<span
+class="math inline">\(b&lt;a\)</span>)</td>
+<td><code>(~CF)&amp;(~ZF)</code> for above, <code>CF</code> for
+below</td>
+</tr>
+</tbody>
+</table>
+<p>use <code>movzbl</code> after SetX, so that the whole register
+represent the result.</p>
+<h4 id="conditional-branches">Conditional Branches</h4>
+<p>jX: similar to setX, with additional <code>jmp</code> (unconditional
+jump)</p>
+<p>cmovX: similar to setX, (if condition then move).</p>
+<p>Sometimes the compiler calculate both side results and use cmovX for
+conditional branches. But it must be side-effect free, and simple
+calculations.</p>
+<h4 id="loops">Loops</h4>
+<p>很简单</p>
 
     </div>
 </article>
@@ -333,7 +510,9 @@
         
         
         <div class="panel-body toc-container">
-            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#lecture-4"><span class="toc-list-text">Lecture 4</span></a></li></ol>
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#lecture-4-machine-level-programming-i-basics"><span class="toc-list-text">Lecture 4 Machine-Level
+Programming I: Basics</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#intro"><span class="toc-list-text">intro</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#registers"><span class="toc-list-text">registers</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#operations"><span class="toc-list-text">operations</span></a></li></ol></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#lecture-05-machine-level-programming-ii-control"><span class="toc-list-text">Lecture 05:
+Machine-Level Programming II: Control</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#conditional-codes"><span class="toc-list-text">Conditional Codes</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#conditional-branches"><span class="toc-list-text">Conditional Branches</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#loops"><span class="toc-list-text">Loops</span></a></li></ol></li></ol></li></ol>
         </div>
     </div>
 </aside>
@@ -365,31 +544,31 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 12.882931376367138px;" class="tag-cloud-link">总结</a>
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 18.958096881033537px;" class="tag-cloud-link">总结</a>
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 17.1373175985228px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 14.81271767094631px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 19.521060997940893px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 17.639798700110482px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/ICS/" style="font-size: 10.813964906214458px;" class="tag-cloud-link">ICS</a>
+    <a href="/tags/ICS/" style="font-size: 16.590942269426534px;" class="tag-cloud-link">ICS</a>
     
-    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 9.237370720021762px;" class="tag-cloud-link">具身</a>
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 11.266989584939061px;" class="tag-cloud-link">具身</a>
     
-    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 17.80604596086159px;" class="tag-cloud-link">初恋日记</a>
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 13.678858107808635px;" class="tag-cloud-link">初恋日记</a>
     
-    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 19.362849078597232px;" class="tag-cloud-link">腾讯星火营</a>
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 9.404401965711326px;" class="tag-cloud-link">腾讯星火营</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 8.412851577150576px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 11.962306769546842px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 16.947537803730707px;" class="tag-cloud-link">程设</a>
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 13.629522122894251px;" class="tag-cloud-link">程设</a>
     
-    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 15.68888197554211px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 14.48044250137216px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
     
-    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 18.89822427888044px;" class="tag-cloud-link">波伏娃</a>
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 12.631410454867126px;" class="tag-cloud-link">波伏娃</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 18.583301084572263px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 14.390756193404183px;" class="tag-cloud-link">音数</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 17.876718791468072px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 13.484104087925205px;" class="tag-cloud-link">高代</a>
     
 </div>
                 
