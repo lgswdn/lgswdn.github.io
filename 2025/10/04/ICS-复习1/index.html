@@ -10,7 +10,7 @@
     
     
     
-    <title>CVDL-Object Detection | lgswdn-SA</title>
+    <title>ICS-复习1 | lgswdn-SA</title>
     <link href="http://lgswdn.github.io" rel="prefetch" />
 
     
@@ -216,13 +216,13 @@
         <i class="fa fa-home"></i>
         <a href="http://lgswdn.github.io">lgswdn-SA</a>
         >
-        <span>CVDL-Object Detection</span>
+        <span>ICS-复习1</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2025/05/21/CVDL-Object%20Detection/">CVDL-Object Detection</a>
+                <a href="/2025/10/04/ICS-%E5%A4%8D%E4%B9%A01/">ICS-复习1</a>
             </h1>
         </div>
         <div class="tag-article">
@@ -230,12 +230,12 @@
             <span class="label label-gal">
                 <i class="fa fa-tags"></i>
                 
-                <a href="/tags/CVDL/">CVDL</a>
+                <a href="/tags/ICS/">ICS</a>
                 
             </span>
             
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2025-05-21
+                <i class="fa fa-calendar"></i> 2025-10-04
             </span>
             
         </div>
@@ -245,17 +245,17 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2025/05/21/CVDL-Object%20Detection/">CVDL-Object Detection</a>
+                    <a href="/2025/10/04/ICS-%E5%A4%8D%E4%B9%A01/">ICS-复习1</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2025-05-21
+                <i class="fa fa-calendar"></i> 2025-10-04
             </p>
             <p>
                 
                 <i class="fa fa-tags"></i>
                 
-                <a href="/tags/CVDL/">CVDL</a>
+                <a href="/tags/ICS/">ICS</a>
                 
                 
                 
@@ -263,116 +263,87 @@
         </center>
     </div>
     <div class="content-article">
-        <p>axis aligned bounding box：要求和坐标轴平行. 虽说这样其实肯定不是最
-tight 的 bounding box. 但是在 2D 中歪着有点奇怪，不是很 necessary.</p>
-<p>一个 Bounding Box（bbox） 可以用 <span
-class="math inline">\((x,y,h,w)\)</span> 四个自由参数来描述.</p>
-<p>如果图像里面只有单一物体，做 object detection 直接先 CNN
-抽特征，然后分两个 branch 出来，一个头做 classification
-得到类别，一个头做 regression 得到 <span
-class="math inline">\(x,y,h,w\)</span>. 后者也需要做适当的 activation
-来确保在范围内，比如 sigmoid 后乘上对应最值.</p>
-<p>classification 使用 softmax 的 CE loss，而 regression 使用 L2
-loss，然后加权得到总 loss.</p>
-<p>注：L2-loss 是 <span class="math inline">\(\sum \Delta^2\)</span>，叫
-L2-loss；而 L2-norm 是 <span class="math inline">\(\sqrt{\frac{1}{n}\sum
-\Delta^2}\)</span>，叫 Rooted mean squared loss</p>
-<p>L2 的好处：gradient 和 loss 成正比，收敛更快. 当然不是很鲁棒. 而 L1
-更鲁棒但是在 <span class="math inline">\(0\)</span>
-处不可导，然后导数也是不变的. L1 一开始导数不至于太大，但是在 <span
-class="math inline">\(0\)</span> 处就不行了. RMSE 在 <span
-class="math inline">\(0\)</span> 处也不可导.</p>
-<p>Smooth L1 Loss：<span class="math inline">\(|x|&lt;1\)</span> 时用
-<span class="math inline">\(0.5\times x^2\)</span> 的 L2，<span
-class="math inline">\(|x|\ge 1\)</span> 时用 <span
-class="math inline">\(|x|-0.5\)</span>. 好处是在 <span
-class="math inline">\(x=1\)</span> 导数也是连续的.</p>
-<hr />
-<p>Region Proposals：找到可能有物体的区域（Regions of
-Interest，RoI），然后在这些区域中做 single detection. 古早时候使用
-selective search.</p>
-<p>R-CNN：先 search 出来 RoI，然后通过插值 wrap 成 <span
-class="math inline">\(224\times 224\)</span> 的图，然后再过预训练过的
-conv net. 这样一个问题是丢掉了全局的上下文信息. 比如如果 bbox 比 RoI
-更大那么就不好修了. 而且很慢.</p>
-<p><strong>Fast R-CNN</strong>：不去 crop image，而是对于一个
-proposal，去 crop feature map.</p>
-<p>具体而言，先用 backbone 提取特征，然后对于一个原图上做出的
-proposal，先等比算出在 feature map 上的位置，并吸附到 feature map
-的格点上. 然后我们要将这样一个大小任意的 <span
-class="math inline">\(h\times w\times c\)</span> 的
-tensor，转化成一个大小固定的 tensor. 这个方法很粗暴，直接 roughly divide
-然后 max pooling 成 <span class="math inline">\(2\times 2\times
-c\)</span>. 这个过程称为 RoI Pool. 由于最后 crop 出来的 tensor
-会不大，所以可以塞到一个 batch 里面，会快很多很多.</p>
-<p>现在速度瓶颈成了 region proposal.</p>
-<p><strong>Faster R-CNN</strong>：新增一个用来用 feature map，并用一个
-network 做 regional proposal 的 RPN. 由于 feature map 的 resolution
-低，而且 feature map 有充分的周遭信息，所以 sliding window 的 aspect
-ratio 和 scale 的可能性也不需要那么多了.</p>
-<p>每个 cell 作为中心，去生成 <span class="math inline">\(K\)</span>
-个不同 ratio 和 scale 的 Anchor Box，然后预测每个 Anchor Box
-是否有物体，以及做一个 regression 去预测 bbox 的位置的
-correction（若第一个位置的 ground truth 是否否则 box correction 的 loss
-不计算）. 每个预测出来的 bbox，去找到所有 ground truth 中 IoU
-最大的框作为自己的 ground truth 然后再通过 IoU 判断是否有物体.</p>
-<p>一共 <span class="math inline">\(hwK\)</span> 个 Anchor Box. 在 test
-time，选取置信度最高（是否有物体的输出，objectness）的若干个 box
-进入到最后的 RoI Pool 和计算.</p>
-<p>训练很复杂，有四个 loss：RPN 的 objectness loss，RPN 的 regression
-loss；以及最终网络的 classification loss，和 regression loss.
-训练的时候先训 RPN，然后 freeze 住前面的网络，再训后面的网络. 然后再
-backward 到前面，继续先训 RPN，再训后面的，循环往复.</p>
-<p>还有很多细节：比如没物体的 anchor box
-肯定会更多，所以正负样本不平衡，需要调整 objectness loss
-的正负权重比例（一般是 <span class="math inline">\(1:3\)</span>）. 以及
-anchor box 怎么选，也是很重要的超参.
-这是一个很工程的东西，需要很多的理解.</p>
-<p>FPS: Frame per second，一秒能处理几张图. 注意到在点云中也有一个叫 FPS
-的 Furthest Point Sampling.</p>
-<p><strong>YOLO</strong>：210bpm16分直交互接交互楼梯. 很快，可以做到 100
-FPS. 比大多相机更快！</p>
-<p>把 Faster R-CNN 的两个 network 给捏一起. 将图片直接划分成 <span
-class="math inline">\(7\times 7\)</span>
-的格，每个格子预测五个五元组表示的 bbox <span
-class="math inline">\((x,y,h,w,c)\)</span>，<span
-class="math inline">\(c\)</span> 为 置信度.</p>
-<p><strong>bbox 的 NMS</strong>：以 classification confidence
-作为置信度. 然后设置一个 IoU threshold <span
-class="math inline">\(\tau\)</span>.</p>
-<p>在 NMS 之前先丢掉一些置信度 <span
-class="math inline">\(&lt;x\)</span> 的. 然后先选置信度最高的 bbox 加入
-result，然后把和自己预测的同类的且 IoU 大于 <span
-class="math inline">\(\tau\)</span> 的丢掉. 然后不断这么做.</p>
-<p>由于 NMS 的基于比较的选择不是可导的所以不能端到端.</p>
-<p>端到端的工程量小很多，但是需要多很多的数据和算力.</p>
-<p><strong>Average Precision</strong>：将 Category 分开处理，每个
-category 将所有检测结果按置信度从高到低排序. 然后对于每个前缀，计算其
-precision 和 recall. 这样能在平面上画出一个曲线 <span
-class="math inline">\(P\)</span>，<span
-class="math inline">\(P(x)\)</span> 表示 recall=x 的 precision.</p>
-<p>precision 的计算方法要先设定和 ground truth 的 IoU threshold，然后
-precision 就看大于这个 threshold 的比率.</p>
-<p>然后最后的 AP 比如取 <span class="math inline">\(\frac{1}{11}\sum
-P(\frac{i}{10})\)</span>. 这个和 IoU threshold 有很强的关系. mAP：不同
-category 不同 IoU 的 AP 平均值.</p>
-<hr />
-<p>实例分割</p>
-<p>Top-down：先 object detection 再做 binary segmentation.</p>
-<p>Bottom-up：先做 grouping 生成 mask 再做 classsification.</p>
-<p>在 2D 中 Top-down 表现更好.</p>
-<p>Mask R-CNN：提出了 RoI Allign. 原本 RoI Pooling
-一方面分辨率太低了，这增加分辨率就好了. 但很重要的是吸附操作有
-information loss. 这也导致了实际上 bbox 也有问题.</p>
-<p>于是直接不吸附，然后对于每个按均匀划出的格点，做双线性插值即可，然后最后再做一个
-pooling. 这让每个 bbox 更加精细了. ROI Align 主要提升了精度，所以 AP75
-提升很多，AP50 提升相对少一些.</p>
-<p>还有一个 implementation 的东西就是每个位置的mask的值不是binary，而是
-class， 然后再用 classification 的 result 去选.</p>
-<hr />
-<p>参考讲义：<a
-href="../../../../file/CVDL/Lecture%2013%20-%20Detection%20and%20Instance%20Segmentation.pdf">Lecture
-13 - Detection and Instance Segmentation</a>.</p>
+        <p>针对往年题中出现的一些查漏补缺</p>
+<h2 id="misc">misc</h2>
+<ul>
+<li><p>“Is <code>leaq(%rbx,%rsp) %r8</code> correct?”</p>
+<p><code>rsp</code> 不能用作 index register，只能用作 base
+register</p></li>
+<li><p>"Is <code>leaq 0x3284738324(%rbx %rbx) %r8</code> correct?"</p>
+<p>Displament 只能是 1,2,4 bytes 的数，不能是 8-byte number</p></li>
+<li><p>"Is <code>leaq (%rbx %rbx) (%r8)</code> correct?"</p>
+<p><code>leaq</code> 的 destination 只能是 general purpose register</p>
+<p><code>leaq</code> 的 source 一定要是 memory addressing
+operand</p></li>
+<li><p>float-&gt;int 截断/向0取整，int-&gt;float
+向偶数取整，int-&gt;double不失精度</p></li>
+</ul>
+<h2 id="section">2014</h2>
+<ul>
+<li><p><code>ah</code> 是 <code>al</code> 的高 8 位</p>
+<p><code>b=byte</code>，指 8 位；<code>w=word</code>，指 16 位，
+<code>l=long</code>，指 32 位，<code>q=quad</code>，指 64 位</p>
+<p><code>movz</code> 是 0 扩展，<code>movq</code> 是符号扩展</p>
+<p>熟背寄存器列表！</p></li>
+<li><p>两个相同类型的地址相减会自动除以 size，不同类型的则不会.</p></li>
+<li><p>switch 跳转为间接跳转，需要用
+<code>jmp *.L3(,%eax,8)</code>（如果是 64 位系统）</p></li>
+<li><p>CISC 为复杂指令集计算机(eg x86/AMD)，RISC 为简明指令集计算机 (eg.
+ARM)</p>
+<p>CISC 采用变长指令，指令很多，最短的可以 1byte(如 ret)，而
+RISC是定长指令，指令较少. 所以 CISC 取指内部实现比较复杂. RISC
+寄存器更多.</p></li>
+<li><p><code>divq</code> 和 <code>mulq</code> 都 imply 是 unsigned
+运算，<code>rdx</code> 直接设为 <span class="math inline">\(0\)</span>
+也如此. 请一定注意是否表明一个变量是 signed / unsigned.</p>
+<p><code>jnl, jge</code> 这种都是 signed 比较，<code>ja, jbe</code>
+这种是 unsigned 比较，请一定注意有没有坑表明可能有类型转换或者是否是
+signed.</p>
+<p>（那个很坑的读汇编题目，unsigned x 和 (int)x &gt; 0）</p></li>
+<li><p>运算和比较的时候，如果同时存在，<code>int</code> 都会被转为
+<code>unsigned</code>，但是 <code>unsigned</code> 会被转为
+<code>long long</code>.</p></li>
+<li><p>Sun, PPC MAC, Internet 是 Big Endian，其余大概都是 Small
+Endian，即小位存在小地址.</p></li>
+</ul>
+<h2 id="section-1">2015</h2>
+<ul>
+<li><p>寻址时直接使用 <code>1234</code> 而不使用 <code>$</code>. 例如
+<code>1234</code>，<code>1234(%rbx,%rax,1)</code>.</p></li>
+<li><p><code>union</code> 中注意比如一个 <code>int</code> 和
+<code>char</code> union 起来，如果设置了 <code>char</code> 的，那么
+<code>int</code> 的其他位有可能有垃圾数据而不确定.</p></li>
+<li><p>IA32 下 longlong 和 double 的 aligned 都按 4. IA64 下都按
+8.</p></li>
+<li><p>判断是否 <span class="math inline">\(&gt;0\)</span>
+的时候要注意是否可能 <span class="math inline">\(=0\)</span>.</p></li>
+</ul>
+<h2 id="section-2">2017</h2>
+<ul>
+<li><p><code>(%...)</code> 地址寄存器必须是 64 位寄存器，只能是
+<code>r</code> 不能是 <code>e</code></p></li>
+<li><p>机器在计算指针与常数的运算时，会将常数乘以指针指向的元素大小</p>
+<p>eg. 对于 <code>int A[n][m]</code>，<code>&amp;A</code> 扩大的倍数是
+<code>sizeof(A[n][m])=4nm</code>，<code>A</code> 扩大的倍数是
+<code>sizeof(A[0])=4m</code>，<code>*A</code> 扩大的倍数是
+<code>sizeof(A[0][0])=4</code>.</p></li>
+<li><p>RISC 没有条件码.</p></li>
+</ul>
+<h2 id="section-3">2019</h2>
+<ul>
+<li><p>间接跳转一定要有 <code>*...</code>，例如
+<code>*%rax</code>.</p></li>
+<li><p>算术位移为 <code>sar</code>.</p></li>
+<li><p>访问栈中的值都是靠 <code>-...(%rsp)</code></p></li>
+<li><p><code>int * x ();</code>：x 是一个返回值为 <code>int*</code>
+的函数</p>
+<p><code>int *(*f[3]) ();</code>：f
+是数组，数组元素是指针，指针指向一个返回值为 <code>int*</code>
+的函数</p>
+<p><code>int (*f)[3]</code>：f 是指针，指针指向一个数组</p></li>
+<li><p>跳转相关，机器代码中要填相对偏移量（可能是负数），然后小端法！</p></li>
+<li><p>一定一定注意十六进制计算是十六进制计算！！！！！！！</p></li>
+</ul>
 
     </div>
 </article>
@@ -430,6 +401,25 @@ href="../../../../file/CVDL/Lecture%2013%20-%20Detection%20and%20Instance%20Segm
     
     
     
+
+<aside id="sidebar-toc">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-list-ul"></i>  
+            文章目录 
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        
+        
+        <div class="panel-body toc-container">
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#misc"><span class="toc-list-text">misc</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#section"><span class="toc-list-text">2014</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#section-1"><span class="toc-list-text">2015</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#section-2"><span class="toc-list-text">2017</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#section-3"><span class="toc-list-text">2019</span></a></li></ol>
+        </div>
+    </div>
+</aside>
+
+    
+    
     <!-- 要配置好leancloud才能开启此小工具 -->
     
     
@@ -441,13 +431,13 @@ href="../../../../file/CVDL/Lecture%2013%20-%20Detection%20and%20Instance%20Segm
 
                 
                 <li>
-                    <a href="/2025/05/21/CVDL-Object%20Detection/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2025/10/04/ICS-%E5%A4%8D%E4%B9%A01/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 
                 <li>
-                    <a href="/2025/05/21/CVDL-Object%20Detection/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2025/10/04/ICS-%E5%A4%8D%E4%B9%A01/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -455,31 +445,31 @@ href="../../../../file/CVDL/Lecture%2013%20-%20Detection%20and%20Instance%20Segm
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 12.294688374614076px;" class="tag-cloud-link">总结</a>
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 16.56936946238878px;" class="tag-cloud-link">总结</a>
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 19.944715163884197px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 15.854435946691623px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 17.765832124857734px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 11.260263440147384px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/ICS/" style="font-size: 9.732804356793142px;" class="tag-cloud-link">ICS</a>
+    <a href="/tags/ICS/" style="font-size: 12.741004745387038px;" class="tag-cloud-link">ICS</a>
     
-    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 16.504554162602187px;" class="tag-cloud-link">具身</a>
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 18.81120601692678px;" class="tag-cloud-link">具身</a>
     
-    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 19.659149757431404px;" class="tag-cloud-link">初恋日记</a>
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 12.50783475307566px;" class="tag-cloud-link">初恋日记</a>
     
-    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 19.529172495710604px;" class="tag-cloud-link">腾讯星火营</a>
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 8.194633260483505px;" class="tag-cloud-link">腾讯星火营</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 11.171683275542787px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 15.561686188148311px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 12.72360585589855px;" class="tag-cloud-link">程设</a>
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 16.203322469067192px;" class="tag-cloud-link">程设</a>
     
-    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 8.594051605576858px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 8.732519160639008px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
     
-    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 19.391139422096295px;" class="tag-cloud-link">波伏娃</a>
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 17.45362435867701px;" class="tag-cloud-link">波伏娃</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 8.58752672644119px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 18.086463547079383px;" class="tag-cloud-link">音数</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 16.434939811765066px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 12.99454277035489px;" class="tag-cloud-link">高代</a>
     
 </div>
                 
