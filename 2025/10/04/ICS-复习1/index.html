@@ -277,13 +277,25 @@ register</p></li>
 operand</p></li>
 <li><p>float-&gt;int 截断/向0取整，int-&gt;float
 向偶数取整，int-&gt;double不失精度</p></li>
+<li><p>OF：看作 signed 时候出现正+正=负/负+负=正的情况，例如 <span
+class="math inline">\((+127)+(+1)=-128\)</span></p>
+<p>CF：看作 unsigned 的时候出现了给 <span
+class="math inline">\(2^{w}\)</span> 位进位的情况，例如 <span
+class="math inline">\((-1)+(-1)=-2\)</span>.</p>
+<p>INC 和 DEC 不会改变 CF，但是会设置 OF 和 ZF</p></li>
+<li><p>没有 movzlq</p></li>
+<li><p>栈帧的边界地址需要是 16 倍数</p></li>
+<li><p><code>I(Rb,Ri,k)</code> 的 Rb 和 Ri 必须是 64 位寄存器</p></li>
+<li><p>带 <code>zwq</code> 这种的 mov 指令目标都只能是寄存器</p></li>
+<li><p>set 的目标只能是内存或者低位寄存器</p></li>
+<li><p>cmov 目标只能是寄存器，并且不支持单字节寄存器</p></li>
 </ul>
 <h2 id="section">2014</h2>
 <ul>
 <li><p><code>ah</code> 是 <code>al</code> 的高 8 位</p>
 <p><code>b=byte</code>，指 8 位；<code>w=word</code>，指 16 位，
 <code>l=long</code>，指 32 位，<code>q=quad</code>，指 64 位</p>
-<p><code>movz</code> 是 0 扩展，<code>movq</code> 是符号扩展</p>
+<p><code>movz</code> 是 0 扩展，<code>movs</code> 是符号扩展</p>
 <p>熟背寄存器列表！</p></li>
 <li><p>两个相同类型的地址相减会自动除以 size，不同类型的则不会.</p></li>
 <li><p>switch 跳转为间接跳转，需要用
@@ -343,6 +355,48 @@ Endian，即小位存在小地址.</p></li>
 <p><code>int (*f)[3]</code>：f 是指针，指针指向一个数组</p></li>
 <li><p>跳转相关，机器代码中要填相对偏移量（可能是负数），然后小端法！</p></li>
 <li><p>一定一定注意十六进制计算是十六进制计算！！！！！！！</p></li>
+</ul>
+<h2 id="section-4">2023</h2>
+<ul>
+<li>算术右移是下取整，除法是向 0 取整.</li>
+<li>条件传送指令不支持单字节传送</li>
+<li>set* 的目标一定是低位单字节寄存器</li>
+<li>字符串 <code>01234567</code> 由于最后会有 <code>\0</code>
+;m.l,k所以实际长度是 9.</li>
+<li><code>int('0')=48</code>，<code>int('a')=97</code>，<code>int('A')=65</code></li>
+<li><code>int-sizeof(..)</code> 会 <span class="math inline">\(\ge
+0\)</span> 容易导致变成很大的数然后越界.</li>
+<li>记住 float
+有向偶数舍入，加法的时候不要因为一个数可能被舍掉了就忽略掉，可能会有舍入。</li>
+</ul>
+<h2 id="section-5">2021</h2>
+<ul>
+<li>0x开头写十六进制！！</li>
+<li>jump 的第二位的数值是，目标行减去下一行！</li>
+<li>movabsq 目标只能是寄存器.</li>
+</ul>
+<h2 id="section-6">2020</h2>
+<ul>
+<li><p>错题整理：</p>
+<p><code>union&#123;double d,struct&#123;int x,int y&#125;&#125;</code>，将
+<code>y=0x3ff00000</code> 后 <code>d=?</code></p>
+<p>ans=1</p>
+<p><code>d=0x 0100 0000 0000 0080</code> 时，<code>x,y=?</code></p>
+<p>ans: <span class="math inline">\(1,-2^{31}\)</span></p></li>
+</ul>
+<h2 id="section-7">2018</h2>
+<ul>
+<li>movabsq 目标只能是寄存器.</li>
+<li>movswq 是 signed from w to q，zwq 是零扩展.</li>
+</ul>
+<h2 id="section-8">2022</h2>
+<ul>
+<li>short to unsigned 是 符号扩展.</li>
+</ul>
+<h2 id="section-9">2024</h2>
+<ul>
+<li><code>cmov</code> 无论 condition 是什么，Src
+都是会算的，所以不能把可能为空的指针放在这里.</li>
 </ul>
 
     </div>
@@ -413,7 +467,7 @@ Endian，即小位存在小地址.</p></li>
         
         
         <div class="panel-body toc-container">
-            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#misc"><span class="toc-list-text">misc</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#section"><span class="toc-list-text">2014</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#section-1"><span class="toc-list-text">2015</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#section-2"><span class="toc-list-text">2017</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#section-3"><span class="toc-list-text">2019</span></a></li></ol>
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#misc"><span class="toc-list-text">misc</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#section"><span class="toc-list-text">2014</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#section-1"><span class="toc-list-text">2015</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#section-2"><span class="toc-list-text">2017</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#section-3"><span class="toc-list-text">2019</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#section-4"><span class="toc-list-text">2023</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#section-5"><span class="toc-list-text">2021</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#section-6"><span class="toc-list-text">2020</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#section-7"><span class="toc-list-text">2018</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#section-8"><span class="toc-list-text">2022</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#section-9"><span class="toc-list-text">2024</span></a></li></ol>
         </div>
     </div>
 </aside>
@@ -445,31 +499,31 @@ Endian，即小位存在小地址.</p></li>
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 16.56936946238878px;" class="tag-cloud-link">总结</a>
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 8.117692864902784px;" class="tag-cloud-link">总结</a>
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 15.854435946691623px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 8.631364975720132px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 11.260263440147384px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 13.518735138266125px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/ICS/" style="font-size: 12.741004745387038px;" class="tag-cloud-link">ICS</a>
+    <a href="/tags/ICS/" style="font-size: 15.758590504230341px;" class="tag-cloud-link">ICS</a>
     
-    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 18.81120601692678px;" class="tag-cloud-link">具身</a>
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 18.488405793891562px;" class="tag-cloud-link">具身</a>
     
-    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 12.50783475307566px;" class="tag-cloud-link">初恋日记</a>
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 18.907723771192273px;" class="tag-cloud-link">初恋日记</a>
     
-    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 8.194633260483505px;" class="tag-cloud-link">腾讯星火营</a>
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 11.349547535333528px;" class="tag-cloud-link">腾讯星火营</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 15.561686188148311px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 12.225876751609619px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 16.203322469067192px;" class="tag-cloud-link">程设</a>
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 10.350366380783662px;" class="tag-cloud-link">程设</a>
     
-    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 8.732519160639008px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 14.838551487105715px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
     
-    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 17.45362435867701px;" class="tag-cloud-link">波伏娃</a>
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 16.119833553187256px;" class="tag-cloud-link">波伏娃</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 18.086463547079383px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 8.781999359584399px;" class="tag-cloud-link">音数</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 12.99454277035489px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 11.06268499469662px;" class="tag-cloud-link">高代</a>
     
 </div>
                 
