@@ -263,7 +263,157 @@
         </center>
     </div>
     <div class="content-article">
-        
+        <h2 id="概率的公理化">概率的公理化</h2>
+<p><span class="math inline">\(S\)</span> 为样本空间，<span
+class="math inline">\(F\)</span> 为 <span
+class="math inline">\(S\)</span> 的某些子集组成的事件域，定义在 <span
+class="math inline">\(F\)</span> 上的函数 <span
+class="math inline">\(P\)</span> 满足</p>
+<ul>
+<li><span class="math inline">\(\forall A\in F\)</span>，<span
+class="math inline">\(P(A)\ge 0\)</span></li>
+<li><span class="math inline">\(\sum P(F)=1\)</span></li>
+<li>对于互不相容事件有 <span class="math inline">\(\sum P(A_i)=P(\bigcup
+A_i)\)</span></li>
+</ul>
+<p>则称 <span class="math inline">\(P(A)\)</span> 为事件 <span
+class="math inline">\(A\)</span> 的概率，<span
+class="math inline">\((S,F,P)\)</span> 为概率空间.</p>
+<p>可以简单地用上述公理推导出很多我们熟悉的东西，不再列举.</p>
+<p>Union Bound：<span class="math inline">\(P(\bigcup A_i)\le \sum
+P(A_i)\)</span>.
+这个在事件之间有说不清楚的联系的时候可以解决很多问题.</p>
+<p>概率证法：如果可以证明 <span
+class="math inline">\(P(A)&gt;0\)</span>，那么 <span
+class="math inline">\(A\neq \varnothing\)</span>.</p>
+<blockquote>
+<p>Eg. 对于 <span class="math inline">\(k\ge 3\)</span>，存在 <span
+class="math inline">\(n=2^{\frac{k}{2}-1}\)</span> 个点的图，使得没有
+<span class="math inline">\(k\)</span> 元团也没有 <span
+class="math inline">\(k\)</span> 元独立集.</p>
+<p>Pf: 存在 <span class="math inline">\(k\)</span> 元团和 <span
+class="math inline">\(k\)</span> 元独立集的概率由 Union Bound 都知道
+<span class="math inline">\(\le \binom{n}{k}2^{-k(k-1)/2}\)</span>.
+于是一个图有两者之一的概率 <span class="math inline">\(\le
+\binom{n}{k}2^{1-k(k-1)/2}&lt; 1\)</span>.</p>
+</blockquote>
+<h3 id="条件概率">条件概率</h3>
+<p>若 <span class="math inline">\(P(B)&gt;0\)</span>，定义条件概率 <span
+class="math inline">\(P(A|B)=\frac{P(AB)}{P(B)}\)</span>.</p>
+<p>乘法公式：<span
+class="math inline">\(P(AB)=P(A|B)P(B)\)</span>，可以推广到 <span
+class="math inline">\(n\)</span> 个事件.</p>
+<p>贝叶斯公式：<span
+class="math inline">\(P(B|A)=\frac{P(A|B)P(B)}{P(A)}\)</span>.</p>
+<p>独立性：事件 <span class="math inline">\(A,B\)</span> 独立当且仅当
+<span class="math inline">\(P(AB)=P(A)P(B)\)</span>. 对于 <span
+class="math inline">\(P(B)&gt;0\)</span>，等价于 <span
+class="math inline">\(P(A|B)=P(A)\)</span>.</p>
+<p>对于多个事件，两两独立 不等价于 相互独立. 两两独立且 <span
+class="math inline">\(P(ABC)=P(A)P(B)P(C)\)</span> 才有相互独立.</p>
+<p>反例：<span class="math inline">\(x\)</span> 为取 <span
+class="math inline">\(\{0,1,2,3\}\)</span> 的随机变量，<span
+class="math inline">\(A=[x\in\{0,1\}]\)</span>，<span
+class="math inline">\(B=[x\in\{0,2\}]\)</span>，<span
+class="math inline">\(C=[x\in\{0,3\}]\)</span>.</p>
+<h2 id="离散随机变量">离散随机变量</h2>
+<h3 id="期望-方差">期望 方差</h3>
+<p>离散随机变量：取可列个值的随机变量.</p>
+<p>分布列：若 <span class="math inline">\(X\)</span> 的全部可能取值为
+<span class="math inline">\(x_1,x_2\dots\)</span>，<span
+class="math inline">\(p_i=P(X=x_i)\)</span> 为 <span
+class="math inline">\(X\)</span> 的分布列.</p>
+<p>数学期望：若 <span class="math inline">\(\sum |p_ix_i|\)</span>
+绝对收敛，则定义 <span class="math inline">\(E(X)=\sum |p_ix_i|\)</span>
+为其数学期望.</p>
+<p>性质：</p>
+<ul>
+<li>一般而言，<span class="math inline">\(E(g(x))=\sum p_i
+g(x_i)\)</span>.</li>
+<li>用 <span class="math inline">\(1_A\)</span> 表示 <span
+class="math inline">\(A\)</span> 的事性函数（是否发生），有 <span
+class="math inline">\(P(A)=E(1_A)\)</span>.</li>
+<li>线性性. <span class="math inline">\(E(aX+b)=aE(X)+b\)</span>.</li>
+<li>概率证法：<span class="math inline">\(P(X\ge E(X))&gt; 0\)</span>.
+只需要证明一个事情期望发生次数是对的就可以了. 在某给 Yukicoder
+的题中亦有提及.</li>
+<li>Markov 不等式：对于<strong>非负</strong>随机变量 <span
+class="math inline">\(X\)</span>，若 <span
+class="math inline">\(E(X)&gt;0\)</span>，则 <span
+class="math inline">\(P(X\ge cE(X))\le \frac{1}{c}\)</span>.</li>
+</ul>
+<p>方差：若 <span class="math inline">\(E((X-E(X))^2)\)</span>
+存在，则定义 <span class="math inline">\(=Var(X)\)</span> 为其方差.
+定义标准差 <span class="math inline">\(\sigma=\sqrt{Var}\)</span>.</p>
+<p>性质：</p>
+<ul>
+<li><p>线性性. <span
+class="math inline">\(Var(aX+b)=a^2Var(X)\)</span>，<span
+class="math inline">\(\sigma(aX+b)=|a|\sigma(X)\)</span>.</p></li>
+<li><p><span class="math inline">\(Var(X)=E(X^2)-E(X)^2\)</span>. 推论是
+<span class="math inline">\(E(X^2)\ge E(X)^2\)</span>.
+这是很常用的计算方差的办法.</p></li>
+<li><p>切比雪夫不等式：<span class="math inline">\(P(|X-E|\ge
+c\sigma)\le\frac{1}{c^2}\)</span>.</p>
+<p>证明考虑对随机变量 <span class="math inline">\(Y=(X-E)^2\)</span>
+使用 Markov 不等式.</p></li>
+</ul>
+<h3 id="常见离散分布">常见离散分布</h3>
+<p>二项分布 <span class="math inline">\(B(n,p)\)</span>. <span
+class="math inline">\(P(X=k)\)</span> 为 <span
+class="math inline">\(n\)</span> 重伯努利实验中概率为 <span
+class="math inline">\(p\)</span> 的事件 <span
+class="math inline">\(A\)</span> 发生次数为 <span
+class="math inline">\(k\)</span> 的概率.</p>
+<ul>
+<li><span class="math inline">\(E(X)=np\)</span></li>
+<li><span class="math inline">\(E(X^2)=n(n-1)p^2+np\)</span></li>
+<li><span class="math inline">\(Var(X)=np(1-p)\)</span></li>
+</ul>
+<hr />
+<p>泊松分布 <span class="math inline">\(\pi(\lambda)\)</span>：<span
+class="math inline">\(B(\lambda m,\frac{1}{m})\)</span> 在 <span
+class="math inline">\(m\to +\infty\)</span> 的情况.</p>
+<ul>
+<li><span class="math inline">\(P(X_i=k)=
+\frac{\lambda^ke^{-\lambda}}{k!}\)</span>.</li>
+<li><span class="math inline">\(E(X)=\lambda\)</span></li>
+<li><span class="math inline">\(Var(X)=\lambda\)</span></li>
+</ul>
+<p>实际上，任意一列 <span class="math inline">\(p_1,\dots\)</span>，只要
+<span class="math inline">\(p_nn\to \lambda\)</span>，皆有 <span
+class="math inline">\(P(X_n=k)\to \frac{\lambda
+^ke^{-\lambda}}{k!}\)</span>.</p>
+<hr />
+<p>几何分布 <span class="math inline">\(G (p)\)</span>：结果 <span
+class="math inline">\(A\)</span> 首次出现时的试验次数.</p>
+<ul>
+<li><span class="math inline">\(P(X_i=k)=p(1-p)^{k-1}\)</span>.</li>
+<li><span class="math inline">\(E(X)=\frac{1}{p}\)</span>.</li>
+<li><span class="math inline">\(Var(X)=\frac{1-p}{p^2}\)</span>.</li>
+<li>无记忆性：<span
+class="math inline">\(P(X&gt;n+m|X&gt;m)=P(X&gt;n)\)</span>.</li>
+</ul>
+<hr />
+<p>负二项分布 <span class="math inline">\(NB(r,p)\)</span>：结果 <span
+class="math inline">\(A\)</span> 首次发生 <span
+class="math inline">\(r\)</span> 次时的试验次数.</p>
+<ul>
+<li><p><span
+class="math inline">\(P(X_i=k)=\binom{k-1}{r-1}p^{r}(1-p)^{k-r}\)</span>.</p></li>
+<li><p><span class="math inline">\(NB(1,p)=G(p)\)</span>.</p></li>
+<li><p>如何证明其的确是概率分布？即 <span class="math inline">\(\sum
+\binom{k-1}{r-1}p^r(1-p)^{k-r}=1\)</span>？</p>
+<p>令 <span class="math inline">\(l=k-r\)</span>，则即证 <span
+class="math inline">\(\sum \binom{l+r-1}{r-1}(1-p)^l=p^{-r}\)</span></p>
+<p>将 <span class="math inline">\(p^{-r}\)</span> 写作 <span
+class="math inline">\((1-(1-p))^{-r}\)</span> 后展开，得 <span
+class="math inline">\(\sum (-1)^{l}\binom{-r}{l}(1-p)^l=\sum
+\binom{l+r-1}{l}(1-p)^l\)</span>，即证.</p></li>
+<li><p><span class="math inline">\(NB(r,p)\)</span> 可以看作 <span
+class="math inline">\(r\)</span> 个 <span
+class="math inline">\(G(p)\)</span> 之和.</p></li>
+</ul>
 
     </div>
 </article>
@@ -321,6 +471,25 @@
     
     
     
+
+<aside id="sidebar-toc">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-list-ul"></i>  
+            文章目录 
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        
+        
+        <div class="panel-body toc-container">
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%A6%82%E7%8E%87%E7%9A%84%E5%85%AC%E7%90%86%E5%8C%96"><span class="toc-list-text">概率的公理化</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E6%9D%A1%E4%BB%B6%E6%A6%82%E7%8E%87"><span class="toc-list-text">条件概率</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E7%A6%BB%E6%95%A3%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F"><span class="toc-list-text">离散随机变量</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E6%9C%9F%E6%9C%9B-%E6%96%B9%E5%B7%AE"><span class="toc-list-text">期望 方差</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E5%B8%B8%E8%A7%81%E7%A6%BB%E6%95%A3%E5%88%86%E5%B8%83"><span class="toc-list-text">常见离散分布</span></a></li></ol></li></ol>
+        </div>
+    </div>
+</aside>
+
+    
+    
     <!-- 要配置好leancloud才能开启此小工具 -->
     
     
@@ -346,31 +515,31 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 11.170732826712463px;" class="tag-cloud-link">总结</a>
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 12.616366190403383px;" class="tag-cloud-link">总结</a>
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 16.781058053093634px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 18.81375873782849px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 12.734367288991194px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 10.875741088249873px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/ICS/" style="font-size: 19.692478873897834px;" class="tag-cloud-link">ICS</a>
+    <a href="/tags/ICS/" style="font-size: 18.25302506234681px;" class="tag-cloud-link">ICS</a>
     
-    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 16.846550650228078px;" class="tag-cloud-link">具身</a>
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 13.505470141210216px;" class="tag-cloud-link">具身</a>
     
-    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 8.730821548220346px;" class="tag-cloud-link">初恋日记</a>
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 14.0482728712946px;" class="tag-cloud-link">初恋日记</a>
     
-    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 16.83297213495399px;" class="tag-cloud-link">腾讯星火营</a>
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 16.695935208165903px;" class="tag-cloud-link">腾讯星火营</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 11.808600738954446px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 19.55727787712361px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 10.35841685253384px;" class="tag-cloud-link">程设</a>
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 16.360042080289297px;" class="tag-cloud-link">程设</a>
     
-    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 18.284239846053243px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 18.18332569622286px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
     
-    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 10.929145108634923px;" class="tag-cloud-link">波伏娃</a>
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 19.550509853625027px;" class="tag-cloud-link">波伏娃</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 11.047722779835373px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 11.978685116672526px;" class="tag-cloud-link">音数</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 18.784304999249155px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 10.855277469615682px;" class="tag-cloud-link">高代</a>
     
 </div>
                 
