@@ -279,7 +279,16 @@ class="math inline">\(T\)</span>.</p>
 <li>Dedekind 有限（与任意真子集不存在双射）等价于有限</li>
 <li>无限集有 <span class="math inline">\(S\sim S\times S\)</span></li>
 </ul>
-<p>连续统假设：<span class="math inline">\(|2^{N}|=|R|\)</span>.</p>
+<p>连续统假设：<span class="math inline">\(|2^{N_0}|=N_1\)</span>.</p>
+<h2 id="logic">Logic</h2>
+<p>Kripke Model：定义赋值函数 <span class="math inline">\(v:W\times Prop
+\to \{0,1\}\)</span>. 对于 <span class="math inline">\(w_1\le
+w_2\)</span>，有 <span class="math inline">\(v(w_1,p)\le
+v(w_2,p)\)</span>. 其与直觉主义逻辑语义一致.</p>
+<p>System K：<span class="math inline">\(\Gamma\to \Delta\)</span>，指若
+<span class="math inline">\(\Gamma\)</span> 全部成立，则有 <span
+class="math inline">\(\Delta\)</span> 至少一个成立.</p>
+<p><img src="C:\Users\AD\AppData\Roaming\Typora\typora-user-images\image-20251102170002368.png" alt="image-20251102170002368" style="zoom:33%;" /></p>
 <h2 id="abstract-algebra">Abstract Algebra</h2>
 <h3 id="group">Group</h3>
 <p>对称群的定义：集合到自己的双射在函数复合运算下构成群.</p>
@@ -287,6 +296,8 @@ class="math inline">\(T\)</span>.</p>
 <span class="math inline">\(\sigma(a_i)=a_{i+1}\)</span> 的映射.</p>
 <p>中心化子：<span class="math inline">\(C_G(S)=\{g|\forall s\in
 S,gs=sg\}\)</span>.</p>
+<p>正规化子：<span
+class="math inline">\(N_G(S)=\{g|gS=Sg\}\)</span>.</p>
 <p>单群：没有非平凡正规子群</p>
 <p>有限 Abel 单群同构于 <span class="math inline">\(Z_p\)</span>，非
 Abel 单群的最小例子是交替群 <span
@@ -303,6 +314,7 @@ class="math inline">\(HK=KH\)</span> 且为子群.</p>
 <p>实际上，<span class="math inline">\(HK=KH\)</span> 和 <span
 class="math inline">\(HK\)</span> 为子群等价.</p></li>
 </ul>
+<p>指数：<span class="math inline">\([G:H]\)</span></p>
 <hr />
 <p>有限生成 Abel 群的结构定理：有限生成 Abel 群同构于 <span
 class="math inline">\(Z_r\oplus  Z/n_1Z\oplus Z/n_2Z \oplus \dots
@@ -313,7 +325,66 @@ Z/n_kZ\)</span>.</p>
 G\}\)</span></p>
 <p><span class="math inline">\(Inn(G)\)</span> 为 <span
 class="math inline">\(Aut(G)\)</span> 正规子群.</p>
+<hr />
+<p>忠实：<span class="math inline">\(\forall g\neq e\)</span>，<span
+class="math inline">\(\exist x\)</span>，<span
+class="math inline">\(gx\neq x\)</span>.</p>
+<p>轨道：<span class="math inline">\(Gx=\{gx|g\in G\}\)</span></p>
+<p>稳定子：<span class="math inline">\(Stab(x)=\{gx=x|g\in G\}\)</span>.
+<span class="math inline">\(G/Stab(x)\)</span> 与 <span
+class="math inline">\(Gx\)</span> 同构.</p>
+<p>共轭作用的稳定子即中心化子 <span
+class="math inline">\(C(x)\)</span>.</p>
+<p>共轭类方程：<span class="math inline">\(|G|=|C(G)|+\sum_{c_i}
+[G:C(c_i)]\)</span>.</p>
+<hr />
+<p><span class="math inline">\(p\)</span>
+群中心一定非平凡：由共轭类方程证明.</p>
+<p>阶 <span class="math inline">\(p^2\)</span> 的群要么为 <span
+class="math inline">\(Z_{p^2}\)</span> 要么为 <span
+class="math inline">\(Z_p\times Z_p\)</span>：考虑 <span
+class="math inline">\(|C(G)|\)</span> 只能为 <span
+class="math inline">\(p^2\)</span> 和 <span
+class="math inline">\(p\)</span>.</p>
+<p>Sylow I：至少存在一个 Sylow-P 子群.</p>
+<p>Sylow II：对于 Sylow-P 子群 <span class="math inline">\(P\)</span> 和
+p-子群 <span class="math inline">\(Q\)</span>，存在 <span
+class="math inline">\(g\)</span> 使得 <span class="math inline">\(Q\le
+gPg^{-1}\)</span>.</p>
+<p>推论 II：Sylow-P 子群互相共轭，且若唯一则正规. 且 <span
+class="math inline">\(P\)</span> 为 <span
+class="math inline">\(N_G(P)\)</span> 的唯一 Sylow-P 子群.</p>
+<p>Sylow III：<span class="math inline">\(n_p\)</span> 为 Sylow-p
+子群数量，则<span class="math inline">\(n_p=[G:N_p(P)]\)</span>，<span
+class="math inline">\(n_p\equiv 1(\bmod p)\)</span>，<span
+class="math inline">\(n_p|m\)</span>.</p>
+<h3 id="ring">Ring</h3>
+<p>域，当且仅当交换环没有非平凡理想.</p>
+<p>没有非平凡理想的普通环称为单环.</p>
+<p>coprime：<span class="math inline">\(I+J=R\)</span>.</p>
+<p><span class="math inline">\(IJ\subseteq I\cap J\)</span>
+自动满足，而交换环上互素理想满足 <span class="math inline">\(IJ=I\cap
+J\)</span>.</p>
+<p>素理想：若 <span class="math inline">\(ab\in I\)</span> 则 <span
+class="math inline">\(a\in I\)</span> 或 <span
+class="math inline">\(b\in I\)</span>. 交换环/素理想得到整区.</p>
+<p>极大理想：<span class="math inline">\(I\subseteq J\subseteq
+R\)</span> 的 <span class="math inline">\(J\)</span> 满足 <span
+class="math inline">\(J=I\)</span> 或 <span
+class="math inline">\(J=R\)</span>. 交换环/极大理想得到域. 充分必要.</p>
+<p>主理想环种素理想=极大理想.</p>
+<p>整区 <span class="math inline">\(R\to F\)</span> 诱导 <span
+class="math inline">\(Frac(R)\to F\)</span>.</p>
+<p>欧式整区（ED）：存在 <span class="math inline">\(R\to N\)</span>
+的映射 <span class="math inline">\(||\)</span>，其中 <span
+class="math inline">\(|x|=0\)</span> 且存在带余除法.</p>
+<hr />
+<p>整区 + 素性条件（不可约=素）+ 不存在无限长因子链 = UFD</p>
+<p>整区 -&gt; UFD -&gt; PID -&gt; ED -&gt; Field</p>
 <h4 id="小结论易错点整理">小结论/易错点整理</h4>
+<ul>
+<li>存在左逆只能代表单射而不一定是满射.</li>
+</ul>
 <p>子群相关</p>
 <ul>
 <li><span class="math inline">\(G/H\)</span> 不一定是子群！<span
@@ -325,12 +396,70 @@ class="math inline">\(D8\to D4\to D2\)</span>）</li>
 <li>大小为一半的子群一定正规（<span class="math inline">\(gH\cap
 H=0\)</span>，<span class="math inline">\(Hg\cap H=0\)</span>，故 <span
 class="math inline">\(gH=Hg\)</span>）</li>
+<li><span class="math inline">\(G_1\times G_2\)</span> 的子群不一定是
+<span class="math inline">\(H_1\times H_2\)</span>（eg <span
+class="math inline">\(&lt;(1,1)&gt;\)</span> in <span
+class="math inline">\(Z_2\times Z_2\)</span>）</li>
+<li>若 <span class="math inline">\(G/Z(G)\)</span> 为循环群，则 <span
+class="math inline">\(G\)</span> 为 Abel 群（考虑 <span
+class="math inline">\(\forall a,aZ(G)=p^kZ(G)\)</span>，于是 <span
+class="math inline">\(a\in p^kZ(G)\)</span>，然后直接验证）</li>
+<li>正规子群 <span class="math inline">\(H\)</span> 和 <span
+class="math inline">\(G/H\)</span> 都是循环群，<span
+class="math inline">\(G\)</span> 不一定是 Abel 群（<span
+class="math inline">\(H=A_3\)</span>，<span
+class="math inline">\(G=S_3\)</span>）</li>
 </ul>
 <p>群同态相关</p>
 <ul>
 <li><span class="math inline">\(h_1,h_2\in Im(\phi)\)</span> 等价于
 <span class="math inline">\(h_1h_2^{-1}\in Im(\phi)\)</span>.</li>
+<li><span class="math inline">\(\ker \phi\)</span>
+不会是空集！正确的描述是 <span
+class="math inline">\(=\{1\}\)</span>.</li>
 </ul>
+<p>环相关</p>
+<ul>
+<li><span class="math inline">\(IJ\)</span> 表示 <span
+class="math inline">\(IJ\)</span> 生成的理想！其本身不一定为理想.</li>
+<li>整环中，素元一定是不可约元，反之不一定对.</li>
+<li>交换环中，极大理想一定是素理想，反之不一定对,</li>
+</ul>
+<p>数论相关</p>
+<ul>
+<li><span class="math inline">\(\gcd(a,p-1)=1\)</span> 时，<span
+class="math inline">\(x\to x^a\)</span> 为自同构，故 <span
+class="math inline">\(x^a=k\)</span> 有唯一解.</li>
+</ul>
+<figure>
+<img
+src="C:\Users\AD\AppData\Roaming\Typora\typora-user-images\image-20251103220142667.png"
+alt="image-20251103220142667" />
+<figcaption aria-hidden="true">image-20251103220142667</figcaption>
+</figure>
+<figure>
+<img
+src="C:\Users\AD\AppData\Roaming\Typora\typora-user-images\image-20251103220126802.png"
+alt="image-20251103220126802" />
+<figcaption aria-hidden="true">image-20251103220126802</figcaption>
+</figure>
+<figure>
+<img
+src="C:\Users\AD\AppData\Roaming\Typora\typora-user-images\image-20251103221048856.png"
+alt="image-20251103221048856" />
+<figcaption aria-hidden="true">image-20251103221048856</figcaption>
+</figure>
+<figure>
+<img
+src="C:\Users\AD\AppData\Roaming\Typora\typora-user-images\image-20251103221457504.png"
+alt="image-20251103221457504" />
+<figcaption aria-hidden="true">image-20251103221457504</figcaption>
+</figure>
+<p><span class="math inline">\(x^2+1\)</span>，<span
+class="math inline">\(x^2+x+2\)</span>，<span
+class="math inline">\(x^2+2x+2\)</span>，<img
+src="C:\Users\AD\AppData\Roaming\Typora\typora-user-images\image-20251103222706977.png"
+alt="image-20251103222706977" /></p>
 
     </div>
 </article>
@@ -400,7 +529,7 @@ class="math inline">\(gH=Hg\)</span>）</li>
         
         
         <div class="panel-body toc-container">
-            <ol class="toc-list"><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#discrete-cheatsheet"><span class="toc-list-text">Discrete Cheatsheet</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#set-theory"><span class="toc-list-text">Set Theory</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#abstract-algebra"><span class="toc-list-text">Abstract Algebra</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#group"><span class="toc-list-text">Group</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E5%B0%8F%E7%BB%93%E8%AE%BA%E6%98%93%E9%94%99%E7%82%B9%E6%95%B4%E7%90%86"><span class="toc-list-text">小结论&#x2F;易错点整理</span></a></li></ol></li></ol></li></ol></li></ol>
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#discrete-cheatsheet"><span class="toc-list-text">Discrete Cheatsheet</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#set-theory"><span class="toc-list-text">Set Theory</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#logic"><span class="toc-list-text">Logic</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#abstract-algebra"><span class="toc-list-text">Abstract Algebra</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#group"><span class="toc-list-text">Group</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#ring"><span class="toc-list-text">Ring</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E5%B0%8F%E7%BB%93%E8%AE%BA%E6%98%93%E9%94%99%E7%82%B9%E6%95%B4%E7%90%86"><span class="toc-list-text">小结论&#x2F;易错点整理</span></a></li></ol></li></ol></li></ol></li></ol>
         </div>
     </div>
 </aside>
@@ -432,33 +561,35 @@ class="math inline">\(gH=Hg\)</span>）</li>
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 15.900177819734823px;" class="tag-cloud-link">总结</a>
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 15.891798100845767px;" class="tag-cloud-link">总结</a>
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 10.991925144757095px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 12.086317317385253px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 16.482572754874493px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 14.84776033490053px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/ICS/" style="font-size: 15.30831727832202px;" class="tag-cloud-link">ICS</a>
+    <a href="/tags/ICS/" style="font-size: 17.47185715565335px;" class="tag-cloud-link">ICS</a>
     
-    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 10.28999012580851px;" class="tag-cloud-link">具身</a>
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 8.748816028165919px;" class="tag-cloud-link">具身</a>
     
-    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 9.915402672829874px;" class="tag-cloud-link">初恋日记</a>
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 13.83539494264055px;" class="tag-cloud-link">初恋日记</a>
     
-    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 13.172838872451436px;" class="tag-cloud-link">腾讯星火营</a>
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 12.569711791176825px;" class="tag-cloud-link">腾讯星火营</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 11.313849927131857px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 10.796158052911736px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 12.338208372112636px;" class="tag-cloud-link">程设</a>
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 12.860935554346279px;" class="tag-cloud-link">程设</a>
     
-    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 19.79412347998932px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 15.656540866545626px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
     
-    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 9.52621201945353px;" class="tag-cloud-link">波伏娃</a>
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 8.481707297108606px;" class="tag-cloud-link">波伏娃</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 8.771181289498102px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 8.239056594886536px;" class="tag-cloud-link">音数</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 11.455139361057496px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 9.549560328872689px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F%E8%AE%A1/" style="font-size: 19.817540618773094px;" class="tag-cloud-link">信概统计</a>
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 16.1438782755418px;" class="tag-cloud-link">信概统</a>
+    
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 17.445536046486808px;" class="tag-cloud-link">数算</a>
     
 </div>
                 

@@ -230,7 +230,7 @@
             <span class="label label-gal">
                 <i class="fa fa-tags"></i>
                 
-                <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F%E8%AE%A1/">信概统计</a>
+                <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/">信概统</a>
                 
             </span>
             
@@ -255,7 +255,7 @@
                 
                 <i class="fa fa-tags"></i>
                 
-                <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F%E8%AE%A1/">信概统计</a>
+                <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/">信概统</a>
                 
                 
                 
@@ -417,7 +417,43 @@ class="math inline">\(\sum (-1)^{l}\binom{-r}{l}(1-p)^l=\sum
 <li><p><span class="math inline">\(NB(r,p)\)</span> 可以看作 <span
 class="math inline">\(r\)</span> 个 <span
 class="math inline">\(G(p)\)</span> 之和.</p></li>
+<li><p><span class="math inline">\(E=\frac{r}{p}\)</span></p></li>
+<li><p><span
+class="math inline">\(Var=\frac{r(1-p)}{p^2}\)</span></p></li>
 </ul>
+<h2 id="可用式子结论">可用式子结论</h2>
+<h4 id="二项分布-1">二项分布</h4>
+<blockquote>
+<p><span class="math inline">\(\sum
+\binom{n}{i}p^{i}(1-p)^{n-i}i=np\)</span></p>
+<p><span class="math inline">\(\sum
+\binom{n}{i}p^i(1-p)^{n-i}i^2=n(n-1)p^2+np\)</span></p>
+</blockquote>
+<h4 id="泊松分布-1">泊松分布</h4>
+<blockquote>
+<p><span class="math inline">\(\sum \frac{\lambda^k
+e^{-\lambda}}{k!}=1\)</span>.</p>
+<p><span class="math inline">\(\sum
+\frac{\lambda^ke^{-\lambda}k}{k!}=\lambda\)</span>.</p>
+<p><span class="math inline">\(\sum
+\frac{\lambda^ke^{-\lambda}k^2}{k!}=\lambda^2+\lambda\)</span>.</p>
+</blockquote>
+<h4 id="几何分布-1">几何分布</h4>
+<blockquote>
+<p><span class="math inline">\(\sum
+p(1-p)^{k-1}k=\frac{1}{p}\)</span></p>
+<p><span class="math inline">\(\sum
+p(1-p)^{k-1}k^2=\frac{1-p}{p^2}\)</span></p>
+</blockquote>
+<h4 id="负二项分布-1">负二项分布</h4>
+<blockquote>
+<p><span class="math inline">\(\sum_k
+\binom{k-1}{r-1}p^r(1-p)^{k-r}=1\)</span></p>
+<p><span class="math inline">\(\sum_k
+\binom{k-1}{r-1}p^r(1-p)^{k-r}k=\frac{r}{p}\)</span></p>
+<p><span class="math inline">\(\sum_k
+\binom{k-1}{r-1}p^r(1-p)^{k-r}k^2=\frac{2-p}{p^2}\)</span>.</p>
+</blockquote>
 
     </div>
 </article>
@@ -487,7 +523,7 @@ class="math inline">\(G(p)\)</span> 之和.</p></li>
         
         
         <div class="panel-body toc-container">
-            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%A6%82%E7%8E%87%E7%9A%84%E5%85%AC%E7%90%86%E5%8C%96"><span class="toc-list-text">概率的公理化</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E6%9D%A1%E4%BB%B6%E6%A6%82%E7%8E%87"><span class="toc-list-text">条件概率</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E7%A6%BB%E6%95%A3%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F"><span class="toc-list-text">离散随机变量</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E6%9C%9F%E6%9C%9B-%E6%96%B9%E5%B7%AE"><span class="toc-list-text">期望 方差</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E5%B8%B8%E8%A7%81%E7%A6%BB%E6%95%A3%E5%88%86%E5%B8%83"><span class="toc-list-text">常见离散分布</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-5"><a class="toc-list-link" href="#%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83"><span class="toc-list-text">二项分布</span></a></li><li class="toc-list-item toc-list-level-5"><a class="toc-list-link" href="#%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83"><span class="toc-list-text">泊松分布</span></a></li><li class="toc-list-item toc-list-level-5"><a class="toc-list-link" href="#%E5%87%A0%E4%BD%95%E5%88%86%E5%B8%83"><span class="toc-list-text">几何分布</span></a></li><li class="toc-list-item toc-list-level-5"><a class="toc-list-link" href="#%E8%B4%9F%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83"><span class="toc-list-text">负二项分布</span></a></li></ol></li></ol></li></ol></li></ol>
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%A6%82%E7%8E%87%E7%9A%84%E5%85%AC%E7%90%86%E5%8C%96"><span class="toc-list-text">概率的公理化</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E6%9D%A1%E4%BB%B6%E6%A6%82%E7%8E%87"><span class="toc-list-text">条件概率</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E7%A6%BB%E6%95%A3%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F"><span class="toc-list-text">离散随机变量</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E6%9C%9F%E6%9C%9B-%E6%96%B9%E5%B7%AE"><span class="toc-list-text">期望 方差</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E5%B8%B8%E8%A7%81%E7%A6%BB%E6%95%A3%E5%88%86%E5%B8%83"><span class="toc-list-text">常见离散分布</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-5"><a class="toc-list-link" href="#%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83"><span class="toc-list-text">二项分布</span></a></li><li class="toc-list-item toc-list-level-5"><a class="toc-list-link" href="#%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83"><span class="toc-list-text">泊松分布</span></a></li><li class="toc-list-item toc-list-level-5"><a class="toc-list-link" href="#%E5%87%A0%E4%BD%95%E5%88%86%E5%B8%83"><span class="toc-list-text">几何分布</span></a></li><li class="toc-list-item toc-list-level-5"><a class="toc-list-link" href="#%E8%B4%9F%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83"><span class="toc-list-text">负二项分布</span></a></li></ol></li></ol></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%8F%AF%E7%94%A8%E5%BC%8F%E5%AD%90%E7%BB%93%E8%AE%BA"><span class="toc-list-text">可用式子结论</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83-1"><span class="toc-list-text">二项分布</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83-1"><span class="toc-list-text">泊松分布</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E5%87%A0%E4%BD%95%E5%88%86%E5%B8%83-1"><span class="toc-list-text">几何分布</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E8%B4%9F%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83-1"><span class="toc-list-text">负二项分布</span></a></li></ol></li></ol></li></ol>
         </div>
     </div>
 </aside>
@@ -519,33 +555,35 @@ class="math inline">\(G(p)\)</span> 之和.</p></li>
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 11.863357158824888px;" class="tag-cloud-link">总结</a>
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 12.301114916729812px;" class="tag-cloud-link">总结</a>
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 16.228131958367428px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 8.609767850077926px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 16.458786421973237px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 19.498635252317175px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/ICS/" style="font-size: 18.298028589957354px;" class="tag-cloud-link">ICS</a>
+    <a href="/tags/ICS/" style="font-size: 13.427365605874863px;" class="tag-cloud-link">ICS</a>
     
-    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 16.550704741939576px;" class="tag-cloud-link">具身</a>
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 16.481937690457023px;" class="tag-cloud-link">具身</a>
     
-    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 13.280454323554476px;" class="tag-cloud-link">初恋日记</a>
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 17.902109257981657px;" class="tag-cloud-link">初恋日记</a>
     
-    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 10.399491254161582px;" class="tag-cloud-link">腾讯星火营</a>
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 10.084005302137346px;" class="tag-cloud-link">腾讯星火营</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 17.312899380342152px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 15.133258920541707px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 15.510197164508385px;" class="tag-cloud-link">程设</a>
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 10.240778361917936px;" class="tag-cloud-link">程设</a>
     
-    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 11.503932247072832px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 14.977308470149147px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
     
-    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 9.623966382763118px;" class="tag-cloud-link">波伏娃</a>
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 8.21269380830213px;" class="tag-cloud-link">波伏娃</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 17.257551683713814px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 15.2714915914855px;" class="tag-cloud-link">音数</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 17.73156379304509px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 12.481558920057559px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F%E8%AE%A1/" style="font-size: 16.020441006859105px;" class="tag-cloud-link">信概统计</a>
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 9.60200820073556px;" class="tag-cloud-link">信概统</a>
+    
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 19.512076184877248px;" class="tag-cloud-link">数算</a>
     
 </div>
                 
