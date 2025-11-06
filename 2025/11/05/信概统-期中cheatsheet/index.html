@@ -10,7 +10,7 @@
     
     
     
-    <title>信概统-连续随机变量 | lgswdn-SA</title>
+    <title>信概统-期中cheatsheet | lgswdn-SA</title>
     <link href="http://lgswdn.github.io" rel="prefetch" />
 
     
@@ -216,13 +216,13 @@
         <i class="fa fa-home"></i>
         <a href="http://lgswdn.github.io">lgswdn-SA</a>
         >
-        <span>信概统-连续随机变量</span>
+        <span>信概统-期中cheatsheet</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2025/10/23/%E4%BF%A1%E6%A6%82%E7%BB%9F-%E8%BF%9E%E7%BB%AD%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F/">信概统-连续随机变量</a>
+                <a href="/2025/11/05/%E4%BF%A1%E6%A6%82%E7%BB%9F-%E6%9C%9F%E4%B8%ADcheatsheet/">信概统-期中cheatsheet</a>
             </h1>
         </div>
         <div class="tag-article">
@@ -235,7 +235,7 @@
             </span>
             
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2025-10-23
+                <i class="fa fa-calendar"></i> 2025-11-05
             </span>
             
         </div>
@@ -245,11 +245,11 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2025/10/23/%E4%BF%A1%E6%A6%82%E7%BB%9F-%E8%BF%9E%E7%BB%AD%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F/">信概统-连续随机变量</a>
+                    <a href="/2025/11/05/%E4%BF%A1%E6%A6%82%E7%BB%9F-%E6%9C%9F%E4%B8%ADcheatsheet/">信概统-期中cheatsheet</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2025-10-23
+                <i class="fa fa-calendar"></i> 2025-11-05
             </p>
             <p>
                 
@@ -263,37 +263,131 @@
         </center>
     </div>
     <div class="content-article">
-        <h2 id="连续随机变量">连续随机变量</h2>
-<p>分布函数：<span class="math inline">\(F(x)=P(X\le x)\)</span>.
-满足有界，单调，右连续. 这三条性质等价于函数为分布函数.</p>
-<p>概率密度函数：若存在函数 <span class="math inline">\(f(x)\)</span>
-使得 <span class="math inline">\(f(x)\)</span> 的变上限积分 <span
-class="math inline">\(\int_{-\infty}^x
-f(t)dt=F(x)\)</span>，则为其概率密度函数.</p>
-<p>连续随机变量的分布函数为连续函数.</p>
-<p>期望和方差的定义是自然的，直接积一下即可. <span
-class="math inline">\(Var=E(X^2)-E(X)^2\)</span> 的性质仍然存在.</p>
-<p>Markov 不等式也仍然存在：对于非负随机变量满足期望 <span
-class="math inline">\(&gt;0\)</span>，则 <span
-class="math inline">\(P(X\ge aE)\le \frac{1}{a}\)</span>.</p>
-<blockquote>
-<p>Pf：<span class="math inline">\(E=\int xf(x)dx\ge \int_{aE}^{+\infty}
-aEf(x)=aEP(x\ge aE)\)</span>.</p>
-</blockquote>
-<p>切比雪夫不等式同理：对于 <span
-class="math inline">\(\sigma&gt;0\)</span> 有 <span
-class="math inline">\(P(|X-E(X)|\ge \sigma)\le
-\frac{1}{\sigma^2}\)</span>.</p>
-<p>对于连续随机变量 <span class="math inline">\(X\)</span>，严格单调函数
-<span class="math inline">\(y=g(x)\)</span> 和有连续导数的反函数 <span
-class="math inline">\(h(y)\)</span>，则 <span
-class="math inline">\(Y=g(X)\)</span> 的概率密度函数为（在概率非 0
-时）<span
-class="math inline">\(f_Y(y)=f_X(h(y))|h&#39;(y)|\)</span>.</p>
+        <h2 id="离散分布">离散分布</h2>
+<p>二项分布 <span class="math inline">\(B(n,p)\)</span>. <span
+class="math inline">\(P(X=k)\)</span> 为 <span
+class="math inline">\(n\)</span> 重伯努利实验中概率为 <span
+class="math inline">\(p\)</span> 的事件 <span
+class="math inline">\(A\)</span> 发生次数为 <span
+class="math inline">\(k\)</span> 的概率.</p>
+<ul>
+<li><span class="math inline">\(E(X)=np\)</span></li>
+<li><span class="math inline">\(E(X^2)=n(n-1)p^2+np\)</span></li>
+<li><span class="math inline">\(Var(X)=np(1-p)\)</span></li>
+</ul>
+<p>多个二项分布加起来得到 <span class="math inline">\(B(\sum
+n,p)\)</span>.</p>
 <hr />
-<h2 id="常见连续分布">常见连续分布</h2>
-<h4 id="高斯分布">高斯分布</h4>
-<p>记作 <span class="math inline">\(x\sim \mathcal
+<p>泊松分布 <span class="math inline">\(\pi(\lambda)\)</span>：<span
+class="math inline">\(B(\lambda m,\frac{1}{m})\)</span> 在 <span
+class="math inline">\(m\to +\infty\)</span> 的情况.</p>
+<ul>
+<li><span class="math inline">\(P(X_i=k)=
+\frac{\lambda^ke^{-\lambda}}{k!}\)</span>.</li>
+<li><span class="math inline">\(E(X)=\lambda\)</span></li>
+<li><span class="math inline">\(Var(X)=\lambda\)</span></li>
+</ul>
+<p>实际上，任意一列 <span class="math inline">\(p_1,\dots\)</span>，只要
+<span class="math inline">\(p_nn\to \lambda\)</span>，皆有 <span
+class="math inline">\(P(X_n=k)\to \frac{\lambda
+^ke^{-\lambda}}{k!}\)</span>.</p>
+<p>多个泊松分布加起来得到 <span class="math inline">\(\pi(\sum
+\lambda)\)</span>.</p>
+<hr />
+<p>几何分布 <span class="math inline">\(G (p)\)</span>：结果 <span
+class="math inline">\(A\)</span> 首次出现时的试验次数.</p>
+<ul>
+<li><span class="math inline">\(P(X_i=k)=p(1-p)^{k-1}\)</span>.</li>
+<li><span class="math inline">\(E(X)=\frac{1}{p}\)</span>.</li>
+<li><span class="math inline">\(Var(X)=\frac{1-p}{p^2}\)</span>.</li>
+<li>无记忆性：<span
+class="math inline">\(P(X&gt;n+m|X&gt;m)=P(X&gt;n)\)</span>.</li>
+</ul>
+<hr />
+<p>负二项分布 <span class="math inline">\(NB(r,p)\)</span>：结果 <span
+class="math inline">\(A\)</span> 首次发生 <span
+class="math inline">\(r\)</span> 次时的试验次数.</p>
+<ul>
+<li><p><span
+class="math inline">\(P(X_i=k)=\binom{k-1}{r-1}p^{r}(1-p)^{k-r}\)</span>.</p></li>
+<li><p>如何证明其的确是概率分布？即 <span class="math inline">\(\sum
+\binom{k-1}{r-1}p^r(1-p)^{k-r}=1\)</span>？</p>
+<p>令 <span class="math inline">\(l=k-r\)</span>，则即证 <span
+class="math inline">\(\sum \binom{l+r-1}{r-1}(1-p)^l=p^{-r}\)</span></p>
+<p>将 <span class="math inline">\(p^{-r}\)</span> 写作 <span
+class="math inline">\((1-(1-p))^{-r}\)</span> 后展开，得 <span
+class="math inline">\(\sum (-1)^{l}\binom{-r}{l}(1-p)^l=\sum
+\binom{l+r-1}{l}(1-p)^l\)</span>，即证.</p></li>
+<li><p><span class="math inline">\(NB(r,p)\)</span> 可以看作 <span
+class="math inline">\(r\)</span> 个 <span
+class="math inline">\(G(p)\)</span> 之和.</p></li>
+<li><p><span class="math inline">\(E=\frac{r}{p}\)</span></p></li>
+<li><p><span
+class="math inline">\(Var=\frac{r(1-p)}{p^2}\)</span></p></li>
+</ul>
+<div style="page-break-after: always;">
+
+</div>
+<h2 id="结论">结论</h2>
+<h4 id="二项分布">二项分布</h4>
+<blockquote>
+<p><span class="math inline">\(\sum
+\binom{n}{i}p^{i}(1-p)^{n-i}i=np\)</span></p>
+<p><span class="math inline">\(\sum
+\binom{n}{i}p^i(1-p)^{n-i}i^2=n(n-1)p^2+np\)</span></p>
+</blockquote>
+<h4 id="泊松分布">泊松分布</h4>
+<blockquote>
+<p><span class="math inline">\(\sum \frac{\lambda^k
+e^{-\lambda}}{k!}=1\)</span>.</p>
+<p><span class="math inline">\(\sum
+\frac{\lambda^ke^{-\lambda}k}{k!}=\lambda\)</span>.</p>
+<p><span class="math inline">\(\sum
+\frac{\lambda^ke^{-\lambda}k^2}{k!}=\lambda^2+\lambda\)</span>.</p>
+</blockquote>
+<h4 id="几何分布">几何分布</h4>
+<blockquote>
+<p><span class="math inline">\(\sum
+p(1-p)^{k-1}k=\frac{1}{p}\)</span></p>
+<p><span class="math inline">\(\sum
+p(1-p)^{k-1}k^2=\frac{1-p}{p^2}\)</span></p>
+</blockquote>
+<h4 id="负二项分布">负二项分布</h4>
+<blockquote>
+<p><span class="math inline">\(\sum_k
+\binom{k-1}{r-1}p^r(1-p)^{k-r}=1\)</span></p>
+<p><span class="math inline">\(\sum_k
+\binom{k-1}{r-1}p^r(1-p)^{k-r}k=\frac{r}{p}\)</span></p>
+<p><span class="math inline">\(\sum_k
+\binom{k-1}{r-1}p^r(1-p)^{k-r}k^2=\frac{2-p}{p^2}\)</span>.</p>
+</blockquote>
+<h2 id="misc">misc</h2>
+<p>概率证法：<span class="math inline">\(P(X\ge E(X))&gt;
+0\)</span>.</p>
+<p><strong>Markov 不等式</strong>：对于<strong>非负</strong>随机变量
+<span class="math inline">\(X\)</span>，若 <span
+class="math inline">\(E(X)&gt;0\)</span>，则 <span
+class="math inline">\(P(X\ge cE(X))\le \frac{1}{c}\)</span>.</p>
+<p><strong>切比雪夫不等式</strong>：<span
+class="math inline">\(P(|X-E|\ge c\sigma)\le\frac{1}{c^2}\)</span>.</p>
+<p>证明考虑对随机变量 <span class="math inline">\(Y=(X-E)^2\)</span>
+使用 Markov 不等式.</p>
+<hr />
+<p>协方差：<span
+class="math inline">\(Cov(X,Y)=E((X-E(X))(Y-E(Y)))=E(XY)-E(X)E(Y)\)</span>.</p>
+<p><span
+class="math inline">\(Var(X+Y)=Var(X)+Var(Y)+Cov(X,Y)\)</span>.</p>
+<p>独立变量的 Cov 为 0，但是 Cov 为 0 的可能不独立（<span
+class="math inline">\(X\)</span> 服从拉德马赫，<span
+class="math inline">\(Y=X^2\)</span>）.</p>
+<p>计算 Cov 的时候可以记得拆成 <span
+class="math inline">\(Cov(X,Y)=Cov(Y+Z,Z)=Var(Y)\)</span>，如果 <span
+class="math inline">\(Y,Z\)</span> 独立.</p>
+<div style="page-break-after: always;">
+
+</div>
+<h2 id="连续分布">连续分布</h2>
+<p>高斯分布：记作 <span class="math inline">\(x\sim \mathcal
 N(\mu,\sigma^2)\)</span>.</p>
 <blockquote>
 <p><span
@@ -304,8 +398,9 @@ class="math inline">\(f(x)=\frac{1}{\sqrt{2\pi}}e^{-x^2/2}\)</span>，<span
 class="math inline">\(P(|X|\le 2)=0.9545\)</span>，<span
 class="math inline">\(P(|X|\le 3)=0.9973\)</span>.</p>
 <p>p.s. 伯努利分布在标准化后变成拉德马赫分布（随机符号）.</p>
-<h4 id="指数分布">指数分布</h4>
-<p>记作 <span class="math inline">\(x\sim Exp(\lambda)\)</span>.</p>
+<hr />
+<p>指数分布：记作 <span class="math inline">\(x\sim
+Exp(\lambda)\)</span>.</p>
 <blockquote>
 <p><span class="math inline">\(f(x)=[x&gt;0]\lambda e^{-\lambda
 x}\)</span></p>
@@ -317,8 +412,8 @@ class="math inline">\(\frac{1}{\lambda^2}\)</span></p>
 </blockquote>
 <p>注意到 <span class="math inline">\(P(X&gt;x)=e^{-\lambda
 x}\)</span>，故指数函数显然拥有无记忆性.</p>
-<h4 id="伽马分布">伽马分布</h4>
-<p>记作 <span class="math inline">\(x\sim
+<hr />
+<p>伽马分布：记作 <span class="math inline">\(x\sim
 \Gamma(\alpha,\lambda)\)</span></p>
 <blockquote>
 <p><span
@@ -329,13 +424,7 @@ class="math inline">\(\frac{\alpha}{\lambda}\)</span>，方差：<span
 class="math inline">\(\frac{\alpha}{\lambda^2}\)</span></p>
 </blockquote>
 <p>取 <span class="math inline">\(\alpha=1\)</span> 即指数分布.</p>
-<p>伽马函数性质：</p>
-<blockquote>
-<p><span class="math inline">\(\Gamma(n+1)=n!\)</span></p>
-<p><span
-class="math inline">\(\Gamma(n+\frac{1}{2})=\frac{(2n)!}{4^nn!}\sqrt{\pi}\)</span></p>
-</blockquote>
-<h4 id="卡方分布">卡方分布</h4>
+<hr />
 <p><span class="math inline">\(\Gamma(\frac{n}{2},\frac{1}{2})\)</span>
 得到卡方分布 <span class="math inline">\(\chi^2(n)\)</span>.</p>
 <blockquote>
@@ -348,8 +437,11 @@ e^{-\frac{x}{2}}\)</span>.</p>
 <p>另一方面，这个也是 <span class="math inline">\(X\sim \mathcal
 N(0,1)\)</span> 时 <span class="math inline">\(X^2\)</span> 的分布.</p>
 <hr />
-<h2 id="可用式子结论">可用式子结论</h2>
-<h4 id="高斯分布-1">高斯分布</h4>
+<div style="page-break-after: always;">
+
+</div>
+<h2 id="结论-1">结论</h2>
+<h4 id="高斯分布">高斯分布</h4>
 <blockquote>
 <p><span class="math inline">\(\int_{-\infty}^{+\infty}
 e^{-x^2/2}=\sqrt{2\pi}\)</span></p>
@@ -358,7 +450,7 @@ e^{-x^2/2}x=0\)</span></p>
 <p><span class="math inline">\(\int_{-\infty}^{+\infty}
 e^{-x^2/2}x^2=\sqrt{2\pi}\)</span></p>
 </blockquote>
-<h4 id="指数分布-1">指数分布</h4>
+<h4 id="指数分布">指数分布</h4>
 <blockquote>
 <p><span class="math inline">\(\int_{0}^{x}\lambda e^{-\lambda
 t}=1-e^{-\lambda x}\)</span>，对于 <span
@@ -366,7 +458,7 @@ class="math inline">\(x&gt;0\)</span>.</p>
 <p><span class="math inline">\(\int_{0}^{+\infty} \lambda e^{-\lambda
 x}x^n=\frac{n!}{\lambda^{n}}\)</span>.</p>
 </blockquote>
-<h4 id="伽马分布-1">伽马分布</h4>
+<h4 id="伽马分布">伽马分布</h4>
 <blockquote>
 <p><span class="math inline">\(\Gamma(\alpha)=\int_0^{+\infty}
 x^{\alpha-1}e^{-x}dx\)</span>.</p>
@@ -379,7 +471,7 @@ class="math inline">\(\int_0^{+\infty}\frac{\lambda}{\Gamma(\alpha)}x^{\alpha-1}
 x}dx=1\)</span>. 证明考虑代 <span class="math inline">\(y=\lambda
 x\)</span>.</p>
 </blockquote>
-<h4 id="卡方分布-1">卡方分布</h4>
+<h4 id="卡方分布">卡方分布</h4>
 <blockquote>
 <p><span class="math inline">\(\int_0^{+\infty}\frac{1}{\sqrt{2\pi
 x}}e^{-\frac{x}{2}}dx=\int_0^{+\infty}\frac{\sqrt{x}}{\sqrt{2\pi}}e^{-\frac{x}{2}}dx=1\)</span>.</p>
@@ -456,7 +548,7 @@ class="math inline">\(\int_0^{+\infty}\frac{\sqrt{x^3}}{\sqrt{2\pi}}e^{-\frac{x}
         
         
         <div class="panel-body toc-container">
-            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E8%BF%9E%E7%BB%AD%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F"><span class="toc-list-text">连续随机变量</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%B8%B8%E8%A7%81%E8%BF%9E%E7%BB%AD%E5%88%86%E5%B8%83"><span class="toc-list-text">常见连续分布</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E9%AB%98%E6%96%AF%E5%88%86%E5%B8%83"><span class="toc-list-text">高斯分布</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E6%8C%87%E6%95%B0%E5%88%86%E5%B8%83"><span class="toc-list-text">指数分布</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E4%BC%BD%E9%A9%AC%E5%88%86%E5%B8%83"><span class="toc-list-text">伽马分布</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E5%8D%A1%E6%96%B9%E5%88%86%E5%B8%83"><span class="toc-list-text">卡方分布</span></a></li></ol></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%8F%AF%E7%94%A8%E5%BC%8F%E5%AD%90%E7%BB%93%E8%AE%BA"><span class="toc-list-text">可用式子结论</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E9%AB%98%E6%96%AF%E5%88%86%E5%B8%83-1"><span class="toc-list-text">高斯分布</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E6%8C%87%E6%95%B0%E5%88%86%E5%B8%83-1"><span class="toc-list-text">指数分布</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E4%BC%BD%E9%A9%AC%E5%88%86%E5%B8%83-1"><span class="toc-list-text">伽马分布</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E5%8D%A1%E6%96%B9%E5%88%86%E5%B8%83-1"><span class="toc-list-text">卡方分布</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E7%A6%BB%E6%95%A3%E5%88%86%E5%B8%83"><span class="toc-list-text">离散分布</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-list-text">结论</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83"><span class="toc-list-text">二项分布</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83"><span class="toc-list-text">泊松分布</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E5%87%A0%E4%BD%95%E5%88%86%E5%B8%83"><span class="toc-list-text">几何分布</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E8%B4%9F%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83"><span class="toc-list-text">负二项分布</span></a></li></ol></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#misc"><span class="toc-list-text">misc</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E8%BF%9E%E7%BB%AD%E5%88%86%E5%B8%83"><span class="toc-list-text">连续分布</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E7%BB%93%E8%AE%BA-1"><span class="toc-list-text">结论</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E9%AB%98%E6%96%AF%E5%88%86%E5%B8%83"><span class="toc-list-text">高斯分布</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E6%8C%87%E6%95%B0%E5%88%86%E5%B8%83"><span class="toc-list-text">指数分布</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E4%BC%BD%E9%A9%AC%E5%88%86%E5%B8%83"><span class="toc-list-text">伽马分布</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E5%8D%A1%E6%96%B9%E5%88%86%E5%B8%83"><span class="toc-list-text">卡方分布</span></a></li></ol></li></ol></li></ol>
         </div>
     </div>
 </aside>
@@ -474,13 +566,13 @@ class="math inline">\(\int_0^{+\infty}\frac{\sqrt{x^3}}{\sqrt{2\pi}}e^{-\frac{x}
 
                 
                 <li>
-                    <a href="/2025/10/23/%E4%BF%A1%E6%A6%82%E7%BB%9F-%E8%BF%9E%E7%BB%AD%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2025/11/05/%E4%BF%A1%E6%A6%82%E7%BB%9F-%E6%9C%9F%E4%B8%ADcheatsheet/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 
                 <li>
-                    <a href="/2025/10/23/%E4%BF%A1%E6%A6%82%E7%BB%9F-%E8%BF%9E%E7%BB%AD%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2025/11/05/%E4%BF%A1%E6%A6%82%E7%BB%9F-%E6%9C%9F%E4%B8%ADcheatsheet/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -488,35 +580,35 @@ class="math inline">\(\int_0^{+\infty}\frac{\sqrt{x^3}}{\sqrt{2\pi}}e^{-\frac{x}
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 15.76476586092693px;" class="tag-cloud-link">总结</a>
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 14.257246742099797px;" class="tag-cloud-link">总结</a>
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 16.757384596726304px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 17.93485321629688px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 15.435772190820614px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 10.020764098881362px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/ICS/" style="font-size: 16.761940888657747px;" class="tag-cloud-link">ICS</a>
+    <a href="/tags/ICS/" style="font-size: 17.998930709260435px;" class="tag-cloud-link">ICS</a>
     
-    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 9.414395658678494px;" class="tag-cloud-link">具身</a>
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 13.675457756511664px;" class="tag-cloud-link">具身</a>
     
-    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 19.894308590178035px;" class="tag-cloud-link">初恋日记</a>
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 11.069222344930271px;" class="tag-cloud-link">初恋日记</a>
     
-    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 9.200327839913037px;" class="tag-cloud-link">腾讯星火营</a>
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 19.296881847525075px;" class="tag-cloud-link">腾讯星火营</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 14.871262259976366px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 18.373420371941727px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 8.453139558373014px;" class="tag-cloud-link">程设</a>
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 8.125983977616755px;" class="tag-cloud-link">程设</a>
     
-    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 17.87157672086234px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 9.845796066954382px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
     
-    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 12.76148139682055px;" class="tag-cloud-link">波伏娃</a>
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 19.288437603073152px;" class="tag-cloud-link">波伏娃</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 9.408195009656065px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 13.46495528786053px;" class="tag-cloud-link">音数</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 16.880906739750266px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 15.43180480680424px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 10.903538636246404px;" class="tag-cloud-link">信概统</a>
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 15.717306577066388px;" class="tag-cloud-link">信概统</a>
     
-    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 12.180786872492941px;" class="tag-cloud-link">数算</a>
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 17.219667903298422px;" class="tag-cloud-link">数算</a>
     
 </div>
                 
