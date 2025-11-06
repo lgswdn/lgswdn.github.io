@@ -10,7 +10,7 @@
     
     
     
-    <title>ICS-数据类型 | lgswdn-SA</title>
+    <title>lgswdn-SA</title>
     <link href="http://lgswdn.github.io" rel="prefetch" />
 
     
@@ -216,26 +216,19 @@
         <i class="fa fa-home"></i>
         <a href="http://lgswdn.github.io">lgswdn-SA</a>
         >
-        <span>ICS-数据类型</span>
+        <span></span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2025/09/15/ICS-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">ICS-数据类型</a>
+                <a href="/2025/11/06/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-Counting1/"></a>
             </h1>
         </div>
         <div class="tag-article">
             
             <span class="label label-gal">
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/ICS/">ICS</a>
-                
-            </span>
-            
-            <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2025-09-15
+                <i class="fa fa-calendar"></i> 2025-11-06
             </span>
             
         </div>
@@ -245,120 +238,202 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2025/09/15/ICS-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">ICS-数据类型</a>
+                    <a href="/2025/11/06/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-Counting1/"></a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2025-09-15
+                <i class="fa fa-calendar"></i> 2025-11-06
             </p>
             <p>
-                
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/ICS/">ICS</a>
-                
                 
                 
             </p>
         </center>
     </div>
     <div class="content-article">
-        <h1 id="lecture-2---integer">Lecture 2 - Integer</h1>
-<h3 id="unsigned-signed">Unsigned &amp; Signed</h3>
-<p>Byte = 8 bits. Why？为了适应字符集大小.</p>
-<p>64 位系统和 32 位系统的一些区别是，long 类型和 pointer 在 32 位是 4
-Bytes, 在 64 位是 8 Bytes.</p>
-<p>Two's Compliment：补码，即用 <span
-class="math inline">\(-x_{w-1}2^{w-1}+\sum_{i=0}^{w-2}{x_i}2^i\)</span>
-来表示数.</p>
-<p>在这个系统下，最小值 <span
-class="math inline">\(TMin=-2^{w-1}\)</span>，最大值 <span
-class="math inline">\(TMax=2^{w-1}-1\)</span>.</p>
-<p>可以发现这个系统下，负数间的比较是自然的，并且运算，左移，算数右移也是自然的.</p>
-<p>在表达式中，如果有 Unsigned，那么 signed 都会被 cast to unsigned.
-casting 的时候表现上可能会 <span class="math inline">\(\pm
-2^{w}\)</span>.</p>
-<p>truncate：截断的时候，mod <span class="math inline">\(2^w\)</span>
-意义下保持不变.</p>
-<p>expand：扩展的时候，采用 sign expansion，用符号位填充.</p>
-<h3 id="operation">Operation</h3>
-<p>随便想一下，就可以发现加法对于 two's compliment 都是很自然的，直接当
-unsigned 去加去截断，就对了.</p>
-<p>减法取反 <span class="math inline">\(+1\)</span> 一下就是了.</p>
-<p>在 2's compliment 下，其实 signed 和 unsigned 是本质相同的.
-都是考虑在 <span class="math inline">\(\bmod 2^w\)</span>
-的群下做操作，然后 signed 的话溢出部分就是 <span
-class="math inline">\(-2^{w}\)</span>.</p>
-<p><code>&gt;&gt;k</code> 得到 <span class="math inline">\(/2^k\)</span>
-后下取整的结果. 这是因为 2's compliment 后面其实都是加法，所以不会向 0
-取整.然后 arithmetic shift 需要前面填充符号位.</p>
-<h3 id="memory-pointer-strings">Memory, Pointer, Strings</h3>
-<p>使用 32-bit word size 的系统，memory 被限制在了 4GB. 使用 64-bit word
-size 的系统，memory 可以达到 18EB（<span class="math inline">\(18\times
-10^{18}\)</span>）.</p>
-<p>Big Endian：most significent bit 存在更前面（Sun, PPC MAC,
-Internet）</p>
-<p>Little Endian：least significent bit 存在更前面（x86, ARM, Andriod
-iOS Windows）</p>
-<p>将 pointer cast 成一个 <code>unsigned char *</code> 那么这个 pointer
-就会指向一个 byte 的信息，可以用来 print byte.</p>
-<hr />
-<p>string 中，每个 char 都只占一个 byte 所以显然没有 ordering issue.</p>
-<p><code>int('0')=0x30</code></p>
-<h1 id="lecture-3---float">Lecture 3 - Float</h1>
-<h3 id="ieee-standard">IEEE Standard</h3>
-<p>single precision: 1 sign bit, k=8 exp bits, m=23 frac bits <span
-class="math inline">\(x_1\dots x_{23}\)</span></p>
-<p>double precision: 1 sign bit, k=11 exp bits, m=52 frac bits <span
-class="math inline">\(x_1\dots x_{52}\)</span></p>
-<p><span class="math inline">\(s\ \{e\}\ \{x\}\)</span></p>
-<p><span class="math inline">\(bias=2^{k-1}-1\)</span>（127 for float,
-1023 for double）</p>
-<p><span class="math inline">\(val=(-1)^s\times 2^{E}\times M\)</span>
-in the following cases (E = Exponent, M=Significand):</p>
+        <h1 id="counting-11.6">Counting / 11.6</h1>
+<h4 id="组合数">组合数</h4>
+<p>排列数（下降幂）：<span
+class="math inline">\(\frac{n!}{(n-k)!}=n^{\underline{k}}\)</span>.</p>
+<p>组合数（二项式系数）：<span
+class="math inline">\(\frac{n!}{k!(n-k)!}=\binom{n}{k}\)</span>.</p>
+<p>Property:</p>
 <ul>
-<li><p>denormalized (exp = 00..0)</p>
-<p><span class="math inline">\(E=1-bias\)</span>，<span
-class="math inline">\(M=0.x_1\dots x_m\)</span></p>
-<p><span class="math inline">\(\{\pm0\}\cup\pm
-[2^{1-bias-m},2^{bias-1}(1-2^{-m})]\)</span></p></li>
-<li><p>normalized (00..0 &lt; exp &lt; 11..1)</p>
-<p><span class="math inline">\(E=e-bias\)</span>，<span
-class="math inline">\(M=1.x_1\dots x_m\)</span></p>
+<li><p><span
+class="math inline">\(\binom{n}{k}=\binom{n}{n-k}\)</span></p></li>
+<li><p><span
+class="math inline">\((x+y)^n=\sum_{k=0}^{n}\binom{n}{k}x^ky^{n-k}\)</span></p></li>
+<li><p><span
+class="math inline">\(\binom{n}{k}=\binom{n-1}{k-1}+\binom{n-1}{k}\)</span></p></li>
+<li><p><span
+class="math inline">\(\binom{n}{k}=\frac{n}{k}\binom{n-1}{k-1}\)</span></p></li>
+<li><p>使用 <span
+class="math inline">\(\binom{n}{k}=\frac{n^{\underline{k}}}{k!}\)</span>，可以得到
+<span class="math inline">\(n\in \mathbb R\)</span>
+时的广义二项式级数定义</p>
+<p>在 <span class="math inline">\(|x|&lt;1\)</span> 时，有 <span
+class="math inline">\((1+x)^r=\sum_{k=0}^{+\infty}\binom{r}{k}x^k\)</span></p></li>
+<li><p><span
+class="math inline">\(\sum_{k=0}^{n}\binom{n}{k}k=2^{n-1}n\)</span>.</p>
+<p>Proof：<span
+class="math inline">\(\sum_{k=0}^{n}\binom{n}{k}k=\sum_{k=0}^{n}\binom{n-1}{k-1}n=2^{n-1}n\)</span>.</p></li>
+<li><p><span
+class="math inline">\(\sum_{k=0}^{m}\binom{n+k}{n}=\binom{n+m+1}{n+1}\)</span>.</p>
+<p>Proof：一方面，可以直接用数学归纳证明.
+另一方面，考虑其组合意义：<span class="math inline">\(n+m\)</span>
+个人中需要选出 <span class="math inline">\(m+1\)</span>
+个人，左侧和式相当于在枚举最后一个未选中的人是哪个.</p></li>
+<li><p>网格图 <span class="math inline">\((0,0)\to (n,m)\)</span>
+的最短路径数：<span class="math inline">\(\binom{n+m}{n}\)</span>.</p>
+<p>Proof：考虑递推式 <span
+class="math inline">\(f_{n,m}=f_{n-1,m}+f_{n,m-1}\)</span>，形成了斜着的杨辉三角.</p></li>
+</ul>
+<h4 id="catalan-number">Catalan Number</h4>
+<p><span class="math display">\[
+C_n=\frac{1}{n+1}\binom{2n}{n}
+\]</span></p>
+<p>问题引入：<span class="math inline">\((0,0)\to (n,n)\)</span>
+的，不经过 <span class="math inline">\(x&lt;y\)</span>
+部分的最短路径数为 <span class="math inline">\(C_n\)</span>.</p>
+<ul>
+<li><p>总方案数为组合数 <span
+class="math inline">\(\binom{2n}{n}\)</span>.</p>
+<p>对于每一个不合法路径，其一定与 <span
+class="math inline">\(y=x+1\)</span> 有交点. 考虑映射 <span
+class="math inline">\(\phi\)</span>，其将不合法路径的第一个与 <span
+class="math inline">\(y=x+1\)</span> 的交点之前的部分沿 <span
+class="math inline">\(y=x+1\)</span> 翻转. 容易证明 <span
+class="math inline">\(\phi\)</span> 形成了从不合法路径，到 <span
+class="math inline">\((-1,1)\to (n,n)\)</span> 路径的双射.</p>
+<p>于是不合法路径数为 <span
+class="math inline">\(\binom{2n}{n-1}\)</span>.</p>
 <p><span
-class="math inline">\(\pm[2^{1-bias},2^{bias}(2-2^{-m})]\)</span></p></li>
-<li><p>special value (exp = 11..1)</p>
-<p><span class="math inline">\(x=[00..0]\implies \pm \infty\)</span></p>
-<p>else <span class="math inline">\(\implies
-\text{nan}\)</span>.</p></li>
+class="math inline">\(C_n=\binom{2n}{n}-\binom{2n}{n-1}=\frac{1}{n+1}\binom{2n}{n}\)</span>.</p></li>
 </ul>
-<p><span class="math inline">\(1\)</span>：<span
-class="math inline">\(e=011..1\)</span>，<span
-class="math inline">\(x=00..0\)</span>.</p>
-<h3 id="operation-1">operation</h3>
-<p>special case: <span
-class="math inline">\(\infty-\infty\)</span>，<span
-class="math inline">\(\infty\times 0\)</span> produce <span
-class="math inline">\(\text{nan}\)</span>.</p>
-<p>Rounding: （截断的时候）四舍五入，但是恰好为 <span
-class="math inline">\(...x_{m-2}x_{m-1}x_{m}|100...0\)</span> (round
-bit=1, sticky bits=0)的时候取整到最近的偶数使得 LSB 为 <span
-class="math inline">\(0\)</span>. 注意 round 之后有可能造成 frac bits 的
-overflow，需要调整 exp（可能要从 denorm 变成 norm）.</p>
-<p>Addition inverse &amp; Monocity stands except for <span
-class="math inline">\(\infty\)</span> and <span
-class="math inline">\(\text{nan}\)</span>.</p>
-<p>没有结合律和分配律.</p>
-<p>Conversion:</p>
+<p>Catalan Number 同样是以下问题的答案：</p>
 <ul>
-<li><p>转成 int 的时候，直接截断（即向 <span
-class="math inline">\(0\)</span> 取整）</p>
-<p>out of range 或者 nan 或者 inf 直接变成 <span
-class="math inline">\(TMin\)</span>.</p></li>
-<li><p>(32 bit) int to double 可以完全不丢精度.</p></li>
-<li><p>int to float 的时候需要用到向偶数取整.</p></li>
+<li><p><span class="math inline">\(n\)</span>
+对括号的合法括号序列数（同理，<span class="math inline">\(n\)</span>
+个节点的森林数）</p>
+<p>Proof：将左括号看作 <span
+class="math inline">\(x+1\)</span>，右括号看作 <span
+class="math inline">\(y+1\)</span>，即回到路径计数问题.</p>
+<p>这个问题也启发我们获得卡特兰数的递推式：考虑枚举第一个左括号对应的右括号位置，则得到
+<span class="math display">\[
+C_n=\sum_{k=1}^n C_{k-1}C_{n-k}
+\]</span></p></li>
+<li><p><span class="math inline">\(n+1\)</span>
+个叶节点的满二叉树（同理，<span class="math inline">\(n+2\)</span>
+边形的三角剖分方案数）</p>
+<p>Proof：考虑枚举左儿子的数量，得到上面的递推式，知其为卡特兰数.</p></li>
 </ul>
-<p>test</p>
+<h4 id="balls-and-bins">Balls and Bins</h4>
+<p>对于 <span class="math inline">\(n\)</span> 个桶，<span
+class="math inline">\(m\)</span> 个球的模型，考虑将球放进桶的方案数.</p>
+<ul>
+<li><p>当球桶都可区分，方案数显然为 <span
+class="math inline">\(n^m\)</span>.</p></li>
+<li><p>当桶可区分而球不可区分，不允许有空桶的方案数为 <span
+class="math inline">\(\binom{m-1}{n-1}\)</span>.</p>
+<p>Proof：相当于在 <span class="math inline">\(m\)</span> 个球之间插
+<span class="math inline">\(n-1\)</span> 块板，即从 <span
+class="math inline">\(m-1\)</span> 个空档中选择 <span
+class="math inline">\(n-1\)</span> 个空挡插板.</p></li>
+<li><p>当桶可区分而球不可区分，允许有空桶的方案数为 <span
+class="math inline">\(\binom{m+n-1}{n-1}\)</span>.</p>
+<p>Proof：多给 <span class="math inline">\(m\)</span>
+个球，不允许有空桶地放完之后再从每个桶拿出来一个球即可.</p></li>
+</ul>
+<p>若给定每个桶的最终球数 <span
+class="math inline">\(m_i\)</span>，则有方案数 <span
+class="math inline">\(\binom{m}{m_1,m_2,\dots,m_n}=\frac{m!}{\prod
+m_i!}\)</span>.</p>
+<p><span class="math inline">\(n=3\)</span> 时得到三项式系数 <span
+class="math display">\[
+(x+y+z)^m=\sum_{i,j}\binom{m}{i,j,m-i-j}x^iy^jz_{m-i-j}
+\]</span></p>
+<h4 id="inclusion-exclusion-principle">Inclusion &amp; Exclusion
+Principle</h4>
+<p>考虑多重集意义下的加法，我们有 <span class="math display">\[
+\bigcup_{k\in[n]} A_k=\sum_{T\subseteq [n]} (-1)^{|T|-1}(\bigcap_{k\in
+T} A_k)
+\]</span></p>
+<ul>
+<li>Proof：考虑每个 <span class="math inline">\(x\in \bigcup
+A_k\)</span> 在右式中的出现次数 <span class="math inline">\(f_x\)</span>
+<span class="math display">\[
+f_x=\sum_{T\subseteq [n],T\neq \varnothing}
+(-1)^{|T|-1}[x\in\bigcap_{k\in T} A_k]
+\]</span> 注意到只要 <span class="math inline">\(\exist k,x\notin
+A_k\)</span>，求和项就会变成 <span class="math inline">\(0\)</span>.
+于是令 <span class="math inline">\(S\)</span> 为 <span
+class="math inline">\(A_1,\dots,A_n\)</span> 中所有包含 <span
+class="math inline">\(x\)</span> 的集合，即 <span
+class="math inline">\(S=\{i|x\in A_i\}\)</span>，于是有 <span
+class="math display">\[
+f_x=\sum_{T\subseteq S,T\neq \emptyset} (-1)^{|T|-1}=1-\sum_{T\subseteq
+S}(-1)^{|T|}=1
+\]</span> 这是因为 <span class="math inline">\(\sum_{T\subseteq
+S}(-1)^{|T|}=\sum_{k}(-1)^k\sum_{T\subseteq
+S,|T|=k}1=\sum_{k}(-1)^k\binom{|S|}{k}=0\)</span>.</li>
+</ul>
+<h4 id="pigeonhole-principle">Pigeonhole Principle</h4>
+<p>例 1. 对于 <span class="math inline">\(S\subseteq[2n]\)</span>，<span
+class="math inline">\(|S|\ge n+1\)</span>，则</p>
+<ol type="1">
+<li><p><span class="math inline">\(\exist i\neq j\in S\)</span>，<span
+class="math inline">\(i,j\)</span> coprime.</p>
+<p>Proof：令第 <span class="math inline">\(i\)</span> 个 hole 为 <span
+class="math inline">\(\{2i-1,2i\}\)</span>，则一定存在一个 hole
+有两个元素同时在 <span
+class="math inline">\(S\)</span>，于是互素.</p></li>
+<li><p><span class="math inline">\(\exist i\neq j\in S\)</span>，<span
+class="math inline">\(i|j\)</span>.</p>
+<p>Proof：令第 <span class="math inline">\(i\)</span> 个 hole 为 <span
+class="math inline">\(\{(2i-1)\times 2^k\}\)</span>，则一定存在一个 hole
+有两个元素同时在 <span
+class="math inline">\(S\)</span>，这两个元素的商为 <span
+class="math inline">\(2\)</span> 的幂次.</p></li>
+</ol>
+<p>例 2. 对于序列 <span class="math inline">\(a_1,\dots, a_n\)</span>.
+对于 <span class="math inline">\(r\times s&lt;n\)</span>，有：要么存在长
+<span class="math inline">\(r+1\)</span> 的非升子序列（即 LNIS <span
+class="math inline">\(&gt;r\)</span>），要么存在长 <span
+class="math inline">\(s+1\)</span> 的非降子序列（即 LNDS <span
+class="math inline">\(&gt;s\)</span>）.</p>
+<ul>
+<li><p>Proof：令 <span class="math inline">\(r_i\)</span> 表示 <span
+class="math inline">\(a_i\)</span> 结尾的最长非降子序列，<span
+class="math inline">\(s_i\)</span> 表示 <span
+class="math inline">\(a_i\)</span> 结尾的最长非升子序列.</p>
+<p>若 LNIS <span class="math inline">\(\le r\)</span> 且 LNDS <span
+class="math inline">\(\le s\)</span>，则 <span
+class="math inline">\((r_i,s_i)\in [r]\times [s]\)</span>. 则考虑所有的
+<span class="math inline">\((r_i,s_i)\)</span>，由鸽笼原理知一定存在
+<span class="math inline">\(i\neq j\)</span> 使得 <span
+class="math inline">\((r_i,s_i)=(r_j,s_j)\)</span>.</p>
+<p>不妨设 <span class="math inline">\(i&lt;j\)</span>. 由于 <span
+class="math inline">\(r_i=r_j\)</span> 所以 <span
+class="math inline">\(a_i&lt;a_j\)</span>. 由于 <span
+class="math inline">\(s_i=s_j\)</span> 所以 <span
+class="math inline">\(a_i&gt;a_j\)</span>. 矛盾.</p></li>
+</ul>
+<p>例 3. Short-Integer Solution (SIS)：对于 <span
+class="math inline">\(M\in \mathbb M_p^{n\times m}\)</span>，令在模
+<span class="math inline">\(p\)</span> 意义下 <span
+class="math inline">\(Mx=0\)</span> 的一个 SIS 为满足 $x_i{-1,0,1} $
+的解. 证明：<span class="math inline">\(M&gt;n\log P\)</span> 时，SIS
+一定存在.</p>
+<ul>
+<li><p>Proof：考虑 <span class="math inline">\(\{0,1\}^{m}\to \mathbb
+Z_p^n\)</span> 的映射，将 <span class="math inline">\(x\)</span> 映成
+<span class="math inline">\(M x\)</span>.</p>
+<p>则由鸽笼原理知，存在 <span class="math inline">\(x\neq x&#39;\in
+\{0,1\}^m\)</span> 使得 <span
+class="math inline">\(Mx=Mx&#39;\)</span>，于是 <span
+class="math inline">\(M(x-x&#39;)=0\)</span>. 故 <span
+class="math inline">\(x-x&#39;\)</span> 为一个 SIS.</p></li>
+</ul>
 
     </div>
 </article>
@@ -428,7 +503,8 @@ class="math inline">\(TMin\)</span>.</p></li>
         
         
         <div class="panel-body toc-container">
-            <ol class="toc-list"><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#lecture-2---integer"><span class="toc-list-text">Lecture 2 - Integer</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#unsigned-signed"><span class="toc-list-text">Unsigned &amp; Signed</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#operation"><span class="toc-list-text">Operation</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#memory-pointer-strings"><span class="toc-list-text">Memory, Pointer, Strings</span></a></li></ol></li></ol></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#lecture-3---float"><span class="toc-list-text">Lecture 3 - Float</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#ieee-standard"><span class="toc-list-text">IEEE Standard</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#operation-1"><span class="toc-list-text">operation</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#counting-11.6"><span class="toc-list-text">Counting &#x2F; 11.6</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E7%BB%84%E5%90%88%E6%95%B0"><span class="toc-list-text">组合数</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#catalan-number"><span class="toc-list-text">Catalan Number</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#balls-and-bins"><span class="toc-list-text">Balls and Bins</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#inclusion-exclusion-principle"><span class="toc-list-text">Inclusion &amp; Exclusion
+Principle</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#pigeonhole-principle"><span class="toc-list-text">Pigeonhole Principle</span></a></li></ol></li></ol></li></ol></li></ol>
         </div>
     </div>
 </aside>
@@ -446,13 +522,13 @@ class="math inline">\(TMin\)</span>.</p></li>
 
                 
                 <li>
-                    <a href="/2025/09/15/ICS-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2025/11/06/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-Counting1/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 
                 <li>
-                    <a href="/2025/09/15/ICS-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2025/11/06/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-Counting1/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -460,35 +536,35 @@ class="math inline">\(TMin\)</span>.</p></li>
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 17.57330966554287px;" class="tag-cloud-link">总结</a>
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 10.570803709178591px;" class="tag-cloud-link">总结</a>
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 10.978795771847436px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 15.59265274042621px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 10.95801992349093px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 10.064802738929517px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/ICS/" style="font-size: 18.862096647827762px;" class="tag-cloud-link">ICS</a>
+    <a href="/tags/ICS/" style="font-size: 11.955565714724614px;" class="tag-cloud-link">ICS</a>
     
-    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 19.81938382532352px;" class="tag-cloud-link">具身</a>
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 8.5533067489406px;" class="tag-cloud-link">具身</a>
     
-    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 13.586086403856655px;" class="tag-cloud-link">初恋日记</a>
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 13.687739590049954px;" class="tag-cloud-link">初恋日记</a>
     
-    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 14.755798014253049px;" class="tag-cloud-link">腾讯星火营</a>
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 14.27293724914063px;" class="tag-cloud-link">腾讯星火营</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 8.303296871296359px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 18.939182880453295px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 14.108022325667626px;" class="tag-cloud-link">程设</a>
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 8.000753055505815px;" class="tag-cloud-link">程设</a>
     
-    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 12.818682031569045px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 16.467124987287622px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
     
-    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 8.146120888878027px;" class="tag-cloud-link">波伏娃</a>
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 13.37842813561152px;" class="tag-cloud-link">波伏娃</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 13.781315020458536px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 19.598017968828877px;" class="tag-cloud-link">音数</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 18.951178412437592px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 17.581427509231247px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 19.841119429541934px;" class="tag-cloud-link">信概统</a>
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 13.005629042685076px;" class="tag-cloud-link">信概统</a>
     
-    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 14.157684689650901px;" class="tag-cloud-link">数算</a>
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 9.173342345189269px;" class="tag-cloud-link">数算</a>
     
 </div>
                 
