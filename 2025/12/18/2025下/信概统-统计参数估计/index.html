@@ -264,7 +264,6 @@
     </div>
     <div class="content-article">
         <h1 id="点估计">1. 点估计</h1>
-<h3 id="偏差与均方误差">偏差与均方误差</h3>
 <h3 id="概念">概念</h3>
 <p>参数 <span class="math inline">\(\theta\)</span> 的估计量 <span
 class="math inline">\(\hat \theta(X_1,\dots,X_n)\)</span>，定义</p>
@@ -275,11 +274,9 @@ class="math inline">\(\hat \theta(X_1,\dots,X_n)\)</span>，定义</p>
 class="math inline">\(Bias=0\)</span>.</p></li>
 <li><p><strong>均方误差</strong> <span class="math inline">\(MSE(\hat
 \theta)=E((\hat\theta-\theta)^2)\)</span>.</p>
-<p><strong>重要等式</strong>：</p>
-<ul>
-<li><span class="math inline">\(MSE(\hat \theta)=Bias(\hat
-\theta)^2+Var(\hat \theta)\)</span>.（展开即可证明）.</li>
-</ul></li>
+<p><strong>重要等式</strong>：<span class="math inline">\(MSE(\hat
+\theta)=Bias(\hat \theta)^2+Var(\hat
+\theta)\)</span>.（展开即可证明）.</p></li>
 <li><p><strong>一致估计量</strong>：若 <span class="math inline">\(n\to
 +\infty\)</span> 时，<span class="math inline">\(\hat \theta \to_P
 \theta\)</span>，则其为一致估计量.</p></li>
@@ -289,7 +286,16 @@ E=X_1\)</span> 也是无偏的），一致估计量也不一定渐进无偏（<s
 class="math inline">\(1/n\)</span> 的概率取 <span
 class="math inline">\(n\)</span> 而 <span
 class="math inline">\(1-1/n\)</span> 的概率取真值）.</p>
-<h3 id="case-1">Case 1</h3>
+<p>估计方法：</p>
+<ul>
+<li><p><strong>矩法</strong>：将 <span
+class="math inline">\(\theta_1,\dots,\theta_k\)</span>
+表示为总体若干阶矩/中心矩的函数，然后用样本的矩/中心矩来替换.</p>
+<p>也可以用样本方差 <span class="math inline">\(S^2\)</span>
+来替换总体的方差（二阶中心矩）</p></li>
+<li><p><strong>最大似然法</strong>：</p></li>
+</ul>
+<h3 id="case-1-均匀分布">Case 1 均匀分布</h3>
 <p>总体 <span class="math inline">\(X\sim U(0,\theta)\)</span>.
 考察：</p>
 <ul>
@@ -313,6 +319,7 @@ X_i\)</span>.</p>
 <p>而均方误差则直接是 <span class="math inline">\((\frac{n+1}{n})^2
 Var(\hat \theta_b)=\frac{\theta^2}{n(n+2)}\)</span>.</p></li>
 </ul>
+<h3 id="case-2-高斯分布">Case 2 高斯分布</h3>
 
     </div>
 </article>
@@ -382,7 +389,7 @@ Var(\hat \theta_b)=\frac{\theta^2}{n(n+2)}\)</span>.</p></li>
         
         
         <div class="panel-body toc-container">
-            <ol class="toc-list"><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#%E7%82%B9%E4%BC%B0%E8%AE%A1"><span class="toc-list-text">1. 点估计</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E5%81%8F%E5%B7%AE%E4%B8%8E%E5%9D%87%E6%96%B9%E8%AF%AF%E5%B7%AE"><span class="toc-list-text">偏差与均方误差</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-list-text">概念</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#case-1"><span class="toc-list-text">Case 1</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#%E7%82%B9%E4%BC%B0%E8%AE%A1"><span class="toc-list-text">1. 点估计</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-list-text">概念</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#case-1-%E5%9D%87%E5%8C%80%E5%88%86%E5%B8%83"><span class="toc-list-text">Case 1 均匀分布</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#case-2-%E9%AB%98%E6%96%AF%E5%88%86%E5%B8%83"><span class="toc-list-text">Case 2 高斯分布</span></a></li></ol></li></ol></li></ol>
         </div>
     </div>
 </aside>
@@ -414,37 +421,37 @@ Var(\hat \theta_b)=\frac{\theta^2}{n(n+2)}\)</span>.</p></li>
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 17.469975894446524px;" class="tag-cloud-link">总结</a>
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 18.80580707234936px;" class="tag-cloud-link">总结</a>
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 15.898626146624931px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 10.63871333790772px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 16.982704921524757px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 10.627590515244087px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/ICS/" style="font-size: 9.297200749911124px;" class="tag-cloud-link">ICS</a>
+    <a href="/tags/ICS/" style="font-size: 18.784139489530038px;" class="tag-cloud-link">ICS</a>
     
-    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 15.909781526898744px;" class="tag-cloud-link">具身</a>
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 17.900110795328413px;" class="tag-cloud-link">具身</a>
     
-    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 13.636377993155877px;" class="tag-cloud-link">初恋日记</a>
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 10.751148310771274px;" class="tag-cloud-link">初恋日记</a>
     
-    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 18.266343181028653px;" class="tag-cloud-link">腾讯星火营</a>
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 18.653355181831287px;" class="tag-cloud-link">腾讯星火营</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 15.75616887747152px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 9.296655310472712px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 13.983105669774748px;" class="tag-cloud-link">程设</a>
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 14.495617075784281px;" class="tag-cloud-link">程设</a>
     
-    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 12.863383872878558px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 8.759017234902345px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
     
-    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 17.72684186808901px;" class="tag-cloud-link">波伏娃</a>
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 16.95505783145077px;" class="tag-cloud-link">波伏娃</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 17.148014437356565px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 11.481056541979159px;" class="tag-cloud-link">音数</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 10.409078954538781px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 10.087951446488532px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 8.140943933103806px;" class="tag-cloud-link">信概统</a>
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 9.192713974339533px;" class="tag-cloud-link">信概统</a>
     
-    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 17.545830226072468px;" class="tag-cloud-link">数算</a>
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 11.77983960519192px;" class="tag-cloud-link">数算</a>
     
-    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 18.652870423563524px;" class="tag-cloud-link">离散</a>
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 8.363620717488258px;" class="tag-cloud-link">离散</a>
     
 </div>
                 
