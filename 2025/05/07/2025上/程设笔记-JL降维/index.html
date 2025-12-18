@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>程设笔记-JL降维 | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>程设笔记-JL降维</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/05/07/2025%E4%B8%8A/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-JL%E9%99%8D%E7%BB%B4/">程设笔记-JL降维</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E7%A8%8B%E8%AE%BE/">程设</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-05-07
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2025/05/07/2025%E4%B8%8A/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-JL%E9%99%8D%E7%BB%B4/">程设笔记-JL降维</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2025-05-07
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E7%A8%8B%E8%AE%BE/">程设</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>我们希望将一个集合中的高维的点转化为较低维度的点. JL
+方法希望我们这个降维是尽可能保距的. 即希望 <span
+class="math inline">\(||f(x)-f(y)||^2\in(1\pm
+\epsilon)||x-y||^2\)</span>.</p>
+<p>令 <span class="math inline">\(m\)</span> 表示最终的维度，则 JL
+方法有 <span class="math inline">\(m=O(\epsilon^{-2}\log
+n)\)</span>.</p>
+<p>我们先看如果仅考虑两个点 <span class="math inline">\(x,y\)</span>
+有距离 <span
+class="math inline">\(v=x-y\)</span>，我们可以有一个线性的随机映射 <span
+class="math inline">\(g:R^d\to R\)</span> 且 <span
+class="math inline">\(E[g(v)^2]=g(v)\)</span>. 那么我们取多组 <span
+class="math inline">\(g\)</span> 作为多个维度就能尽量减少误差.</p>
+<p>方法就是取一个每个维度都采自高斯分布 <span
+class="math inline">\(N(0,1)\)</span> 的 <span
+class="math inline">\(r\)</span> 维向量 <span
+class="math inline">\(z\)</span>，然后做内积. 注意到这个和 Simhash
+有所区别：Simhash 中要求 <span class="math inline">\(z\)</span>
+为单位方向向量（因为要做投影），而这个则是每个维度采样自 <span
+class="math inline">\(N(0,1)\)</span>.</p>
+<p><span class="math inline">\(N(0,1)\)</span> 变量的性质是平方的期望为
+<span class="math inline">\(1\)</span>，所以 <span
+class="math inline">\(E[g(v)^2]=\sum_i v_i^2E[w_i^2]=\sum
+v_i^2=g(v)\)</span>. 所以 <span class="math inline">\((v\mid
+w)^2\)</span> 为 <span class="math inline">\(||v||^2\)</span>
+的无偏估计.</p>
+<p>然后我们再取 <span class="math inline">\(m\)</span> 个这样的随机映射
+<span class="math inline">\(g_i(x)=(z_i\mid
+x)\)</span>，然后最后令降维映射 <span
+class="math inline">\(f(x)=\frac{1}{\sqrt{m}}(g_1(x),g_2(x),\dots,g_m(x))\)</span>.
+这样得到的 <span class="math inline">\(f\)</span>
+就是我们得到的一个期望下保距的降维映射.</p>
+<p>JL 降维有一个比较复杂的误差分析. 我不会. 并且 JL 降维的这个 <span
+class="math inline">\(O(\log n)\)</span>
+的界是紧的，不存在更优的保距的降维方法.</p>
+<p>JL 降维有一个好处，就是 Data Oblivious. 我们只需要事先生成 <span
+class="math inline">\(m\)</span> 个 <span
+class="math inline">\(d\)</span> 维的 <span
+class="math inline">\(z_i\)</span>，即可对于任意 <span
+class="math inline">\(d\)</span>
+维输入向量进行降维！这在数据流中就很好.</p>
+<p>一个小简化：可以令 <span class="math inline">\(z_i\)</span>
+的每个维度为 <span class="math inline">\([-1,1]\)</span> 的随机值.
+这符合我们上面对于 <span class="math inline">\(E[g(v)^2]\)</span>
+的分析.</p>
+<hr />
+<p>现在我们将其应用至 Linear Regression 上.</p>
+<p>Linear Regression 要解决的问题是，有一个 <span
+class="math inline">\(n\times d\)</span> 的矩阵 <span
+class="math inline">\(X\)</span> 和 <span
+class="math inline">\(n\)</span> 维向量 <span
+class="math inline">\(Y\)</span>，然后我们希望找到一个 <span
+class="math inline">\(d\)</span> 维度的向量 <span
+class="math inline">\(w\)</span>，最小化 <span
+class="math inline">\(||Xw-Y||_2\)</span>.</p>
+<p>这个典型问题的最优解是 <span
+class="math inline">\(w=(X^{T}X)^{-1}X^{T}y\)</span>. 当然 <span
+class="math inline">\(X^TX\)</span> 不满秩的时候会求逆的时候加上 <span
+class="math inline">\(\epsilon\times id\)</span> 来近似求解广义逆.
+但是对于 <span class="math inline">\(n&gt;d\)</span>
+的大多数随机情况，这个大抵是满秩的. 我们的计算复杂度是计算矩阵乘法的
+<span class="math inline">\(O(nd^2)\)</span>.</p>
+<p>但是大多数情况下 <span class="math inline">\(n\)</span> 太大了，而且
+<span class="math inline">\(X\)</span> 很稀疏，也有很多重复表达的数据.
+也就是说我们要对 <span class="math inline">\(n\)</span>
+这一个维进行降维. 并且由于最小化的是距离，所以我们希望降维是保距的.</p>
+<p>那么我们的 JL 降维相当于一个 <span class="math inline">\(m\times
+n\)</span> 的矩阵 <span class="math inline">\(A\)</span>，然后将由 <span
+class="math inline">\(n\)</span> 个行向量组成的 <span
+class="math inline">\(n\times d\)</span> 的矩阵 <span
+class="math inline">\(X\)</span> 变成 <span
+class="math inline">\(m\times d\)</span> 的 <span
+class="math inline">\(AX\)</span>. 最终 <span
+class="math inline">\(m\)</span> 应该可以和 <span
+class="math inline">\(O(d\text{ poly}\epsilon^{-1})\)</span> 同阶.
+这个矩阵乘法需要 <span class="math inline">\(nd^2\)</span> 次乘法.
+这并没有优化复杂度. 但是后续的复杂度变成了 <span
+class="math inline">\(O(d^3)\)</span>.</p>
+<p>我们现在考虑优化降维这一步骤的复杂度. 一个外星人的神秘做法：令 <span
+class="math inline">\(A\)</span> 为每列仅有一个元素（并随机取为 <span
+class="math inline">\(\pm
+1\)</span>）的矩阵，那么我们可以发现前面的那个无偏估计的证明还是适用的.
+但唯一的区别是 <span class="math inline">\(m\)</span> 需要取 <span
+class="math inline">\(O(\epsilon^{-2}d^2\text{polylog}(\epsilon^{-1}d))\)</span>
+才能保证 Linear Regression 的结果适用.</p>
+<p>取 <span class="math inline">\(A\)</span>
+为这样的矩阵之后，我们实际上就只需要遍历每个 <span
+class="math inline">\(X\)</span> 中有值的元素 <span
+class="math inline">\(X_{i,j}\)</span>，然后令 <span
+class="math inline">\(A\)</span> 中第 <span
+class="math inline">\(i\)</span> 列有值的行为 <span
+class="math inline">\(p\)</span>，则贡献到 <span
+class="math inline">\((AX)_{p,j}\)</span>. 这个复杂度是 <span
+class="math inline">\(O(nnz(X))\)</span>，其中 <span
+class="math inline">\(nnz\)</span> 为非零值个数. 由于 <span
+class="math inline">\(m\)</span> 变大，最后复杂度为 <span
+class="math inline">\(O(md^2)=O(d^4)\)</span>. 实际测试下来 <span
+class="math inline">\(d^2\)</span> 是远不需要的.</p>
+<p>Trick：矩阵乘法 <span class="math inline">\(a_{i,j}\leftarrow
+b_{i,k}c_{k,j}\)</span> 的循环顺序应该是 <span
+class="math inline">\(k,i,j\)</span>，这样对 Cache 比较友好.</p>
+
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2025/05/07/2025%E4%B8%8A/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-JL%E9%99%8D%E7%BB%B4/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/05/07/2025%E4%B8%8A/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-JL%E9%99%8D%E7%BB%B4/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 8.643320401717938px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 16.79048631517993px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 15.108985611727757px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 13.913719158784753px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 8.951559054482324px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 18.88243366572636px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 15.660146290758032px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 12.609796276785548px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 14.222025782840849px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 10.89201334500196px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 11.040323222933203px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 8.498586847259848px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 13.118375997869215px;" class="tag-cloud-link">高代</a>
+    
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 9.316320155904592px;" class="tag-cloud-link">信概统</a>
+    
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 17.929238276363556px;" class="tag-cloud-link">数算</a>
+    
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 10.655218076267165px;" class="tag-cloud-link">离散</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

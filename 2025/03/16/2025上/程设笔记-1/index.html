@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>程设笔记-1 | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>程设笔记-1</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/03/16/2025%E4%B8%8A/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-1/">程设笔记-1</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E7%A8%8B%E8%AE%BE/">程设</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-03-16
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2025/03/16/2025%E4%B8%8A/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-1/">程设笔记-1</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2025-03-16
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E7%A8%8B%E8%AE%BE/">程设</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h2 id="随机算法概论">随机算法概论</h2>
+<p><strong>Union Bound</strong>：若算法失败概率为 <span
+class="math inline">\(\delta\)</span>，则 <span
+class="math inline">\(Q\)</span> 次询问中存在一次失败的概率可以放缩至
+<span class="math inline">\(\le Q\delta\)</span>.
+所以对于多组询问，只需要将失败概率降低至 <span
+class="math inline">\(\frac{1}{Q}\)</span> 即可.</p>
+<p><strong>Markov Inequality</strong>：随机变量 <span
+class="math inline">\(X\ge 0\)</span>，有 <span
+class="math inline">\(Pr[X\ge a]\le E[x]/a\)</span>.
+考虑离散的情形会发现这是显然的.</p>
+<p>这个告诉我们当我们某个算法有较好的期望结果，那么随机算法正确率也应该不低.
+Eg：给定无向图求一个边数大于一半的割.
+考虑如果随机选择点作为左部的话那么每条边都有 <span
+class="math inline">\(1/2\)</span>
+概率在割中，所以期望是对的，于是直接这么做就好了.</p>
+<p><strong>Chernoff Bound</strong>：一组独立同期望的随机变量 <span
+class="math inline">\(X_1,\dots,X_n\)</span>，其中期望 <span
+class="math inline">\(\mu\ge t\)</span>. 令 <span
+class="math inline">\(X=\sum X_i/n\)</span>，则对任何失败概率 <span
+class="math inline">\(\delta\)</span>，有 <span
+class="math inline">\(Pr[|X-\mu|\ge
+\sqrt{\frac{\log(1/\delta)}{nt}}\mu]\le \delta\)</span>.
+即相对误差能被随机次数以 <span class="math inline">\(O(\frac{1}{\log
+\delta})\)</span> 的量级去控制.</p>
+<p><strong>随机排列</strong>：一种生成方式是，从 <span
+class="math inline">\(j=n\to 1\)</span>，随机 <span
+class="math inline">\(k\in[1,j]\)</span> 并交换 <span
+class="math inline">\(a_j,a_k\)</span>. 还有一种方法是每个数随机赋一个
+<span class="math inline">\([0,1]\)</span> 实数然后排序.
+后者由于每个元素独立采样有局部性，易于动态维护；前者复杂度线性.</p>
+<p><strong>Rejection Sampling</strong>：给定均匀 <span
+class="math inline">\(\{0,1\}\)</span> 生成器 <span
+class="math inline">\(F\)</span>，如何构造一个 <span
+class="math inline">\(p\)</span> 概率的 <span
+class="math inline">\(\{0,1\}\)</span> 生成器？考虑 <span
+class="math inline">\(p\)</span> 的二进制构造，从最高位开始，若 <span
+class="math inline">\(F\)</span> 得到 <span
+class="math inline">\(1\)</span> 就返回 <span
+class="math inline">\(p_h\)</span>.</p>
+<h2 id="median-问题">1-median 问题</h2>
+<p>一个题目：给定 <span class="math inline">\(k\)</span> 维空间的 <span
+class="math inline">\(n\)</span> 个点 <span
+class="math inline">\(a_i\)</span>，每次查询给定一个问询点，估计这个问询点到所有点的距离和.</p>
+<p>一种特殊情况：所有数据点都到某个 <span
+class="math inline">\(c\)</span> 的距离在 <span
+class="math inline">\([r,2r]\)</span>.
+我们直接随机采样，然后以这些样本来估计答案.</p>
+<p>听上去很奇怪. 但是令 <span class="math inline">\(f_i\)</span> 表示第
+<span class="math inline">\(i\)</span> 个点的距离，则由于在环上，所以
+<span class="math inline">\(|f_i-f_j|\le |a_i-a_j|\le 2r\)</span>.</p>
+<p>我们计算一下误差，由相加误差版本的 Chernoff Bound 知 <span
+class="math inline">\(Pr[X-E[x]\ge z]\le
+2\exp(-\frac{2z^2}{n(r-l)^2})\)</span>，<span
+class="math inline">\(x_i\in[l,r]\)</span>. 那么我们就可以知道上述误差在
+<span class="math inline">\(\epsilon|P|r\)</span>. 于是取采样数 <span
+class="math inline">\(m=O(1/\epsilon^2\log(1\delta))\)</span> 即可.</p>
+<p>现在考虑总的情况. 我们固定一个点 <span
+class="math inline">\(c\)</span>，然后令 <span
+class="math inline">\(D=\sum |c-a_i|\)</span>，<span
+class="math inline">\(r_0=\epsilon D/n\)</span>，<span
+class="math inline">\(r_i=2r_{i-1}\)</span>，令属于第 <span
+class="math inline">\(i\)</span> 个环的集合为 <span
+class="math inline">\(P_i\)</span>，那么就有总误差 <span
+class="math inline">\(\epsilon\sum |P_i|r_i\le \epsilon \sum_i
+\sum_{x\in P_i} |x-c|=\epsilon D\)</span>. 于是尽量取 <span
+class="math inline">\(D\)</span> 小的 <span
+class="math inline">\(c\)</span> 即可. 一个完全可行的做法是取中位数.</p>
+<p>这个算法也可以推广到 <span
+class="math inline">\(k-median\)</span>，即给定 <span
+class="math inline">\(k\)</span> 个闻讯点，然后计算最近邻距离之和.
+做法是做聚类，然后每类 做环划分.</p>
+<h2 id="哈希">哈希</h2>
+<p><strong>Consistent Hashing</strong></p>
+<p>现在一个场景，有很多份文件，每个文件要单独存到一个服务器上.
+但是不仅文件会变多，服务器也会变多. 那么考虑如下方法：设计一个任意将文件
+&amp; 服务器都能映射到 一个随机整数的函数 <span
+class="math inline">\(h\)</span>，将 <span
+class="math inline">\(h\)</span>
+的值域写成一个环，那么每个文件和服务器就都能唯一对应着环上的一个位置.
+然后我们每次无论是新加服务器还是新加环，只需要像某个叫 Toilet 的 Ucup
+题那样做就行了（即对于每个文件，找到其往逆时针走的第一个空着的服务器）.</p>
+<p><strong>Count-min Sketch</strong></p>
+<p>输入整数，然后输入结束过后要近似求出每个数的出现频率.
+当然是要小于线性的空间.</p>
+<p>直接简述方法：设计若干个哈希，然后求 <span
+class="math inline">\(i\)</span>
+的出现频率只需要取这若干种哈希中的结果的 <span
+class="math inline">\(\min\)</span> 即可. 这听上去就非常的对！</p>
+<p>毛估估一下，首先对于一个哈希，设 <span
+class="math inline">\(m\)</span> 是哈希值域. 期望是 <span
+class="math inline">\(c_x+n/m\)</span>. 然后用 Markov Inequality
+得知成功概率为 <span class="math inline">\(\frac{1}{\epsilon
+m}\)</span>. 取 <span
+class="math inline">\(m=\frac{2}{\epsilon}\)</span> 就有 <span
+class="math inline">\(1/2\)</span> 的概率. 于是多哈希几次显然正确.</p>
+<p>Heavy Hitter求出至少出现了 <span class="math inline">\(n/k\)</span>
+次的元素，并且要满足返回的元素每个都不少于 <span
+class="math inline">\(n/k-\epsilon n\)</span> 次. 即在保证找出所有 heavy
+hitter 的情况下，假阳性也足够 heavy. 我们可以直接使用上述的 Count-min
+sketch 来解决这个问题.</p>
+<p><strong>Bloom Filter</strong></p>
+<p>随机 <span class="math inline">\(T\)</span> 个哈希函数.
+每次插入的时候将所有 <span
+class="math inline">\(A[h_j(a_i)]\)</span>，<span
+class="math inline">\(j\in[1,T]\)</span> 设为 <span
+class="math inline">\(1\)</span>. 并且在问询的时候，只有所有 <span
+class="math inline">\(A[h_j(a_i)]=1\)</span> 才返回 <span
+class="math inline">\(1\)</span>.</p>
+<p>容易发现这样只会有小概率的假阳性.</p>
+<p>推导暂时省略.</p>
+<p><span class="math inline">\(A\)</span> 的大小只需要开 <span
+class="math inline">\(\frac{n\ln \delta^{-1}}{(\ln 2)^2}\)</span>，<span
+class="math inline">\(T\)</span> 开 <span
+class="math inline">\(\log_2(\delta^{-1})\)</span>. 就能将失败概率控制在
+<span class="math inline">\(\delta\)</span>.</p>
+
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+
+<aside id="sidebar-toc">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-list-ul"></i>  
+            文章目录 
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        
+        
+        <div class="panel-body toc-container">
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95%E6%A6%82%E8%AE%BA"><span class="toc-list-text">随机算法概论</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#median-%E9%97%AE%E9%A2%98"><span class="toc-list-text">1-median 问题</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%93%88%E5%B8%8C"><span class="toc-list-text">哈希</span></a></li></ol>
+        </div>
+    </div>
+</aside>
+
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2025/03/16/2025%E4%B8%8A/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-1/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/03/16/2025%E4%B8%8A/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-1/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 12.479097346722362px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 17.756513698948986px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 9.110943213743145px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 13.896812526670992px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 12.114639150271252px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 12.177104162565652px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 10.889609147772504px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 10.764855911542647px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 19.405483655979815px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 15.064321095780173px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 14.727453587838765px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 15.527263725045312px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 13.586190716744882px;" class="tag-cloud-link">高代</a>
+    
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 17.0162106894431px;" class="tag-cloud-link">信概统</a>
+    
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 17.470651851008192px;" class="tag-cloud-link">数算</a>
+    
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 19.752607261282506px;" class="tag-cloud-link">离散</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

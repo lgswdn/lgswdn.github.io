@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>高代笔记-矩阵的标准型 | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>高代笔记-矩阵的标准型</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/05/19/2025%E4%B8%8A/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E7%9F%A9%E9%98%B5%E7%9A%84%E6%A0%87%E5%87%86%E5%9E%8B/">高代笔记-矩阵的标准型</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E9%AB%98%E4%BB%A3/">高代</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-05-19
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2025/05/19/2025%E4%B8%8A/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E7%9F%A9%E9%98%B5%E7%9A%84%E6%A0%87%E5%87%86%E5%9E%8B/">高代笔记-矩阵的标准型</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2025-05-19
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E9%AB%98%E4%BB%A3/">高代</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>模论的笔记中，有关结构定理的形式化的表达可能能让我们产生一个关于线性映射的零化多项式的联想：对于每个子空间和线性映射在这个子空间的作用，取一个零化多项式，那么所有零化多项式的
+LCM 就应该是线性映射的最小多项式.
+将最小多项式的倍数形成的主理想商掉之后，就能划分出一个不能被更小的多项式零化的子空间，然后对剩下的子空间继续这么做...
+接下来严谨地探讨这件事情.</p>
+<p><span class="math inline">\(F\)</span> 模就是 <span
+class="math inline">\(F-\)</span>向量空间.
+下面有一个很神秘的想象，就是去把 <span class="math inline">\(F\)</span>
+模升级成 <span class="math inline">\(F[X]\)</span> 模 <span
+class="math inline">\(M\)</span>.
+所谓升级，就是仅仅拓展纯量乘法的定义.</p>
+<p>下面给出一个升级方式：先指定一个线性映射 <span
+class="math inline">\(T\)</span>. 对于 <span class="math inline">\(v\in
+M\)</span>，定义 <span class="math inline">\(X\cdot v=Tv\)</span>.
+于是对于多项式 <span class="math inline">\(f(X)\)</span>，<span
+class="math inline">\(f(X)\cdot v\)</span> 即将 <span
+class="math inline">\(f(T)\)</span> 作用于 <span
+class="math inline">\(v\)</span>.</p>
+<p>这种定义首先是符合模的要求的. 其次确实所有 <span
+class="math inline">\(Ann(v)\)</span> 的交恰好对应了 <span
+class="math inline">\(T\)</span> 的零化多项式.</p>
+<p>首先看 <span class="math inline">\(T\)</span> 和 <span
+class="math inline">\(M\)</span> 的对应关系. 在同构等价类下，<span
+class="math inline">\(n\)</span> 维线性映射 <span
+class="math inline">\(T\)</span> 和 <span
+class="math inline">\(n\)</span> 维 <span
+class="math inline">\(F[X]-\)</span>模形成了双射. 映射方式即前面所述.
+单性显然，满性也显然（因为 <span class="math inline">\(F[X]\times V\to
+V\)</span> 的映射要是线性的）.</p>
+<p>首先我们注意到 <span class="math inline">\(\deg \le n\)</span>
+的最小多项式的存在性，所以不会存在自由子模.
+那么根据前面的结构定理，应该唯一存在一列 <span
+class="math inline">\(f_1\mid f_2\mid \dots \mid f_k\)</span>，使得
+<span class="math inline">\(M=(F[X]/f_1)\oplus\dots\oplus
+(F[X]/f_k)\)</span>.</p>
+<p>模的直和分解应该直接对应于 <span class="math inline">\(T\)</span>
+的分块对角. 那么我们看子模 <span class="math inline">\(F[X]/f_i\)</span>
+再对应回矩阵形式是什么样的，即找到 <span class="math inline">\(rank=\deg
+f_i\)</span> 的 <span class="math inline">\(T\)</span> 使得 <span
+class="math inline">\(f_i(T)=0\)</span>. 显然取 <span
+class="math inline">\(f_i\)</span> 的友矩阵 <span
+class="math inline">\(C_{f_i}\)</span>. 即是我们想要的答案.</p>
+<p>于是我们就得到了矩阵的<strong>有理标准型</strong>：</p>
+<ul>
+<li>对于任意矩阵 <span class="math inline">\(A\in M_{n\times
+n}(F)\)</span>，存在一列 <span class="math inline">\(f_1\mid \dots\mid
+f_k\)</span>，使得 <span class="math inline">\(\sum \deg
+f_i=n\)</span>，而矩阵同构于 <span
+class="math inline">\(\operatorname{diag}(C_{f_1},\dots,C_{f_k})\)</span>.</li>
+<li><span class="math inline">\(f_1,\dots,f_k\)</span> 称为 <span
+class="math inline">\(A\)</span> 的不变因子，而 <span
+class="math inline">\(Min_A=f_k\)</span>，<span
+class="math inline">\(Char_A=\prod f_i\)</span>.</li>
+</ul>
+<p>如何求解有理标准型？本质就是求解不变因子. 那么实际上我们就是要求
+<span class="math inline">\(F[X]\)</span> 商掉的那些理想.</p>
+<p>选定一组 <span class="math inline">\(M\)</span> 的基 <span
+class="math inline">\(v_i\)</span>，以及 <span
+class="math inline">\(F[X]^{\oplus n}\)</span> 的标准基 <span
+class="math inline">\(e_i\)</span>，我们探讨 <span
+class="math inline">\(F[X]^{\oplus n}\to M\)</span> 的线性映射 <span
+class="math inline">\(\varphi\)</span>，根据上面的结论肯定是 <span
+class="math inline">\(\varphi(\sum g_ie_i)=\sum g_i(T) v_i\)</span>.</p>
+<p>令 <span
+class="math inline">\(x_i=Xe_i-\sum_{j=1}^{n}a_{i,j}e_j\)</span>，则
+<span class="math inline">\(\langle x_1,\dots,x_n\rangle\)</span>
+生成的子模 <span class="math inline">\(N\)</span> 即为 <span
+class="math inline">\(\ker \varphi\)</span>. 验证是容易的：<span
+class="math inline">\(\varphi(x_i)=T v_i-\sum_{j=1}^{n}
+a_{i,j}v_i=0\)</span>. 通过这个核 <span
+class="math inline">\(N\)</span>，我们知道了 <span
+class="math inline">\(M\)</span> 通过 <span
+class="math inline">\(\varphi\)</span> 诱导的同态 <span
+class="math inline">\(\overline\varphi\)</span>，同构于 <span
+class="math inline">\(F[X]^{\oplus n}/N\)</span>.</p>
+<p>下面关注子模 <span class="math inline">\(N\)</span>. 我们已经求得子模
+<span class="math inline">\(N\)</span> 的矩阵表法 <span
+class="math inline">\(\langle
+x_1,\dots,x_n\rangle=XI-T\)</span>，那么下面只需要套用 Smith
+标准型的理论，即可知存在可逆 <span class="math inline">\(P,Q\)</span>
+使得 <span class="math inline">\(N=PDQ\)</span>，其中 <span
+class="math inline">\(D=diag(d_1,\dots,d_k)\)</span>，<span
+class="math inline">\(d_1|d_2|\dots |d_k\)</span>. 于是 <span
+class="math inline">\(F[X]^{\oplus n}/N\)</span> 同构于 <span
+class="math inline">\(F[X]^{\oplus n}/D\)</span> 同构于 <span
+class="math inline">\(\bigoplus_{i=1}^{n} F[X]/d_i\)</span>.</p>
+<p>取所有 <span class="math inline">\(d_i\neq 1\)</span> 的 <span
+class="math inline">\(d\)</span> 即得到所有的不变因子.</p>
+<p>于是步骤就是：对 <span class="math inline">\(XI-T\)</span> 求 Smith
+标准型，然后提出所有 <span class="math inline">\(\neq 1\)</span>
+的项即得到不变因子，然后再得到友矩阵组成的分块对角矩阵.</p>
+<hr />
+<p>下面关注 Jordan 标准型. Jordan 标准型的出发点是幂零矩阵.
+幂零矩阵的特点在于特征多项式是 <span
+class="math inline">\(X^n\)</span>，且存在 <span
+class="math inline">\(k\)</span> 使得最小多项式为 <span
+class="math inline">\(X^k\)</span>. 并且一个重要特征是 <span
+class="math inline">\(A\)</span> 幂零等价于 <span
+class="math inline">\(V=V_{[0]}\)</span>.</p>
+<p>定义 Jordan 块 <span class="math inline">\(J_d(\lambda)\)</span>
+为满足对角线上为 <span
+class="math inline">\(\lambda\)</span>，而次对角线为 <span
+class="math inline">\(1\)</span> 的上三角矩阵. 同理可以定义下 Jordan
+块为其专制. 容易发现下 <span class="math inline">\(J_d(0)\)</span> 即
+<span class="math inline">\(X^d\)</span> 的友矩阵，而下 Jordan
+块显然相似于上 Jordan 块，所以幂零矩阵同构于若干个 <span
+class="math inline">\(J_{d_i}(\lambda)\)</span> 的分块对角.</p>
+<p>然后再看到普通的矩阵. 对于矩阵 <span
+class="math inline">\(A\)</span>，若其特征多项式分裂，则有广义特征子空间分解
+<span class="math inline">\(V=\bigoplus_i V_{[\lambda
+_i]}\)</span>，于是考虑对于每个广义特征子空间，其减去 <span
+class="math inline">\(\lambda_i\)</span> 后显然应该满足幂零.
+而每个幂零矩阵可以写成若干个 Jordan 块的形式，所以 <span
+class="math inline">\(A\)</span> 也可以写成 Jordan 块的分块对角.</p>
+<p>注意到这是一个严格比矩阵的上三角化更加强的结论.</p>
+<p>这可以引出 Jordan-Chevalley 分解. 对于特征多项式分裂的 <span
+class="math inline">\(A\)</span>，存在唯一一对 <span
+class="math inline">\(S,N\)</span> 使得 <span
+class="math inline">\(S\)</span> 可对角化，<span
+class="math inline">\(N\)</span> 幂零，而 <span
+class="math inline">\(T=S+N\)</span> 且 <span
+class="math inline">\(SN=NS\)</span>. 存在性由 Jordan
+标准型直接得到：同构于若干个 Jordan 块后，每个 Jordan
+就可以直接拆分成对角矩阵和幂零矩阵. 唯一性考虑对于每个 <span
+class="math inline">\(S\)</span> 的特征值 <span
+class="math inline">\(\lambda_i\)</span> 和特征子空间 <span
+class="math inline">\(V_i\)</span>，由于 <span
+class="math inline">\(N-\lambda_i\)</span> 幂零，所以 <span
+class="math inline">\(V_i\subset V_{[\lambda_i]}\)</span>. 而由于 <span
+class="math inline">\(V_i\)</span> 的直和为整个空间，所以 <span
+class="math inline">\(V_i=V_{[\lambda_i]}\)</span>，故 <span
+class="math inline">\(\lambda_i\)</span> 也为 <span
+class="math inline">\(T\)</span> 的特征值，进而得到唯一性.</p>
+<p>我们来看如何求解 Jordan 标准型.
+这里直接给出结论——相关证明和幂零性直接相关并且可能不是很困难，但我不想证了.
+以下论述对于幂零矩阵成立.</p>
+<ul>
+<li>Jordan 块的总数为 <span class="math inline">\(n-rk(T)\)</span>.</li>
+<li><span class="math inline">\(d\times d\)</span> 的 Jordan 块的数量为
+<span
+class="math inline">\(rk(T^{d+1})-2rk(T^d)+rk(T^{d-1})\)</span>.</li>
+</ul>
+<p>对于非幂零矩阵，求解特征多项式之后对于每个特征子空间求解然后分块对角即可.</p>
+<hr />
+<p>参考讲义：<a
+target="_blank" rel="noopener" href="https://www.wwli.asia/downloads/books/EAlg-Notes.pdf">李文威-代数学讲义</a></p>
+
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2025/05/19/2025%E4%B8%8A/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E7%9F%A9%E9%98%B5%E7%9A%84%E6%A0%87%E5%87%86%E5%9E%8B/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/05/19/2025%E4%B8%8A/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E7%9F%A9%E9%98%B5%E7%9A%84%E6%A0%87%E5%87%86%E5%9E%8B/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 16.018793158747503px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 18.383068047841792px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 13.693922131740287px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 16.75636975953606px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 16.713662354187402px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 14.098688847583142px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 10.423943089098788px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 9.801349534243645px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 15.087509886844899px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 19.43346489993196px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 16.690344142225776px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 11.19673689500237px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 17.685223868777268px;" class="tag-cloud-link">高代</a>
+    
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 16.38862975136147px;" class="tag-cloud-link">信概统</a>
+    
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 8.948123561126252px;" class="tag-cloud-link">数算</a>
+    
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 14.243519030483881px;" class="tag-cloud-link">离散</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

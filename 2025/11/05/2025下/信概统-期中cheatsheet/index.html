@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>信概统-期中cheatsheet | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>信概统-期中cheatsheet</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/11/05/2025%E4%B8%8B/%E4%BF%A1%E6%A6%82%E7%BB%9F-%E6%9C%9F%E4%B8%ADcheatsheet/">信概统-期中cheatsheet</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/">信概统</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-11-05
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2025/11/05/2025%E4%B8%8B/%E4%BF%A1%E6%A6%82%E7%BB%9F-%E6%9C%9F%E4%B8%ADcheatsheet/">信概统-期中cheatsheet</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2025-11-05
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/">信概统</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h2 id="离散分布">离散分布</h2>
+<p>二项分布 <span class="math inline">\(B(n,p)\)</span>. <span
+class="math inline">\(P(X=k)\)</span> 为 <span
+class="math inline">\(n\)</span> 重伯努利实验中概率为 <span
+class="math inline">\(p\)</span> 的事件 <span
+class="math inline">\(A\)</span> 发生次数为 <span
+class="math inline">\(k\)</span> 的概率.</p>
+<ul>
+<li><span class="math inline">\(E(X)=np\)</span></li>
+<li><span class="math inline">\(E(X^2)=n(n-1)p^2+np\)</span></li>
+<li><span class="math inline">\(Var(X)=np(1-p)\)</span></li>
+</ul>
+<p>多个二项分布加起来得到 <span class="math inline">\(B(\sum
+n,p)\)</span>.</p>
+<hr />
+<p>泊松分布 <span class="math inline">\(\pi(\lambda)\)</span>：<span
+class="math inline">\(B(\lambda m,\frac{1}{m})\)</span> 在 <span
+class="math inline">\(m\to +\infty\)</span> 的情况.</p>
+<ul>
+<li><span class="math inline">\(P(X_i=k)=
+\frac{\lambda^ke^{-\lambda}}{k!}\)</span>.</li>
+<li><span class="math inline">\(E(X)=\lambda\)</span></li>
+<li><span class="math inline">\(Var(X)=\lambda\)</span></li>
+</ul>
+<p>实际上，任意一列 <span class="math inline">\(p_1,\dots\)</span>，只要
+<span class="math inline">\(p_nn\to \lambda\)</span>，皆有 <span
+class="math inline">\(P(X_n=k)\to \frac{\lambda
+^ke^{-\lambda}}{k!}\)</span>.</p>
+<p>多个泊松分布加起来得到 <span class="math inline">\(\pi(\sum
+\lambda)\)</span>.</p>
+<hr />
+<p>几何分布 <span class="math inline">\(G (p)\)</span>：结果 <span
+class="math inline">\(A\)</span> 首次出现时的试验次数.</p>
+<ul>
+<li><span class="math inline">\(P(X_i=k)=p(1-p)^{k-1}\)</span>.</li>
+<li><span class="math inline">\(E(X)=\frac{1}{p}\)</span>.</li>
+<li><span class="math inline">\(Var(X)=\frac{1-p}{p^2}\)</span>.</li>
+<li>无记忆性：<span
+class="math inline">\(P(X&gt;n+m|X&gt;m)=P(X&gt;n)\)</span>.</li>
+</ul>
+<hr />
+<p>负二项分布 <span class="math inline">\(NB(r,p)\)</span>：结果 <span
+class="math inline">\(A\)</span> 首次发生 <span
+class="math inline">\(r\)</span> 次时的试验次数.</p>
+<ul>
+<li><p><span
+class="math inline">\(P(X_i=k)=\binom{k-1}{r-1}p^{r}(1-p)^{k-r}\)</span>.</p></li>
+<li><p>如何证明其的确是概率分布？即 <span class="math inline">\(\sum
+\binom{k-1}{r-1}p^r(1-p)^{k-r}=1\)</span>？</p>
+<p>令 <span class="math inline">\(l=k-r\)</span>，则即证 <span
+class="math inline">\(\sum \binom{l+r-1}{r-1}(1-p)^l=p^{-r}\)</span></p>
+<p>将 <span class="math inline">\(p^{-r}\)</span> 写作 <span
+class="math inline">\((1-(1-p))^{-r}\)</span> 后展开，得 <span
+class="math inline">\(\sum (-1)^{l}\binom{-r}{l}(1-p)^l=\sum
+\binom{l+r-1}{l}(1-p)^l\)</span>，即证.</p></li>
+<li><p><span class="math inline">\(NB(r,p)\)</span> 可以看作 <span
+class="math inline">\(r\)</span> 个 <span
+class="math inline">\(G(p)\)</span> 之和.</p></li>
+<li><p><span class="math inline">\(E=\frac{r}{p}\)</span></p></li>
+<li><p><span
+class="math inline">\(Var=\frac{r(1-p)}{p^2}\)</span></p></li>
+</ul>
+<div style="page-break-after: always;">
+
+</div>
+<h2 id="结论">结论</h2>
+<h4 id="二项分布">二项分布</h4>
+<blockquote>
+<p><span class="math inline">\(\sum
+\binom{n}{i}p^{i}(1-p)^{n-i}i=np\)</span></p>
+<p><span class="math inline">\(\sum
+\binom{n}{i}p^i(1-p)^{n-i}i^2=n(n-1)p^2+np\)</span></p>
+</blockquote>
+<h4 id="泊松分布">泊松分布</h4>
+<blockquote>
+<p><span class="math inline">\(\sum \frac{\lambda^k
+e^{-\lambda}}{k!}=1\)</span>.</p>
+<p><span class="math inline">\(\sum
+\frac{\lambda^ke^{-\lambda}k}{k!}=\lambda\)</span>.</p>
+<p><span class="math inline">\(\sum
+\frac{\lambda^ke^{-\lambda}k^2}{k!}=\lambda^2+\lambda\)</span>.</p>
+</blockquote>
+<h4 id="几何分布">几何分布</h4>
+<blockquote>
+<p><span class="math inline">\(\sum
+p(1-p)^{k-1}k=\frac{1}{p}\)</span></p>
+<p><span class="math inline">\(\sum
+p(1-p)^{k-1}k^2=\frac{1-p}{p^2}\)</span></p>
+</blockquote>
+<h4 id="负二项分布">负二项分布</h4>
+<blockquote>
+<p><span class="math inline">\(\sum_k
+\binom{k-1}{r-1}p^r(1-p)^{k-r}=1\)</span></p>
+<p><span class="math inline">\(\sum_k
+\binom{k-1}{r-1}p^r(1-p)^{k-r}k=\frac{r}{p}\)</span></p>
+<p><span class="math inline">\(\sum_k
+\binom{k-1}{r-1}p^r(1-p)^{k-r}k^2=\frac{2-p}{p^2}\)</span>.</p>
+</blockquote>
+<h2 id="misc">misc</h2>
+<p>概率证法：<span class="math inline">\(P(X\ge E(X))&gt;
+0\)</span>.</p>
+<p><strong>Markov 不等式</strong>：对于<strong>非负</strong>随机变量
+<span class="math inline">\(X\)</span>，若 <span
+class="math inline">\(E(X)&gt;0\)</span>，则 <span
+class="math inline">\(P(X\ge cE(X))\le \frac{1}{c}\)</span>.</p>
+<p><strong>切比雪夫不等式</strong>：<span
+class="math inline">\(P(|X-E|\ge c\sigma)\le\frac{1}{c^2}\)</span>.</p>
+<p>证明考虑对随机变量 <span class="math inline">\(Y=(X-E)^2\)</span>
+使用 Markov 不等式.</p>
+<hr />
+<p>协方差：<span
+class="math inline">\(Cov(X,Y)=E((X-E(X))(Y-E(Y)))=E(XY)-E(X)E(Y)\)</span>.</p>
+<p><span
+class="math inline">\(Var(X+Y)=Var(X)+Var(Y)+Cov(X,Y)\)</span>.</p>
+<p>独立变量的 Cov 为 0，但是 Cov 为 0 的可能不独立（<span
+class="math inline">\(X\)</span> 服从拉德马赫，<span
+class="math inline">\(Y=X^2\)</span>）.</p>
+<p>计算 Cov 的时候可以记得拆成 <span
+class="math inline">\(Cov(X,Y)=Cov(Y+Z,Z)=Var(Y)\)</span>，如果 <span
+class="math inline">\(Y,Z\)</span> 独立.</p>
+<div style="page-break-after: always;">
+
+</div>
+<h2 id="连续分布">连续分布</h2>
+<p>高斯分布：记作 <span class="math inline">\(x\sim \mathcal
+N(\mu,\sigma^2)\)</span>.</p>
+<blockquote>
+<p><span
+class="math inline">\(f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-(x-\mu)^2/2\sigma^2}\)</span>.</p>
+</blockquote>
+<p>标准化时，<span
+class="math inline">\(f(x)=\frac{1}{\sqrt{2\pi}}e^{-x^2/2}\)</span>，<span
+class="math inline">\(P(|X|\le 2)=0.9545\)</span>，<span
+class="math inline">\(P(|X|\le 3)=0.9973\)</span>.</p>
+<p>p.s. 伯努利分布在标准化后变成拉德马赫分布（随机符号）.</p>
+<hr />
+<p>指数分布：记作 <span class="math inline">\(x\sim
+Exp(\lambda)\)</span>.</p>
+<blockquote>
+<p><span class="math inline">\(f(x)=[x&gt;0]\lambda e^{-\lambda
+x}\)</span></p>
+<p><span class="math inline">\(F(x)=[x&gt;0](1-e^{-\lambda
+x})\)</span>.</p>
+<p>期望：<span
+class="math inline">\(\frac{1}{\lambda}\)</span>，方差：<span
+class="math inline">\(\frac{1}{\lambda^2}\)</span></p>
+</blockquote>
+<p>注意到 <span class="math inline">\(P(X&gt;x)=e^{-\lambda
+x}\)</span>，故指数函数显然拥有无记忆性.</p>
+<hr />
+<p>伽马分布：记作 <span class="math inline">\(x\sim
+\Gamma(\alpha,\lambda)\)</span></p>
+<blockquote>
+<p><span
+class="math inline">\(f(x)=\frac{\lambda^{\alpha}}{\Gamma(\alpha)}
+x^{\alpha-1}e^{-\lambda x}\)</span>.</p>
+<p>期望：<span
+class="math inline">\(\frac{\alpha}{\lambda}\)</span>，方差：<span
+class="math inline">\(\frac{\alpha}{\lambda^2}\)</span></p>
+</blockquote>
+<p>取 <span class="math inline">\(\alpha=1\)</span> 即指数分布.</p>
+<hr />
+<p><span class="math inline">\(\Gamma(\frac{n}{2},\frac{1}{2})\)</span>
+得到卡方分布 <span class="math inline">\(\chi^2(n)\)</span>.</p>
+<blockquote>
+<p>期望：<span class="math inline">\(n\)</span>，方差：<span
+class="math inline">\(2n\)</span></p>
+</blockquote>
+<p><span class="math inline">\(n=1\)</span> 时候，有<span
+class="math inline">\(f(x)=\frac{1}{\sqrt{2\pi x}}
+e^{-\frac{x}{2}}\)</span>.</p>
+<p>另一方面，这个也是 <span class="math inline">\(X\sim \mathcal
+N(0,1)\)</span> 时 <span class="math inline">\(X^2\)</span> 的分布.</p>
+<hr />
+<div style="page-break-after: always;">
+
+</div>
+<h2 id="结论-1">结论</h2>
+<h4 id="高斯分布">高斯分布</h4>
+<blockquote>
+<p><span class="math inline">\(\int_{-\infty}^{+\infty}
+e^{-x^2/2}=\sqrt{2\pi}\)</span></p>
+<p><span class="math inline">\(\int_{-\infty}^{+\infty}
+e^{-x^2/2}x=0\)</span></p>
+<p><span class="math inline">\(\int_{-\infty}^{+\infty}
+e^{-x^2/2}x^2=\sqrt{2\pi}\)</span></p>
+</blockquote>
+<h4 id="指数分布">指数分布</h4>
+<blockquote>
+<p><span class="math inline">\(\int_{0}^{x}\lambda e^{-\lambda
+t}=1-e^{-\lambda x}\)</span>，对于 <span
+class="math inline">\(x&gt;0\)</span>.</p>
+<p><span class="math inline">\(\int_{0}^{+\infty} \lambda e^{-\lambda
+x}x^n=\frac{n!}{\lambda^{n}}\)</span>.</p>
+</blockquote>
+<h4 id="伽马分布">伽马分布</h4>
+<blockquote>
+<p><span class="math inline">\(\Gamma(\alpha)=\int_0^{+\infty}
+x^{\alpha-1}e^{-x}dx\)</span>.</p>
+<p><span class="math inline">\(\Gamma(\alpha+1)=\int_0^{+\infty}
+x^{\alpha}e^{-x}dx\)</span>.</p>
+<p><span
+class="math inline">\(\Gamma(n+\frac{1}{2})=\frac{(2n)!}{4^nn!}\sqrt{\pi}\)</span>.</p>
+<p><span
+class="math inline">\(\int_0^{+\infty}\frac{\lambda}{\Gamma(\alpha)}x^{\alpha-1}e^{-\lambda
+x}dx=1\)</span>. 证明考虑代 <span class="math inline">\(y=\lambda
+x\)</span>.</p>
+</blockquote>
+<h4 id="卡方分布">卡方分布</h4>
+<blockquote>
+<p><span class="math inline">\(\int_0^{+\infty}\frac{1}{\sqrt{2\pi
+x}}e^{-\frac{x}{2}}dx=\int_0^{+\infty}\frac{\sqrt{x}}{\sqrt{2\pi}}e^{-\frac{x}{2}}dx=1\)</span>.</p>
+<p><span
+class="math inline">\(\int_0^{+\infty}\frac{\sqrt{x^3}}{\sqrt{2\pi}}e^{-\frac{x}{2}}dx=3\)</span>.
+这些都为 <span class="math inline">\(\chi^2(1)\)</span> 的直接结论.</p>
+</blockquote>
+
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+
+<aside id="sidebar-toc">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-list-ul"></i>  
+            文章目录 
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        
+        
+        <div class="panel-body toc-container">
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E7%A6%BB%E6%95%A3%E5%88%86%E5%B8%83"><span class="toc-list-text">离散分布</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-list-text">结论</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83"><span class="toc-list-text">二项分布</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83"><span class="toc-list-text">泊松分布</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E5%87%A0%E4%BD%95%E5%88%86%E5%B8%83"><span class="toc-list-text">几何分布</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E8%B4%9F%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83"><span class="toc-list-text">负二项分布</span></a></li></ol></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#misc"><span class="toc-list-text">misc</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E8%BF%9E%E7%BB%AD%E5%88%86%E5%B8%83"><span class="toc-list-text">连续分布</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E7%BB%93%E8%AE%BA-1"><span class="toc-list-text">结论</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E9%AB%98%E6%96%AF%E5%88%86%E5%B8%83"><span class="toc-list-text">高斯分布</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E6%8C%87%E6%95%B0%E5%88%86%E5%B8%83"><span class="toc-list-text">指数分布</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E4%BC%BD%E9%A9%AC%E5%88%86%E5%B8%83"><span class="toc-list-text">伽马分布</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E5%8D%A1%E6%96%B9%E5%88%86%E5%B8%83"><span class="toc-list-text">卡方分布</span></a></li></ol></li></ol></li></ol>
+        </div>
+    </div>
+</aside>
+
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2025/11/05/2025%E4%B8%8B/%E4%BF%A1%E6%A6%82%E7%BB%9F-%E6%9C%9F%E4%B8%ADcheatsheet/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/11/05/2025%E4%B8%8B/%E4%BF%A1%E6%A6%82%E7%BB%9F-%E6%9C%9F%E4%B8%ADcheatsheet/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 18.020581672419528px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 19.8342268296076px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 12.989492446483464px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 10.847714414762578px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 17.79457262675797px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 11.73621650523164px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 15.145391981076097px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 11.329808090756867px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 8.297041199291687px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 13.364329624090516px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 9.479249602143145px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 9.388579519731195px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 15.558820683413028px;" class="tag-cloud-link">高代</a>
+    
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 17.952272045746767px;" class="tag-cloud-link">信概统</a>
+    
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 17.27262929503743px;" class="tag-cloud-link">数算</a>
+    
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 14.14615474614735px;" class="tag-cloud-link">离散</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

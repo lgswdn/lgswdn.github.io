@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>音数大作业-定音鼓的发声机理 | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>音数大作业-定音鼓的发声机理</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/05/17/2025%E4%B8%8A/%E9%9F%B3%E6%95%B0%E5%A4%A7%E4%BD%9C%E4%B8%9A-%E5%AE%9A%E9%9F%B3%E9%BC%93%E7%9A%84%E5%8F%91%E5%A3%B0%E6%9C%BA%E7%90%86/">音数大作业-定音鼓的发声机理</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E9%9F%B3%E6%95%B0/">音数</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-05-17
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2025/05/17/2025%E4%B8%8A/%E9%9F%B3%E6%95%B0%E5%A4%A7%E4%BD%9C%E4%B8%9A-%E5%AE%9A%E9%9F%B3%E9%BC%93%E7%9A%84%E5%8F%91%E5%A3%B0%E6%9C%BA%E7%90%86/">音数大作业-定音鼓的发声机理</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2025-05-17
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E9%9F%B3%E6%95%B0/">音数</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>注：音数大作业为小组完成的项目，此处仅将个人所负责的部分（定音鼓有稳定持续的音高的原因）记载于此.
+该课程论文的文件详见文末的附件.</p>
+<hr />
+<h1 id="定音鼓发声机理">定音鼓发声机理</h1>
+<h3 id="同心模态和径向模态">同心模态和径向模态</h3>
+<p>如上所述，鼓的振动模态拆分为径向模态（Diametric
+Modes）和同心模态（Concentric Modes）的组合，即由 <span
+class="math inline">\(n,k\)</span>
+所决定。下面分别研究同心模态和镜像模态。</p>
+<p>首先是同心模态。一个简单但又重要的事实是，鼓手在敲击定音鼓的时候并非在中心敲击，而是在位于距离边缘到中心的约
+1/4
+的地方敲击，所以同心模态的影响较小。但是同心模态就算因为错误的击打而产生了较大的初始能量，之后也会快速衰减，不会对固定音高产生影响。</p>
+<p>在 Thomas D Rossing 的 Science Of Percussion
+Instruments<sup>[1]</sup>（Chapter 2 Drums with Definite Pitch，2.3
+Timpani）中，记载了有关不同模态在击打后 <span
+class="math inline">\(0.03s\)</span> 以及 <span
+class="math inline">\(1s\)</span>
+不同振动模态的振幅。我们观察到，正常击打的时候，同心模态振动的能量很小，几乎可以忽略。而若在正中央击打，则同心模态在击打后
+<span class="math inline">\(0.03s\)</span> 能量较大，但是 <span
+class="math inline">\(1s\)</span>
+后能量快速衰减，得到的结果与正常击打时的结果更加相似。而相比之下，径向模态（<span
+class="math inline">\(n=1,k\ge 1\)</span>
+的模态）的能量衰减明显少于同心模态。</p>
+<p>然后我们关注一个未被讨论的特例，即 <span
+class="math inline">\(n=1\)</span>，<span
+class="math inline">\(k=0\)</span>
+的振动模态。这个振动模态中，整个鼓皮一起上下振动。这个模态和同心模态类似，也因为鼓手敲击位置以及空气负载的减震，导致了衰减速度变快，并不会对定音鼓的固定音高产生影响。不论是人耳听到的声音，还是通过频率分析得到的结果，这个振动模态几乎都会被忽略。</p>
+<p>通过这个分析，我们知道了对于定音鼓来说，真正影响其固定音高的是径向模态，即
+<span class="math inline">\((1,1)\)</span>，<span
+class="math inline">\((2,1)\)</span>，<span
+class="math inline">\(\dots\)</span>，<span
+class="math inline">\((k,1)\)</span>。</p>
+<h3 id="空气负载">空气负载</h3>
+<p>定音鼓相比于普通的鼓，其最大特点是有固定音高。而使得定音鼓有固定音高的主要物理现象是空气负载（Air
+Loading）。</p>
+<p>由于定音鼓的膜的面积较大，所以在鼓手敲击定音鼓的时候，鼓内外的空气会对鼓皮的震动产生不可忽略的影响。</p>
+<p>一方面，当膜产生振动的时候，膜表面的运动使得相邻空间的空气产生了加速度。而由于惯性的影响，这个加速度会阻碍膜的振动。换句话说，振动时的发生变化的物体的质量不仅要考虑膜，还要考虑膜附近的空气，于是该振动系统可以理解成一个增加了空气质量的复合系统。由于系统的质量增加，所以所以空气负荷使得振动频率下降。这个振动的影响对于不同模态是不一样的，对
+<span class="math inline">\((1,1)\)</span> 和 <span
+class="math inline">\((2,1)\)</span> 的影响尤为强烈。</p>
+<p>与前面得到的理想情况不同的是，空气负载的影响依赖于膜的各种参数。这就是定音鼓与其他鼓的一大区别：定义鼓的膜的参数使得在算上空气负载后，径向模态的频率比接近于
+<span class="math inline">\(1:1.5:2:\dots\)</span>。</p>
+<p>【Without Kettle 的仿真实验报告】</p>
+<p>这个数据距离真实的 <span class="math inline">\(1:1.5:2\)</span>
+仍有差距，因为我们忽略了定音鼓的 Kettle
+的影响。但是已经足够好，没有鼓壳的定音鼓在历史上也被申请过专利<sup>[2]</sup>。</p>
+<p>有了 Kettle
+后，鼓内封闭的内部空气体积的振动模式的频率高于与其耦合的膜模式的频率<sup>[3]</sup>，这对膜的振动产生影响。经实验得到，<span
+class="math inline">\(n=0\)</span>
+的模态频率上升，而其余模态频率下降。</p>
+<p>【With Kettle 的仿真实验报告报告】</p>
+<p>经过这样的变化后，径向模态的频率达到了 <span
+class="math inline">\(1:1.51:2.01\)</span>，更加接近 <span
+class="math inline">\(1:1.5:2\)</span>.</p>
+<p>另一方面，空气分子的运动产生速度梯度，空气的黏性导致振动的能量转化为热能，导致振动系统的能量快速衰减。对于频率越高的模态，空气黏性导致的衰减越显著。相关实验表明
+<span class="math inline">\((1,1)\)</span>，<span
+class="math inline">\((2,1)\)</span>，<span
+class="math inline">\((3,1)\)</span> 在 <span
+class="math inline">\(1s\)</span> 之后变化不大，但是 <span
+class="math inline">\((4,1)\)</span> 和 <span
+class="math inline">\((5,1)\)</span> 则在 <span
+class="math inline">\(1s\)</span>
+后快速衰减<sup>[4]</sup>。所以前三个径向模态的和谐足以产生一个固定音高。</p>
+<p>值得注意的一点是，理论上存在 Missing Fundamental
+的现象，即在听到其泛音列时，人耳会自动听到其 Fundamental，即弥补出
+Fundamental 的缺失。而由于 <span
+class="math inline">\(f_{1,1}:f_{2,1}:f_{3,1}=1:1.5:2\)</span>（后续将展示为何是这样的比例），所以根据这个理论，人耳将听出比
+<span class="math inline">\(f_{1,1}\)</span>
+低八度的音。但是实际上，更加高频的模态衰减速度过快且能量较小，所以不支持产生这样的现象。</p>
+<p>最后所以最终定音鼓产生的固定音高即为 <span
+class="math inline">\((1,1)\)</span> 振动模态所对应的频率。</p>
+<hr />
+<p>[1] Rossing, Thomas D. "Science of Percussion Instruments", 2000,
+ISBN 981-02-4158-5</p>
+<p>[2] Montagu, Jeremy. Timpani and Percussion. Yale University Press.
+May 2002</p>
+<p>[3] Rossing, Thomas D. “The physics of kettledrums.” <em>Scientific
+American</em> 247/16 (November 1982): 172-178.</p>
+<p>[4] Acoustic Analysis of Timpani: Specific Mode by Striking
+Point，Yuya Nishimura &amp; Sohei
+Nishimura，https://www.ijeert.ijrsset.org/pdf/v3-i10/7.pdf</p>
+<h1 id="有无固定音高乐器本质区别">有/无固定音高乐器本质区别</h1>
+<h3 id="定音鼓和其他鼓的对比">定音鼓和其他鼓的对比</h3>
+<p>我们下载了一段定音鼓的声音<sup>[5]</sup>，并对其中一个衰减过后的音进行频率分析，得到了如下的结果：</p>
+<p><img src="C:\Users\AD\AppData\Roaming\Typora\typora-user-images\image-20250517155758095.png" alt="image-20250517155758095" style="zoom:33%;" /></p>
+<p><img src="../../../../file/音数/timpani_frequency.png" /></p>
+<p>最高的峰波为 <span class="math inline">\(-10dB\)</span>，而 <span
+class="math inline">\(&gt;-30dB\)</span> 的波峰在
+148Hz（D3），220Hz（A3），290Hz（D4），比例为 <span
+class="math inline">\(1:1.48:1.95\)</span>，而其余的波峰都显著低于这三个波峰。考虑到录音等造成的误差，这是一个相当令人满意且符合前面得到的结论的结果。</p>
+<p>我们也下载了一段军鼓的声音<sup>[6]</sup>，并对其中一个衰减过后的音进行频率分析，得到了如下的结果：</p>
+<p><img src="C:\Users\AD\AppData\Roaming\Typora\typora-user-images\image-20250513202703427.png" alt="image-20250513202703427" style="zoom:35%;" /></p>
+<p><img src="../../../../file/音数/snare_frequency.png" /></p>
+<p>最高的峰波为 <span class="math inline">\(-20Hz\)</span>，而其中 <span
+class="math inline">\(\ge -36dB\)</span>
+的峰波就有：231Hz（A#3），345Hz（F4），439Hz（A4），512Hz（C5），1018Hz（C6）。许多模态的能量仍然较高，无法形成一个和谐的泛音列。</p>
+<p>我们还下载了一段底鼓的声音<sup>[7]</sup>，并对其中一个衰减过后的音进行频率分析，得到了如下的结果：</p>
+<p><img src="C:\Users\AD\AppData\Roaming\Typora\typora-user-images\image-20250513203818348.png" alt="image-20250513203818348" style="zoom:35%;" /></p>
+<p><img src="../../../../file/音数/base_frequency.png" /></p>
+<p>容易发现能量较大的几个峰波在
+35Hz，80Hz，140Hz。剩下的模态衰减后能量确实很小，但是 <span
+class="math inline">\(1:2.3:4\)</span>
+的比例也无法形成和谐的泛音列。</p>
+<p>对比以上三个结果，这一方面证实了上面所说，定音鼓能够产生固定音高，一方面得益于非径向模态的快速衰减，一方面得益于空气负载产生的频率改变。</p>
+<p>另一方面，能量较高的模态是否产生比例和谐的泛音列则是能否产生固定音高的关键。</p>
+<h3 id="有无固定音高的乐器的区别">有/无固定音高的乐器的区别</h3>
+<p>从上面，我们可以发现有音高的乐器的最重要特点是其泛音列频率为某个基频的整数倍。注意这里基频不一定真实在频谱上可被观测到（例如定音鼓，以及
+Missing Fundamental 现象）。</p>
+<p>这里本质上是因为将所有振动模态叠加之后，由于泛音列的频率为基频的整数倍，所以其振动大致上满足了一种以基频为周期的周期性。这种周期性让我们能够感知到其音高。</p>
+<p>而对于无音高乐器，例如军鼓，其振动模态非常多，较为混乱，无法形成一个固定周期；例如底鼓，其
+<span class="math inline">\(1:2.3\)</span>
+的频率比并非整数倍数关系，人耳也就无法形成一个可感知的基频。</p>
+<p>综上所述，音高本质上是人耳对形成固定周期的基频的感知，而乐器是否有固定音高本质上是其所有振动模态叠加起来是否能够产生一个固定的周期。</p>
+<hr />
+<p>[5] What does the timpani sound like? (Scale) <span class="citation"
+data-cites="UtahSymphonyUtahOpera">@UtahSymphonyUtahOpera</span>
+https://www.youtube.com/watch?v=3tx_Oi86esk</p>
+<p>[6] Snare Drum Samples <span class="citation"
+data-cites="TheDrumwerks">@TheDrumwerks</span>
+https://www.youtube.com/watch?v=ljDcWTFpVME</p>
+<p>[7] KICK DRUM SOUND EFFECT [HD] <span class="citation"
+data-cites="nBeatsofficial">@nBeatsofficial</span>
+https://www.youtube.com/watch?v=qAn1zfzrvkk</p>
+<hr />
+<p>课程论文：<a
+href="../../../../file/音数/paper.pdf">链接</a>，由小组共同完成.</p>
+
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+
+<aside id="sidebar-toc">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-list-ul"></i>  
+            文章目录 
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        
+        
+        <div class="panel-body toc-container">
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#%E5%AE%9A%E9%9F%B3%E9%BC%93%E5%8F%91%E5%A3%B0%E6%9C%BA%E7%90%86"><span class="toc-list-text">定音鼓发声机理</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E5%90%8C%E5%BF%83%E6%A8%A1%E6%80%81%E5%92%8C%E5%BE%84%E5%90%91%E6%A8%A1%E6%80%81"><span class="toc-list-text">同心模态和径向模态</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E7%A9%BA%E6%B0%94%E8%B4%9F%E8%BD%BD"><span class="toc-list-text">空气负载</span></a></li></ol></li></ol></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#%E6%9C%89%E6%97%A0%E5%9B%BA%E5%AE%9A%E9%9F%B3%E9%AB%98%E4%B9%90%E5%99%A8%E6%9C%AC%E8%B4%A8%E5%8C%BA%E5%88%AB"><span class="toc-list-text">有&#x2F;无固定音高乐器本质区别</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E5%AE%9A%E9%9F%B3%E9%BC%93%E5%92%8C%E5%85%B6%E4%BB%96%E9%BC%93%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="toc-list-text">定音鼓和其他鼓的对比</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E6%9C%89%E6%97%A0%E5%9B%BA%E5%AE%9A%E9%9F%B3%E9%AB%98%E7%9A%84%E4%B9%90%E5%99%A8%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-list-text">有&#x2F;无固定音高的乐器的区别</span></a></li></ol></li></ol></li></ol>
+        </div>
+    </div>
+</aside>
+
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2025/05/17/2025%E4%B8%8A/%E9%9F%B3%E6%95%B0%E5%A4%A7%E4%BD%9C%E4%B8%9A-%E5%AE%9A%E9%9F%B3%E9%BC%93%E7%9A%84%E5%8F%91%E5%A3%B0%E6%9C%BA%E7%90%86/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/05/17/2025%E4%B8%8A/%E9%9F%B3%E6%95%B0%E5%A4%A7%E4%BD%9C%E4%B8%9A-%E5%AE%9A%E9%9F%B3%E9%BC%93%E7%9A%84%E5%8F%91%E5%A3%B0%E6%9C%BA%E7%90%86/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 12.953691166091705px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 14.635466281116177px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 14.88370771134134px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 19.045778689576263px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 17.77190960024871px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 11.678706541274877px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 19.40684045852162px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 17.259363848702492px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 8.874408925700425px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 14.659104368437532px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 11.723096123555806px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 16.526103670730947px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 8.503637225484887px;" class="tag-cloud-link">高代</a>
+    
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 13.476554100586315px;" class="tag-cloud-link">信概统</a>
+    
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 17.195961085739683px;" class="tag-cloud-link">数算</a>
+    
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 18.353373178137794px;" class="tag-cloud-link">离散</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

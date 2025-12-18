@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>CVDL-Corner Detection | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>CVDL-Corner Detection</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/03/05/2025%E4%B8%8A/CVDL-Corner%20Detection/">CVDL-Corner Detection</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/CVDL/">CVDL</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-03-05
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2025/03/05/2025%E4%B8%8A/CVDL-Corner%20Detection/">CVDL-Corner Detection</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2025-03-05
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/CVDL/">CVDL</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>Image Matching
+的一种方法：先从两个照片中找到关键点，然后再做关键点匹配，形成
+Correpondance，再去解两个视角的关系.</p>
+<p>关键点检测的第一个要求是显著性（Saliency），必须足够具有特征.
+第二个要求是重复性（Repeatability），对于不同的图（视角，尺寸等）要能检测出相同的.
+第三个是能有足够精确的位置（Accurate localization）.
+并且最后希望量足够大（Quantity）.</p>
+<p>一种简单的 Keypoint 是 Corner.</p>
+<p>Corner 的特征是，有多个方向的梯度，而非像 Edge 一样只有正交方向.</p>
+<p>Harris Corner Detection：将一个滑动窗口，看向各个方向移动，intensity
+会不会有什么明显变化. Edge 的话只会有一个方向有极大的变化，而 Corner
+在每个方向都有剧烈变化.</p>
+<p>考虑定义一个 Window Function. 最简单的用 1 表示在窗口内，0
+表示不在窗口内. 对于 <span
+class="math inline">\((x,y)\)</span>，定义强度差为 <span
+class="math inline">\(D(x,y)=[I(x+u,y+v)-I(x,y)]^2\)</span>，而又因为对于中心
+<span class="math inline">\((x_0,y_0)\)</span>，<span
+class="math inline">\(w_{x,y}=w_{x-x_0,y-y_0}\)</span>，于是我们强度差总和为
+<span class="math inline">\(\sum w(x-x_0,y-y_0)D(x,y)=\sum
+w(x_0-x,y_0-y)D(x,y)\)</span>，写成卷积就是<span
+class="math inline">\((w*D)(x_0,y_0)\)</span>. 上述是对于固定的 <span
+class="math inline">\(u,v\)</span> 来说的.</p>
+<p>如果将 <span class="math inline">\(I(x+u,y+v)-I(x,y)\)</span>
+做一阶泰勒近似，得到 <span
+class="math inline">\(uI_x+vI_y\)</span>，其中 <span
+class="math inline">\(I_x\)</span> 为 <span
+class="math inline">\(x\)</span> 方向 <span
+class="math inline">\(I\)</span> 的偏导数，<span
+class="math inline">\(I_y\)</span> 为 <span
+class="math inline">\(y\)</span> 方向的偏导数，那么 <span
+class="math inline">\(D(x,y)=[u,v]\left[\begin{matrix}I_x^2(x,y)&amp;
+I_xI_y(x,y)\\I_xI_y(x,y)&amp; I_y^2(x,y)\end{matrix}\right][u\
+v]^T\)</span>. 也就是说对于位置 <span
+class="math inline">\((x,y)\)</span>，<span
+class="math inline">\((u,v)\)</span>
+方向的强度差可以用一个双线性形式表示.</p>
+<p>那么我们考虑令中间那个矩阵为 <span
+class="math inline">\(B_{x,y}\)</span>，那么我们考虑用卷积的形式（注意，<span
+class="math inline">\(B\)</span> 的每个元素是一个矩阵），那么对于位置
+<span class="math inline">\(x_0,y_0\)</span>，这个总和的双线性形式就是
+<span class="math inline">\(M_{x_0,y_0}=(w*B)_{x_0,y_0}\)</span>.</p>
+<p>我们把内部的 <span class="math inline">\((x,y)\)</span>
+给提出去（这样矩阵的元素就是算子），可以得到 <span
+class="math inline">\(M=\left[\begin{matrix}w*I_x^2&amp;
+w*I_xI_y\\w*I_xI_y&amp; w*I_y^2\end{matrix}\right]\)</span>.</p>
+<p>上一步是为了方便并行计算. 无论如何，我们已经能得知了 <span
+class="math inline">\((x_0,y_0)\)</span>
+处的双线性形式，现在就是该如何判断一个点是否是 Corner 或者 Edge.</p>
+<p>我们要关注的对象是是否对于所有向量 <span
+class="math inline">\(v\)</span>，<span
+class="math inline">\(vM_{x_0,y_0}v^T\)</span> 都比较大.
+那么我们自然地想到对 <span class="math inline">\(M_{x_0,y_0}\)</span>
+进行对角化，得到特征值 <span
+class="math inline">\(\lambda_1,\lambda_2\)</span>.
+若两者都较大，那么就意味着是 Corner.
+若一者相比于另一者过大，那就以为这是 Edge. 否则就是 Flat.
+我们想要寻找一个合理的算子来体现这件事情.</p>
+<p>首先是要都比较大. Harris Corner Detector 的这套理论选择了使用 <span
+class="math inline">\(\lambda_1\lambda_2-2t\)</span> 作为贡献.</p>
+<p>然后是比值要比较大. 这里选择了 <span
+class="math inline">\(\lambda_1\lambda_2-2a(\lambda_1+\lambda_2)^2&gt;0\)</span>，可以解出来
+<span class="math inline">\(a=\frac{1}{2}(k+1/k)^2\)</span>，其中 <span
+class="math inline">\(\lambda_1/\lambda_2\in(\frac{1}{k},k)\)</span>.
+<span class="math inline">\(k=3\)</span> 的时候有 <span
+class="math inline">\(\alpha=0.045\)</span>.</p>
+<p>然后我们把这两项叠加起来，化简得到 <span
+class="math inline">\(\theta=\lambda_1\lambda_2-\alpha(\lambda_1+\lambda_2)^2-t\)</span>.</p>
+<p>有人知道为什么会这么设计这个函数吗？？？？？</p>
+<p>反正我们发现这个其实就是原矩阵的行列式，减去 <span
+class="math inline">\(\alpha\)</span> 倍的 Trace 的平方，再减去 <span
+class="math inline">\(t\)</span>.</p>
+<p>并且还有一件事情，就是 <span class="math inline">\(w\)</span>
+太方方正正了，不满足对旋转的不变性. 所以不如选择一个 Gaussian Filter
+<span class="math inline">\(g\)</span> 作为 Window Function.</p>
+<p>然后我们再看回算子，得到 <span
+class="math inline">\(\theta=(g(I_x^2)g(I_y^2)-[g(I_xI_y)]^2)-\alpha[g(I_x^2)+g(I_y^2)]^2-t\)</span>.</p>
+<p>总体来说操作其实就像是，写好几个卷积核，然后跑.</p>
+<p>然后再做一个 <span class="math inline">\(\theta&gt;0\)</span> 的
+Thresholding 和 Non-maximum Suppression 就好了.</p>
+<hr />
+<p>实际上上面所谓的不变性其实应该叫一种等变性 (Equivariance).
+即图片发生变化的时候，输出也跟着发生相同的变化.</p>
+<p>等变性最基础的定义就是，对于 <span class="math inline">\(f:V\to
+V\)</span>（比如卷积，网络）和简单的变换 <span
+class="math inline">\(T\)</span>（比如旋转，平移），<span
+class="math inline">\(T[f(x)]=f(T(x))\)</span>.</p>
+<p>如果是不变性，那么就是 <span
+class="math inline">\(f(x)=f(T(x))\)</span>.</p>
+<p>语义类的（比如分类问题）我们希望不变，而检查类的（比如位置方向）我们希望等变.</p>
+<p>有关平移的等变性是操演定义的. 考虑如何检查旋转的等变性.
+我们将图片先看成连续光滑函数. 如果将图片旋转 <span
+class="math inline">\(\theta\)</span>，那么 Gradient 操作，由于 <span
+class="math inline">\(I_x I_y\)</span> 的对称性显然是等变的.
+而卷积的变化在于卷积中心位置绕着旋转中心转了，而我们希望卷积核是旋转不变的.</p>
+<p>但实际上真实操作，由于像素的离散性就杜绝了旋转的严格等变的可能性.
+并且实现上 Gaussian Filter 写起来也是一个 <span
+class="math inline">\(k\times k\)</span>
+的卷积核，所以其实旋转不变性也没法保证.</p>
+<p>并且卷积对于拉伸也是无法等变的.</p>
+<p>参考讲义：<a
+href="../../../../file/CVDL/Lecture%203%20-%20Classic%20Vision%20II.pdf">Lecture
+3 - Classic Vision II</a> 和 <a
+href="../../../../file/CVDL/Lecture%204%20-%20Deep%20Learning%20I.pdf">Lecture
+4 - Deep Learning I</a>.</p>
+
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2025/03/05/2025%E4%B8%8A/CVDL-Corner%20Detection/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/03/05/2025%E4%B8%8A/CVDL-Corner%20Detection/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 9.671958948478428px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 18.527045736672218px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 15.459096469517963px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 13.02869713094956px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 10.335116040698303px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 19.709784934262167px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 12.911915247347075px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 10.528857676054951px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 13.019374673352184px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 15.494177466401123px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 19.913791717197764px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 12.794945758854674px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 13.148898544002734px;" class="tag-cloud-link">高代</a>
+    
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 19.373952350911317px;" class="tag-cloud-link">信概统</a>
+    
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 17.15666297903827px;" class="tag-cloud-link">数算</a>
+    
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 14.095945410266967px;" class="tag-cloud-link">离散</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>ICS-Chap7-Linker1 | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>ICS-Chap7-Linker1</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/11/09/2025%E4%B8%8B/ICS-Chap7-Linker/">ICS-Chap7-Linker1</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/ICS/">ICS</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-11-09
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2025/11/09/2025%E4%B8%8B/ICS-Chap7-Linker/">ICS-Chap7-Linker1</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2025-11-09
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/ICS/">ICS</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h2 id="编译器驱动程序">7.1 编译器驱动程序</h2>
+<p>编译的过程：</p>
+<ol type="1">
+<li><code>main.c</code></li>
+<li>预处理器 -&gt; <code>main.in</code></li>
+<li>编译器 -&gt; <code>main.s</code> （汇编语言）</li>
+<li>汇编器 -&gt; <code>main.o</code>（可重定位目标文件）</li>
+<li>然后链接器将若干个 <code>.o</code> 组合起来生成可执行文件</li>
+</ol>
+<h2 id="静态链接">7.2 静态链接</h2>
+<p>static linker 需要完成 symbol resolution &amp; relocation.</p>
+<h2 id="目标文件">7.3 目标文件</h2>
+<p>目标文件有三种：可重定位目标文件，可执行目标文件，共享目标文件</p>
+<h2 id="可重定位目标文件">7.4 可重定位目标文件</h2>
+<ul>
+<li><strong>ELF 头</strong>：字的大小&amp;字节顺序 -
+ELF头大小&amp;文件类型&amp;机器类型&amp;节头部表得到偏移答案小数量，等.</li>
+<li><strong>.text</strong>：编译后的机器代码.</li>
+<li><strong>.rodata</strong>：只读数据.</li>
+<li><strong>.data</strong>：已初始化的全局&amp;static 变量.</li>
+<li><strong>.bss</strong>：未初始化的static
+变量，初始化为0的全局/static变量，不在ELF占据空间.</li>
+<li><strong>.symtab</strong>：符号表，存放定义的函数&amp;全局变量的信息.</li>
+<li><strong>.rel.text</strong>：链接器需要修改的 text
+部分的位置列表.</li>
+<li><strong>.rel.data</strong>：链接器需要修改的 data
+部分的位置列表.</li>
+<li><strong>.debug</strong>：调试用的符号表.</li>
+<li><strong>.line</strong>：调试用的行号/指令的映射.</li>
+<li><strong>.strtab</strong>：字符串表，包含 symtab/debug
+中的符号表和节头部的节名字.</li>
+<li><strong>节头部表</strong>：不同节的位置和大小.</li>
+</ul>
+<h2 id="symtab">7.5 symtab</h2>
+<p>每个符号被分配到目标文件的某个节，有三个特殊的伪节.
+这个意思是在符号表中，正常的东西会直接标记其所属节里面；但是伪节的话就只会在这里写上是
+ABS/UND/COM.</p>
+<p>可执行目标文件没有这样的伪节.</p>
+<p>ABS：不该被重定向的符号（代表一个绝对的常量值）</p>
+<p>UNDEF：未定义的符号（例如 printf）</p>
+<p>COMMMON：未初始化的全局变量（弱符号）</p>
+<h2 id="符号解析">7.6 符号解析</h2>
+<h4 id="多重定义的全局符号">多重定义的全局符号</h4>
+<p>强符号：函数&amp;已初始化的全局变量，为强符号.</p>
+<p>弱符号：未初始化的全局变量.</p>
+<p>规则：</p>
+<ol type="1">
+<li>不允许多个重名的强符号</li>
+<li>一个强符号 vs 多个弱符号重名，选择弱符号</li>
+<li>多个若符号重名，任选一个弱符号</li>
+</ol>
+<p>其实本质就是 data/text/bss 不能重，并且优先这三者，com
+相同直接合并就好了.</p>
+<h4 id="与静态库链接">与静态库链接</h4>
+<p>静态库：相关的函数被编译为独立的目标模块，封装成一个静态库文件，然后链接器只需要复制程序引用的目标模块.</p>
+<h4 id="使用静态库解析引用">使用静态库解析引用</h4>
+<p>编译的时候从左到右读命令行输入文件，遇到未解析符号就记录下来，然后每个文件查看有没有可以解决的未解析符号.</p>
+<p>所以需要保证被引用的放在引用的的右侧.</p>
+<h2 id="重定向">7.7 重定向</h2>
+<p>重定位由两步组成：重定位节&amp;符号定义，以及重定位节中的符号引用.</p>
+<h4 id="重定位条目">重定位条目</h4>
+<p>生成一个目标文件的时候，由于不知道最终数据&amp;代码放在什么位置所以需要生成重定位条目（<strong>.rel</strong>）.
+格式上，需要包含
+offset（那个元素的节偏移），type（重定位类型），symbol（被修改引用指向的符号），addend（对最终得到的值的一个偏移）</p>
+<p>书上讲的两种 type：<code>R_X86_64_PC32</code>，32 位 PC
+相对引用（跑的时候需要加上 +PC）；<code>R_X86_64_32</code>，32
+位绝对引用.</p>
+<h4 id="重定位符号引用">重定位符号引用</h4>
+<p>对于节 <span class="math inline">\(s\)</span>
+中的符号引用，无论如何都需要算出 <code>refptr = s + offset</code>
+表示那个需要修改的符号引用的地址</p>
+<p>PC 相对引用：</p>
+<blockquote>
+<p>先计算出引用的运行时
+PC：<code>refaddr = ADDR(s) + r.offset</code></p>
+<p>然后计算相对地址：<code>*refptr = ADDR(r.symbol) + r.addend - refaddr</code></p>
+</blockquote>
+<p>绝对引用：</p>
+<blockquote>
+<p><code>*refptr = ADDR(r.symbol) + r.addend</code></p>
+</blockquote>
+<h2 id="可执行目标文件">7.8 可执行目标文件</h2>
+<p>可执行目标文件没有 <strong>.rel</strong>
+的节，并且有个<strong>段头部表</strong>将节映射到运行时内存段，<strong>.init</strong>
+表示初始化代码.</p>
+<p>只有 <strong>bss</strong> 前的那些会被写到内存.</p>
+<p>程序头部表将可执行文件的连续的 chunk 映射到连续的内存段，有 read-only
+segment 和 read-write data segment. 读写段指 <strong>.data</strong> 和
+<strong>.bss</strong>，read-only 则是之前的内容.</p>
+<h2 id="加载可执行文件">7.9 加载可执行文件</h2>
+<p>内存 <span class="math inline">\(2^{48}\)</span>
+往上的部分为内核内存，对用户不可见.</p>
+<p>往下的部分和之前说的都是一样的.
+从上往下是栈，然后中间某个地方往上是共享库的内存映射区域.
+然后下面的从下往上就是 init, text, rodata；然后是 read-write 段的 data
+和 bss，然后再是运行时的堆（malloc 创建）</p>
+<h2 id="动态链接">7.10 动态链接</h2>
+<p>共享库可以被不同的正在运行的进程共享. 是在敲下 <code>./</code>
+的时候进行链接的.</p>
+<p>run-time linking：需要用 <code>dlopen</code> 这样的东西.
+用的时候需要用 <code>dlsym</code>.</p>
+<p>动态链接能够节省空间，并且共享库已经在 memory 和 cache 中了.
+不过还是需要多存一些表，但是总之还是更节省空间.</p>
+<h2 id="插桩">7.13 插桩</h2>
+<p>eg 对malloc检测.</p>
+<p>编译时插桩：</p>
+<blockquote>
+<p>写一个 <code>malloc.h</code>，在 <code>mymalloc.c</code> 中定义一个
+<code>mymalloc</code>，然后在 <code>malloc.h</code> 中
+<code>#define mmalloc mymalloc</code></p>
+</blockquote>
+<p>链接时插桩：</p>
+<blockquote>
+<p>在 <code>mymalloc.c</code> 中定义
+<code>__wrap_malloc</code>，然后其中真正的 <code>malloc</code> 直接调用
+<code>__real_malloc</code>. 使用 <code>-Wl,--wrap,malloc</code>
+就可以直接插桩.</p>
+</blockquote>
+<p>运行时插桩：</p>
+<blockquote>
+<p>创建一个共享库，然后塞到 LD_PRELOAD. 此时这个共享库中
+<code>mymalloc.c</code> 就需要用 <code>dlopen/dlsym</code> 来调用真正的
+<code>malloc</code>.</p>
+</blockquote>
+
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+
+<aside id="sidebar-toc">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-list-ul"></i>  
+            文章目录 
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        
+        
+        <div class="panel-body toc-container">
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E7%BC%96%E8%AF%91%E5%99%A8%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F"><span class="toc-list-text">7.1 编译器驱动程序</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E9%9D%99%E6%80%81%E9%93%BE%E6%8E%A5"><span class="toc-list-text">7.2 静态链接</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E7%9B%AE%E6%A0%87%E6%96%87%E4%BB%B6"><span class="toc-list-text">7.3 目标文件</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%8F%AF%E9%87%8D%E5%AE%9A%E4%BD%8D%E7%9B%AE%E6%A0%87%E6%96%87%E4%BB%B6"><span class="toc-list-text">7.4 可重定位目标文件</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#symtab"><span class="toc-list-text">7.5 symtab</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E7%AC%A6%E5%8F%B7%E8%A7%A3%E6%9E%90"><span class="toc-list-text">7.6 符号解析</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E5%A4%9A%E9%87%8D%E5%AE%9A%E4%B9%89%E7%9A%84%E5%85%A8%E5%B1%80%E7%AC%A6%E5%8F%B7"><span class="toc-list-text">多重定义的全局符号</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E4%B8%8E%E9%9D%99%E6%80%81%E5%BA%93%E9%93%BE%E6%8E%A5"><span class="toc-list-text">与静态库链接</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E4%BD%BF%E7%94%A8%E9%9D%99%E6%80%81%E5%BA%93%E8%A7%A3%E6%9E%90%E5%BC%95%E7%94%A8"><span class="toc-list-text">使用静态库解析引用</span></a></li></ol></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91"><span class="toc-list-text">7.7 重定向</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E9%87%8D%E5%AE%9A%E4%BD%8D%E6%9D%A1%E7%9B%AE"><span class="toc-list-text">重定位条目</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E9%87%8D%E5%AE%9A%E4%BD%8D%E7%AC%A6%E5%8F%B7%E5%BC%95%E7%94%A8"><span class="toc-list-text">重定位符号引用</span></a></li></ol></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%9B%AE%E6%A0%87%E6%96%87%E4%BB%B6"><span class="toc-list-text">7.8 可执行目标文件</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%8A%A0%E8%BD%BD%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6"><span class="toc-list-text">7.9 加载可执行文件</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5"><span class="toc-list-text">7.10 动态链接</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%8F%92%E6%A1%A9"><span class="toc-list-text">7.13 插桩</span></a></li></ol>
+        </div>
+    </div>
+</aside>
+
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2025/11/09/2025%E4%B8%8B/ICS-Chap7-Linker/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/11/09/2025%E4%B8%8B/ICS-Chap7-Linker/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 16.062545646511524px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 12.888499198273784px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 17.669968660987088px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 14.029515959137738px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 10.56542273043345px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 8.293128522238604px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 10.570440326855977px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 19.82041759458548px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 11.037650403700788px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 11.455115735489898px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 17.465234878928626px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 15.805907943511858px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 8.98215553686219px;" class="tag-cloud-link">高代</a>
+    
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 15.091457575045165px;" class="tag-cloud-link">信概统</a>
+    
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 10.529151027905087px;" class="tag-cloud-link">数算</a>
+    
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 11.675521743481312px;" class="tag-cloud-link">离散</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>
