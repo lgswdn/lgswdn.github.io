@@ -263,7 +263,26 @@
         </center>
     </div>
     <div class="content-article">
-        <h1 id="内排序">内排序</h1>
+        <p>2 注：2025 DSA
+的期末考试格外困难。但是我仍然认为这份笔记对我还是有所帮助的。总之也就看个乐子吧。</p>
+<p>注：只是一个笔记，只看这个无法帮助你在 DSA
+中获得正常的成绩，可能还需要一些往年题的 fine-tune.</p>
+<p>misc:</p>
+<ul>
+<li>左旋的定义是把东西往左旋，右旋的定义是把东西往右旋</li>
+<li>二次探测法：对于哈希表，假如选得的位置是 <span
+class="math inline">\(x\)</span>，那么就看 <span
+class="math inline">\(x\)</span>，<span
+class="math inline">\(x+1\)</span>，<span
+class="math inline">\(x+4\)</span>，<span
+class="math inline">\(x+9\)</span> 这样下去，对总 size 取模.</li>
+<li>双散列函数：对于哈希表，假如选的位置是 <span
+class="math inline">\(x\)</span>，并且第二个散列函数告诉你是 <span
+class="math inline">\(y\)</span>，那么就看 <span
+class="math inline">\(x,x+y,x+2y,\dots\)</span> 下去，对总 size
+取模.</li>
+</ul>
+<h1 id="内排序">内排序</h1>
 <p>Iterative style</p>
 <ul>
 <li><p>插入排序：从前往后，然后看 <span
@@ -281,6 +300,7 @@ swap，否则 break</p></li>
 class="math inline">\(O(n\log^2n)\)</span>，其他一些也可以做到 <span
 class="math inline">\(O(n^{&lt;2})\)</span>. 为不稳定排序.</p></li>
 </ul>
+<p>不需要访问已经排好序的记录：冒泡 &amp; 选择</p>
 <p>d&amp;c style</p>
 <ul>
 <li>归并排序：为稳定排序</li>
@@ -294,7 +314,7 @@ class="math inline">\(O(n^{&lt;2})\)</span>. 为不稳定排序.</p></li>
 <h2 id="外排序">外排序</h2>
 <p>如果要排序的东西 RAM
 塞不下那么就倒闭了，于是就需要外排序，大体就是说看看先能不能在有限的 RAM
-范围内能够将整个序列给分成尽量多的有序段（run），然后再对这些段做
+范围内能够将整个序列给分成尽量多的有序段（run，顺串），然后再对这些段做
 merge.</p>
 <p>分段：</p>
 <ul>
@@ -398,14 +418,37 @@ class="math inline">\(d_i\)</span> 个数，每个数表示该儿子的 key
 <p>考虑链表的每个元素，可以是一个原子元素，也可以是一个链表.</p>
 <p>这样的链表可以当作邻接表看待.</p>
 <ul>
-<li><p>线性表：链.</p></li>
-<li><p>纯表：树.</p></li>
-<li><p>可重入表：DAG.</p></li>
-<li><p>循环表：有环的图.</p></li>
+<li>线性表：链.</li>
+<li>纯表：树.</li>
+<li>可重入表：图.</li>
+<li>循环表：有环的图.</li>
+</ul>
+<h4 id="avl">AVL</h4>
+<p>定义：每个点的左子树和右子树高度最多差 1.</p>
+<p>balance factor <span class="math inline">\(bf(x)\)</span> 为右子树 -
+左子树高度.</p>
+<p>插入：</p>
+<ul>
+<li><p>正常查找然后插入一个叶子</p></li>
+<li><p>从下往上 check 每个节点符合要求. 三种情况：</p>
+<ol type="1">
+<li><p>当前节点新 <span class="math inline">\(bf=\pm
+1\)</span>，那么继续 check 父亲</p></li>
+<li><p>当前节点新 <span
+class="math inline">\(bf=0\)</span>，那么就不需要管父亲了.</p></li>
+<li><p>当前节点新 <span class="math inline">\(bf=\pm
+2\)</span>，那么就需要在这里旋转一下.
+由于肯定是新加的点来自于那个多的子树，不妨设来源于右子树.</p>
+<p>如果来源于右子树 <span class="math inline">\(r\)</span> 的右儿子
+<span class="math inline">\(r_r\)</span>，那么直接把 <span
+class="math inline">\(r\)</span> 旋转上去即可. 如果来源于右子树的左儿子
+<span class="math inline">\(r_l\)</span>，那么就需要把 <span
+class="math inline">\(r_l\)</span> 从下往上转两步. 然后就不需要再 check
+父亲了.</p></li>
+</ol></li>
 </ul>
 <h4 id="红黑树">红黑树</h4>
 <p>大家都去学 fhq-treap 好不好啊.</p>
-<p>删除不考所以没写。</p>
 <p>结构：</p>
 <ul>
 <li>每个点被染成红色和黑色</li>
@@ -425,9 +468,42 @@ rank</li>
 <li>如果父亲的兄弟是黑的，由于此时父亲的兄弟&amp;自己的兄弟都是黑，而
 (自己，父亲，祖父)
 形成一条红红黑的链，于是考虑旋转，把这三者的中位数转成这三者的根，然后根为黑，根的两子为红.
-由于剩下的周围节点都是黑所以这样做没有问题》</li>
+由于剩下的周围节点都是黑所以这样做没有问题.</li>
 </ul></li>
 </ol>
+<p>删除：</p>
+<ol type="1">
+<li>删除的话首先对于节点 <span
+class="math inline">\(x\)</span>，如果度数 &lt;2
+直接删，否则和右子树最小的点交换然后删</li>
+<li>如果删除节点是红色那么 p
+事没有，但是如果是黑色那么就需要调整，使得删除之前其唯一子树的 rank
+要增大一然后才能放心删.</li>
+<li>然后我们就关注这个“让rank保持平衡的操作”怎么弄（并且不会让自己变成红色）.
+分若干种情况：
+<ol type="1">
+<li><span class="math inline">\(x\)</span>
+儿子是红色的：那么直接把这个儿子染成黑色.</li>
+<li><span class="math inline">\(x\)</span>
+无红色儿子，且兄弟是红色的：把兄弟转上去，并且将兄弟染成红，转下来的父亲染成黑.
+此时归约到兄弟是黑色的情况.</li>
+<li><span class="math inline">\(x\)</span>
+无红色儿子，兄弟是黑色的，没有红色侄子：直接把兄弟染成红色.
+此时，如果父亲本来就是红色那么染成黑色，如果本来就是黑色那么就要对父亲重复
+3.2 / 3.3 / 3.4 了.</li>
+<li><span class="math inline">\(x\)</span>
+无红色儿子，兄弟是黑色的，有红色侄子.
+如果存在父亲-黑色兄弟-红色侄子的一条顺着的链，那直接把黑色兄弟给转上去就行了.
+否则就需要把红色侄子转上去. 注意在赋颜色时，父亲位置的颜色要保持不变.
+这种情况下也都不需要对父亲重复修复.</li>
+</ol></li>
+</ol>
+<p>建议根据上述规则手搓一下.</p>
+<p>AI 产物：</p>
+<ul>
+<li><strong>插</strong>：叔红变色，叔黑旋转</li>
+<li><strong>删</strong>：兄红转黑；兄黑侄黑则父债子偿；兄黑侄红则借位填坑</li>
+</ul>
 
     </div>
 </article>
@@ -497,7 +573,7 @@ rank</li>
         
         
         <div class="panel-body toc-container">
-            <ol class="toc-list"><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#%E5%86%85%E6%8E%92%E5%BA%8F"><span class="toc-list-text">内排序</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%A4%96%E6%8E%92%E5%BA%8F"><span class="toc-list-text">外排序</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%9F%A5%E6%89%BE-%E7%B4%A2%E5%BC%95"><span class="toc-list-text">查找 &#x2F; 索引</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#b-%E6%A0%91"><span class="toc-list-text">B 树</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#b-%E6%A0%91-1"><span class="toc-list-text">B+ 树</span></a></li></ol></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-list-text">高级数据结构</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E5%B9%BF%E4%B9%89%E8%A1%A8"><span class="toc-list-text">广义表</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E7%BA%A2%E9%BB%91%E6%A0%91"><span class="toc-list-text">红黑树</span></a></li></ol></li></ol></li></ol></li></ol>
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#%E5%86%85%E6%8E%92%E5%BA%8F"><span class="toc-list-text">内排序</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%A4%96%E6%8E%92%E5%BA%8F"><span class="toc-list-text">外排序</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%9F%A5%E6%89%BE-%E7%B4%A2%E5%BC%95"><span class="toc-list-text">查找 &#x2F; 索引</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#b-%E6%A0%91"><span class="toc-list-text">B 树</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#b-%E6%A0%91-1"><span class="toc-list-text">B+ 树</span></a></li></ol></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-list-text">高级数据结构</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E5%B9%BF%E4%B9%89%E8%A1%A8"><span class="toc-list-text">广义表</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#avl"><span class="toc-list-text">AVL</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E7%BA%A2%E9%BB%91%E6%A0%91"><span class="toc-list-text">红黑树</span></a></li></ol></li></ol></li></ol></li></ol>
         </div>
     </div>
 </aside>
@@ -529,39 +605,41 @@ rank</li>
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 18.061137140111384px;" class="tag-cloud-link">总结</a>
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 13.53176584478736px;" class="tag-cloud-link">总结</a>
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 13.236800868393606px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 16.346209499957332px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 18.910452823148816px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 9.006582000087697px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/ICS/" style="font-size: 11.362893228211892px;" class="tag-cloud-link">ICS</a>
+    <a href="/tags/ICS/" style="font-size: 10.238098908932074px;" class="tag-cloud-link">ICS</a>
     
-    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 15.585956655413886px;" class="tag-cloud-link">具身</a>
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 12.967133986912085px;" class="tag-cloud-link">具身</a>
     
-    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 14.250513154214808px;" class="tag-cloud-link">初恋日记</a>
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 14.817936192624114px;" class="tag-cloud-link">初恋日记</a>
     
-    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 15.745992908418746px;" class="tag-cloud-link">腾讯星火营</a>
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 19.440854619737998px;" class="tag-cloud-link">腾讯星火营</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 19.929352570879903px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 16.07946985163545px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 14.7943355498864px;" class="tag-cloud-link">程设</a>
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 11.386655899379175px;" class="tag-cloud-link">程设</a>
     
-    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 15.12167402384313px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 8.608887064928432px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
     
-    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 11.611574110079346px;" class="tag-cloud-link">波伏娃</a>
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 11.855199942285456px;" class="tag-cloud-link">波伏娃</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 16.168362792427352px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 11.830420580447585px;" class="tag-cloud-link">音数</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 15.01889390655888px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 11.908834432720532px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 16.256286448964612px;" class="tag-cloud-link">信概统</a>
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 9.235103744367956px;" class="tag-cloud-link">信概统</a>
     
-    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 10.45369635024797px;" class="tag-cloud-link">数算</a>
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 13.885689553113966px;" class="tag-cloud-link">数算</a>
     
-    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 10.995320414805727px;" class="tag-cloud-link">离散</a>
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 14.797733255599688px;" class="tag-cloud-link">离散</a>
     
-    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 13.42299671503404px;" class="tag-cloud-link">智障集锦</a>
+    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 12.03464421593309px;" class="tag-cloud-link">智障集锦</a>
+    
+    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 13.88680180821863px;" class="tag-cloud-link">读论文</a>
     
 </div>
                 

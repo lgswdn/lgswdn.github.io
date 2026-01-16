@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>archive_a | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="current">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    <article class="article well article-body" id="article-archive">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>归档</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/archives">归档</a>
+            </h1>
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/archives">归档</a>
+                </h4>
+            </div>
+        </center>
+    </div>
+    <div class="content-article" style="margin-top: 30px;">
+        
+        
+            <h1 style="font-size: 24px; margin-top: 40px;">2026年</h1>
+            
+        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
+            
+             
+             
+                        <a href="/2026/01/16/2026%E4%B8%8A/%E8%AF%BB%E8%AE%BA%E6%96%87-%E8%BF%87%E7%9B%AE%E5%90%88%E9%9B%86/">读论文-过目合集</a>
+                        <br>
+            
+             
+                        <a href="/2026/01/16/2026%E4%B8%8A/%E8%AF%BB%E8%AE%BA%E6%96%87-Pi0/">读论文-Pi0</a>
+                        <br>
+            
+             
+                        <a href="/2026/01/02/2025%E4%B8%8B/2025-2026%E7%AC%AC%E4%B8%80%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/">2025-2026第一学期总结</a>
+                        <br>
+            
+             
+                        </div>
+                    <h1 style="font-size: 24px; margin-top: 40px;">2025年</h1>
+                    <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
+                 
+             
+                        <a href="/2025/12/23/2025%E4%B8%8B/ICS-%E9%94%99%E9%A2%98%E9%9B%86/">ICS-错题集</a>
+                        <br>
+            
+             
+                        <a href="/2025/12/19/2025%E4%B8%8B/%E6%95%B0%E7%AE%97%E7%AC%94%E8%AE%B0-%E9%80%82%E5%90%88OIer%E7%9A%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">数算笔记-适合OIer的期末复习</a>
+                        <br>
+            
+             
+                        <a href="/2025/12/19/2025%E4%B8%8B/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/">智障集锦</a>
+                        <br>
+            
+             
+                        <a href="/2025/12/18/2025%E4%B8%8B/%E4%BF%A1%E6%A6%82%E7%BB%9F-%E7%BB%9F%E8%AE%A1%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1/">信概统-统计参数估计</a>
+                        <br>
+            
+             
+                        <a href="/2025/11/09/2025%E4%B8%8B/ICS-Chap7-Linker/">ICS-Chap7-Linker1</a>
+                        <br>
+            
+             
+                        <a href="/2025/11/08/2025%E4%B8%8B/ICS-Chap6-Memory/">ICS-Chap6-Memory</a>
+                        <br>
+            
+             
+                        <a href="/2025/11/08/2025%E4%B8%8B/ICS-Chap4-Architecture/">ICS-Chap4-Architecture</a>
+                        <br>
+            
+             
+                        <a href="/2025/11/07/2025%E4%B8%8B/%E7%BD%AA%E5%B7%B1%E8%AF%8F/">罪己诏</a>
+                        <br>
+            
+             
+                        <a href="/2025/11/06/2025%E4%B8%8B/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-Counting1/">离散数学-Counting</a>
+                        <br>
+            
+             
+                        <a href="/2025/11/05/2025%E4%B8%8B/%E4%BF%A1%E6%A6%82%E7%BB%9F-%E6%9C%9F%E4%B8%ADcheatsheet/">信概统-期中cheatsheet</a>
+                        <br>
+            
+             
+                        <a href="/2025/11/05/2025%E4%B8%8B/%E4%BF%A1%E6%A6%82%E7%BB%9F-%E5%A4%9A%E7%BB%B4%E7%A6%BB%E6%95%A3%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F/">信概统-多维离散随机变量</a>
+                        <br>
+            
+             
+                        <a href="/2025/11/01/2025%E4%B8%8B/%E6%95%B0%E7%AE%97%E7%AC%94%E8%AE%B0-%E9%80%82%E5%90%88oier%E7%9A%84%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/">数算笔记-适合OIer的期中复习</a>
+                        <br>
+            
+             
+                        <a href="/2025/10/25/2025%E4%B8%8B/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/">离散数学-期中复习</a>
+                        <br>
+            
+             
+                        <a href="/2025/10/23/2025%E4%B8%8B/%E4%BF%A1%E6%A6%82%E7%BB%9F-%E8%BF%9E%E7%BB%AD%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F/">信概统-连续随机变量</a>
+                        <br>
+            
+             
+                        <a href="/2025/10/13/2025%E4%B8%8B/%E4%BF%A1%E6%A6%82%E7%BB%9F-%E7%A6%BB%E6%95%A3%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F/">信概统-离散随机变量</a>
+                        <br>
+            
+             
+                        <a href="/2025/10/04/2025%E4%B8%8B/ICS-%E5%A4%8D%E4%B9%A01/">ICS-复习1</a>
+                        <br>
+            
+             
+                        <a href="/2025/09/30/2025%E4%B8%8B/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0-20250930/">初恋日记-20250930</a>
+                        <br>
+            
+             
+                        <a href="/2025/09/30/2025%E4%B8%8B/ICS-%E6%B1%87%E7%BC%962/">ICS-汇编2</a>
+                        <br>
+            
+             
+                        <a href="/2025/09/23/2025%E4%B8%8B/ICS-%E6%B1%87%E7%BC%961/">ICS-汇编1</a>
+                        <br>
+            
+             
+                        <a href="/2025/09/20/2025%E4%B8%8B/%E5%85%B7%E8%BA%AB-Robotic%20Tasks/">具身-Robotic Tasks</a>
+                        <br>
+            
+             
+                        <a href="/2025/09/15/2025%E4%B8%8B/ICS-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">ICS-数据类型</a>
+                        <br>
+            
+             
+                        <a href="/2025/09/07/2025%E4%B8%8B/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0-20250908/">初恋日记-20250908</a>
+                        <br>
+            
+             
+                        <a href="/2025/09/07/2025%E4%B8%8B/%E5%85%B7%E8%BA%AB-Policy/">具身-Policy</a>
+                        <br>
+            
+             
+                        <a href="/2025/08/27/2025%E4%B8%8B/%E5%85%B7%E8%BA%AB-Vision&Grasping/">具身-Vision&amp;Grasping</a>
+                        <br>
+            
+             
+                        <a href="/2025/08/19/2025%E4%B8%8B/%E5%85%B7%E8%BA%AB-Robotics/">具身-Robotics</a>
+                        <br>
+            
+             
+                        <a href="/2025/07/30/2025%E4%B8%8B/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-ATT&CK/">学习笔记-ATT&amp;CK</a>
+                        <br>
+            
+             
+                        <a href="/2025/07/23/2025%E4%B8%8B/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86-6-%E8%A5%BF%E8%97%8F/">阅读笔记-中国的亚洲内陆边疆-6-西藏</a>
+                        <br>
+            
+             
+                        <a href="/2025/07/19/2025%E4%B8%8B/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86-5-%E6%96%B0%E7%96%86/">阅读笔记-中国的亚洲内陆边疆-5-新疆</a>
+                        <br>
+            
+             
+                        <a href="/2025/07/16/2025%E4%B8%8B/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86-4-%E6%BB%A1%E6%B4%B2/">阅读笔记-中国的亚洲内陆边疆-4-满洲</a>
+                        <br>
+            
+             
+                        <a href="/2025/07/13/2025%E4%B8%8B/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86-3-%E8%92%99%E5%8F%A4/">阅读笔记-中国的亚洲内陆边疆-3-蒙古</a>
+                        <br>
+            
+             
+                        <a href="/2025/07/10/2025%E4%B8%8B/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86-2/">阅读笔记-中国的亚洲内陆边疆-2</a>
+                        <br>
+            
+             
+                        <a href="/2025/07/08/2025%E4%B8%8B/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86-1/">阅读笔记-中国的亚洲内陆边疆-1</a>
+                        <br>
+            
+             
+                        <a href="/2025/07/03/2025%E4%B8%8B/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E6%B3%A2%E4%BC%8F%E5%A8%83-2-%E9%81%93%E5%BE%B7%E8%A7%82%E4%B8%8E%E8%A7%A3%E6%94%BE/">阅读笔记-波伏娃-2-道德观与解放</a>
+                        <br>
+            
+             
+                        <a href="/2025/06/29/2025%E4%B8%8B/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E6%B3%A2%E4%BC%8F%E5%A8%83-1-%E5%B0%8F%E4%BC%A0/">阅读笔记-波伏娃-1-小传</a>
+                        <br>
+            
+             
+                        <a href="/2025/06/20/2025%E4%B8%8A/%E6%AF%95%E4%B8%9A%E6%AD%8C%E7%9A%84%E8%83%8C%E5%90%8E-%E4%BA%8C%E6%B8%A1%E5%8D%83%E6%97%A5%EF%BC%8C%E8%B8%8F%E6%B5%AA%E6%96%B0%E6%9C%9D/">毕业歌的背后-二渡千日，踏浪新朝</a>
+                        <br>
+            
+             
+                        <a href="/2025/06/17/2025%E4%B8%8A/2025%E4%B8%8A%E5%8D%8A%E5%B9%B4%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/">2024-25 预科第二学期总结</a>
+                        <br>
+            
+             
+                        <a href="/2025/06/13/2025%E4%B8%8A/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0/">数分笔记-傅里叶级数</a>
+                        <br>
+            
+             
+                        <a href="/2025/06/06/2025%E4%B8%8A/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E7%BE%A4/">高代笔记-群</a>
+                        <br>
+            
+             
+                        <a href="/2025/06/04/2025%E4%B8%8A/CVDL-Generative%20Model/">CVDL-Visual Generative Model</a>
+                        <br>
+            
+             
+                        <a href="/2025/06/04/2025%E4%B8%8A/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%BC%A0%E9%87%8F%E4%BB%A3%E6%95%B0/">高代笔记-张量代数</a>
+                        <br>
+            
+             
+                        <a href="/2025/05/31/2025%E4%B8%8A/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%BC%A0%E9%87%8F%E7%A7%AF/">高代笔记-张量积</a>
+                        <br>
+            
+             
+                        <a href="/2025/05/28/2025%E4%B8%8A/CVDL-Transformer/">CVDL-Transformer</a>
+                        <br>
+            
+             
+                        <a href="/2025/05/21/2025%E4%B8%8A/CVDL-Object%20Detection/">CVDL-Object Detection</a>
+                        <br>
+            
+             
+                        <a href="/2025/05/19/2025%E4%B8%8A/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E7%9F%A9%E9%98%B5%E7%9A%84%E6%A0%87%E5%87%86%E5%9E%8B/">高代笔记-矩阵的标准型</a>
+                        <br>
+            
+             
+                        <a href="/2025/05/17/2025%E4%B8%8A/%E9%9F%B3%E6%95%B0%E5%A4%A7%E4%BD%9C%E4%B8%9A-%E5%AE%9A%E9%9F%B3%E9%BC%93%E7%9A%84%E5%8F%91%E5%A3%B0%E6%9C%BA%E7%90%86/">音数大作业-定音鼓的发声机理</a>
+                        <br>
+            
+             
+                        <a href="/2025/05/17/2025%E4%B8%8A/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E7%AE%80%E5%8D%95%E6%A8%A1%E8%AE%BA/">高代笔记-简单模论</a>
+                        <br>
+            
+             
+                        <a href="/2025/05/14/2025%E4%B8%8A/CVDL-LSTM&Attention/">CVDL-LSTM&amp;Attention</a>
+                        <br>
+            
+             
+                        <a href="/2025/05/07/2025%E4%B8%8A/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-JL%E9%99%8D%E7%BB%B4/">程设笔记-JL降维</a>
+                        <br>
+            
+             
+                        <a href="/2025/05/07/2025%E4%B8%8A/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%B9%82%E7%BA%A7%E6%95%B0/">数分笔记-幂级数</a>
+                        <br>
+            
+             
+                        <a href="/2025/05/06/2025%E4%B8%8A/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%87%BD%E6%95%B0%E9%A1%B9%E7%BA%A7%E6%95%B0/">数分笔记-函数序列</a>
+                        <br>
+            
+             
+                        <a href="/2025/05/06/2025%E4%B8%8A/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%87%BD%E6%95%B0%E5%BA%8F%E5%88%97/">数分笔记-函数序列</a>
+                        <br>
+            
+             
+                        <a href="/2025/05/06/2025%E4%B8%8A/CVDL-3D%20Vision%203/">CVDL-3D Vision 1</a>
+                        <br>
+            
+             
+                        <a href="/2025/04/23/2025%E4%B8%8A/CVDL-3D%20Vision%202/">CVDL-3D Vision 2</a>
+                        <br>
+            
+             
+                        <a href="/2025/04/21/2025%E4%B8%8A/AI%E5%9F%BA%E7%AC%94%E8%AE%B0-%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/">AI基笔记-期中复习</a>
+                        <br>
+            
+             
+                        <a href="/2025/04/16/2025%E4%B8%8A/CVDL-3D%20Vision%201/">CVDL-3D Vision 1</a>
+                        <br>
+            
+             
+                        <a href="/2025/04/13/2025%E4%B8%8A/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-%E6%AC%A7%E5%BC%8F%E7%A9%BA%E9%97%B4%E7%9A%84%E8%BF%91%E4%BC%BC/">程设笔记-欧式空间的近似</a>
+                        <br>
+            
+             
+                        <a href="/2025/04/09/2025%E4%B8%8A/CVDL-CNN%20Training3/">CVDL-CNN Training3</a>
+                        <br>
+            
+             
+                        <a href="/2025/04/02/2025%E4%B8%8A/CVDL-CNN%20Training2/">CVDL-CNN Training2</a>
+                        <br>
+            
+             
+                        <a href="/2025/03/26/2025%E4%B8%8A/CVDL-CNN%20Training/">CVDL-CNN Training</a>
+                        <br>
+            
+             
+                        <a href="/2025/03/26/2025%E4%B8%8A/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E7%BA%A7%E6%95%B0/">数分笔记-级数</a>
+                        <br>
+            
+             
+                        <a href="/2025/03/23/2025%E4%B8%8A/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%9B%9B%E5%85%83%E6%95%B0/">高代笔记-四元数</a>
+                        <br>
+            
+             
+                        <a href="/2025/03/23/2025%E4%B8%8A/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E4%B8%89%E7%BB%B4%E6%97%8B%E8%BD%AC%E5%92%8C%E6%AC%A7%E6%8B%89%E8%A7%92/">高代笔记-三维旋转与欧拉角</a>
+                        <br>
+            
+             
+                        <a href="/2025/03/22/2025%E4%B8%8A/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-Locally%20Sensitive%20Hashing/">程设笔记-Locally Sensitive Hashing</a>
+                        <br>
+            
+             
+                        <a href="/2025/03/19/2025%E4%B8%8A/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E7%91%95%E7%A7%AF%E5%88%86/">数分笔记-瑕积分</a>
+                        <br>
+            
+             
+                        <a href="/2025/03/19/2025%E4%B8%8A/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%B9%BF%E4%B9%89%E7%A7%AF%E5%88%86/">数分笔记-广义积分</a>
+                        <br>
+            
+             
+                        <a href="/2025/03/17/2025%E4%B8%8A/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B02/">音数笔记-2</a>
+                        <br>
+            
+             
+                        <a href="/2025/03/16/2025%E4%B8%8A/%E7%A8%8B%E8%AE%BE%E7%AC%94%E8%AE%B0-1/">程设笔记-1</a>
+                        <br>
+            
+             
+                        <a href="/2025/03/12/2025%E4%B8%8A/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E6%AD%A3%E4%BA%A4%E5%8F%98%E6%8D%A2/">高代笔记-正交变换</a>
+                        <br>
+            
+             
+                        <a href="/2025/03/12/2025%E4%B8%8A/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%843-%E8%B0%B1%E5%AE%9A%E7%90%86%E4%B8%8E%E9%85%89%E5%AF%B9%E8%A7%92%E5%8C%96/">高代笔记-复内积结构3-谱定理与酉对角化</a>
+                        <br>
+            
+             
+                        <a href="/2025/03/10/2025%E4%B8%8A/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E5%BA%94%E7%94%A8/">数分笔记-定积分的应用</a>
+                        <br>
+            
+             
+                        <a href="/2025/03/05/2025%E4%B8%8A/CVDL-Corner%20Detection/">CVDL-Corner Detection</a>
+                        <br>
+            
+             
+                        <a href="/2025/03/05/2025%E4%B8%8A/CVDL-Line%20Fitting/">CVDL-Line Fitting</a>
+                        <br>
+            
+             
+                        <a href="/2025/03/05/2025%E4%B8%8A/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%842/">高代笔记-复内积结构2</a>
+                        <br>
+            
+             
+                        <a href="/2025/03/05/2025%E4%B8%8A/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E7%A7%AF%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/">数分笔记-积分中值定理</a>
+                        <br>
+            
+             
+                        <a href="/2025/03/03/2025%E4%B8%8A/%E9%9F%B3%E6%95%B0%E7%AC%94%E8%AE%B0-1/">音数笔记-1</a>
+                        <br>
+            
+             
+                        <a href="/2025/02/27/2025%E4%B8%8A/CVDL-Edge%20Detection/">CVDL-Edge Detection</a>
+                        <br>
+            
+             
+                        <a href="/2025/02/26/2025%E4%B8%8A/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E6%80%A7%E8%B4%A8%E4%B8%8E%E8%AE%A1%E7%AE%97/">数分笔记-定积分的性质与计算</a>
+                        <br>
+            
+             
+                        <a href="/2025/02/25/2025%E4%B8%8A/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E5%A4%8D%E5%86%85%E7%A7%AF%E7%BB%93%E6%9E%841/">高代笔记-复内积结构1</a>
+                        <br>
+            
+             
+                        <a href="/2025/02/24/2025%E4%B8%8A/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E9%BB%8E%E6%9B%BC%E5%8F%AF%E7%A7%AF/">数分笔记-Riemann可积</a>
+                        <br>
+            
+             
+                        <a href="/2025/02/24/2025%E4%B8%8A/AI%E5%9F%BA%E7%AC%94%E8%AE%B0-%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E7%9A%84%E6%95%B0%E5%AD%A6/">AI基笔记-一些简单的数学</a>
+                        <br>
+            
+             
+                        <a href="/2025/02/22/2025%E4%B8%8A/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-SVD%E5%92%8C%E5%B9%BF%E4%B9%89%E9%80%86/">高代笔记-SVD和广义逆</a>
+                        <br>
+            
+             
+                        <a href="/2025/02/22/2025%E4%B8%8A/hello-world/">Hello World</a>
+                        <br>
+            
+                    </div>
+        
+    </div>
+</article>
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/archives/2026/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/archives/2026/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 17.024019435178527px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 8.392455199305406px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 9.496615181828798px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 19.270125731110078px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 14.019753037678036px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 13.183031220092834px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 15.389373470199804px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 15.500907409232735px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 9.640319045722194px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 11.291344788691308px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 16.110057051067855px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 18.22278860846323px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 17.468065851814956px;" class="tag-cloud-link">高代</a>
+    
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 10.140244355021192px;" class="tag-cloud-link">信概统</a>
+    
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 17.95464351792969px;" class="tag-cloud-link">数算</a>
+    
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 8.03705593149969px;" class="tag-cloud-link">离散</a>
+    
+    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 17.25245247385146px;" class="tag-cloud-link">智障集锦</a>
+    
+    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 8.078260086561446px;" class="tag-cloud-link">读论文</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>
