@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>数分笔记-Riemann可积 | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>数分笔记-Riemann可积</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/02/24/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E9%BB%8E%E6%9B%BC%E5%8F%AF%E7%A7%AF/">数分笔记-Riemann可积</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E6%95%B0%E5%88%86/">数分</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-02-24
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2025/02/24/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E9%BB%8E%E6%9B%BC%E5%8F%AF%E7%A7%AF/">数分笔记-Riemann可积</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2025-02-24
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E6%95%B0%E5%88%86/">数分</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>考虑在 <span class="math inline">\([a,b]\)</span> 上定义的函数 <span
+class="math inline">\(f\)</span>. 我们取一个分割 <span
+class="math inline">\(\Delta:a=x_0&lt;x_1&lt;\dots&lt;x_n=b\)</span>，划分成
+<span class="math inline">\(n\)</span> 个段. 然后我们从每段中随便取一个
+<span
+class="math inline">\(\xi_i\in[x_{i-1},x_i]\)</span>，作为这个段的代表.
+那么就可以得到一个有关类似"面积"或"期望"的式子 <span
+class="math inline">\(\sum f(\xi_i)\Delta_i\)</span>，其中 <span
+class="math inline">\(\Delta_i=x_{i}-x_{i-1}\)</span>. 令 <span
+class="math inline">\(\lambda(\Delta)=\max \Delta_i\)</span>，那么在
+<span class="math inline">\(\lambda(\Delta)\to 0\)</span> 的时候，<span
+class="math inline">\(\sum f(\xi_i)\Delta_i\)</span>
+就应该趋向于一个真实的"面积".</p>
+<p>于是，若 <span class="math inline">\(\lambda(\Delta)\to 0\)</span>
+的时候，存在极限 <span class="math inline">\(\lim \sum
+f(\xi_i)\Delta_i\)</span>，那么就称 <span
+class="math inline">\(f(x)\)</span> 是 <strong>Riemann 可积</strong>的.
+同时，将这个极限 <span class="math inline">\(I\)</span> 记作 <span
+class="math inline">\(\int_a^b f(x)dx\)</span>.</p>
+<p>关于判断一个函数是否 Riemann 可积，有 <strong>Lesbegue
+定理</strong>：函数在闭区间上 Riemann
+可积等价于函数有界且间断点为零测度集.</p>
+<p>后者的定义就是说，对于任意 <span
+class="math inline">\(\varepsilon\)</span>，存在可数覆盖，将点集覆盖并且总长不超过
+<span class="math inline">\(\varepsilon\)</span>.</p>
+<p>直观上是很容易理解的. 但是严谨证明是略复杂的.
+下面引入一个比较有道理的东西.</p>
+<p><strong>Darboux 和</strong>：上面那个定义给人最不便的地方是 <span
+class="math inline">\(\xi_i\)</span> 是任选择的. 那么对于一段 <span
+class="math inline">\([x_{i-1},x_i]\)</span>，令 <span
+class="math inline">\(m_i\)</span> 为下确界，<span
+class="math inline">\(M_i\)</span> 为上确界，那么可以引入达布小和 <span
+class="math inline">\(\underline{S}(\Delta)=\sum_{k=1}^{n}m_k\Delta_k\)</span>，以及大和
+<span
+class="math inline">\(\overline{S}(\Delta)=\sum_{k=1}^{n}M_k\Delta_k\)</span>.
+若两者能有相同极限 <span
+class="math inline">\(I\)</span>，那么显然函数就是 Riemann 可积的.
+相反，若黎曼可积，那么显然两者也有相同极限 <span
+class="math inline">\(I\)</span>.</p>
+<p>先研究有关达布大/小和的性质. 首先对于分割 <span
+class="math inline">\(\Delta\)</span>，如果我们将它加细（即多划几刀），那么
+<span class="math inline">\(\underline S\)</span> 会变大，<span
+class="math inline">\(\overline S\)</span> 会变小. 这启发我们当 <span
+class="math inline">\(\Delta\)</span> 越来越细致，<span
+class="math inline">\(\lambda(\Delta)\to 0\)</span> 的时候，<span
+class="math inline">\(\lim \underline S=\sup \underline S\)</span> 而
+<span class="math inline">\(\lim \overline S=\inf \overline S\)</span>.
+当然注意这是在 <span class="math inline">\(f\)</span> 有界 <span
+class="math inline">\(M\)</span> 的情况下.</p>
+<p>证明考虑用定义. 对于任意 <span
+class="math inline">\(\varepsilon\)</span>，令上确界为 <span
+class="math inline">\(I\)</span> 由上确界的定义可知存在 <span
+class="math inline">\(\Delta_0\)</span> 使得 <span
+class="math inline">\(\underline S&gt;I-\frac{\varepsilon}{2}\)</span>.
+令段数为 <span class="math inline">\(n\)</span>，那其他的 <span
+class="math inline">\(\underline{S}(\Delta)\)</span>
+最小也不会比这个减掉 <span class="math inline">\(2nM\)</span>
+更小了，于是取 <span
+class="math inline">\(\delta=\frac{\varepsilon}{4nM}\)</span> 即可.</p>
+<p>这带来了一个重要的有关 <strong>振幅</strong> 的引理：令一段的振幅
+<span class="math inline">\(w_i=M_i-m_i\)</span>，那么 Riemann
+可积等价于对于任意 <span
+class="math inline">\(\varepsilon\)</span>，存在 <span
+class="math inline">\(\Delta\)</span> 使得 <span
+class="math inline">\(\sum w_k\Delta_k&lt;\epsilon\)</span>.</p>
+<p>接下来就是考虑去推导 <span class="math inline">\(\sum
+w_k\Delta_k&lt;\epsilon\)</span> 和间断点为零测度集之间的等价关系了.</p>
+<p>首先前者推后者. 令间断点集合为 <span
+class="math inline">\(E\)</span>. 对于 <span
+class="math inline">\(E\)</span> 中的点 <span class="math inline">\(x\in
+E\)</span>，令 <span class="math inline">\(w_x\)</span> 表示 <span
+class="math inline">\(x\)</span> 周围小领域的振幅的极限.</p>
+<p>令 <span class="math inline">\(P_k\)</span> 为满足 <span
+class="math inline">\(w_k&gt;\frac{2M}{k}\)</span> 的点组成的集合.
+对于任意 <span class="math inline">\(\delta\)</span>，我们只需要对任意
+<span class="math inline">\(k\)</span> 证明存在一个覆盖使得总长 <span
+class="math inline">\(&lt;\frac{\delta}{2^k}\)</span>，那么就大功告成了.</p>
+<p>另一方面，对于任意一个 <span
+class="math inline">\(\varepsilon\)</span>，取其相应的 <span
+class="math inline">\(\Delta\)</span>. 令 <span
+class="math inline">\(Q\)</span> 为 <span
+class="math inline">\(\Delta\)</span> 中包含 <span
+class="math inline">\(P_k\)</span> 中点的段的集合，那么 <span
+class="math inline">\(\varepsilon&gt;\sum
+w_i\Delta_i&gt;\frac{2M}{k}\sum \Delta_i\)</span>，也就是说对于任意的
+<span class="math inline">\(k\)</span>，<span class="math inline">\(\sum
+\Delta_i\)</span> 即覆盖总长，完全可以被这样一个 <span
+class="math inline">\(\varepsilon\)</span> 给简单控制. 取 <span
+class="math inline">\(\varepsilon=\frac{\delta k}{2^k2M}\)</span>
+即可.</p>
+<p>然后后者推前者. 我们的大体想法是，间断点虽振幅不可控但是 $$
+可控，于是运用有限开覆盖的 Lesbegue 数将其控制. 但实际上我们可以推对任意
+<span class="math inline">\(\lambda(\Delta)&lt;\delta\)</span> 的 <span
+class="math inline">\(\Delta\)</span> 都成立.</p>
+<p>对于任意 <span
+class="math inline">\(\varepsilon\)</span>，首先对于每个 <span
+class="math inline">\(x\in E\)</span> 取小领域 <span
+class="math inline">\(U(x,\delta_x)\)</span> 使得总长 <span
+class="math inline">\(&lt;\frac{\varepsilon}{4M}\)</span>.
+同时，对每个连续点取小领域使得振幅 <span
+class="math inline">\(&lt;\frac{\varepsilon}{2(b-a)}\)</span>.
+用这些小区间形成 <span class="math inline">\([a,b]\)</span>
+的有限开覆盖. 于是存在 Lesbegue 数 <span class="math inline">\(\hat
+\delta\)</span>，使得任 <span
+class="math inline">\(|x_1-x_2|&lt;\hat\delta\)</span>
+使得存在开区间同时覆盖 <span class="math inline">\(x_1,x_2\)</span>.
+那么对于任意 <span
+class="math inline">\(\lambda(\Delta)&lt;\delta\)</span> 的 <span
+class="math inline">\(\Delta\)</span>，任意的分割的段都已经被控制了，于是显然
+<span class="math inline">\(\sum
+w_k\Delta_k&lt;\varepsilon\)</span>.</p>
+
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2025/02/24/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E9%BB%8E%E6%9B%BC%E5%8F%AF%E7%A7%AF/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/02/24/%E6%95%B0%E5%88%86%E7%AC%94%E8%AE%B0-%E9%BB%8E%E6%9B%BC%E5%8F%AF%E7%A7%AF/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 14.340152887640631px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 11.99704433510782px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 14.59530215739067px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 9.94865837912009px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 19.92858508609323px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 11.411616261150154px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 14.79471371112776px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 10.002067967456014px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 17.52807394234114px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 13.332581372236142px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 12.959635961653806px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 12.852561709651159px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 12.713069558629629px;" class="tag-cloud-link">高代</a>
+    
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 12.77940092411627px;" class="tag-cloud-link">信概统</a>
+    
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 8.912008386335394px;" class="tag-cloud-link">数算</a>
+    
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 12.734393705637064px;" class="tag-cloud-link">离散</a>
+    
+    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 17.381345381981504px;" class="tag-cloud-link">智障集锦</a>
+    
+    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 18.120560378414698px;" class="tag-cloud-link">读论文</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

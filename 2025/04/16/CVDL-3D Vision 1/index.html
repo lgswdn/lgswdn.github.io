@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>CVDL-3D Vision 1 | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>CVDL-3D Vision 1</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/04/16/CVDL-3D%20Vision%201/">CVDL-3D Vision 1</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/CVDL/">CVDL</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-04-16
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2025/04/16/CVDL-3D%20Vision%201/">CVDL-3D Vision 1</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2025-04-16
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/CVDL/">CVDL</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>人的视觉不是显示地表达 3D
+信息的，而只是两个眼镜的观测形成双目图（Stereo
+Image），通过双眼的视差来感知到立体的结构. 这是一种基于 2D 的 3D 的表征.
+也可以在相机中通过将多视角图缝合成一张图，形成全景图.
+而因为隐式的，所以人眼没法精确感觉绝对的距离，只能相对地知道远近.
+并且人的观察是连续的，所以可以通过视觉来完成一系列动作.</p>
+<p>通过计算机去做出真 3D. 真 3D 视觉可以给出非常精准的信息.</p>
+<p>3D 的信息有很多不同的 Representation. 有 Regular form
+的比如多视图，深度信息，以及体素（和像素对应）；而也有 Irregular
+的表面网格，以及点云表达.</p>
+<p>从 3D 得到 2D 的投影的建模就是相机模型. 即从 3D 中的 <span
+class="math inline">\((x,y,z)\)</span> 打到 <span
+class="math inline">\((x,y)\)</span> 的函数.</p>
+<p>最简单的是直接小孔成像，这样就能通过这个小孔来形成真实世界与相纸的一一对应.
+这样就形成了一个 Pinhole Camera. 中心通过的线形成了 Optical Axis. 令
+<span class="math inline">\(P=[x,y,z]\)</span>，成像的点是 <span
+class="math inline">\(P&#39;\)</span>，则 <span
+class="math inline">\(x&#39;=f\frac{x}{z}\)</span> 而 <span
+class="math inline">\(y&#39;=f\frac{y}{z}\)</span>.</p>
+<p>但如果 aperture 开太大就很模糊，开太小就很暗.</p>
+<p>考虑加透镜来解决这样的问题.
+一个点发出的，所有经过凸透镜的光线会聚集于一个点.
+这个的局限是一旦在交平面之外就会出现模糊.</p>
+<p>通过所有平行光线皆经过焦点. 对于近轴的光线，【？？？】<span
+class="math inline">\(x&#39;=f\frac{x}{z&#39;}\)</span>，令 <span
+class="math inline">\(z&#39;=f+z_0\)</span>.</p>
+<p>仿射变换会让平行的线不平行，平行线会交于一点.</p>
+<p>相机的内在参数
+（Intrinsics，相机本身的东西，无法改变）和外在参数（Extrinsics，在世界坐标系中相机的位置等，可以改变）.</p>
+<p>考虑 Pinhole Camera 的内在参数.</p>
+<p>Retina Plane 的坐标系和相纸的 Pixel 坐标系不一样.
+并且其中所有的单位都是现实世界中的单位（比如 <span
+class="math inline">\(m\)</span>）. 令光轴交相纸的点在相纸的 Pixel 是
+<span class="math inline">\((c_x,c_y)\)</span>，则需要 <span
+class="math inline">\(x\to fk\frac{x}{z}+c_x\)</span>，<span
+class="math inline">\(y\to fl\frac{y}{z}+c_y\)</span>，其中 <span
+class="math inline">\(k,l\)</span> 的量纲为 <span
+class="math inline">\(pixel/m\)</span>. 令 <span
+class="math inline">\(\alpha=fk\)</span>，<span
+class="math inline">\(\beta=fl\)</span>，则得到 <span
+class="math inline">\((x,y,z)\to
+(\alpha\frac{x}{z}+c_x,\beta\frac{y}{z}+c_y)\)</span>，称为投影变换.
+注意其不是线性变换，所以无法直接表达成矩阵形式.
+但是我们发现如果同时乘一个 <span class="math inline">\(z\)</span>
+就是线性变换了.</p>
+<p>于是引入齐次（Homogeneous）坐标系统. 从 <span
+class="math inline">\(E\to H\)</span> 就是再加一个 <span
+class="math inline">\(1\)</span>，即 <span
+class="math inline">\((x,y)\to [x\ y\ 1]^T\)</span>，<span
+class="math inline">\((x,y,z)\to [x \ y \ z \ 1]^T\)</span>. 而 <span
+class="math inline">\(H\to E\)</span> 就是 <span
+class="math inline">\([x\ y \ z]^{T}\to (x/z,y/z)\)</span>.
+准确来说就是容许一个对所有维度的同时乘 / 除.</p>
+<p>于是我们就可以 <span class="math inline">\([x\ y\ z \ 1]^T\to [\alpha
+x+c_xz\quad \beta y +c_yz\quad  z]^T\)</span>. 这个线性变换就是左乘
+<span class="math inline">\(\left(\begin{matrix}\alpha &amp; 0 &amp; c_x
+&amp; 0 \\ 0 &amp; \beta &amp; c_y &amp; 0\\0 &amp; 0 &amp; 1 &amp;
+0\end{matrix}\right)\)</span>.</p>
+<p>而相机的内在参数全在前 <span class="math inline">\(3\times 3\)</span>
+的矩阵内. 称这个矩阵为相机的内在参数 <span
+class="math inline">\(K\)</span>，于是就有 <span
+class="math inline">\(P&#39;=K[I \quad 1]P\)</span>.
+我们还可以对一些角度 <span class="math inline">\(\theta\)</span>
+的歪曲进行修正，也可以融入矩阵 <span
+class="math inline">\(K\)</span>.</p>
+<p>考虑外在参数.</p>
+<p>我们其实可以发现之前的 <span class="math inline">\((x,y,z)\)</span>
+都是以光心为轴的坐标系的坐标，并非世界坐标系.</p>
+<p>平动变换：假如我们要让 <span class="math inline">\(x\to
+x+T_x\)</span>，令 <span class="math inline">\(T=[T_x\ T_y\
+T_z]^{T}\)</span>，则可以利用 <span class="math inline">\(T\)</span>
+写成一个 <span class="math inline">\(4\times 4\)</span>
+的对齐次坐标系统的矩阵作为变换.</p>
+<p>旋转变换：我们可以利用三维的旋转矩阵 <span
+class="math inline">\(R\)</span> 也写成一个 <span
+class="math inline">\(4\times 4\)</span> 的矩阵操作.
+注意一个旋转矩阵只有 <span class="math inline">\(3\)</span>
+个自由度.</p>
+<p>运用上面两种变换，令 <span class="math inline">\(P_c\)</span>
+为相机坐标系的坐标，<span class="math inline">\(P_w\)</span>
+为世界坐标系的坐标，则可以写成 <span
+class="math inline">\(P_c=RP_w+T\)</span>. 于是全部串在一起就有 <span
+class="math inline">\(P&#39;_{3\times 1}=K_{3\times 3}[R\ T]_{3\times
+4}P_{w\ 4\times 1}\)</span>.</p>
+<p>可以用这个式子来证明线还会映成线，并且产生近大远小（因为 <span
+class="math inline">\(/z\)</span>）.</p>
+<p>上面的模型称为 Perspective Camera.</p>
+<p>当 <span class="math inline">\(z\)</span>
+可以看成常数（物体深度差相比于 <span class="math inline">\(z\)</span>
+很小），那么就不用齐次坐标了，称为弱投影模型. 纯线性，不用除 <span
+class="math inline">\(z\)</span>.</p>
+<p>还有一种方式叫正交投影（三视图那样）.
+每个点用和相纸垂直的平行光投影到平面.
+其好处是完全真实反应了物理世界的东西，因为它是保距的同态.
+但就一点距离信息都没有了.</p>
+<hr />
+<p>Camera Calibration</p>
+<p>Camera Calibration 的目标是从拍到的图片求解出外在 &amp;
+内在的参数.</p>
+<p>使用 Calibration Rig，即一个三维的架子，上面画着棋盘格.
+我们以这个架子为世界坐标系. 这个
+架子上的每一个棋盘格点我们都知道它在世界坐标下的坐标.
+我们又能拍照片知道它在相纸上对应的坐标.</p>
+<p>注意到自由度是 <span class="math inline">\(11\)</span>. 所以至少需要
+<span class="math inline">\(11\)</span> 个方程，即 <span
+class="math inline">\(6\)</span> 个对应关系（一个 pixel 的 <span
+class="math inline">\(x,y\)</span> 可以列两个方程）.</p>
+<p>最后可以列成一个 <span class="math inline">\(Pm=0\)</span>. 于是限定
+<span class="math inline">\(|m|=1\)</span> 求解方程. 所以还是一个
+constraint minimize problem. 求得解 <span class="math inline">\(\tilde
+M\)</span> 之后，我们想要 unnormalize 它. 反正都很复杂.</p>
+<p>注意，一个棋盘不够，必须是一个架子.</p>
+<p><span class="math inline">\(K\)</span> 中 <span
+class="math inline">\(\alpha,\beta\)</span>
+参数决定了摄像机射出的光线的夹角. 即 Field of View. <span
+class="math inline">\(K\)</span> 可以决定光线间隔多大. 而 <span
+class="math inline">\(T\)</span> 又是一个近大远小.
+如果所有采样点都在一个平面，那么 <span
+class="math inline">\(K,T\)</span> 可以不同而造就同一个图.（对于任意一组
+<span class="math inline">\((K,T)\)</span>，<span
+class="math inline">\(T\)</span>
+近一点，然后角度放大一点，图就一样了）.</p>
+<p>给一张有 Radial Distortion
+的时候（比如鱼眼相机），就要引入对畸变的修正. 我们就需要拟合一个非线性的
+mapping. 这在现实中是很常见的.</p>
+<p>如何判断好不好呢？考虑通过 Reproduction Errors：我们先推断出
+Projection Matrix 之后，再用这个 Matrix 去推断在相纸上的投影.</p>
+<p>实际上并不用做成一个 grid.
+可以拍很多张不同视角的棋盘的照片，或者固定相机随便动棋盘（移动都是相对的，等价于固定棋盘移动相机）.</p>
+<hr />
+<p>深度图像是一个 2.5D 的表达.</p>
+<p>Ray Depth：光线距离</p>
+<p>Z Depth：深度图记录的深度</p>
+<p>有了深度图，有了 <span
+class="math inline">\(K\)</span>，就可以通过深度图上的 <span
+class="math inline">\((u,v,z)\)</span> 推断出其真实坐标 <span
+class="math inline">\((x,y,z)\)</span>. 直接运用 <span
+class="math inline">\(P\)</span> 和 <span
+class="math inline">\(P&#39;\)</span> 的关系就行了. 这个过程称为 depth
+backprojection，形成 depth pointcloud.</p>
+
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2025/04/16/CVDL-3D%20Vision%201/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/04/16/CVDL-3D%20Vision%201/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 17.370542745413346px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 16.054168640160025px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 13.797638548200869px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 14.774816876174445px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 11.614160989593783px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 19.85530395127728px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 15.359235061605736px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 11.512535335363086px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 8.620634350046199px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 17.1106307817021px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 10.673917716821235px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 14.507314362693446px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 15.040126535552464px;" class="tag-cloud-link">高代</a>
+    
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 18.120416345164763px;" class="tag-cloud-link">信概统</a>
+    
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 9.86231193554924px;" class="tag-cloud-link">数算</a>
+    
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 19.467108754387887px;" class="tag-cloud-link">离散</a>
+    
+    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 17.14617833506577px;" class="tag-cloud-link">智障集锦</a>
+    
+    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 12.45577060073706px;" class="tag-cloud-link">读论文</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

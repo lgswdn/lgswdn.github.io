@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>具身-Vision&amp;Grasping | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>具身-Vision&amp;Grasping</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/08/27/%E5%85%B7%E8%BA%AB-Vision&Grasping/">具身-Vision&amp;Grasping</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E5%85%B7%E8%BA%AB/">具身</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-08-27
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2025/08/27/%E5%85%B7%E8%BA%AB-Vision&Grasping/">具身-Vision&amp;Grasping</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2025-08-27
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E5%85%B7%E8%BA%AB/">具身</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>抓取之后要进行 Manipulation.</p>
+<p>Prehensible
+Manipulation：先抓取，然后物体和手的运动就在一起了然后进行操作.</p>
+<p>Non-prehensible
+Manipulation：把一个物体推/拖到一个什么地方，可以不用抓取/无法抓取.</p>
+<p>4-DoF grasp：像抓娃娃机那样，只能 top-down 抓. 四个维度是 3D position
+和 1D Orientation. 擅长抓取一些没有堆叠的，规则的物体.</p>
+<p>6-DoF grasp：加上了 3D Orientation.</p>
+<p>Parrel Gripper：传统的二指的 gripper，抓取点在二指的中心.
+只有一个自由度，即开合的宽度.</p>
+<p>Dex hand：灵巧手，本身可以有 21 个自由度.</p>
+<hr />
+<h2 id="d-vision-pose-estimation">3d vision / pose estimation</h2>
+<p>6D Pose：对于一个 object，定义其 pose 为从自身坐标系到 camera space
+的 translation &amp; rotation（和之前定义的一样）.</p>
+<p>对于一个物体，可以直接标注其在自身参考系中的抓取方式，然后就可以直接通过
+pose 来转化成 world 坐标系下的抓取.</p>
+<p>那怎么预测出物体的 pose 呢？首先如果已知 camera
+的内参，以及物体的信息，那么可以直接通过 RGB 推测位置.</p>
+<p>如何知道 rotation？一个方法是通过 rotation
+regression，直接训一个网络去预测 rotation. 一个很好的问题是如何表示
+rotation.</p>
+<p>直接使用四元数会出现一个问题：四元数到 SO(3)
+群的映射是不连续的，但是网络只能预测出来一个连续的东西，所以会导致很大的问题（因为要预测一个毫无道理的突变）.
+实际上，一个能构成到 SO(3) 的连续映射的东西至少要是 5 维度的.</p>
+<p>另一个方法是使用旋转矩阵的前两列，然后做 schmidt
+正交化（第三列显然不用预测）.
+但是者带来的一个问题是第一列和第二列是不一样的，第二列的平行于第一列的分量是不重要的.</p>
+<p>一个相对来说最好的方法是直接预测 <span
+class="math inline">\(9\)</span> 维的整个旋转矩阵，然后通过 SVD
+变成旋转矩阵. 这个在上一篇已有提及. 就是 SVD 成 <span
+class="math inline">\(U\lambda V^T\)</span> 之后然后将 <span
+class="math inline">\(U(\text{diag}\{1\ 1 \det(UV)\})V^T\)</span>
+作为得到的旋转矩阵. 这里有 det(UV) 主要是为了防止算出来 det
+不对，也就是一个正负 1 的问题.</p>
+<p>这是对于，假如旋转是在 SO3
+中全局随机的情况，那么防止这个不连续性就很重要. 但如果知识一个在
+identity
+小领域附近的预测（比如下一秒的姿势，肯定不会变化太多），那么这种情况下四元数
+/ axis-angle 就是连续的，就可以使用了.</p>
+<hr />
+<p>另一个方法是，不直接做 regression，而是对于每个 pixel
+预测在三维空间的坐标，然后再去拟合一个 pose.</p>
+<p>这个监督数据如何生成？一个很好的方法是，直接将物体的每个表面点的
+<span class="math inline">\((x^m,y^m,z^m)\)</span>
+直接作为其颜色，然后不打光地直接渲染之后就得到了一个 pixel -
+三维坐标的对应. 注意这个 <span
+class="math inline">\((x^m,y^m,z^m)\)</span>
+指的是物体在自身坐标系下的，而物体在 camera 坐标系下的 <span
+class="math inline">\((x^c,y^c,z^c)\)</span> 可以通过深度检测进行
+backprojection 算出来.</p>
+<p>拟合的本质就是求解一个 <span
+class="math inline">\(X&#39;=RX+t\)</span>.</p>
+<p>Orthogonal Procrustes：给定差了一个正交矩阵的 <span
+class="math inline">\(M,N\)</span>，求解一个正交矩阵 <span
+class="math inline">\(A\)</span> 使得 <span
+class="math inline">\(||M^T-AN^T||_F\)</span> 最小的. <span
+class="math inline">\(||X||_F=\sqrt{\sum_{i,j}X_{i,j}^2}\)</span>.
+这个问题的解是：<span class="math inline">\(M^TN=UDV^T\)</span>，则
+<span class="math inline">\(A=VU^T\)</span>. 同样，由于旋转矩阵 det
+为正，所以需要 <span class="math inline">\(V(\text{diag}\{1\ 1
+\det(VU^T)\})U^T\)</span>.</p>
+<p>这个平移 <span class="math inline">\(t\)</span>
+怎么办呢？一个方法是求出 <span class="math inline">\(X&#39;\)</span> 和
+<span class="math inline">\(X\)</span> 的几何中心 <span
+class="math inline">\(\bar x&#39;\)</span> 和 <span
+class="math inline">\(\bar x\)</span>，那么 <span
+class="math inline">\(X&#39;-\bar x&#39;\)</span> 以及 <span
+class="math inline">\(X-\bar x\)</span> 就应该只差一个 <span
+class="math inline">\(R\)</span> 了.</p>
+<p>这个问题是对 outlier 非常敏感，所以需要 RANSAC 一下.</p>
+<hr />
+<p>ICP：Iterative Closest Point，可以调整 <span
+class="math inline">\(R,t\)</span> 使得更加贴合. 对 regression
+方法产生的结果很必要.</p>
+<p>我们令 <span class="math inline">\(Q\)</span> 为图片拍出来的 depth
+point cloud，这是一个 partial point cloud. 令 <span
+class="math inline">\(P\)</span> 为物体本身的 point cloud，<span
+class="math inline">\(P&#39;=RP+t\)</span>，于是我们就需要让 <span
+class="math inline">\(P&#39;\)</span> 和 <span
+class="math inline">\(Q\)</span> 尽量贴合.</p>
+<p>当然由于 <span class="math inline">\(Q\)</span> 是 full point cloud
+而 <span class="math inline">\(P&#39;\)</span> 是 partial 的所以需要先
+RANSAC 一下，然后再开始流程.</p>
+<p>ICP 的流程是，首先先把 data 减掉 <span class="math inline">\(\bar
+P\)</span> 和 <span class="math inline">\(\bar Q\)</span>
+然后就只差一个旋转了. 然后我们对于 <span
+class="math inline">\(P\)</span> 中每一个点 <span
+class="math inline">\(i\)</span> 找到最近的 <span
+class="math inline">\(Q\)</span> 的 correspondance. 令 <span
+class="math inline">\((P_{corr})_i=\text{argmin}_{q_j\in Q}
+||q_j-p_i||\)</span>，然后我们的目的就是最小化 <span
+class="math inline">\(||P_{corr}-RP||_F\)</span>. 那么这和 orthogonal
+procrustes 是同理的，直接对 <span
+class="math inline">\(P_{corr}P^T\)</span> 做 SVD 即可</p>
+<hr />
+<p>下面考虑解决一个问题：假如我们不知道目标物体的具体建模怎么办？一个工作是，我们可以通过一些已知建模的同
+category 的物体，来完成对一整个 category 的物体的 pose 的计算.</p>
+<p>对于同一类物体，我们可以指定一个角度，指定一个物体中心点，然后将其等比放缩使得对角线长度
+<span class="math inline">\(=1\)</span>.
+对于一个物体，称这样的一个坐标系为其 NOCS.</p>
+<p>我们还是采用直接预测每个 pixel 在三维空间中的坐标的方法.
+但是与之不同的是，我们这次预测的是在这个 category 的 NOCS
+坐标系下的坐标. 也就是训练的时候，我们要先将每个有建模的物体的坐标转换成
+NOCS，然后再做训练. 这样的一个好处是对于同类别的物体，在 NOCS
+坐标系下就有很大的相似之处，而且也不用管具体的大小.</p>
+<p>于是，我们可以直接通过 RGB 图片来预测其 NOCS，然后得到一个在 NOCS
+坐标系下的点云. 然后我们再通过 depth camera 获得一个 depth point
+cloud，然后再做拟合. 注意这里的拟合需要加一个 scaling 的常数，即 <span
+class="math inline">\(P_{cam}=s\times R\times NOCS+t\)</span>.</p>
+<p>求解这个也是简单的.
+我们还是对两个点云做归一化，只不过这时候还需要除以一个标准差. 然后再 SVD
+就好了.</p>
+<hr />
+<p>数据一般都是自己造的.</p>
+<p>真实数据和合成数据会有 sim2real gap. 这个可能很大！</p>
+<p>一个减小的方法是 mixed reality
+generation，使用真实的背景，和合成的前景.</p>
+<p>还有 domain randomization: 让真实世界成为合成数据的子集.
+合成数据里可以出现帽子飘在大海上的情景，随便乱来一通的很大的数据集中，让
+test 成为 train 的子集，虽说不优，但是可行.</p>
+<p>NOCS 工作的一个很大的 sim2real gap 发生在 segmentation
+上，因为合成数据的 boundary 太假了. 所以采取一个方法，就是在
+segmentation 的监督上加上 coco 的数据</p>
+<hr />
+<h2 id="grasping">grasping</h2>
+<p>force closure：gripper
+可以发力，使得增加一点摩擦力，然后物体的重力方向任意改变都不会移动</p>
+<p>form closure：gripper 不用发力，抓取的姿势直接锁住了物体</p>
+<p>一个成功的抓取 <span class="math inline">\(\subset\)</span> force
+closure <span class="math inline">\(\subset\)</span> form closure</p>
+<p>自锁：一个物体在水平面上，以 <span
+class="math inline">\(\theta\)</span>
+为入射角的力去推它，那么显然考虑因为有摩擦力，可以推得 <span
+class="math inline">\(\theta&lt;\arctan \mu\)</span>
+时候，无论力多大物体都不会动.</p>
+<p>Friction
+Cone：考虑在三维的世界里，所有这样的推动方向形成了一个圆锥（即与法线夹角
+<span class="math inline">\(&lt;\arctan \mu\)</span> 的所有方向），称为
+Friction Cone（摩擦椎）.</p>
+<p>Force Closure 的数学定义：考虑有若干个接触点，每个接触点都会带一个
+friction cone. 每个 friction cone 可以用一个六棱锥去近似，即近似成由
+<span class="math inline">\(6\)</span> 个力 span 得到的空间.
+每一个力是一个六维向量（因为在 <span
+class="math inline">\(x,y,z\)</span> 维度上的力以及力矩，总共 <span
+class="math inline">\(6\)</span> 个维度）. 我们将所有的力给写成一个
+<span class="math inline">\(6\times n\)</span> 的矩阵 <span
+class="math inline">\(F\)</span>，那么我们就要求对于任意的 <span
+class="math inline">\(f\)</span>，存在一个正 <span
+class="math inline">\(k\)</span> 使得 <span
+class="math inline">\(Fk=f\)</span>. 为了满足这个，我们只需要存在正
+<span class="math inline">\(k\)</span> 使得 <span
+class="math inline">\(Fk=0\)</span> 就行了. 当然这是在 <span
+class="math inline">\(k\)</span> 可以无限大的情况下的.</p>
+<p>这个作用是可以在 synthetic data 中标注一个 grasp 是否是好的.
+标注同样可以用 physical
+stimulator，但是仿真模拟的一个局限在于只能往上或者斜着去提，有时候得往别的方向抓或者怎么样.
+而如果能 force closure，那么无论未来怎么拽怎么提都没有问题. 当然对于
+physical stimulator，一个好方法是设置不同的重力方向.
+无论如何，这两者是相辅相成的.</p>
+<hr />
+<p>GraspNet-1Billion 的抓取数据集的生成方式如下：</p>
+<ul>
+<li><p>首先对于每个物体，在点云上用 FPS
+采样一些抓取点以及角度（法线方向）. 抓取点的意思是 gripper 的中心位置.
+然后用 Force Closure 去删掉不合法的抓取.
+这样我们获取了每个物体的若干种抓取方式.</p></li>
+<li><p>然后设置两百个场景，每个场景都有若干个物体，以及从若干个角度拍摄.
+对于每个场景，手动标注物体的
+pose（满足从任何角度看都重合则代表其正确）.</p></li>
+<li><p>对于每个场景，一个物体抓取成功，还需要满足和其他物体没有碰撞，于是对物体的
+mesh 做碰撞检测.</p></li>
+<li><p>于是得到的数据大小为：场景数量 $$ 角度数量 <span
+class="math inline">\(\times\)</span> 物体数量 $$
+每个物体抓取方式数量.</p></li>
+</ul>
+<p>注意这是只能对已知三维点云训练. 由于桌子都是绿底的，所以没法对 RGB
+进行泛化.</p>
+<p>实际上，现在可以看到，所有的场景都可以虚拟搭建，物体也可以是任意的模型.</p>
+<p>这个数据集的一个需要注意的地方：首先摩擦系数 <span
+class="math inline">\(\mu\)</span> 越小，成功的抓取应该是 <span
+class="math inline">\(\mu\)</span> 大的时候的真子集. 这个数据集从 <span
+class="math inline">\(\mu=0.8\)</span> 到 <span
+class="math inline">\(0.1\)</span> 都标注了那些成功抓取.
+但是一个问题是，这个 1Billion 是针对 <span
+class="math inline">\(\mu=0.8\)</span> 的，而对于 <span
+class="math inline">\(\mu=0.1\)</span>，只有 5M 个数据.</p>
+<hr />
+<h2 id="grasp-detection">grasp detection</h2>
+<p>指标：success rate，percent cleared，planning time</p>
+<hr />
+<p>VGN：Volumetric Grasping Network. 输入一个 voxel grid（grid
+中每个数写的是到表面的距离）（称之为 TSDF），然后对于每个 voxel，输出
+quality（是否能抓），orientation（gripper
+的旋转，用四元数表达），width（gripper 张开的 width）</p>
+<p>为了获取 TSDF，就需要拍六张照片，形成 complete
+input，所以这个会比较耗费时间.</p>
+<p>训练的网络就是一个 encoder-decoder. 对于 quality，监督就是，如果有
+label 落进来，就是 1，否则就是 0.</p>
+<p>需要做一点后处理：quality 需要做一个 gaussian
+smooth；然后如果一个位置的 TSDF 值比 finger depth 还大那么肯定是 false
+positive，要去掉；然后 NMS.</p>
+<hr />
+<h4 id="gs-net">GS-Net</h4>
+<p>GS-Net 采用点云的表达.</p>
+<p>首先一个 grasp 是一个 6 DoF 的：坐标有 3 个 DoF，可以采用表面的一个
+point + 一个往里面的深度 depth 的方式；旋转有 3 个
+DoF，可以采用，首先对于每个 point，在其表面的一个半球上，采 256
+个点，作为方向，这是 2 DoF 的；然后还有 gripper 本身的一个 rotation，是
+1 DoF 的.</p>
+<p>这四个东西可以有一个先后顺序：首先找到
+Point，然后再找到方向，然后再去看 depth 和 rotation. 对于给定的 point
+和方向，我们称此为一个 view. 对于每个 view，有自己的 view
+quality；然后对于每个 point，根据自己的所有 view 的 quality
+可以再得到一个自己的 point quality. 推理的时候就先选 point quality
+好的，然后再去选方向，然后再选 view quality 好的，然后再去看每个
+rotation 和 depth 是否可行.</p>
+<p>预测 pointwise quality 的时候直接用一个 pointcloud
+encoder-decoder，L2 Loss 做监督学习. 同理，我们也可以得到 view quality.
+然后得到 selected views 之后就要找 depth and rotation.
+做这一步的时候使用一个叫做 cylinder group：所有的沿着这个 view 的
+rotation 和 depth 会形成一个圆柱，然后将这个圆柱内的所有点的 feature
+给拉过来，做一次 pointnet，预测每个 angle 和 depth 是否会成功.</p>
+<p>这个网络泛化性的来源，在于最后一步其实只是看局部，然后做抉择，于是网络学习的是，对于一个局部的几何，是否好抓.</p>
+<hr />
+<h4 id="grasp-net">Grasp Net</h4>
+<p>当然，为什么不能将抓取理解成一个生成任务呢？</p>
+<p>注意为什么不能是 regression：因为有很多种抓取方法，你 regression
+出来的很有可能是一个 average 的 mode，which 可能不是任何一个有效的抓取.
+那显然是错的.</p>
+<p>一个对于灵巧手的抓取的模型是：首先先对点云计算每个位置的
+graspness（即 quality），然后从 graspness 比较高的位置中去 FPS
+出一些位置. 然后对于每个位置，取出一个领域的 feature，然后将这个 feature
+喂给一个 diffusion model. Diffusion model 会生成一个长度为 21
+的东西，代表着灵巧手的 21 个 DoF. 而由于 diffusion model
+可以得到生成出来的东西的概率，也就是说可以基于这个去抉择使用哪个抓取.</p>
+<p>这个网络的流程是：首先，用 sparse conv 去 predict
+graspness（这个点可以不可以抓） 和 objectness（即是背景还是前景）.
+然后，先去用 diffusion model 生成抓取的位姿 <span
+class="math inline">\(T,R\)</span>，然后再用 regresssion 预测 joint
+angle <span class="math inline">\(\theta\)</span></p>
+<hr />
+<h4 id="深度修复">深度修复</h4>
+<p>一个特殊的东西：我们的 depth sensor 在处理高光/透明物体的时候会倒闭.
+有一项工作用 learning base
+的方法去做了一个关于高光/透明物体的深度复原.</p>
+<p>肯定是使用合成数据. 这里的 domain randomization 有以下：物体的
+layout，物体的材质，background，illumination（这个很重要也很容易被忘记），camera
+viewpoint.</p>
+<hr />
+<h4 id="manipulation">manipulation</h4>
+<p>Affordance：可攻性，哪些地方可以去 manipulate</p>
+<p>Where2act 用 learning 的方法去预测 affordance.</p>
+<p>做法就是随便弄弄，然后把成功的方式记录下来，然后再用这些数据去训练.</p>
+<p>Pipeline：使用 2d RGB image（通过 unet 得到 pixel 信息）以及 3d
+点云（通过 PN++ 得到每个点的信息），然后去看每个点能做的 action
+是什么样的（推的角度？方向？置信度？）</p>
+<p>一个 follow-up：不仅预测
+affordance，还预测轨迹（比如拉门的时候轨迹是弧线而不是直线猛拉）</p>
+
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+
+<aside id="sidebar-toc">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-list-ul"></i>  
+            文章目录 
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        
+        
+        <div class="panel-body toc-container">
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#d-vision-pose-estimation"><span class="toc-list-text">3d vision &#x2F; pose estimation</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#grasping"><span class="toc-list-text">grasping</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#grasp-detection"><span class="toc-list-text">grasp detection</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#gs-net"><span class="toc-list-text">GS-Net</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#grasp-net"><span class="toc-list-text">Grasp Net</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E6%B7%B1%E5%BA%A6%E4%BF%AE%E5%A4%8D"><span class="toc-list-text">深度修复</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#manipulation"><span class="toc-list-text">manipulation</span></a></li></ol></li></ol></li></ol>
+        </div>
+    </div>
+</aside>
+
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2025/08/27/%E5%85%B7%E8%BA%AB-Vision&Grasping/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/08/27/%E5%85%B7%E8%BA%AB-Vision&Grasping/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 15.436418296500094px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 18.49389550705151px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 18.91426133553893px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 8.999645901983957px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 18.658835583730927px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 10.23025443577179px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 19.471562223332302px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 8.057934072264956px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 19.77749117525324px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 8.690140184606484px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 13.095611475236087px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 16.551149601379315px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 16.973654838221627px;" class="tag-cloud-link">高代</a>
+    
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 19.68466082410431px;" class="tag-cloud-link">信概统</a>
+    
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 8.660318777747413px;" class="tag-cloud-link">数算</a>
+    
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 9.255568401535385px;" class="tag-cloud-link">离散</a>
+    
+    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 17.445805812917676px;" class="tag-cloud-link">智障集锦</a>
+    
+    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 14.662849662506797px;" class="tag-cloud-link">读论文</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

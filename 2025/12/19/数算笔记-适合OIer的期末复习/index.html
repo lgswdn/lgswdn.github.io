@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>数算笔记-适合OIer的期末复习 | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>数算笔记-适合OIer的期末复习</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/12/19/%E6%95%B0%E7%AE%97%E7%AC%94%E8%AE%B0-%E9%80%82%E5%90%88OIer%E7%9A%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">数算笔记-适合OIer的期末复习</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E6%95%B0%E7%AE%97/">数算</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-12-19
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2025/12/19/%E6%95%B0%E7%AE%97%E7%AC%94%E8%AE%B0-%E9%80%82%E5%90%88OIer%E7%9A%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">数算笔记-适合OIer的期末复习</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2025-12-19
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E6%95%B0%E7%AE%97/">数算</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>2 注：2025 DSA
+的期末考试格外困难。但是我仍然认为这份笔记对我还是有所帮助的。总之也就看个乐子吧。</p>
+<p>注：只是一个笔记，只看这个无法帮助你在 DSA
+中获得正常的成绩，可能还需要一些往年题的 fine-tune.</p>
+<p>misc:</p>
+<ul>
+<li>左旋的定义是把东西往左旋，右旋的定义是把东西往右旋</li>
+<li>二次探测法：对于哈希表，假如选得的位置是 <span
+class="math inline">\(x\)</span>，那么就看 <span
+class="math inline">\(x\)</span>，<span
+class="math inline">\(x+1\)</span>，<span
+class="math inline">\(x+4\)</span>，<span
+class="math inline">\(x+9\)</span> 这样下去，对总 size 取模.</li>
+<li>双散列函数：对于哈希表，假如选的位置是 <span
+class="math inline">\(x\)</span>，并且第二个散列函数告诉你是 <span
+class="math inline">\(y\)</span>，那么就看 <span
+class="math inline">\(x,x+y,x+2y,\dots\)</span> 下去，对总 size
+取模.</li>
+</ul>
+<h1 id="内排序">内排序</h1>
+<p>Iterative style</p>
+<ul>
+<li><p>插入排序：从前往后，然后看 <span
+class="math inline">\(a_i\)</span> 应该插入到 <span
+class="math inline">\(a&#39;[1,i-1]\)</span>
+的哪里然后插进去，为稳定排序</p>
+<p>具体来说就是对于 <span class="math inline">\(i\)</span>，然后 <span
+class="math inline">\(j=i-1\to 1\)</span> 然后每次如果逆序了就
+swap，否则 break</p></li>
+<li><p>冒泡排序：不断（从前往后交换相邻逆序数），直到有序，为稳定排序</p></li>
+<li><p>选择排序：从前往后，找出后面的最小的放在这里，为不稳定排序</p></li>
+<li><p>堆排序：建大根堆，然后每次去除堆顶，为不稳定排序</p></li>
+<li><p>希尔排序：每次选一个 gap 然后将模 gap 同余的项做插入排序. 选
+<span class="math inline">\(2^p3^q\)</span> 为 gap 可以达到 <span
+class="math inline">\(O(n\log^2n)\)</span>，其他一些也可以做到 <span
+class="math inline">\(O(n^{&lt;2})\)</span>. 为不稳定排序.</p></li>
+</ul>
+<p>不需要访问已经排好序的记录：冒泡 &amp; 选择</p>
+<p>d&amp;c style</p>
+<ul>
+<li>归并排序：为稳定排序</li>
+<li>快速排序：为不稳定排序</li>
+</ul>
+<p>indexing</p>
+<ul>
+<li>index array: <span class="math inline">\(Index_i=\)</span> 第 i
+小的值的位置</li>
+</ul>
+<h2 id="外排序">外排序</h2>
+<p>如果要排序的东西 RAM
+塞不下那么就倒闭了，于是就需要外排序，大体就是说看看先能不能在有限的 RAM
+范围内能够将整个序列给分成尽量多的有序段（run，顺串），然后再对这些段做
+merge.</p>
+<p>分段：</p>
+<ul>
+<li>假设我们最多能 load <span class="math inline">\(n\)</span>
+个元素</li>
+<li>那么就每次先 load <span class="math inline">\(n\)</span>
+个元素进堆，然后每次将最小值写入之后再读一个元素，如果元素比最小值大那么就可以塞入堆，否则就把这里面的元素给从小到大写完之后，结束这个
+run.</li>
+</ul>
+<p>merge：</p>
+<ul>
+<li><p>two-way merge：直接 huffman tree</p></li>
+<li><p>k-way merge：每次要找 <span class="math inline">\(k\)</span>
+个元素中的最小值.</p>
+<p>赢者树：一棵线段树，然后线段树每个节点记录最小值的位置</p>
+<p>败者树：一棵线段树，每个节点记录在合并儿子的时候更大的那个元素的位置。好处是替换掉最小值之后，更新的时候从下往上不需要读兄弟节点的信息.</p>
+<p>用这个执行 k-way merge 的话一次 merge 的复杂度是点数乘上 <span
+class="math inline">\(\log k\)</span>.</p>
+<p>然后再做类似 huffman 的贪心合并即可</p></li>
+</ul>
+<h2 id="查找-索引">查找 / 索引</h2>
+<p>散列表：</p>
+<ul>
+<li>open hashing: 使用分离链表，每个哈希值维护一个链表</li>
+<li>close hashing: 撞了之后按一个固定的方式找下一个.
+注意这个不能支持直接删除，只能隐式删除.</li>
+</ul>
+<h4 id="b-树">B 树</h4>
+<p>考虑要维护动态插入/删除的集合，每个元素是一个 (key, address) 的
+pair，然后需要支持给 key 查 address.</p>
+<p>结构：</p>
+<ul>
+<li>每个节点存储 <span class="math inline">\(k_i\)</span> 个元素 <span
+class="math inline">\(a_{i,1}\dots a_{i,k_i}\)</span>，然后有 <span
+class="math inline">\(\le k_{i}+1\)</span> 个儿子，其中第 <span
+class="math inline">\(i\)</span> 个儿子的子树记录所有 key 在 <span
+class="math inline">\((a_{i-1},a_i)\)</span> 间的元素.</li>
+<li>大概可以用一个 [儿子指针，元素，儿子指针，...，儿子指针] 的一个 list
+来表示一个点.</li>
+<li><span class="math inline">\(m=\max k_i+1\)</span>. <span
+class="math inline">\(m=3\)</span> 的时候称为 <span
+class="math inline">\(2-3\)</span> 树，因为每个节点只有 <span
+class="math inline">\(2\)</span> 或 <span
+class="math inline">\(3\)</span> 个儿子.</li>
+<li>非退化情况下，根至少要有两个儿子. 并且每个点至少有 <span
+class="math inline">\(\lceil\frac{m}{2}\rceil-1\)</span> 个元素.
+并且每个叶节点深度相同.</li>
+</ul>
+<p>插入：</p>
+<ol type="1">
+<li>先索引到自己适合插入的那个叶子. 如果叶子再多一个 item 还是 <span
+class="math inline">\(k_i\le m-1\)</span> 那么就不用管了.</li>
+<li>否则取出节点的中位元素，然后把这个节点按中位元素 split 成两个.
+然后把这个中位元素给插到父亲节点里面.</li>
+<li>如果插到父亲节点里面之后父亲节点元素数量没爆那么就 ok 了.
+如果爆了，那么就需要对这个节点跑第二步，然后不断这样做.</li>
+<li>最终如果跑到根节点然后根节点爆了，那么就需要建一个新的根就可以了.
+新的根的儿子数量为 <span class="math inline">\(2\)</span>.</li>
+</ol>
+<p>删除：</p>
+<ol type="1">
+<li>对于 <span class="math inline">\(x\)</span>，找到自己的后继 <span
+class="math inline">\(x&#39;\)</span>，然后把 <span
+class="math inline">\(x&#39;\)</span> 换到自己的位置上即可删除.</li>
+<li>带来的一个问题是 <span class="math inline">\(x&#39;\)</span>
+所属叶子可能会元素数不够 . 此时我们看它的兄弟.
+<ul>
+<li>如果兄弟的元素数 <span class="math inline">\(\ge
+\lceil\frac{m}{2}\rceil\)</span>
+那么就直接把兄弟的最值移到父亲，然后再把父亲的前/后驱给挪过来这样.</li>
+<li>如果兄弟的元素数小，那么就可以直接带上父亲的那个划分元素给合并到一个节点，这个节点的元素显然满足要求.
+但是这可能导致父亲元素数不够，于是就跳到父亲节点然后执行 2.</li>
+</ul></li>
+</ol>
+<h4 id="b-树-1">B+ 树</h4>
+<p>和 B 树的区别是只有叶节点存元素 （leafy），设儿子数量为 <span
+class="math inline">\(d_i\)</span>，则每个节点需要存 <span
+class="math inline">\(d_i\)</span> 个数，每个数表示该儿子的 key
+的最大值.</p>
+<p>插入：</p>
+<ol type="1">
+<li><p>同样，索引到自己应该放的叶节点然后丢进去.</p></li>
+<li><p>如果没问题的话就一路往上走更新（如果需要更新的话）每个节点存的那个表示最大值的数.</p></li>
+<li><p>如果爆了那就分成两个节点，这会使得父亲节点需要存储的值多一个.
+然后就对父亲回到 2.</p></li>
+<li><p>同样如果到了根那么可能需要建新根.</p></li>
+</ol>
+<p>删除：</p>
+<ol type="1">
+<li>这里删就直接删，然后没问题的话还是需要一路往上更新.</li>
+<li>同样如果个数少了就从兄弟拉一个过来.
+如果兄弟没法再拉东西过来了就可以合并.</li>
+<li>需要注意任意节点发生变动都要去 pushup.</li>
+</ol>
+<p>一个变种是使用 B+ 树的 leafy 的思想，但是在非叶节点采用 B
+树的方式，这样可以少记录很多冗余值，并且也不需要那么频繁地 pushup.</p>
+<p>由于 B+ 树的叶节点实际上是不需要存储的，所以这个 leafy
+结构带来的优势就是空间小. 另一方面 B 树的优势是的深度稍微小一些.</p>
+<h2 id="高级数据结构">高级数据结构</h2>
+<h4 id="广义表">广义表</h4>
+<p>考虑链表的每个元素，可以是一个原子元素，也可以是一个链表.</p>
+<p>这样的链表可以当作邻接表看待.</p>
+<ul>
+<li>线性表：链.</li>
+<li>纯表：树.</li>
+<li>可重入表：图.</li>
+<li>循环表：有环的图.</li>
+</ul>
+<h4 id="avl">AVL</h4>
+<p>定义：每个点的左子树和右子树高度最多差 1.</p>
+<p>balance factor <span class="math inline">\(bf(x)\)</span> 为右子树 -
+左子树高度.</p>
+<p>插入：</p>
+<ul>
+<li><p>正常查找然后插入一个叶子</p></li>
+<li><p>从下往上 check 每个节点符合要求. 三种情况：</p>
+<ol type="1">
+<li><p>当前节点新 <span class="math inline">\(bf=\pm
+1\)</span>，那么继续 check 父亲</p></li>
+<li><p>当前节点新 <span
+class="math inline">\(bf=0\)</span>，那么就不需要管父亲了.</p></li>
+<li><p>当前节点新 <span class="math inline">\(bf=\pm
+2\)</span>，那么就需要在这里旋转一下.
+由于肯定是新加的点来自于那个多的子树，不妨设来源于右子树.</p>
+<p>如果来源于右子树 <span class="math inline">\(r\)</span> 的右儿子
+<span class="math inline">\(r_r\)</span>，那么直接把 <span
+class="math inline">\(r\)</span> 旋转上去即可. 如果来源于右子树的左儿子
+<span class="math inline">\(r_l\)</span>，那么就需要把 <span
+class="math inline">\(r_l\)</span> 从下往上转两步. 然后就不需要再 check
+父亲了.</p></li>
+</ol></li>
+</ul>
+<h4 id="红黑树">红黑树</h4>
+<p>大家都去学 fhq-treap 好不好啊.</p>
+<p>结构：</p>
+<ul>
+<li>每个点被染成红色和黑色</li>
+<li>不存在相邻红点</li>
+<li>对于每个点，到子树内所有外部节点所经过的黑点数量一致，称为这个点的
+rank</li>
+</ul>
+<p>插入：</p>
+<ol type="1">
+<li>直接做 BST 插入，然后将新的点染成红色.</li>
+<li>由于直接插入后不存在子节点需要考虑. 只需要考虑和父节点的关系.</li>
+<li>如果父节点是黑色就什么事都没有.
+如果父节点是红色的话需要进入到一个分类讨论：
+<ul>
+<li>如果父亲的兄弟是红的，那么直接将祖父变成红，父&amp;父兄弟变成黑，然后对祖父继续做
+3.</li>
+<li>如果父亲的兄弟是黑的，由于此时父亲的兄弟&amp;自己的兄弟都是黑，而
+(自己，父亲，祖父)
+形成一条红红黑的链，于是考虑旋转，把这三者的中位数转成这三者的根，然后根为黑，根的两子为红.
+由于剩下的周围节点都是黑所以这样做没有问题.</li>
+</ul></li>
+</ol>
+<p>删除：</p>
+<ol type="1">
+<li>删除的话首先对于节点 <span
+class="math inline">\(x\)</span>，如果度数 &lt;2
+直接删，否则和右子树最小的点交换然后删</li>
+<li>如果删除节点是红色那么 p
+事没有，但是如果是黑色那么就需要调整，使得删除之前其唯一子树的 rank
+要增大一然后才能放心删.</li>
+<li>然后我们就关注这个“让rank保持平衡的操作”怎么弄（并且不会让自己变成红色）.
+分若干种情况：
+<ol type="1">
+<li><span class="math inline">\(x\)</span>
+儿子是红色的：那么直接把这个儿子染成黑色.</li>
+<li><span class="math inline">\(x\)</span>
+无红色儿子，且兄弟是红色的：把兄弟转上去，并且将兄弟染成红，转下来的父亲染成黑.
+此时归约到兄弟是黑色的情况.</li>
+<li><span class="math inline">\(x\)</span>
+无红色儿子，兄弟是黑色的，没有红色侄子：直接把兄弟染成红色.
+此时，如果父亲本来就是红色那么染成黑色，如果本来就是黑色那么就要对父亲重复
+3.2 / 3.3 / 3.4 了.</li>
+<li><span class="math inline">\(x\)</span>
+无红色儿子，兄弟是黑色的，有红色侄子.
+如果存在父亲-黑色兄弟-红色侄子的一条顺着的链，那直接把黑色兄弟给转上去就行了.
+否则就需要把红色侄子转上去. 注意在赋颜色时，父亲位置的颜色要保持不变.
+这种情况下也都不需要对父亲重复修复.</li>
+</ol></li>
+</ol>
+<p>建议根据上述规则手搓一下.</p>
+<p>AI 产物：</p>
+<ul>
+<li><strong>插</strong>：叔红变色，叔黑旋转</li>
+<li><strong>删</strong>：兄红转黑；兄黑侄黑则父债子偿；兄黑侄红则借位填坑</li>
+</ul>
+
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+
+<aside id="sidebar-toc">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-list-ul"></i>  
+            文章目录 
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        
+        
+        <div class="panel-body toc-container">
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#%E5%86%85%E6%8E%92%E5%BA%8F"><span class="toc-list-text">内排序</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%A4%96%E6%8E%92%E5%BA%8F"><span class="toc-list-text">外排序</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%9F%A5%E6%89%BE-%E7%B4%A2%E5%BC%95"><span class="toc-list-text">查找 &#x2F; 索引</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#b-%E6%A0%91"><span class="toc-list-text">B 树</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#b-%E6%A0%91-1"><span class="toc-list-text">B+ 树</span></a></li></ol></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-list-text">高级数据结构</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E5%B9%BF%E4%B9%89%E8%A1%A8"><span class="toc-list-text">广义表</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#avl"><span class="toc-list-text">AVL</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E7%BA%A2%E9%BB%91%E6%A0%91"><span class="toc-list-text">红黑树</span></a></li></ol></li></ol></li></ol></li></ol>
+        </div>
+    </div>
+</aside>
+
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2025/12/19/%E6%95%B0%E7%AE%97%E7%AC%94%E8%AE%B0-%E9%80%82%E5%90%88OIer%E7%9A%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/12/19/%E6%95%B0%E7%AE%97%E7%AC%94%E8%AE%B0-%E9%80%82%E5%90%88OIer%E7%9A%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 12.11832899801621px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 12.3276953710837px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 11.10380118572101px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 9.196645780772917px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 18.856445887136903px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 18.940125596670022px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 18.520539186163756px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 14.104471030609913px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 11.388973470925258px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 13.9935694355448px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 8.34278658453086px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 14.771423211150754px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 15.69769697119236px;" class="tag-cloud-link">高代</a>
+    
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 13.903671199632228px;" class="tag-cloud-link">信概统</a>
+    
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 19.572517658511146px;" class="tag-cloud-link">数算</a>
+    
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 14.830489307569731px;" class="tag-cloud-link">离散</a>
+    
+    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 18.25033675494216px;" class="tag-cloud-link">智障集锦</a>
+    
+    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 13.926163018505171px;" class="tag-cloud-link">读论文</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>数算笔记-适合OIer的期中复习 | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>数算笔记-适合OIer的期中复习</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/11/01/%E6%95%B0%E7%AE%97%E7%AC%94%E8%AE%B0-%E9%80%82%E5%90%88oier%E7%9A%84%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/">数算笔记-适合OIer的期中复习</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E6%95%B0%E7%AE%97/">数算</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-11-01
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2025/11/01/%E6%95%B0%E7%AE%97%E7%AC%94%E8%AE%B0-%E9%80%82%E5%90%88oier%E7%9A%84%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/">数算笔记-适合OIer的期中复习</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2025-11-01
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E6%95%B0%E7%AE%97/">数算</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h2 id="字符串">字符串</h2>
+<h3
+id="可能和你知道的有所不同的kmp">（可能和你知道的有所不同的）KMP</h3>
+<ul>
+<li><p>定义：<span class="math inline">\(nxt_i\)</span> 表示 <span
+class="math inline">\([0,i-1]\)</span> 的 border 长度</p>
+<p>（另，<span class="math inline">\(\max j\)</span> 使得 <span
+class="math inline">\(S_{[0,j-1]}=S_{[i-j,i-1]}\)</span>）</p>
+<p><span class="math inline">\(nxt_0=-1\)</span>.</p></li>
+</ul>
+<p>于是据此定义有匹配代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(i=0,j=0;i&lt;n&amp;&amp;j&lt;m;) &#123;</span><br><span class="line">	if(j==-1||Pattern[j]==Text[i]) i++,j++;</span><br><span class="line">	else j=nxt[j];</span><br><span class="line">	// Pattern[0,j-1] = Text[0,i-1]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>与求 next 的代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">nxt[0]=-1;</span><br><span class="line">for(i=1,j=0;i&lt;n;i++) &#123;</span><br><span class="line">	while(j!=-1&amp;&amp;Pattern[j]!=Pattern[i]) j=nxt[j];</span><br><span class="line">	j++;</span><br><span class="line">	nxt[i]=j;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>定义优化过的 KMP，<span class="math inline">\(nxt_i\)</span>
+直接指向 nxt 树上第一个字符不同的点</li>
+</ul>
+<p>即，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">if(Pattern[nxt[i]]==Pattern[i]) nxt[i]=nxt[nxt[i]];</span><br></pre></td></tr></table></figure>
+<p>带来的好处是，可以用 border 理论来证明每次跳的次数至多是单次 <span
+class="math inline">\(O(\log n)\)</span> 的.</p>
+<h3 id="一些神秘的定义">一些神秘的定义</h3>
+<p>极大后缀（maximal suffix）：<span
+class="math inline">\(P=uv\)</span>，且不存在 <span
+class="math inline">\(u\)</span> 的后缀=<span
+class="math inline">\(v\)</span> 的前缀</p>
+<p><span class="math inline">\(\le |X|/2\)</span> 的 maximal suffix 称为
+short maximal suffix</p>
+<h2 id="树">树</h2>
+<h3 id="二叉树">二叉树</h3>
+<p>根深度为 0，叶高度为 1</p>
+<p>满二叉树：每个非叶节点有两个孩子</p>
+<p>完全二叉树：最后一层叶节点全部靠左，其他层填满</p>
+<p>extended binary tree：度为 1 的节点插入空的节点后 -&gt;
+形成满二叉树，且外节点（叶节点）个数=内节点（非叶节点）个数+1</p>
+<p>内路径长度：<span class="math inline">\(I=\)</span>
+内节点深度之和</p>
+<p>外路径长度：<span class="math inline">\(E=\)</span>
+外节点深度之和，有 <span class="math inline">\(E=I+2n\)</span>，<span
+class="math inline">\(n\)</span> 为内节点个数</p>
+<p>叶节点个数 = 度为2的节点个数 + 1</p>
+<p>给定前/后序遍历，无法确定中序遍历. 另外两种可以.</p>
+<p>linked storage：采用正常人类理解的指针</p>
+<p>sequential storage：不动态开点的线段树</p>
+<h3 id="heap">Heap</h3>
+<p>堆是一种完全二叉树，采用宽度优先序维护.</p>
+<p>线性建堆：直接将原数组放上去，然后按 BFS
+序从后往前，去做向下调整操作. 复杂度相当于高度之和，为线性.</p>
+<h3 id="树-1">树</h3>
+<p>deg of node = number of childs</p>
+<p>deg of the tree = maximum deg of node</p>
+<p>ordered tree = label the siblings in certain order</p>
+<p>二叉树并非 ordered tree！（ordered tree 无法有右儿子而无左儿子）</p>
+<p>森林 -&gt;
+二叉树（本质上就是左儿子为兄弟-儿子表示法的儿子边，右儿子为兄弟边）：</p>
+<ul>
+<li>令 <span class="math inline">\(S\)</span> 为树的集合，<span
+class="math inline">\(r\)</span> 为 <span
+class="math inline">\(S_1\)</span> 的根，<span
+class="math inline">\(T_r\)</span> 为 <span
+class="math inline">\(r\)</span> 的所有子树，则定义 <span
+class="math inline">\(F(S)\)</span> 的根为 <span
+class="math inline">\(r\)</span>，<span
+class="math inline">\(F(S)\)</span> 中 <span
+class="math inline">\(r\)</span> 左子树为 <span
+class="math inline">\(T_{r,1}\)</span>，右子树为 <span
+class="math inline">\(F((S\setminus S_1)\sqcup (T_r\setminus
+T_{r,1}))\)</span></li>
+</ul>
+<p>二叉树 -&gt; 森林：</p>
+<ul>
+<li>每个点的父亲为往上跳的时候，第一次往右上角跳的点</li>
+</ul>
+<p>存储树的四种方法：</p>
+<ol type="1">
+<li>前向星（list-of-childern structure, static）</li>
+<li>兄弟-儿子表示法（first-child-next-sibling, static）</li>
+<li>vector（list-of-childern structure, dynamic）</li>
+<li>二叉树表示法（first-childern-next-sibling, dynamic）</li>
+</ol>
+<p>用前序遍历存储在序列上的话就只需要记一下自己是否是叶(ltag)和是否是最右侧的兄弟(rtag).
+注意这两个 tag 的定义是叶&amp;最右.</p>
+<p>用bfs序遍历也一样只需要记录这两个 tag.</p>
+<p>用后序遍历的话需要记录一下 deg. 当然如果能记录 deg 的话前序 bfs
+序也都是可以复原的.</p>
+<h2 id="这到底是啥玩意儿">这到底是啥玩意儿</h2>
+<p>当栈满时再做进栈运算必定产生空间溢出, 称“上溢”
+。当栈空时再做退栈运算也将产生溢出,称 “下溢”
+。队列的尾指针已经到了数组的上界，不能再有入队操作，但其实数组中还有空位置，这就叫“假溢出”。将存储队列的数组头尾相接，形成循环队列。队头、队尾指针加1时用语言的取模运算实现。</p>
+<p>并查集的两个优化的名字叫：重量权衡合并（即启发式合并），路径压缩.</p>
+<p>数据结构三要素：逻辑结构，存储结构，运算</p>
+<p>抽象数据结构的组成：操作，数据的对象，数据的关系（不包括存储）</p>
+<p>算法的特性：通用性，有效性，确定性，有穷性</p>
+<p>线性结构的特点：均匀性（每个元素类型相同），有序性</p>
+<p>三叉链表存储的树：存储 ls, rs, fa</p>
+<p>只有线性表（表，栈，队列，串等）是线性结构，其他都不是.</p>
+
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+
+<aside id="sidebar-toc">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-list-ul"></i>  
+            文章目录 
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        
+        
+        <div class="panel-body toc-container">
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-list-text">字符串</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E5%8F%AF%E8%83%BD%E5%92%8C%E4%BD%A0%E7%9F%A5%E9%81%93%E7%9A%84%E6%9C%89%E6%89%80%E4%B8%8D%E5%90%8C%E7%9A%84kmp"><span class="toc-list-text">（可能和你知道的有所不同的）KMP</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E4%B8%80%E4%BA%9B%E7%A5%9E%E7%A7%98%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-list-text">一些神秘的定义</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%A0%91"><span class="toc-list-text">树</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-list-text">二叉树</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#heap"><span class="toc-list-text">Heap</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E6%A0%91-1"><span class="toc-list-text">树</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E8%BF%99%E5%88%B0%E5%BA%95%E6%98%AF%E5%95%A5%E7%8E%A9%E6%84%8F%E5%84%BF"><span class="toc-list-text">这到底是啥玩意儿</span></a></li></ol>
+        </div>
+    </div>
+</aside>
+
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2025/11/01/%E6%95%B0%E7%AE%97%E7%AC%94%E8%AE%B0-%E9%80%82%E5%90%88oier%E7%9A%84%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/11/01/%E6%95%B0%E7%AE%97%E7%AC%94%E8%AE%B0-%E9%80%82%E5%90%88oier%E7%9A%84%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 16.614729730128733px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 11.56840776904081px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 18.70079105916205px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 15.282794284865812px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 11.376640990390682px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 18.53210838125761px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 8.208771240864595px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 18.307048674059292px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 11.423595316455811px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 13.54527315117991px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 15.951162704370896px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 12.13591842302391px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 13.36944414949851px;" class="tag-cloud-link">高代</a>
+    
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 14.183825962391673px;" class="tag-cloud-link">信概统</a>
+    
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 12.856089482072825px;" class="tag-cloud-link">数算</a>
+    
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 11.20417493669536px;" class="tag-cloud-link">离散</a>
+    
+    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 10.21808535924471px;" class="tag-cloud-link">智障集锦</a>
+    
+    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 19.341400535640435px;" class="tag-cloud-link">读论文</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

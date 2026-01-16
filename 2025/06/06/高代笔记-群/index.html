@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>高代笔记-群 | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>高代笔记-群</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2025/06/06/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E7%BE%A4/">高代笔记-群</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E9%AB%98%E4%BB%A3/">高代</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2025-06-06
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2025/06/06/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E7%BE%A4/">高代笔记-群</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2025-06-06
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E9%AB%98%E4%BB%A3/">高代</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>跳过最简单的一些定义和基本性质.</p>
+<p>陪集：对于 <span class="math inline">\(G\)</span> 的子群 <span
+class="math inline">\(H\)</span>，以及 <span
+class="math inline">\(G\)</span> 中元素 <span
+class="math inline">\(x,y\)</span>，若 <span class="math inline">\(y\in
+Hx\)</span> 则记 <span class="math inline">\(x\)</span> 左等价于 <span
+class="math inline">\(y\)</span>；<span class="math inline">\(y\in
+xH\)</span> 则记 <span class="math inline">\(x\)</span> 右等价于 <span
+class="math inline">\(y\)</span>. <span
+class="math inline">\(Hx=\{hx\mid h\in H\}\)</span> 称为右陪集，<span
+class="math inline">\(xH=\{xh\mid h\in H\}\)</span> 称为左陪集.</p>
+<p>定义 <span class="math inline">\(H\backslash G\)</span> 为所有右陪集
+<span class="math inline">\(\{Hg\}\)</span> 组成的集合，<span
+class="math inline">\(G/H\)</span> 为所有左陪集 <span
+class="math inline">\(\{gH\}\)</span> 组成的集合. 由由于映射 <span
+class="math inline">\(Hg\to (Hg)^{-1}\)</span> 给出这两个
+集合的双射，所以这两个集合的基数相等，记为 <span
+class="math inline">\((G:H)\)</span>，称为 <span
+class="math inline">\(H\)</span> 在 <span
+class="math inline">\(G\)</span> 中的指数. 一个看上去显然的结论：<span
+class="math inline">\(|H|\cdot (G:H)=|G|\)</span>. 这其实也告诉我们所有
+<span class="math inline">\(|H|\)</span> 都整除 <span
+class="math inline">\(|G|\)</span>.</p>
+<p>对于群内元素 <span class="math inline">\(\sigma\)</span>，定义 <span
+class="math inline">\(ord(\sigma)=|\langle \sigma\rangle|\)</span> 为
+<span class="math inline">\(\sigma\)</span> 的阶. 这等价于说 <span
+class="math inline">\(\sigma\)</span> 最少 <span
+class="math inline">\(ord(\sigma)\)</span> 次幂得到 <span
+class="math inline">\(1\)</span>. 由上述结论知 <span
+class="math inline">\(ord(\sigma)\mid
+n\)</span>，并且素数大小的群为循环群.</p>
+<p>轨道：<span class="math inline">\(Gx=\{gx\mid g\in G\}\)</span>.
+稳定子：<span class="math inline">\(Stab_G(x)=\{g\in G\mid
+gx=x\}\)</span>. 同样可以定义左右等价对应的商集 <span
+class="math inline">\(G\backslash X=\{Gx\}\)</span>，<span
+class="math inline">\(X/G=\{xG\}\)</span>. 将 <span
+class="math inline">\(X\)</span> 分解为若干个轨道，称为 <span
+class="math inline">\(X\)</span> 的轨道分解.</p>
+<p>若所有 <span class="math inline">\(Stab_G(X)\)</span> 的交为 <span
+class="math inline">\(1\)</span>，则称 <span
+class="math inline">\(G\)</span> 作用<strong>忠实</strong>. 即不存在
+<span class="math inline">\(g\)</span> 稳定所有的 <span
+class="math inline">\(x\)</span>.</p>
+<p>如果所有 <span class="math inline">\(Stab_G(X)\)</span> 都为 <span
+class="math inline">\(1\)</span>，则称 <span
+class="math inline">\(G\)</span> 作用<strong>自由</strong>. 即不存在
+<span class="math inline">\(g\)</span> 稳定任何的 <span
+class="math inline">\(x\)</span>.</p>
+<p>现在考虑轨道和稳定子的关系. 令 <span
+class="math inline">\(H=Stab_G(x)\)</span>，则有 <span
+class="math inline">\(H\backslash G\to Gx\)</span> 的双射，其中 <span
+class="math inline">\(gH\to gx\)</span>.</p>
+<p>令 <span class="math inline">\(X\)</span> 的所有轨道的稳定子为 <span
+class="math inline">\(H_1,\dots,H_n\)</span>，那么每个轨道的大小就是
+<span class="math inline">\((G:X_i)\)</span>，于是有 <span
+class="math inline">\(|X|=\sum_{i=1}^{n} (G:H_i)\)</span>.</p>
+<p>定义 <span class="math inline">\(X^G=\{x\in X\mid \forall g\in G,
+gx=x\}\)</span> 为 <span class="math inline">\(X\)</span> 在 <span
+class="math inline">\(G\)</span>
+作用下的不动点，其对应了只有一个元素的轨道 <span
+class="math inline">\(Gx=\{x\}\)</span>.</p>
+<p>对于 <span class="math inline">\(p\)</span> 群（<span
+class="math inline">\(|G|=p^m\)</span> 的群，<span
+class="math inline">\(p\)</span> 为质数），有 <span
+class="math inline">\(|X|\equiv |X^G|\pmod p\)</span>. （对 <span
+class="math inline">\(X\)</span> 做轨道分解，对于轨道 <span
+class="math inline">\(Gx\)</span>，若 <span
+class="math inline">\(x\)</span> 不为不动点，则 <span
+class="math inline">\(|Gx|\mid |G|=p^m\)</span> 为 <span
+class="math inline">\(p\)</span> 倍数. 所以 <span
+class="math inline">\(|X|\equiv |X^G|\pmod p\)</span>.）并且若 <span
+class="math inline">\(G\)</span> 非平凡，则其中心 <span
+class="math inline">\(Z_{G}\)</span> 也不平凡.（定义群作用 <span
+class="math inline">\(x\to gxg^{-1}\)</span>，于是 <span
+class="math inline">\(Z_G\)</span> 相当于不动点集合，证毕）.</p>
+<p>Cauchy：对于 <span class="math inline">\(p\)</span> 为 <span
+class="math inline">\(|G|\)</span> 的素因数，则存在 <span
+class="math inline">\(p\)</span> 阶循环子群. 证明：考虑令 <span
+class="math inline">\(X=\{(g_1,\dots,g_p)\mid \prod
+g_i=1\}\)</span>，以及循环位移群 <span
+class="math inline">\(Z/pZ\)</span>. 考虑 <span
+class="math inline">\(X^{Z/pZ}\)</span> 的意思即为 <span
+class="math inline">\(\{(g,\dots,g)\mid g^p=1\}\)</span>. 另一方面，我有
+<span class="math inline">\(|X|=|G|^{p-1}\equiv 0\pmod p\)</span> 且
+<span class="math inline">\(\{1,1,\dots\}\in
+X^{Z/pZ}\)</span>，那么也就是说 <span
+class="math inline">\(|X^{Z/pZ}|=kp&gt;1\)</span>. 所以存在元素 <span
+class="math inline">\(g\neq 1\)</span> 使得 <span
+class="math inline">\(g^{p}=1\)</span>，即证.</p>
+<hr />
+<p>正规子群：<span class="math inline">\(H\lhd G\)</span>，即 <span
+class="math inline">\(\forall g\in G\)</span>，<span
+class="math inline">\(gHg^{-1}=H\)</span>.</p>
+<p>若一个群没有非平凡正规子群，则称群 <span
+class="math inline">\(G\)</span> 为单群. 大小为素数的群必然为单群.</p>
+<p>对于群内任两个子群 <span class="math inline">\(H,K\)</span>，令 <span
+class="math inline">\(HK=\{hk\}\)</span>. 当然 <span
+class="math inline">\(HK\)</span> 不一定是子群. 但若是子群，则必有 <span
+class="math inline">\(HK=KH\)</span>，这是因为 <span
+class="math inline">\(hk\)</span> 可以和 <span
+class="math inline">\((hk)^{-1}=k^{-1}h^{-1}\)</span> 一一对应. 并且若
+<span class="math inline">\(HK=KH\)</span>，则也必然是子群. 因为对于
+<span class="math inline">\(h_1,h_2,k_1,k_2\)</span> 存在 <span
+class="math inline">\(k_1h_2=h&#39;k&#39;\)</span> 故 <span
+class="math inline">\(h_1k_1h_2k_2=h_1h&#39;k&#39;k_2\)</span>，封闭.
+取逆类似.</p>
+<p>但是如果已知 <span class="math inline">\(H\)</span> 为正规子群，则
+<span class="math inline">\(HK\)</span> 一定是子群. 考虑 <span
+class="math inline">\(hk=kk^{-1}hk=k(k^{-1}hk)\in KH\)</span>，故 <span
+class="math inline">\(HK=KH\)</span>，故为子群.</p>
+<p>中心化子群：<span class="math inline">\(Z_{G}(K)=\{g\in G\mid \forall
+k\in K, gk=kg\}\)</span>.</p>
+<p>正规化子群：<span class="math inline">\(N_{G}(K)=\{g\in G\mid
+gK=Kg\}\)</span>.</p>
+<p>对于群同态 <span class="math inline">\(f\)</span>，定义 <span
+class="math inline">\(\{g\in G\mid f(g)=1\}\)</span> 为群同态的核.
+群同态的核为一个正规子群. 证明：为子群显然，正规性的考虑 <span
+class="math inline">\(f(x)f(g)f(x^{-1})=1\)</span> 故 <span
+class="math inline">\(xgx^{-1}\in  \ker f\)</span>.</p>
+<p>对于正规子群 <span class="math inline">\(N\lhd G\)</span>. 则 <span
+class="math inline">\(G/N\)</span> 成群，其中 <span
+class="math inline">\((xN)(yN)=xyN\)</span>. 并且有商映射 <span
+class="math inline">\(q:G\to G/N\)</span>，<span
+class="math inline">\(\ker q=N\)</span>.</p>
+<p>然后就是诱导同态（几个同构定理）.</p>
+<p>对于 <span class="math inline">\(N\lhd G\)</span>，<span
+class="math inline">\(N\subset \ker f\)</span>，则 <span
+class="math inline">\(f:G\to G&#39;\)</span> 诱导唯一的同态 <span
+class="math inline">\(\bar f:G/N\to  G&#39;\)</span>，使得 <span
+class="math inline">\(f=\bar fq\)</span>.</p>
+<p>对于 <span class="math inline">\(N\lhd G\)</span>，<span
+class="math inline">\(N&#39;\lhd G&#39;\)</span> 而 <span
+class="math inline">\(f(N)\subset N&#39;\)</span>，则 <span
+class="math inline">\(f\)</span> 诱导唯一的同态 <span
+class="math inline">\(\bar  f:G/N\to G&#39;/N&#39;\)</span> 使得 <span
+class="math inline">\(q&#39;f=\bar fq\)</span>.</p>
+<p>对于 <span class="math inline">\(N\lhd G\)</span>，带入 <span
+class="math inline">\(N=\ker f\)</span> 则有诱导同态 <span
+class="math inline">\(\bar f:G/\ker f\to \text{im } f\)</span>
+为同构.</p>
+<p>半直积：考虑群 <span class="math inline">\(H,N\)</span>，我们希望在
+<span class="math inline">\(N\times H\)</span> 上定义二元运算，并且能将
+<span class="math inline">\(N,H\)</span> 嵌入这个更大的群 <span
+class="math inline">\(G\)</span>，<span class="math inline">\(G\)</span>
+中每个元素都是 <span class="math inline">\(nh\)</span>，且 <span
+class="math inline">\(N\)</span> 为正规子群. 于是 <span
+class="math inline">\((nh)(n&#39;h&#39;)=n(hn&#39;h^{-1})hh&#39;\)</span>，所以乘法应该定义为
+<span class="math inline">\((n,h)(n&#39;,h&#39;)\to
+(n\varphi_h(n),hh&#39;)\)</span>，其中 <span
+class="math inline">\(\varphi\)</span> 为 <span
+class="math inline">\(h\to Aut(N)\)</span> 的群同态. 写作 <span
+class="math inline">\(G=N\rtimes_{\varphi} H\)</span>. 那么有 <span
+class="math inline">\(N\lhd N\rtimes_{\varphi}H\)</span>.</p>
+<p>例如，对于二面体群 <span
+class="math inline">\(D_{2n}\)</span>，转角为 <span
+class="math inline">\(2\pi/n\)</span> 的旋转群 <span
+class="math inline">\(\langle\sigma\rangle\)</span> 和镜射群 <span
+class="math inline">\(\langle\tau\rangle\)</span>，做半直积得到 <span
+class="math inline">\(\langle\sigma\rangle \rtimes
+\langle\tau\rangle=D_{2n}.\)</span></p>
+<p>导出子群：定义 <span class="math inline">\(G_{der}=\langle
+aba^{-1}b^{-1}\rangle\)</span>.
+那么有一些简单性质：其为特征子群，且对于到交换群 <span
+class="math inline">\(A\)</span> 的群同态 <span
+class="math inline">\(f\)</span> 有 <span
+class="math inline">\(G_{der}\subset \ker f\)</span>.</p>
+<p>群的交换化：即商映射 <span class="math inline">\(G\to
+G/G_{der}\)</span>. 容易发现这样得到的商群 <span
+class="math inline">\(G_{ab}\)</span> 交换.</p>
+<p>例如，二面体群 <span class="math inline">\(D_{2n}\)</span>
+的导出子群为 <span class="math inline">\(\langle
+\sigma^2\rangle\)</span>，所以其交换化要么是 <span
+class="math inline">\(Z/2Z\)</span> 要么是 <span
+class="math inline">\((Z/2Z)^{\oplus 2}\)</span>.</p>
+<p>例如，<span
+class="math inline">\(GL(n,F)_{der}=SL(n,F)\)</span>，而其交换话对应其行列式.</p>
+<hr />
+<p>参考讲义：<a
+target="_blank" rel="noopener" href="https://www.wwli.asia/downloads/books/EAlg-Notes.pdf">李文威-代数学讲义</a></p>
+
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2025/06/06/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E7%BE%A4/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/06/06/%E9%AB%98%E4%BB%A3%E7%AC%94%E8%AE%B0-%E7%BE%A4/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 8.72041220986023px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 12.042896397580176px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 8.741601951623826px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 17.711361296971944px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 8.286245026989342px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 9.438785326808292px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 10.400424247361126px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 19.56527880155589px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 10.915227866205122px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 18.44773066648288px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 12.131137927698854px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 19.919972139623226px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 15.737234611400073px;" class="tag-cloud-link">高代</a>
+    
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 15.964112207145995px;" class="tag-cloud-link">信概统</a>
+    
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 17.536288423098043px;" class="tag-cloud-link">数算</a>
+    
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 12.079520048032247px;" class="tag-cloud-link">离散</a>
+    
+    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 13.260574230779701px;" class="tag-cloud-link">智障集锦</a>
+    
+    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 12.63588896679136px;" class="tag-cloud-link">读论文</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>
