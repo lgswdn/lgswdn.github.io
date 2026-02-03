@@ -10,7 +10,7 @@
     
     
     
-    <title>lgswdn-SA</title>
+    <title>读论文-Pi0.6 | lgswdn-SA</title>
     <link href="http://lgswdn.github.io" rel="prefetch" />
 
     
@@ -216,16 +216,23 @@
         <i class="fa fa-home"></i>
         <a href="http://lgswdn.github.io">lgswdn-SA</a>
         >
-        <span></span>
+        <span>读论文-Pi0.6</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2026/02/03/%E8%AF%BB%E8%AE%BA%E6%96%87-Pi0.6/"></a>
+                <a href="/2026/02/03/%E8%AF%BB%E8%AE%BA%E6%96%87-Pi0.6/">读论文-Pi0.6</a>
             </h1>
         </div>
         <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/">读论文</a>
+                
+            </span>
             
             <span class="label label-gal">
                 <i class="fa fa-calendar"></i> 2026-02-03
@@ -238,7 +245,7 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2026/02/03/%E8%AF%BB%E8%AE%BA%E6%96%87-Pi0.6/"></a>
+                    <a href="/2026/02/03/%E8%AF%BB%E8%AE%BA%E6%96%87-Pi0.6/">读论文-Pi0.6</a>
                 </h4>
             </div>
             <p>
@@ -246,12 +253,146 @@
             </p>
             <p>
                 
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/">读论文</a>
+                
+                
                 
             </p>
         </center>
     </div>
     <div class="content-article">
-        
+        <p>link: https://arxiv.org/pdf/2511.14759</p>
+<h2 id="summary">Summary</h2>
+<p>This work represents RECAP, a method that provides for RL training on
+general-purpose VLA models, that improves performance with higher
+accuracy and throughput.</p>
+<h2 id="method">Method</h2>
+<p>RECAP follows a standard regularized reinforcement learning, where we
+have</p>
+<ul>
+<li>reward <span class="math inline">\(r(o_t,a_t)\)</span> with the
+objective of maximizing cumulative reward (with no discount factor). In
+RECAP, we only have sparse reward.</li>
+<li>Value <span class="math inline">\(V^{\pi}(o_t)\)</span> and
+Advantage value <span
+class="math inline">\(A^{\pi}(o_t,a_t)=E[\sum_{t&#39;=t}^{t+N-1}r_{t&#39;}-V^{\pi}(o_{t+N})]-V^{\pi}(o_t)\)</span>.</li>
+<li>Regularizing by setting the objective as the cumulative reward <span
+class="math inline">\(-\beta E_{o\sim
+\rho_{\pi_\theta}}[D(\pi(\cdot|o)||\pi_{ref}(\cdot|o))]\)</span> so as
+to remain close to the original reference policy.</li>
+</ul>
+<p>The major parts of RECAP are</p>
+<ul>
+<li><p>Data collection: label each episode according to its
+outcome.</p></li>
+<li><p>Value function training: train a critic / value fitting model
+with a smaller VLA model.</p>
+<ul>
+<li><p>The value function in RECAP is doing a classification problem,
+mapping the status and language instruction <span
+class="math inline">\((o_t,l)\)</span> into <span
+class="math inline">\(B=201\)</span> discrete bins. Thus we use a
+cross-entropy loss for this.</p>
+<p>Let the discretized <span
+class="math inline">\(R_{t}=\sum_{t&#39;=t}^{T}r_{t&#39;}\)</span> be
+<span class="math inline">\(R_t^B\)</span>, then the objective is <span
+class="math display">\[
+\min E [\sum_{o_t\in \tau} H(R_t^B(\tau),p_{\phi}(V|o_t,l))]
+\]</span></p></li>
+<li><p>The final value of <span class="math inline">\(V(o_t,l)\)</span>
+is <span class="math inline">\(\sum_b v(b)p_{\phi}(V=b|o_t,l)\)</span>
+where <span class="math inline">\(v(b)\)</span> is the value of the
+<span class="math inline">\(b-\)</span>th bin.</p></li>
+<li><p>The classification here allows model to capture uncertainty being
+stable and robust to outliers.</p></li>
+</ul></li>
+<li><p>Advantage conditioned training: extract a more optimal policy
+using the value function.</p>
+<ul>
+<li><p>This is difficult as policy-gradient method like PPO requires
+calculating <span class="math inline">\(\pi(a|o_t,l)\)</span> which is
+not capable in flow-matching. They did try PPO with specific
+implementation but it performs worse than RECAP.</p></li>
+<li><p>Lemma: For any monotonically increasing function <span
+class="math inline">\(g\)</span>, define <span
+class="math inline">\(p(I|o,a)=g(A(o,a))/\int g(A(o,a))da\)</span>, that
+is, the probability of action <span class="math inline">\(a\)</span>
+improves the advantage. Then the lemma states that, a new policy <span
+class="math inline">\(\hat\pi \propto \pi_{ref}(a|o)\cdot
+p(I|A(o,a))^{\beta}\)</span> is guaranteed to improve over the ref
+policy.</p>
+<p>Using this lemma, and the Bayes <span
+class="math inline">\(p(I|a,o)=p(a|I,o)p(I|o)/p(a|o)\)</span>. As <span
+class="math inline">\(p(I|o)\)</span> is constant, we got the important
+<span class="math display">\[
+\hat\pi\propto \pi_{ref}(a|o)\cdot
+(\frac{\pi_{ref}(a|I,o)}{\pi_{ref}(a|o)})^{\beta}
+\]</span></p></li>
+<li><p>When <span class="math inline">\(\beta =1\)</span> we have <span
+class="math inline">\(\hat \pi\propto \pi_{ref}(a|I,o)\)</span>.</p>
+<p>Thus we modify the model a bit by adding a advantage / non-advantage
+text tag before action generation, allowing the model to predict <span
+class="math inline">\(\pi(a|I,o)\)</span>, giving us the NLL loss of
+<span class="math inline">\(-\log \pi(a|o)-\alpha \log \pi(a|
+I,o)\)</span></p></li>
+<li><p>For convenience, we set <span
+class="math inline">\(p(I|a,o)=1[V(o,a)&gt;\epsilon]\)</span>.</p></li>
+<li><p>It is still difficult to calculate the log likelihood. However,
+math tells us that the flow matching loss acts as a lower bound. Also,
+the training omit the <span class="math inline">\(\alpha\)</span> by,
+for each sample,</p></li>
+<li><p>Normally we optimize on <span class="math inline">\(\log
+\pi(a|I,o)\)</span>.</p>
+<ul>
+<li>However we sometimes omit the <span class="math inline">\(I\)</span>
+and optimize on <span class="math inline">\(\log \pi(a|o)\)</span>.</li>
+</ul></li>
+<li><p>When inference, simply sample from <span
+class="math inline">\(\pi (a|I=1,o)\)</span> gets the result when <span
+class="math inline">\(\beta=1\)</span>. When <span
+class="math inline">\(\beta &gt;1\)</span>, we make the magic trick by
+replace <span class="math inline">\(d\log\pi(a|o)/da\)</span> with the
+flow velocity, and get <span
+class="math inline">\(v_{\beta}=v_{a|o}+\beta(v_{a|I,o}-v_{a|o})\)</span>.</p></li>
+</ul></li>
+<li><p>Reward definition: using only sparse reward where we get heavy
+punishment on task failure when time's up and <span
+class="math inline">\(-1\)</span> punishment for each timestep in the
+process. Reward is normalized within each task.</p></li>
+</ul>
+<p>The procedure of RECAP:</p>
+<ul>
+<li>After having a basic <span class="math inline">\(\pi_{0.6}\)</span>
+model, we calculate <span class="math inline">\(V\)</span> and <span
+class="math inline">\(I\)</span> with <span
+class="math inline">\(\epsilon=\)</span> 30% percentile (40 for
+fine-tuning an 10 for long tasks like laundry folding) of all values in
+the task, and do the policy extraction to get a general policy <span
+class="math inline">\(\pi^*_{0.6}\)</span>.</li>
+<li>For each task, we first finetune the model with expert data in this
+task with <span class="math inline">\(I\equiv 1\)</span>. Then, we use
+this model to generate additional trajectories, and add to the dataset.
+Some of them are monitored by human and corrected. The corrected action
+enjoys <span class="math inline">\(I\equiv 1\)</span>.</li>
+<li>It is worth mentioning that both value function and policy are
+extracted from the pre-trained model. The difference is that we are
+obtaining higher and higher quality data. It is said to prevent drift
+during iterations.</li>
+</ul>
+<p>Limitations:</p>
+<p>This work proposes a framework for RL in VLA. However, it is obvious
+that there are a lot of things to be done better:</p>
+<ul>
+<li>The update of RECAP is majorly offline where we do a limited amount
+of iterations during post-training. Maybe it could be also extended
+online.</li>
+<li>RECAP chooses the easy on-policy value fitting for convenience.
+Extend it to off-policy Q-learning may improve data efficiency.</li>
+<li>There are a lot of human works and monitoring during the process.
+Replacing human works with VLMs might be better.</li>
+</ul>
 
     </div>
 </article>
@@ -309,6 +450,25 @@
     
     
     
+
+<aside id="sidebar-toc">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-list-ul"></i>  
+            文章目录 
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        
+        
+        <div class="panel-body toc-container">
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#summary"><span class="toc-list-text">Summary</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#method"><span class="toc-list-text">Method</span></a></li></ol>
+        </div>
+    </div>
+</aside>
+
+    
+    
     <!-- 要配置好leancloud才能开启此小工具 -->
     
     
@@ -334,43 +494,43 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 17.610938455782872px;" class="tag-cloud-link">总结</a>
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 12.600947863831927px;" class="tag-cloud-link">总结</a>
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 9.171561099259542px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 13.532598990480903px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 10.370773654778514px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 10.538623046312672px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/ICS/" style="font-size: 17.595516064295744px;" class="tag-cloud-link">ICS</a>
+    <a href="/tags/ICS/" style="font-size: 17.589554619443838px;" class="tag-cloud-link">ICS</a>
     
-    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 8.463369800357508px;" class="tag-cloud-link">具身</a>
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 15.891462789195023px;" class="tag-cloud-link">具身</a>
     
-    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 12.06896912086765px;" class="tag-cloud-link">初恋日记</a>
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 14.384877575559543px;" class="tag-cloud-link">初恋日记</a>
     
-    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 19.121064704273934px;" class="tag-cloud-link">腾讯星火营</a>
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 17.831178586043155px;" class="tag-cloud-link">腾讯星火营</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 18.500270880476293px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 10.844845860690953px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 8.109505739484753px;" class="tag-cloud-link">程设</a>
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 13.430960589142494px;" class="tag-cloud-link">程设</a>
     
-    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 14.418086171534808px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 8.973289048409889px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
     
-    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 11.044939217806995px;" class="tag-cloud-link">波伏娃</a>
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 9.448881354005346px;" class="tag-cloud-link">波伏娃</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 18.246328934288965px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 12.20859669831088px;" class="tag-cloud-link">音数</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 11.75287502867398px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 15.948593996616243px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 17.202091657589598px;" class="tag-cloud-link">信概统</a>
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 14.255435644636767px;" class="tag-cloud-link">信概统</a>
     
-    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 16.372071483293894px;" class="tag-cloud-link">数算</a>
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 19.985223997217823px;" class="tag-cloud-link">数算</a>
     
-    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 10.070175202493584px;" class="tag-cloud-link">离散</a>
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 15.787422461386225px;" class="tag-cloud-link">离散</a>
     
-    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 14.176506683834267px;" class="tag-cloud-link">智障集锦</a>
+    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 19.6358799433892px;" class="tag-cloud-link">智障集锦</a>
     
-    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 12.570233545743129px;" class="tag-cloud-link">读论文</a>
+    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 10.672070125726435px;" class="tag-cloud-link">读论文</a>
     
-    <a href="/tags/bandit/" style="font-size: 8.918635762171476px;" class="tag-cloud-link">bandit</a>
+    <a href="/tags/bandit/" style="font-size: 18.23694625878447px;" class="tag-cloud-link">bandit</a>
     
 </div>
                 
