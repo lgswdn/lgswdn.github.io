@@ -264,8 +264,8 @@
     </div>
     <div class="content-article">
         <h4
-id="sim2real-image-translation-enables-viewpointrobust-policies-from-fixed-camera-datasets">Sim2real
-Image Translation Enables ViewpointRobust Policies from Fixed-Camera
+id="sim2real-image-translation-enables-viewpoint-robust-policies-from-fixed-camera-datasets">Sim2real
+Image Translation Enables Viewpoint Robust Policies from Fixed-Camera
 Datasets</h4>
 <p>link: https://arxiv.org/pdf/2601.09605</p>
 <p>Image translation: we have lots of simulated trajectories, and use
@@ -278,7 +278,7 @@ including:</p>
 <li>fail to generalize on different viewpoints on the fixed-viewpoints
 target domain</li>
 </ul>
-<p>Method: Go through a encoder-decoder model to get a sim2real
+<p>Methodology: Go through a encoder-decoder model to get a sim2real
 translated image with the following losses.</p>
 <ul>
 <li><p>Use gt segmentation to calculate a segNCE loss, to make sure a
@@ -289,6 +289,177 @@ pixel feature is similar to other pixel of the same seg class.</p></li>
 <p>Result: has rather comparable performance with 35M parameter ACT to
 the 4.5B VISTA(another viewpoint augmentation method). However MANGO is
 just much faster.</p>
+<h4
+id="activevla-injecting-active-perception-into-vision-language-action-models-for-precise-3d-robotic-manipulation">ActiveVLA:
+Injecting Active Perception into Vision-Language-Action Models for
+Precise 3D Robotic Manipulation</h4>
+<p>link: https://arxiv.org/pdf/2601.08325</p>
+<p>Problem: current VLA models only have static vision perception, which
+might fail when occlusion occurs.</p>
+<p>ActiveVLA propose a framework that allow us to actively adjust the
+camera viewpoint and actively zoom-in to get higher resolution for
+critical regions.</p>
+<p>Methodology: use a 2-stage strategy.</p>
+<ul>
+<li><p>First stage (coarse stage), reconstruct point cloud from RGB-D
+image, then do orthographic projection before feeding it into a VLM
+model (PaliGemma). Then do up-sampling to predict the crucial point and
+area for each 2D projection picture, before lifting it to 3D.</p></li>
+<li><p>After getting the crucial point in 3D model, select a viewpoint
+and zoom-in factor. Feed them into PaliGemma to get image tokens, then
+feed it into action encoder to get a final action output.</p>
+<p>Viewpoint selection is done consider the 3 criteria: visibility,
+camera distance and viewpoint diversity.</p>
+<p>Action prediction is done by predicting the grasp position on the 2D
+image using an up-sampler. The up-sampler in two stages share weights.
+Then we lift it to a 3D transition. For rotation, we discretize each
+euler angle into 72 bins and do prediction.</p></li>
+</ul>
+<p>Evaluation:</p>
+<ul>
+<li>Achieves a new SOTA on RLBench with 91.8% success rate. Performs
+well on precision-demanding tasks, and remain robust under
+occlussions.</li>
+<li>COLOSSEUM: surpasses BridgeVLA in most category to achieve a new
+SOTA. It performs well despite clutter, distractors and viewpoint
+changes.</li>
+<li>Real-robot: Claims a ~90% success rate on occlusion scenarios.</li>
+</ul>
+<h4
+id="stereovla-enhancing-vision-language-action-models-with-stereo-vision">StereoVLA:
+Enhancing Vision-Language-Action Models with Stereo Vision</h4>
+<p>link: https://arxiv.org/pdf/2512.21970</p>
+<p>Summary: This work proposes a novel Geometric-Semantic feature
+Extraction using existed works to extract and fuse semantic feature from
+VLM and geometric feature from Foundation Stereo, and enhance higher
+precision grasping that need better geometric recognition.</p>
+<p>Methodology:</p>
+<ul>
+<li>For left view, extract picture feature using DINOv2(capturing
+details) and SigLIP(capturing high-level sementics) exclusively.</li>
+<li>Feed both view into Foundation Stereo. Use the filtered cost value
+<span class="math inline">\(V_c&#39;\)</span> in Foundation Stereo model
+considering that it provides dense geometric features.</li>
+<li>Instead of concatenating them, just stack their channels and do
+projection to get geometric-semantic feature.</li>
+</ul>
+<p>After obtaining the feature, things are similar with pi-0.5.</p>
+<p>One thing to mention is that they add a task of "estimating the depth
+of pixel (x,y)" inside training. (x,y) are chosen from the object
+bounding box.</p>
+<p>The work follows GraspVLA and rely heavily on GraspVLA-like synthetic
+data along with internet video data, as there is no dataset giving
+stereo vision information.</p>
+<p>Evaluation: for bar-like object (pencils etc), GraspVLA performs
+well. It also reach 80% for medium size object and 30% for small size
+object where current SOTA couldn't pick up.</p>
+<p>It is worth mentioning that other models often close the gripper too
+early, possibly due to the lack of precise spatial perception.</p>
+<h4
+id="twinaligner-visual-dynamic-alignment-empowers-physics-aware-real2sim2real-for-robotic-manipulation">TwinAligner:
+Visual-Dynamic Alignment Empowers Physics-aware Real2Sim2Real for
+Robotic Manipulation</h4>
+<p>link: https://arxiv.org/pdf/2512.19390</p>
+<p>Summery: This work proposes a novel Real2Sim2Real system that
+enhances pixel-level visual alignment and dynamic consistency for both
+objects and robots by using 3DGS and optimization during the
+"Control-Hit-Slide" manner.</p>
+<p>Methodology:</p>
+<ul>
+<li><p>For pixel-level visual alignment, they first build the physical
+mesh, then initialize 3D Gaussian center on the vertices, after which
+they optimize the 3DGS using color loss and structure loss.</p></li>
+<li><p>For articulate objects, build a automated pipeline with 3DOI to
+separate the object.</p></li>
+<li><p>Dynamic consistency: In the "Control-Hit-Slide" process, the
+robot is controlled to move towards the object, then hit the object, and
+record the trajectory of the object.</p>
+<p>From the process, several dynamics parameters are related: friction,
+mass, center of mass, and robot controller parameter.</p>
+<p>The work list optimization goals (distance between the sim &amp; real
+joint positions vector, and point cloud base object poses ADD &amp;
+ADD-S loss), and use gradient-free optimization method (to ensure
+compatibility with non-differentiable simulators) to get the
+parameters.</p></li>
+<li><p>For policy learning, the work simply uses tele-operation in the
+simulation environment for data generation, and use imitation learning
+policies Diffusion Policy and RISE policy.</p></li>
+</ul>
+<p>Result: The output result shows a comparable result on a zero-shot
+sim2real policy (using only the sim policy) with a real2real policy.</p>
+<p>Limitation: Human efforts for data collection still exists as we need
+to do the control-hit-slide process, and the accuracy and speed of
+dynamic alignment is restricted. Also the model doesn't fit deformable
+objects.</p>
+<h4
+id="on-the-fly-vla-adaptation-via-test-time-reinforcement-learning">On-the-Fly
+VLA Adaptation via Test-Time Reinforcement Learning</h4>
+<p>link: https://arxiv.org/pdf/2601.06748</p>
+<p>Summary: This work proposes a method of Test time RL for VLA (w/o
+diffusion) using value-free PPO and dense reward.</p>
+<p>Methodology:</p>
+<ul>
+<li><p>The goal of PPO consists of a clipped policy objective <span
+class="math inline">\(clip(r_t(\theta))\hat A_t\)</span>, the value loss
+and entropy regularization term. The limited trajectories make it hard
+to learn the value, TT-VLA simply discards the value loss and entropy
+regularization term, leaving only the clipped policy objective.</p></li>
+<li><p>Also, TT-VLA set <span
+class="math inline">\(\lambda=\gamma=0\)</span> in GAE, collapsing the
+PPO into a one-step formulation.</p></li>
+<li><p>About the reward. TT-VLA calculate the "progress" of each time
+with the past observations and language instruction using
+Vision-Language Action-Critic model (VLAC) (Zhai et al., 2025).</p>
+<p>The reward is measured by how much the progress increase /
+decrease.</p></li>
+</ul>
+<p>Limitation: the PPO-based RL framework seems hard to be directly
+moved to the diffusion-based policies. However, the dense reward seems a
+reasonable option to be considered.</p>
+<h4 id="vita-vision-to-action-flow-matching-policy">VITA:
+VISION-TO-ACTION FLOW MATCHING POLICY</h4>
+<p>link: https://arxiv.org/pdf/2507.13231</p>
+<p>Summary: this work proposes a faster flow matching policy that does
+not need the cross-attention conditioning and flows directly from latent
+visions to latent actions.</p>
+<p>Methodology:</p>
+<ul>
+<li>The basic logic is, use a resnet-18 as vision encoder to encode RGB
+into latent space. After which, we flow it to represent a latent action,
+and use a auto-encoder to decode the action.</li>
+<li>However, there exists several problems:
+<ul>
+<li>The action space has much lower dimension then the vision
+space.</li>
+<li>Pre-training AE (auto-encoder) was unreliable to produce a flow
+target as the action data is limited and sparse.</li>
+<li>Jointly training faces a latent space collapse due to
+Training-Inference Gap: the <span class="math inline">\(\hat
+z_1\)</span> from encoder and <span class="math inline">\(z_1\)</span>
+from ODE solving, are from different distribution.</li>
+</ul></li>
+<li>These problems are solved by designing an effective learning
+framework, where we have the following training objectives:
+<ul>
+<li>Auto-Encoder loss (<span class="math inline">\(L_1\)</span> loss
+between gt action chunk and its reconstruction peer) and Flow-matching
+loss (the MSE between gt velocity and its predicted peer)</li>
+<li>Flow Latent Decoding (FLD): the MSE between <span
+class="math inline">\(D(\hat z_1)\)</span> and gt. and Flow Latent
+Consistency (FLC): the MSE between <span
+class="math inline">\(z_1\)</span> and <span class="math inline">\(\hat
+z_1\)</span>. These two objectives provide equivalent training signals,
+though putting them together produces a bit better result.</li>
+</ul></li>
+</ul>
+<p>Note that:</p>
+<ul>
+<li>This model is only vision-based, and the objective is a
+deterministic trajectory rather than a multi-model distribution.</li>
+<li>Though the FLD acts as a MSE loss, this loss actually ensures that
+the action is precise enough, and optimizes both the decoder and
+velocity prediction.</li>
+</ul>
 
     </div>
 </article>
@@ -358,9 +529,16 @@ just much faster.</p>
         
         
         <div class="panel-body toc-container">
-            <ol class="toc-list"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#sim2real-image-translation-enables-viewpointrobust-policies-from-fixed-camera-datasets"><span class="toc-list-text">Sim2real
-Image Translation Enables ViewpointRobust Policies from Fixed-Camera
-Datasets</span></a></li></ol>
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#sim2real-image-translation-enables-viewpoint-robust-policies-from-fixed-camera-datasets"><span class="toc-list-text">Sim2real
+Image Translation Enables Viewpoint Robust Policies from Fixed-Camera
+Datasets</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#activevla-injecting-active-perception-into-vision-language-action-models-for-precise-3d-robotic-manipulation"><span class="toc-list-text">ActiveVLA:
+Injecting Active Perception into Vision-Language-Action Models for
+Precise 3D Robotic Manipulation</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#stereovla-enhancing-vision-language-action-models-with-stereo-vision"><span class="toc-list-text">StereoVLA:
+Enhancing Vision-Language-Action Models with Stereo Vision</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#twinaligner-visual-dynamic-alignment-empowers-physics-aware-real2sim2real-for-robotic-manipulation"><span class="toc-list-text">TwinAligner:
+Visual-Dynamic Alignment Empowers Physics-aware Real2Sim2Real for
+Robotic Manipulation</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#on-the-fly-vla-adaptation-via-test-time-reinforcement-learning"><span class="toc-list-text">On-the-Fly
+VLA Adaptation via Test-Time Reinforcement Learning</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#vita-vision-to-action-flow-matching-policy"><span class="toc-list-text">VITA:
+VISION-TO-ACTION FLOW MATCHING POLICY</span></a></li></ol>
         </div>
     </div>
 </aside>
@@ -392,41 +570,43 @@ Datasets</span></a></li></ol>
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 9.058804429193293px;" class="tag-cloud-link">总结</a>
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 8.439047942681114px;" class="tag-cloud-link">总结</a>
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 9.88593376762227px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 15.58356454458px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 15.147272565382659px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 19.951838022619565px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/ICS/" style="font-size: 14.269710362948185px;" class="tag-cloud-link">ICS</a>
+    <a href="/tags/ICS/" style="font-size: 19.57552957025529px;" class="tag-cloud-link">ICS</a>
     
-    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 11.807444046271875px;" class="tag-cloud-link">具身</a>
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 15.258899555477928px;" class="tag-cloud-link">具身</a>
     
-    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 10.802956964066531px;" class="tag-cloud-link">初恋日记</a>
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 9.545576524854212px;" class="tag-cloud-link">初恋日记</a>
     
-    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 13.63520394324957px;" class="tag-cloud-link">腾讯星火营</a>
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 17.294232586742595px;" class="tag-cloud-link">腾讯星火营</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 10.969253282857967px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 16.54708621412297px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 12.275271097324833px;" class="tag-cloud-link">程设</a>
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 18.79258335108051px;" class="tag-cloud-link">程设</a>
     
-    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 8.321882799414208px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 14.31291271063715px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
     
-    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 13.394255900640614px;" class="tag-cloud-link">波伏娃</a>
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 8.579440724869942px;" class="tag-cloud-link">波伏娃</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 11.898905017716814px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 10.087923980207783px;" class="tag-cloud-link">音数</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 18.696860932116884px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 12.253015725468146px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 17.98531253323131px;" class="tag-cloud-link">信概统</a>
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 19.21792592878957px;" class="tag-cloud-link">信概统</a>
     
-    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 19.364534992424954px;" class="tag-cloud-link">数算</a>
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 9.642787345926262px;" class="tag-cloud-link">数算</a>
     
-    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 15.167565939649112px;" class="tag-cloud-link">离散</a>
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 16.848569545651188px;" class="tag-cloud-link">离散</a>
     
-    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 12.05547175620898px;" class="tag-cloud-link">智障集锦</a>
+    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 15.627075538828347px;" class="tag-cloud-link">智障集锦</a>
     
-    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 18.60879350589907px;" class="tag-cloud-link">读论文</a>
+    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 19.785281206897608px;" class="tag-cloud-link">读论文</a>
+    
+    <a href="/tags/bandit/" style="font-size: 15.614075020057298px;" class="tag-cloud-link">bandit</a>
     
 </div>
                 

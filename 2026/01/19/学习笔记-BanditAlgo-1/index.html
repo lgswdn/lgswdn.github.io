@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>学习笔记-BanditAlgo-1 | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>学习笔记-BanditAlgo-1</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2026/01/19/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-BanditAlgo-1/">学习笔记-BanditAlgo-1</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/bandit/">bandit</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2026-01-19
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2026/01/19/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-BanditAlgo-1/">学习笔记-BanditAlgo-1</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2026-01-19
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/bandit/">bandit</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h2 id="the-language-of-bandit">1.1 The language of bandit</h2>
+<p>Bandit problem:</p>
+<ul>
+<li><p><strong>Horizon</strong> <span class="math inline">\(n\)</span>:
+the player plays <span class="math inline">\(n\)</span> round.</p></li>
+<li><p><strong>Arms (actions)</strong>: In each round, the learner first
+chooses an action <span class="math inline">\(A_t\in A\)</span>. <span
+class="math inline">\(k-\)</span>arm means that the number of actions is
+<span class="math inline">\(k\)</span>.</p></li>
+<li><p><strong>Environment</strong>: In each round, after the learner
+chooses the action, the environment reveals a reward <span
+class="math inline">\(X_t\in \mathbb R\)</span>.</p>
+<p>The true environment lies in an environment class <span
+class="math inline">\(E\)</span>, but the learner don't know exactly
+which the environment is.</p>
+<p>The learner can only decide based on the historical <span
+class="math inline">\(A\)</span> and <span
+class="math inline">\(X\)</span>.</p></li>
+<li><p><strong>Regret</strong>: For any policy <span
+class="math inline">\(\pi\)</span>, the regret of the learner relative
+to the policy is the difference between the expected reward of the
+policy and the expected reward of the learner. (As the learner does not
+know the environment so of course it does worse than a good
+policy).</p></li>
+<li><p><strong>Worst case regret</strong>: As regret depends on
+environment, the worst case regret is the max regret over all
+environments.</p></li>
+<li><p><strong>Stochastic Bernoulli Bandits</strong>: There exists a
+vector <span class="math inline">\(\mu\in[0,1]^k\)</span> such that
+<span class="math inline">\(X_t(a)\sim Bern(\mu_a)\)</span>.</p></li>
+<li><p><strong>Stochastic Stationary Bandits</strong>: The reward of the
+environment depends only on the current action.</p>
+<p>An example is where <span class="math inline">\(X_t=\langle
+x,\theta\rangle+\eta_t\)</span> where <span
+class="math inline">\(\eta_t\)</span> is a Gaussian. Another example is
+where we replace <span class="math inline">\(Bern\)</span> with Gaussian
+in the Bernoulli case.</p></li>
+<li><p><strong>Adversarial Bandit</strong>: The environment is too
+chaotic, and we only want to calculate regret with some constant policy
+instead of the best one.</p></li>
+<li><p><strong>Limitation (c.f. Reinforcement learning / partial
+monitoring)</strong>: In bandit algos, we only care about today and
+don't need to plan about future. The long-term planning falls into
+Reinforcement Learning. Also, if the reward is not fully observed, it
+falls into partial monitoring.</p></li>
+</ul>
+<h2 id="stochastic-bandits">4 Stochastic Bandits</h2>
+<p>We have a collection of distribution <span
+class="math inline">\(P_a:a\in A\)</span>, and <span
+class="math inline">\(X_t\sim P_{A_t}\)</span>.</p>
+<p>The learner's goal is to maximize <span
+class="math inline">\(S_n=\sum X_t\)</span>. A default choice is to
+maximize <span class="math inline">\(E[S_n]\)</span>, but other property
+like var and tail is also worth considering in some cases.</p>
+<p>The learner often has partial information about <span
+class="math inline">\(\{P_a\}\)</span>. Environment satisfying the
+information forms an environment class <span
+class="math inline">\(E\)</span>.</p>
+<ul>
+<li><p><strong>Unstructured Bandits</strong>: There exists sets of
+distribution <span class="math inline">\(M_a\)</span> for each <span
+class="math inline">\(a\in A\)</span> such that <span
+class="math inline">\(E=\prod_a M_a\)</span>. That is to say, result of
+action <span class="math inline">\(a\)</span> brings no information
+about distribution of action <span class="math inline">\(b\)</span>.</p>
+<p><strong>Parametric</strong>: The number of degrees of freedom needed
+to describe <span class="math inline">\(E\)</span> is finite, like
+Bernoulli bandits.</p></li>
+<li><p><strong>Structured Bandits</strong>:</p>
+<p>Eg1. <span class="math inline">\(A=\{0,1\}\)</span> and <span
+class="math inline">\(P=\{Bern(p),Bern(1-p)\}\)</span>. We can learn
+<span class="math inline">\(p\)</span> just by playing action <span
+class="math inline">\(0\)</span>.</p>
+<p>Eg2. (Stochastic linear bandit) <span
+class="math inline">\(P_a=N(\langle a,\theta\rangle,1)\)</span>. We can
+learn <span class="math inline">\(\theta\)</span> by just playing <span
+class="math inline">\(d\)</span> actions when <span
+class="math inline">\(\theta\in R^d\)</span>.</p></li>
+</ul>
+<p>To formally define regret, for an instance of stochastic bandit <span
+class="math inline">\(v=(P_a)\)</span> and define <span
+class="math inline">\(\mu_a(v)=E_{x\sim P_a}[x]\)</span>, and <span
+class="math inline">\(\mu^*(v)=\max \mu_a(v)\)</span>. That is, <span
+class="math inline">\(\mu^*(v)\)</span> is the reward if always choosing
+the best action.</p>
+<p>Then we define the regret of a learner's policy is <span
+class="math inline">\(R_n(\pi,v)=n\mu^*(v)-E[\sum X_t]\)</span>. We need
+to minimize the regret.</p>
+<p>We hope to find a policy with sublinear regret, that is, <span
+class="math inline">\(\lim \frac{R_n(\pi,v)}{n}=0\)</span>.</p>
+<p><strong>Action gap / immediate regret</strong>: For action <span
+class="math inline">\(a\)</span>, <span
+class="math inline">\(\Delta_a(v)=\mu^*(v)-\mu_a(v)\)</span>. <span
+class="math inline">\(T_a(t)=\sum _{s=1}^t [A_s=a]\)</span>.</p>
+<p><strong>Regret Decomposition Lemma</strong>: Regret <span
+class="math inline">\(R_n=\sum_a \Delta_a E[T_a(n)]\)</span>.</p>
+<p>If provided that everything is approx. measurable, then we have <span
+class="math inline">\(R_n=\int_A \Delta_a E[T_a(n)]\)</span>.</p>
+<p>## 5.3 Subgaussian Random Variables</p>
+<p><strong>Moment GF</strong>: <span
+class="math inline">\(M_X(\lambda)=E[\exp(\lambda X)]\)</span>.</p>
+<p>A random variable is <strong>heavy-tailed</strong> if <span
+class="math inline">\(M_X(\lambda)=\infty\)</span> for all <span
+class="math inline">\(\lambda&gt;0\)</span>.</p>
+<p><strong>Cumulant GF</strong>: <span
+class="math inline">\(\psi_X(\lambda)=\log M_X(\lambda)\)</span>.</p>
+<p><strong>Subgaussian</strong>: A variable <span
+class="math inline">\(X\)</span> is <span
+class="math inline">\(\sigma-\)</span>subgaussian, if <span
+class="math inline">\(\psi_X(\lambda)\le
+\frac{1}{2}\lambda^2\sigma^2\)</span>.</p>
+<p>Theorem: <span class="math inline">\(\sigma-\)</span>subgaussian
+random variable <span class="math inline">\(X\)</span> satisfies: <span
+class="math inline">\(P(X\ge \epsilon)\le
+\exp(-\frac{\epsilon^2}{2\sigma^2})\)</span>.</p>
+<p>A similar expression is that, <span class="math inline">\(P(X \ge
+\sqrt{2\sigma^2\log(1/\delta)})\le \delta\)</span>.</p>
+<hr />
+<p>Lemma: For independent <span
+class="math inline">\(\sigma_1,\sigma_2\)</span> subgaussian variable
+<span class="math inline">\(X_1,X_2\)</span>, we have:</p>
+<ul>
+<li><span class="math inline">\(E[X]=0\)</span>, <span
+class="math inline">\(V[X]\le \sigma^2\)</span>.</li>
+<li><span class="math inline">\(cX\)</span> is <span
+class="math inline">\(|c\sigma|\)</span> subgaussian.</li>
+<li><span class="math inline">\(X_1+X_2\)</span> is <span
+class="math inline">\(\sqrt{\sigma_1^2+\sigma_2^2}\)</span>
+subgaussian.</li>
+</ul>
+<p>Which shows us that, <span
+class="math inline">\(\hat\mu-\mu=\frac{1}{n}\sum (X_t-\mu)\)</span> is
+<span class="math inline">\(\sqrt{n}\sigma\)</span> subgaussian.</p>
+
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+
+<aside id="sidebar-toc">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-list-ul"></i>  
+            文章目录 
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        
+        
+        <div class="panel-body toc-container">
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#the-language-of-bandit"><span class="toc-list-text">1.1 The language of bandit</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#stochastic-bandits"><span class="toc-list-text">4 Stochastic Bandits</span></a></li></ol>
+        </div>
+    </div>
+</aside>
+
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2026/01/19/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-BanditAlgo-1/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2026/01/19/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-BanditAlgo-1/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 14.17194483506397px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 9.235685149340725px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 18.336724669398436px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 8.219364299228062px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 13.844318355605564px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 15.869054614722309px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 11.309011387995923px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 14.697560934334568px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 9.517244682595233px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 9.607536626732546px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 14.937151770591207px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 9.389206417426202px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 13.334254262399668px;" class="tag-cloud-link">高代</a>
+    
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 8.611193724363627px;" class="tag-cloud-link">信概统</a>
+    
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 17.271567901922154px;" class="tag-cloud-link">数算</a>
+    
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 18.625554798734555px;" class="tag-cloud-link">离散</a>
+    
+    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 10.975721494014685px;" class="tag-cloud-link">智障集锦</a>
+    
+    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 14.297049080043182px;" class="tag-cloud-link">读论文</a>
+    
+    <a href="/tags/bandit/" style="font-size: 13.875502253652005px;" class="tag-cloud-link">bandit</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>
