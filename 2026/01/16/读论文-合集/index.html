@@ -10,7 +10,7 @@
     
     
     
-    <title>读论文-过目合集 | lgswdn-SA</title>
+    <title>读论文-合集 | lgswdn-SA</title>
     <link href="http://lgswdn.github.io" rel="prefetch" />
 
     
@@ -216,13 +216,13 @@
         <i class="fa fa-home"></i>
         <a href="http://lgswdn.github.io">lgswdn-SA</a>
         >
-        <span>读论文-过目合集</span>
+        <span>读论文-合集</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2026/01/16/%E8%AF%BB%E8%AE%BA%E6%96%87-%E8%BF%87%E7%9B%AE%E5%90%88%E9%9B%86/">读论文-过目合集</a>
+                <a href="/2026/01/16/%E8%AF%BB%E8%AE%BA%E6%96%87-%E5%90%88%E9%9B%86/">读论文-合集</a>
             </h1>
         </div>
         <div class="tag-article">
@@ -245,7 +245,7 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2026/01/16/%E8%AF%BB%E8%AE%BA%E6%96%87-%E8%BF%87%E7%9B%AE%E5%90%88%E9%9B%86/">读论文-过目合集</a>
+                    <a href="/2026/01/16/%E8%AF%BB%E8%AE%BA%E6%96%87-%E5%90%88%E9%9B%86/">读论文-合集</a>
                 </h4>
             </div>
             <p>
@@ -290,9 +290,9 @@ pixel feature is similar to other pixel of the same seg class.</p></li>
 the 4.5B VISTA(another viewpoint augmentation method). However MANGO is
 just much faster.</p>
 <h4
-id="activevla-injecting-active-perception-into-vision-language-action-models-for-precise-3d-robotic-manipulation">ActiveVLA:
-Injecting Active Perception into Vision-Language-Action Models for
-Precise 3D Robotic Manipulation</h4>
+id="activevla-injecting-active-perception-into-vision-language-action-models-for-precise-3d-robotic-manipulation">*
+ActiveVLA: Injecting Active Perception into Vision-Language-Action
+Models for Precise 3D Robotic Manipulation</h4>
 <p>link: https://arxiv.org/pdf/2601.08325</p>
 <p>Problem: current VLA models only have static vision perception, which
 might fail when occlusion occurs.</p>
@@ -326,8 +326,9 @@ changes.</li>
 <li>Real-robot: Claims a ~90% success rate on occlusion scenarios.</li>
 </ul>
 <h4
-id="stereovla-enhancing-vision-language-action-models-with-stereo-vision">StereoVLA:
-Enhancing Vision-Language-Action Models with Stereo Vision</h4>
+id="stereovla-enhancing-vision-language-action-models-with-stereo-vision">*
+StereoVLA: Enhancing Vision-Language-Action Models with Stereo
+Vision</h4>
 <p>link: https://arxiv.org/pdf/2512.21970</p>
 <p>Summary: This work proposes a novel Geometric-Semantic feature
 Extraction using existed works to extract and fuse semantic feature from
@@ -356,9 +357,9 @@ object where current SOTA couldn't pick up.</p>
 <p>It is worth mentioning that other models often close the gripper too
 early, possibly due to the lack of precise spatial perception.</p>
 <h4
-id="twinaligner-visual-dynamic-alignment-empowers-physics-aware-real2sim2real-for-robotic-manipulation">TwinAligner:
-Visual-Dynamic Alignment Empowers Physics-aware Real2Sim2Real for
-Robotic Manipulation</h4>
+id="twinaligner-visual-dynamic-alignment-empowers-physics-aware-real2sim2real-for-robotic-manipulation">*
+TwinAligner: Visual-Dynamic Alignment Empowers Physics-aware
+Real2Sim2Real for Robotic Manipulation</h4>
 <p>link: https://arxiv.org/pdf/2512.19390</p>
 <p>Summery: This work proposes a novel Real2Sim2Real system that
 enhances pixel-level visual alignment and dynamic consistency for both
@@ -416,7 +417,7 @@ decrease.</p></li>
 <p>Limitation: the PPO-based RL framework seems hard to be directly
 moved to the diffusion-based policies. However, the dense reward seems a
 reasonable option to be considered.</p>
-<h4 id="vita-vision-to-action-flow-matching-policy">VITA:
+<h4 id="vita-vision-to-action-flow-matching-policy">* VITA:
 VISION-TO-ACTION FLOW MATCHING POLICY</h4>
 <p>link: https://arxiv.org/pdf/2507.13231</p>
 <p>Summary: this work proposes a faster flow matching policy that does
@@ -459,6 +460,78 @@ deterministic trajectory rather than a multi-model distribution.</li>
 <li>Though the FLD acts as a MSE loss, this loss actually ensures that
 the action is precise enough, and optimizes both the decoder and
 velocity prediction.</li>
+</ul>
+<h4 id="dynamicvla">DynamicVLA</h4>
+<p>link: https://arxiv.org/pdf/2601.22153</p>
+<p>Summary: this work presents a 0.4B model to improve the grasp of
+dynamic objects with continuous interface and latent-aware action
+streaming. Also, it launch a simulated dataset and benchmark regarding
+dynamic manipulation.</p>
+<p>Model: A VLA with flow matching as action expert with the following
+changes:</p>
+<ul>
+<li>Uses a convolution-based vision encoder FastViT to save time.</li>
+<li>Truncate the language backbone to the first 16 transformer
+layers.</li>
+</ul>
+<p>The continuous interface states that, the model predicts the actions
+of the next <span class="math inline">\(n\)</span> timesteps for each
+interface, while interfaces for every <span
+class="math inline">\(m\)</span> timesteps. Thus, when <span
+class="math inline">\(n&gt;m\)</span> we reaches a continuous interface.
+Also, the latent-aware action streaming states that, when there are
+multiple prediction for a timestep, simply use the newest
+prediction.</p>
+<p>A more valuable work is the dataset and benchmark. The DOM benchmark
+generate episodes in simulation by: predicting near-future (~0.23s)
+object motion, then continuously place the gripper 10cm above, then
+grasp and place and reset. For real-world data, they use RGBD camera to
+approximate object state and do similar stuffs.</p>
+<p>ps (a small insight from a discussion with the co-author): Franka is
+really unsuitable for such work that needs fast operation.</p>
+<h4
+id="world-gymnast-training-robots-with-reinforcement-learning-in-a-world-model">World-Gymnast:
+Training Robots with Reinforcement Learning in a World Model</h4>
+<p>link: https://arxiv.org/pdf/2602.02454</p>
+<p>This work proposes a method of training fine-tuning RL on VLA using
+world model rather than simulator, bridging sim2real gap and allowing
+test-time optimization.</p>
+<p>Method: Directly use a pretrained world model as a simulator, and a
+VLM judging the final reward. That is, given a initial frame (or a frame
+that is close enough to the initial frame distribution), repeatedly
+generate action using VLA and status using world model, and use a GRPO
+to optimize policy. The real-world deployment result is used to further
+improve the world model.</p>
+<p>Pic generation model (nano banana) is used to add distractor in the
+visual frame for robustness. Also, novel tasks (given initial frame and
+instruction) can be used for generalization.</p>
+<p>For test-time optimization, World-Gymnast can run RL training in the
+world model starting from the test frame, though causing overfit.</p>
+<h4
+id="foldnet-learning-generalizable-closed-loop-policy-for-garment-folding-via-keypoint-driven-asset-and-demonstration-synthesis">FoldNet:
+Learning Generalizable Closed-Loop Policy for Garment Folding via
+Keypoint-Driven Asset and Demonstration Synthesis</h4>
+<p>link: https://arxiv.org/pdf/2505.09109</p>
+<p>This work proposes a sim2real garment folding learning framework
+through a keypoint-based garment generation &amp; demonstration
+generation (for 4 types of garments) and KG-DAgger, a method to improve
+the policy's robustness to failure recovery.</p>
+<p>For each type of garment, the author manually select important
+keypoints, and a garment is generated by the following steps: randomize
+on keypoints parameters, generate borders connecting keypoints,
+heuristically define Z coordinate and UV coordinate for mesh, and
+generate texture using stable diffusion, followed by a VLM choosing the
+best texture.</p>
+<p>The benefit of keypoints is that we can define a keypoint-base
+algorithm for demonstration, which leads us to KG-DAgger:</p>
+<ul>
+<li>First train a vision-based model <span
+class="math inline">\(M_0\)</span> using generated demonstrations.</li>
+<li><span class="math inline">\(M_i\)</span> is optimized from <span
+class="math inline">\(M_{i-1}\)</span> by, spotting errors in
+trajectories generated from <span class="math inline">\(M_{i-1}\)</span>
+and adding the fixed trajectory generated by keypoint-base algorithm to
+the dataset.</li>
 </ul>
 
     </div>
@@ -531,14 +604,18 @@ velocity prediction.</li>
         <div class="panel-body toc-container">
             <ol class="toc-list"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#sim2real-image-translation-enables-viewpoint-robust-policies-from-fixed-camera-datasets"><span class="toc-list-text">Sim2real
 Image Translation Enables Viewpoint Robust Policies from Fixed-Camera
-Datasets</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#activevla-injecting-active-perception-into-vision-language-action-models-for-precise-3d-robotic-manipulation"><span class="toc-list-text">ActiveVLA:
-Injecting Active Perception into Vision-Language-Action Models for
-Precise 3D Robotic Manipulation</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#stereovla-enhancing-vision-language-action-models-with-stereo-vision"><span class="toc-list-text">StereoVLA:
-Enhancing Vision-Language-Action Models with Stereo Vision</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#twinaligner-visual-dynamic-alignment-empowers-physics-aware-real2sim2real-for-robotic-manipulation"><span class="toc-list-text">TwinAligner:
-Visual-Dynamic Alignment Empowers Physics-aware Real2Sim2Real for
-Robotic Manipulation</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#on-the-fly-vla-adaptation-via-test-time-reinforcement-learning"><span class="toc-list-text">On-the-Fly
-VLA Adaptation via Test-Time Reinforcement Learning</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#vita-vision-to-action-flow-matching-policy"><span class="toc-list-text">VITA:
-VISION-TO-ACTION FLOW MATCHING POLICY</span></a></li></ol>
+Datasets</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#activevla-injecting-active-perception-into-vision-language-action-models-for-precise-3d-robotic-manipulation"><span class="toc-list-text">*
+ActiveVLA: Injecting Active Perception into Vision-Language-Action
+Models for Precise 3D Robotic Manipulation</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#stereovla-enhancing-vision-language-action-models-with-stereo-vision"><span class="toc-list-text">*
+StereoVLA: Enhancing Vision-Language-Action Models with Stereo
+Vision</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#twinaligner-visual-dynamic-alignment-empowers-physics-aware-real2sim2real-for-robotic-manipulation"><span class="toc-list-text">*
+TwinAligner: Visual-Dynamic Alignment Empowers Physics-aware
+Real2Sim2Real for Robotic Manipulation</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#on-the-fly-vla-adaptation-via-test-time-reinforcement-learning"><span class="toc-list-text">On-the-Fly
+VLA Adaptation via Test-Time Reinforcement Learning</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#vita-vision-to-action-flow-matching-policy"><span class="toc-list-text">* VITA:
+VISION-TO-ACTION FLOW MATCHING POLICY</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#dynamicvla"><span class="toc-list-text">DynamicVLA</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#world-gymnast-training-robots-with-reinforcement-learning-in-a-world-model"><span class="toc-list-text">World-Gymnast:
+Training Robots with Reinforcement Learning in a World Model</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#foldnet-learning-generalizable-closed-loop-policy-for-garment-folding-via-keypoint-driven-asset-and-demonstration-synthesis"><span class="toc-list-text">FoldNet:
+Learning Generalizable Closed-Loop Policy for Garment Folding via
+Keypoint-Driven Asset and Demonstration Synthesis</span></a></li></ol>
         </div>
     </div>
 </aside>
@@ -556,13 +633,13 @@ VISION-TO-ACTION FLOW MATCHING POLICY</span></a></li></ol>
 
                 
                 <li>
-                    <a href="/2026/01/16/%E8%AF%BB%E8%AE%BA%E6%96%87-%E8%BF%87%E7%9B%AE%E5%90%88%E9%9B%86/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2026/01/16/%E8%AF%BB%E8%AE%BA%E6%96%87-%E5%90%88%E9%9B%86/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 
                 <li>
-                    <a href="/2026/01/16/%E8%AF%BB%E8%AE%BA%E6%96%87-%E8%BF%87%E7%9B%AE%E5%90%88%E9%9B%86/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2026/01/16/%E8%AF%BB%E8%AE%BA%E6%96%87-%E5%90%88%E9%9B%86/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -570,43 +647,43 @@ VISION-TO-ACTION FLOW MATCHING POLICY</span></a></li></ol>
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 12.786364071382422px;" class="tag-cloud-link">总结</a>
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 17.01357778658523px;" class="tag-cloud-link">总结</a>
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 13.51286068756464px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 14.127571127596731px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 10.867248795943873px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 15.489167972723802px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/ICS/" style="font-size: 11.37083443636862px;" class="tag-cloud-link">ICS</a>
+    <a href="/tags/ICS/" style="font-size: 10.83818502317077px;" class="tag-cloud-link">ICS</a>
     
-    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 16.35686032766301px;" class="tag-cloud-link">具身</a>
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 19.696012527457942px;" class="tag-cloud-link">具身</a>
     
-    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 19.377598802118836px;" class="tag-cloud-link">初恋日记</a>
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 12.176114477758924px;" class="tag-cloud-link">初恋日记</a>
     
-    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 8.246610554350978px;" class="tag-cloud-link">腾讯星火营</a>
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 17.262566654302454px;" class="tag-cloud-link">腾讯星火营</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 11.88663765637388px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 14.199586530025757px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 11.08418000334099px;" class="tag-cloud-link">程设</a>
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 17.059846166223267px;" class="tag-cloud-link">程设</a>
     
-    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 12.861532385984734px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 18.715071150503213px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
     
-    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 16.521437516720603px;" class="tag-cloud-link">波伏娃</a>
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 17.074895703902826px;" class="tag-cloud-link">波伏娃</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 18.997865517931643px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 8.42152907295392px;" class="tag-cloud-link">音数</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 19.730114907506522px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 12.390319225251009px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 15.339308568468109px;" class="tag-cloud-link">信概统</a>
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 16.66688527370122px;" class="tag-cloud-link">信概统</a>
     
-    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 19.267058262282436px;" class="tag-cloud-link">数算</a>
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 13.335702772781529px;" class="tag-cloud-link">数算</a>
     
-    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 10.138185866108323px;" class="tag-cloud-link">离散</a>
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 11.500429412069943px;" class="tag-cloud-link">离散</a>
     
-    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 8.15804987375773px;" class="tag-cloud-link">智障集锦</a>
+    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 18.47545941921086px;" class="tag-cloud-link">智障集锦</a>
     
-    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 12.463800113477195px;" class="tag-cloud-link">读论文</a>
+    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 17.52284961353365px;" class="tag-cloud-link">读论文</a>
     
-    <a href="/tags/bandit/" style="font-size: 13.690414635465503px;" class="tag-cloud-link">bandit</a>
+    <a href="/tags/bandit/" style="font-size: 15.009618531025332px;" class="tag-cloud-link">bandit</a>
     
 </div>
                 

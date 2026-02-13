@@ -384,6 +384,63 @@ class="math inline">\(\frac{1}{\Delta_i}\)</span>.</p>
 <p>Theorem 2: <span class="math display">\[
 R_n\le 8\sqrt{nk\log n}+3\sum \Delta_i
 \]</span></p>
+<p>Proof:</p>
+<ul>
+<li><p>Using the result we get that the expected chosen time of <span
+class="math inline">\(i\)</span> will not exceeded <span
+class="math display">\[
+3+\frac{16\log n}{\Delta_i^2}
+\]</span></p></li>
+<li><p>For any selected <span class="math inline">\(\Delta\)</span>,
+separate the arms into two groups according to <span
+class="math inline">\(\Delta\)</span>. For ones with <span
+class="math inline">\(\Delta_i\le \Delta\)</span>, the sum of regrets
+<span class="math inline">\(\le n\Delta\)</span>. While for ones with
+<span class="math inline">\(\Delta_i&gt;\Delta\)</span>, the sum of
+regrets <span class="math inline">\(\le \frac{16k\log n}{\Delta} 3\sum
+\Delta_i\)</span>.</p></li>
+<li><p>Choosing <span class="math inline">\(\Delta=\sqrt{16k\log
+n/n}\)</span> brings us the result.</p></li>
+</ul>
+<h2 id="asymptotically-optimal-ucb">8 Asymptotically Optimal UCB</h2>
+<p>The asymptotically optimal UCB optimize the vanilla UCB by:</p>
+<ul>
+<li>The vanilla UCB setting $= $ needs to know <span
+class="math inline">\(n\)</span> beforehand, and the asymptotically
+optimal UCB eliminates this need.</li>
+<li>Optimize the constant of the logarithm factor.</li>
+</ul>
+<p>The algorithm simply changes the UCB to <span class="math display">\[
+A_t=\arg\max_i \mu_i(t-1)+\sqrt{\frac{2\log f(t)}{T_i(t-1)}}
+\]</span> where <span
+class="math inline">\(f(t)=1+t\log^2t\)</span>.</p>
+<p>That is, changing <span class="math inline">\(1/\delta\)</span> to
+<span class="math inline">\(f(t)\)</span> in the original formula. It is
+worth noticing that we could actually choose <span
+class="math inline">\(f(t)=t\log^{\alpha}(t)\)</span> for any <span
+class="math inline">\(\alpha&gt;0\)</span>. If rewards are gaussian,
+<span class="math inline">\(f(t)=t\)</span> is also acceptable.</p>
+<p>Theorem: <span class="math display">\[
+R_n\le \sum_{i,\Delta_i&gt;0} \inf_{\epsilon\in(0,\Delta_i)}
+\Delta_i(1+\frac{5}{\epsilon^2}+\frac{2(\log f(n)+\sqrt{\pi\log
+f(n)}+1)}{(\Delta_i-\epsilon)^2})
+\]</span></p>
+<h2 id="minimax-optimality-ucb">9 Minimax Optimality UCB</h2>
+<p>The MOSS algorithm set the UCB as <span class="math display">\[
+A_t=\arg\max_i
+\hat\mu_i(t-1)+\sqrt{\frac{4}{T_i(t-1)}\log^+(\frac{n}{kT_i(t-1)})}
+\]</span> where <span
+class="math inline">\(\log^+=\log(\max(1,))\)</span></p>
+<p>Theorem: <span class="math display">\[
+R_n\le 39\sqrt{kn}+\sum \Delta_i
+\]</span> In fact, for any <span
+class="math inline">\(\sigma\)</span>-subgaussian, let <span
+class="math inline">\(S_n=\sum X_i\)</span>, then we have <span
+class="math display">\[
+P(\exist t\le n, S_t\ge \epsilon)\le
+\exp(-\frac{\epsilon^2}{2n\sigma^2})
+\]</span> MOSS algorithm is aggressive on reducing regret. However, it
+makes the regret distribution very unstable.</p>
 
     </div>
 </article>
@@ -453,7 +510,7 @@ R_n\le 8\sqrt{nk\log n}+3\sum \Delta_i
         
         
         <div class="panel-body toc-container">
-            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#explore-then-commit-algo"><span class="toc-list-text">6 Explore Then Commit Algo</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#upper-confidence-bound-algo"><span class="toc-list-text">7 Upper Confidence Bound Algo</span></a></li></ol>
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#explore-then-commit-algo"><span class="toc-list-text">6 Explore Then Commit Algo</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#upper-confidence-bound-algo"><span class="toc-list-text">7 Upper Confidence Bound Algo</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#asymptotically-optimal-ucb"><span class="toc-list-text">8 Asymptotically Optimal UCB</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#minimax-optimality-ucb"><span class="toc-list-text">9 Minimax Optimality UCB</span></a></li></ol>
         </div>
     </div>
 </aside>
@@ -485,43 +542,43 @@ R_n\le 8\sqrt{nk\log n}+3\sum \Delta_i
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 11.589897995540976px;" class="tag-cloud-link">总结</a>
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 12.768676831253659px;" class="tag-cloud-link">总结</a>
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 17.499813178783864px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 9.624105029516931px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 11.707655123310836px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 15.837539018201163px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/ICS/" style="font-size: 15.303279093401052px;" class="tag-cloud-link">ICS</a>
+    <a href="/tags/ICS/" style="font-size: 17.087835216633614px;" class="tag-cloud-link">ICS</a>
     
-    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 11.137874965443938px;" class="tag-cloud-link">具身</a>
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 17.820240569725517px;" class="tag-cloud-link">具身</a>
     
-    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 9.487409747337841px;" class="tag-cloud-link">初恋日记</a>
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 17.43064095952998px;" class="tag-cloud-link">初恋日记</a>
     
-    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 14.051413813557847px;" class="tag-cloud-link">腾讯星火营</a>
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 18.599483458187635px;" class="tag-cloud-link">腾讯星火营</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 19.494741087440808px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 11.672257990050511px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 11.816039770567361px;" class="tag-cloud-link">程设</a>
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 17.956992820647596px;" class="tag-cloud-link">程设</a>
     
-    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 9.70338082328541px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 8.786019625008691px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
     
-    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 19.068966767462847px;" class="tag-cloud-link">波伏娃</a>
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 11.510859330898086px;" class="tag-cloud-link">波伏娃</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 9.220361932121099px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 13.468882820787881px;" class="tag-cloud-link">音数</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 18.704830749657187px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 17.251346560591873px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 14.729199568808989px;" class="tag-cloud-link">信概统</a>
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 15.793189181276542px;" class="tag-cloud-link">信概统</a>
     
-    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 19.418143169635773px;" class="tag-cloud-link">数算</a>
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 16.948519993474157px;" class="tag-cloud-link">数算</a>
     
-    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 11.099413741532736px;" class="tag-cloud-link">离散</a>
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 9.907241136358625px;" class="tag-cloud-link">离散</a>
     
-    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 11.217489182029832px;" class="tag-cloud-link">智障集锦</a>
+    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 18.37150329582935px;" class="tag-cloud-link">智障集锦</a>
     
-    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 18.4444987946871px;" class="tag-cloud-link">读论文</a>
+    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 18.382781255354168px;" class="tag-cloud-link">读论文</a>
     
-    <a href="/tags/bandit/" style="font-size: 9.083950832996631px;" class="tag-cloud-link">bandit</a>
+    <a href="/tags/bandit/" style="font-size: 18.67034943936754px;" class="tag-cloud-link">bandit</a>
     
 </div>
                 
