@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>学习笔记-BanditAlgo-5 | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>学习笔记-BanditAlgo-5</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2026/02/20/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-BanditAlgo-5/">学习笔记-BanditAlgo-5</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/bandit/">bandit</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2026-02-20
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2026/02/20/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-BanditAlgo-5/">学习笔记-BanditAlgo-5</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2026-02-20
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/bandit/">bandit</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h2 id="contextual-bandit">18 Contextual Bandit</h2>
+<p>In reality, we not only observe the action-reward pair, but we also
+observe some contexts and make our decisions accordingly.</p>
+<h4 id="one-bandit-per-context">One bandit per context</h4>
+<p>In this section we mainly focus on adversarial bandit, where we
+observe a secretly chosen context <span
+class="math inline">\(c_t\)</span> before we select action distribution
+<span class="math inline">\(P_t\)</span>.</p>
+<p>And we want to compare our policy with context-dependent fix policy.
+That is, <span class="math display">\[
+R_n=E[\sum_{c\in C} \max_{i\in[k]} \sum_{c_t=c}(x_{t,i}-X_t)]
+\]</span> If <span class="math inline">\(C\)</span> is finite, then a
+natural policy is to use a exp-3 for each <span
+class="math inline">\(c\)</span>, and get a regret of <span
+class="math display">\[
+R_n=\sum_{c\in C} R_{n,c}\le 2\sqrt{(\#[c_t=c])\times k\log k}
+\]</span> When all <span class="math inline">\(c\)</span> appears
+equally often, we have the worth-case upper bound <span
+class="math inline">\(2\sqrt{|C|nk\log k}\)</span>.</p>
+<h4 id="bandit-with-expert-advice-exp4">Bandit with expert advice &amp;
+Exp4</h4>
+<p>In the bandit with expert advice framework, we have <span
+class="math inline">\(M\)</span> experts making recommendation. That is,
+there is a <span class="math inline">\(E^{(t)}_{M\times k}\)</span> for
+each timestep where each row represent the action distribution of the
+expert. And in each timestep, we calculate a leaner's action
+distribution based on <span class="math inline">\(E\)</span> and get our
+own reward. The regret is compared with the best expert.</p>
+<p>Under such scenario we have exp4 algorithm:</p>
+<ul>
+<li><p>Maintain a distribution <span class="math inline">\(Q_t\)</span>
+with initial state <span
+class="math inline">\((\frac{1}{m},\dots,\frac{1}{m})\)</span>.</p></li>
+<li><p>For each round, sample <span class="math inline">\(A_t\)</span>
+from <span class="math inline">\(P_t=Q_tE^{(t)}\)</span> and get reward
+<span class="math inline">\(X_t=x_{t,A_t}\)</span>.</p></li>
+<li><p>Calculate loss-based importance weighing <span
+class="math inline">\(\tilde
+X_{t,i}=1-\frac{[A_t=i]}{P_{t,i}+\gamma}(1-X_t)\)</span>.</p></li>
+<li><p>Update <span class="math inline">\(Q_t\)</span> by <span
+class="math inline">\(Q_{t+1,i}\sim\hat \exp(\eta \tilde X_{t,i})
+Q_{t,i}\)</span>.</p></li>
+</ul>
+<p>When <span class="math inline">\(\gamma=0\)</span> and <span
+class="math inline">\(\eta=\sqrt{\frac{2\log m}{nk}}\)</span>, <span
+class="math inline">\(R_n\le \sqrt{nk\log m}\)</span>.</p>
+<p>In the former one bandit per context scenery, we could see the the
+class of experts as all functions from <span class="math inline">\(C\to
+[k]\)</span>.</p>
+<p>One way to measure the agreements between experts is <span
+class="math inline">\(E^*_t=\sum_{s=1}^t \sum_{i=1}^k \max_{j}
+E^{(s)}_{j,i}\)</span>. It is obvious that <span
+class="math inline">\(E^*_n\le n\min(k,m)\)</span>. Then <span
+class="math inline">\(E^*_n/n\)</span> could be used to measure
+effective number of experts. In fact, we could set <span
+class="math inline">\(\eta_t=\sqrt{\frac{\log m}{E^*_t}}\)</span> to
+achieve a bound of <span class="math inline">\(O (\sqrt{E^*_n\log
+m})\)</span>.</p>
+<h2 id="stochastic-linear-bandits">19 Stochastic Linear Bandits</h2>
+<p>In round <span class="math inline">\(t\)</span>, the learner observes
+the context <span class="math inline">\(c_t\)</span> and made an action
+<span class="math inline">\(a_t\)</span>. The difference is that, the
+reward is <span class="math inline">\(X_t=r(c_t,a_t)+\eta_t\)</span>
+where <span class="math inline">\(\eta_t\)</span> is a noise which we
+assume to be a 1-subgaussian conditioned on previous
+action&amp;context&amp;reward.</p>
+<p>A simple assumption to capture further information is to assume that
+we have a feature map <span class="math inline">\(\psi:C\times [k]\to
+\mathbb R^d\)</span> and <span
+class="math inline">\(r(c,a)=&lt;\theta,\psi(c,a)&gt;\)</span>.</p>
+<p>This leads to a simplified version where <span
+class="math inline">\(X_t=\langle\theta,A_t\rangle+\eta_t\)</span> and
+<span class="math inline">\(A_t\in \mathcal A_t\subset \mathbb
+R^d\)</span>. In such scenario, we can define random pseudo regret <span
+class="math inline">\(\tilde R_n=\sum_{a&#39;\in \mathcal
+A_t}\langle\theta,a-A_t\rangle\)</span> and regret <span
+class="math inline">\(R_n=E[\tilde R_n]\)</span>. Setting <span
+class="math inline">\(\mathcal A_t=\{\psi(c_t,i)\}\)</span> brings us
+the above contextual linear bound,</p>
+<p>We will try to generalize UCB to the stochastic linear bandit, named
+LinUCB.</p>
+<p>The main logic of LinUCB is to select a confidence set <span
+class="math inline">\(\mathcal C_t\subset \mathbb R^d\)</span> each
+round and calculate <span
+class="math inline">\(UCB_t(a)=\max_{\theta\in\mathcal C_t}\langle
+\theta,a\rangle\)</span>, and action with the max UCB is selected as
+<span class="math inline">\(A_t\)</span>.</p>
+<p>The confidence set needs to satisfy that, there is high probability
+that <span class="math inline">\(\theta\)</span> is in <span
+class="math inline">\(\mathcal C_t\)</span>, and it is small enough for
+calculation.</p>
+<p>Anyway, we can have an estimation of <span
+class="math inline">\(\theta\)</span> according to previous observation.
+The metric we use is normalized MSE, that is, <span
+class="math inline">\(\arg\min_{\theta} \sum_{s\in [t]}
+(X_s-\langle\theta,A_s\rangle)^2+\lambda ||\theta||^2\)</span>. The
+solution to this formula is easy: <span class="math display">\[
+\hat\theta_t=(\lambda I+\sum_{s\in[t]} A_sA_s^{T})\sum_{s\in[t]} A_sX_s
+\]</span> Then we simply choose <span class="math inline">\(\mathcal
+C_t=\{\theta\mid  ||\theta-\hat \theta_t||^2_{V_t}\le
+\beta_t\}\)</span>, where <span class="math inline">\(V_t=\lambda
+I+\sum_{s\in[t]} A_sA_s^{T}\)</span>, which is an ellipsoid centered at
+<span class="math inline">\(\hat \theta_t\)</span> with axis =
+eigenvectors of <span class="math inline">\(V_t\)</span>. As volume of
+<span class="math inline">\(V_t\)</span> increases throughout the
+process, <span class="math inline">\(\beta_t\)</span> needs to increase
+accordingly.</p>
+<p>When <span class="math inline">\(||a||\le L\)</span>, The regret of
+LinUCB satisfies <span class="math inline">\(\hat R_n\le
+\sqrt{8dn\beta_n\log(\frac{d\lambda+dL^2}{d\lambda})}\)</span>. Let
+<span class="math inline">\(m\)</span> be the upperbound of <span
+class="math inline">\(||\theta||\)</span>, <span
+class="math inline">\(\sqrt{\beta_n}\)</span> is chosen to be <span
+class="math inline">\(\sqrt{\lambda}m+\sqrt{2\log
+(\frac{1}{\delta})+d\log(\frac{d\lambda+dL^2}{d\lambda})}\)</span>. When
+<span class="math inline">\(\delta=1/n\)</span>, we achieve a bound of
+<span class="math inline">\(O(d\sqrt n \log (nL))\)</span>.</p>
+<h2 id="optimal-design-for-least-squares-estimators">21 Optimal Design
+for Least Squares Estimators</h2>
+<p>For easier calculation, we drop out the regularization term first.
+That brings us <span class="math inline">\(\hat
+\theta=V^{-1}\sum_{t=1}^n a_tX_t\)</span> where <span
+class="math inline">\(V=\sum_{s\in [t]} a_sa^T_s\)</span>.</p>
+<p>This chapter focuses on developing a strategy to quickly shrink the
+size of the confidence set <span class="math inline">\(\mathcal
+C_t\)</span>. We are not developing a fixed combinatorial optimization.
+Instead, we need a design, or a distribution of action <span
+class="math inline">\(\pi(a)\)</span> (the probability of playing action
+<span class="math inline">\(a\)</span>), that gathers the most
+information. Then we could define <span
+class="math inline">\(V(\pi)=\sum_{a\in \mathcal
+A}\pi(a)a_sa_s^T\)</span>, which presents the information of each
+dimension.</p>
+<p>G-optimal:</p>
+<ul>
+<li>Define the maximum uncertainty across available actions: <span
+class="math inline">\(g(\pi)=\max_{a\in\mathcal A}
+||a||_{V(\pi)^{-1}}^2\)</span>.</li>
+<li>Minimize <span class="math inline">\(g(\pi)\)</span>.</li>
+</ul>
+<p>D-optimal:</p>
+<ul>
+<li>Work directly on <span class="math inline">\(V(\pi)\)</span>.Define
+<span class="math inline">\(d(\pi)=\log \det V(\pi)\)</span>.</li>
+<li>Maximize <span class="math inline">\(d(\pi)\)</span>.</li>
+</ul>
+<p>To ensure the confidence width <span class="math inline">\(\le
+\epsilon\)</span> with probability <span
+class="math inline">\(1-\delta\)</span>, the number of each action taken
+<span
+class="math inline">\(n_a=\frac{2\pi(a)g(\pi)}{\epsilon^2}\log(\frac{1}{\delta})\)</span>,
+bounding the total actions needed <span class="math inline">\(n\le
+|Supp(\pi)|+\frac{2g(\pi)}{\epsilon^2}\log(\frac{1}{\delta})\)</span>.</p>
+<p>Kiefer-Wolfowitz Theorem: G-optimal is equivalent to D-optimal, and
+the minimum <span class="math inline">\(g(\pi)=d\)</span>, the dimension
+of the linear space. Furthermore, there exists a design such that <span
+class="math inline">\(|Supp(\pi)|\le d(d+1)/2\)</span>.</p>
+<h2 id="stochastic-linear-bandits-with-finitely-many-arms">22 Stochastic
+Linear Bandits with Finitely Many Arms</h2>
+<p>When <span class="math inline">\(\mathcal A_t\)</span> is fixed and
+finite with <span class="math inline">\(|\mathcal A|=k\)</span>, it is
+possible to reduce the regret to <span
+class="math inline">\(O(\sqrt{nd\log (k\log n /  \delta)})\)</span>.</p>
+<p>We have the following algorithm (initially <span
+class="math inline">\(l=1\)</span>):</p>
+<ol type="1">
+<li>Find G-optimal design <span class="math inline">\(\pi_l\in
+P(\mathcal A)\)</span>. Let <span
+class="math inline">\(\epsilon=2^{-l}\)</span>.</li>
+<li>Set <span
+class="math inline">\(T_l(a)=\frac{2d\pi_l(a)}{\epsilon^2}\log(\frac{kl(l+1)}{\delta})\)</span>
+and perform action <span class="math inline">\(a\)</span> for <span
+class="math inline">\(T_l(a)\)</span> times.</li>
+<li>Calculate the empirical estimate <span class="math inline">\(\hat
+\theta_l=V_l^{-1}\sum_{t\in T_l} a_tX_t\)</span> where <span
+class="math inline">\(T_l\)</span> are timesteps in the current
+round.</li>
+<li>Eliminate arms with low UCB: <span class="math inline">\(\mathcal
+A\leftarrow \{a:\max_{b\in \mathcal A} \langle\hat \theta_l,b-a\rangle
+\ge 2\epsilon\}\)</span> and go back to 1.</li>
+</ol>
+<p><span class="math inline">\(\delta=1/n\)</span> brings us the regret
+of <span class="math inline">\(O(\sqrt{nd\log nk})\)</span>.</p>
+<h2 id="stochastic-linear-bandits-with-sparsity">23 Stochastic Linear
+Bandits with Sparsity</h2>
+<p>The difference is that <span class="math inline">\(\theta\)</span> is
+assumed to have many zero entries. In reality, that means there are many
+redundant features. Let <span
+class="math inline">\(||\theta||_0\)</span> be <span
+class="math inline">\(\sum_i [\theta_i\neq 0]\)</span>. The sparse
+condition is to say, <span class="math inline">\(||\theta||_0\le
+m_0\)</span> and <span class="math inline">\(||\theta||_2\le
+m_2\)</span>. Also, we assume that <span
+class="math inline">\(\langle\theta,a\rangle\le 1\)</span>.</p>
+<h4 id="hypercube-case">Hypercube case</h4>
+<p>A simple case is where we constrain <span
+class="math inline">\(a\)</span> to be a hypercube <span
+class="math inline">\([-1,1]^{d}\)</span>. Thus the optimal <span
+class="math inline">\(a\)</span> is <span
+class="math inline">\(a=sgn(\theta)\)</span>.</p>
+<p>Let's assume that <span class="math inline">\(a_t\)</span> could be
+seen as sampled from a Rademacher distribution, and this brings us <span
+class="math inline">\(E[A_{t,i}X_t]=\theta_i\)</span> and <span
+class="math inline">\(V[A_{t,i}X_t]=E[A_{t,i}^2X_t^2]-\theta_i^2=E[(\langle\theta,A_t\rangle+\eta)^2]\le
+2\)</span>.</p>
+<p>Our policy for the hypercube case is rather simple, by treating each
+dimension independently. For each dimension, it is a simple <span
+class="math inline">\(\pm 1\)</span> 2-arm bandit problem, and we could
+take a similar explore-and-commit method.</p>
+<ol type="1">
+<li>Set <span class="math inline">\(E_{1,i}=1\)</span> and <span
+class="math inline">\(C_i=R\)</span>. We try to reduce <span
+class="math inline">\(C\)</span> to <span
+class="math inline">\((0,+\infty)\)</span> or <span
+class="math inline">\((-\infty,0)\)</span>.</li>
+<li>For each <span class="math inline">\(i\)</span>, if <span
+class="math inline">\(0\in C_i\)</span> set <span
+class="math inline">\(A_{t,i}\sim \pm 1\)</span>, otherwise set <span
+class="math inline">\(A_{t,i}=sgn(C_i)\)</span>.</li>
+<li>Construct empirical estimators <span
+class="math inline">\(T_i(t)=\sum_{s=1}^t E_{s,i}\)</span> and <span
+class="math inline">\(\hat \theta_{t,i}=\frac{\sum
+E_{s,i}X_{s}A_{s,i}}{\sum E_{s,i}}\)</span>.</li>
+<li>Construct confidence interval <span
+class="math inline">\(W_{t,i}=2\sqrt{(\frac{1}{T_i(t)}+\frac{1}{T_i^2(t)})\log
+(n\sqrt{2T_i(t)+1})}\)</span> and <span
+class="math inline">\(C_i\leftarrow\hat \theta_{t,i}\pm
+W_{t,i}\)</span>.</li>
+<li><span class="math inline">\(E_{t+1,i}=E_{t,i}\times [0\not\in
+C_i]\)</span>.</li>
+</ol>
+<p>The regret satisfies <span
+class="math inline">\(R_n=O(||\theta||_1+||\theta_0||\sqrt{n\log
+n})\)</span>.</p>
+
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+
+<aside id="sidebar-toc">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-list-ul"></i>  
+            文章目录 
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        
+        
+        <div class="panel-body toc-container">
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#contextual-bandit"><span class="toc-list-text">18 Contextual Bandit</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#one-bandit-per-context"><span class="toc-list-text">One bandit per context</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#bandit-with-expert-advice-exp4"><span class="toc-list-text">Bandit with expert advice &amp;
+Exp4</span></a></li></ol></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#stochastic-linear-bandits"><span class="toc-list-text">19 Stochastic Linear Bandits</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#optimal-design-for-least-squares-estimators"><span class="toc-list-text">21 Optimal Design
+for Least Squares Estimators</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#stochastic-linear-bandits-with-finitely-many-arms"><span class="toc-list-text">22 Stochastic
+Linear Bandits with Finitely Many Arms</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#stochastic-linear-bandits-with-sparsity"><span class="toc-list-text">23 Stochastic Linear
+Bandits with Sparsity</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#hypercube-case"><span class="toc-list-text">Hypercube case</span></a></li></ol></li></ol></li></ol>
+        </div>
+    </div>
+</aside>
+
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2026/02/20/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-BanditAlgo-5/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2026/02/20/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-BanditAlgo-5/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 8.708857489663178px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 17.840955101405985px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 12.462765942456372px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 15.728192564675764px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 13.920138152110624px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 18.64665492833738px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 18.10646099007261px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 10.650875159817067px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 15.23057383303517px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 16.830899409933824px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 13.507001865875676px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 15.916790079231372px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 18.536208018772722px;" class="tag-cloud-link">高代</a>
+    
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 17.532879133700213px;" class="tag-cloud-link">信概统</a>
+    
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 8.299208897955808px;" class="tag-cloud-link">数算</a>
+    
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 15.13331174701694px;" class="tag-cloud-link">离散</a>
+    
+    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 19.832097125099025px;" class="tag-cloud-link">智障集锦</a>
+    
+    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 11.960108072900544px;" class="tag-cloud-link">读论文</a>
+    
+    <a href="/tags/bandit/" style="font-size: 17.31219115139132px;" class="tag-cloud-link">bandit</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

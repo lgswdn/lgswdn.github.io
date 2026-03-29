@@ -346,6 +346,102 @@ class="math inline">\(\Delta=\sqrt{(k-1)/4n}\)</span> and lower bounding
 <span class="math inline">\(2\max(a,b)\ge a+b\)</span> and <span
 class="math inline">\(\exp(-1/2)\)</span> brings us the result.</li>
 </ul>
+<h2 id="instance-dependent-lower-bounds">16 Instance-Dependent Lower
+Bounds</h2>
+<h4 id="asymptotic-bounds">Asymptotic Bounds</h4>
+<p>The minimax lower bound is a bit too conservative. There are
+reasonable policies which specialize on some (easier) bandits and
+achieves better lower bounds, though might be performing badly on some
+others.</p>
+<p><strong>Consistent</strong>: A policy is consistent over a class of
+bandits <span class="math inline">\(E\)</span> if for all <span
+class="math inline">\(p&gt;0\)</span> and <span
+class="math inline">\(v\in E\)</span>, it stands that <span
+class="math inline">\(\frac{R_n(\pi,v)}{p^n}\to 0\)</span>. That is, the
+policy provides a <span class="math inline">\(\tilde O(1)\)</span>
+regrets.</p>
+<p>Let <span class="math inline">\(M\)</span> be a set of distribution,
+for <span class="math inline">\(P\in M\)</span>, define <span
+class="math inline">\(d(P,\mu^*,M)=\inf_{P&#39;\in
+M}\{D(P,P&#39;):\mu(P&#39;)&gt;\mu^*\}\)</span>. That is, the smallest
+divergence between <span class="math inline">\(P\)</span> and a <span
+class="math inline">\(P&#39;\)</span> with mean larger than <span
+class="math inline">\(\mu^*\)</span>.</p>
+<p>Theorem: For unstructured class of bandits <span
+class="math inline">\(E=M_1\times\dots\times M_k\)</span> and consistent
+policy <span class="math inline">\(\pi\)</span>, it holds for all
+bandits <span class="math inline">\(v=(P_i)_{i\in[k]}\)</span> that
+<span class="math display">\[
+\lim\inf \frac{R_n(\pi,v)}{\log n}\ge
+c^*(v,E)=\sum_{i,\Delta_i&gt;0}\frac{\Delta_i}{d(P_i,\mu^*,M_i)}
+\]</span> where <span class="math inline">\(\mu^*\)</span> is the mean
+of the optimal arm, and <span class="math inline">\(\Delta_i\)</span> is
+the suboptimal gap.</p>
+<p>For most classes, the lower bound of <span
+class="math inline">\(c^*(v,E)\)</span> could be reached, bringing us
+the concept of asymptotically optimal policy on <span
+class="math inline">\(E\)</span>.</p>
+<h4 id="finite-time-bound">Finite-time bound</h4>
+<p>The above theorem only told us about the limit, while in reality we
+face finite <span class="math inline">\(n\)</span>.</p>
+<p>Lemma: Assume two bandit <span class="math inline">\(v=(P_i)\)</span>
+and <span class="math inline">\(v&#39;=(P&#39;_i)\)</span> only differs
+on reward distribution of arm <span class="math inline">\(i\)</span>,
+and <span class="math inline">\(i\)</span> is uniquely optimal in <span
+class="math inline">\(v&#39;\)</span> while suboptimal in <span
+class="math inline">\(v\)</span>. <span
+class="math inline">\(\lambda=\mu_i(v&#39;)-\mu_i(v)\)</span>. Then for
+any policy <span class="math inline">\(\pi\)</span>, it holds that <span
+class="math display">\[
+E_{v\pi}[T_i(n)]\ge
+\frac{1}{D(P_i,P&#39;_{i})}(\log(\frac{\min(\lambda-\Delta_i(v),\Delta_i(v))}{4})+\log
+n-\log(R_n(v)+R_n(v&#39;)))
+\]</span> That is, the expected <span class="math inline">\(T_i\)</span>
+is somehow bounded by the inverse of $ D(P_i,P_i')$</p>
+<p>And it leads to the following theorem: Consider a gaussian bandit
+<span class="math inline">\(v\)</span> with suboptimal gap <span
+class="math inline">\(\Delta\)</span>. Let <span
+class="math inline">\(E(v)=\{v&#39;:\mu_i(v&#39;)\in[\mu_i,\mu_i+2\Delta_i]\}\)</span>.
+Then, for all consistent policy (with <span class="math inline">\(R_n\le
+Cn^p\)</span>), and <span
+class="math inline">\(\epsilon\in(0,1)\)</span>, we have <span
+class="math display">\[
+R_n(\pi,v)\ge \frac{2}{(1+\epsilon)^2}\sum_{i:\Delta_i&gt;0}
+(\frac{(1-p)\log n+\log(\frac{\epsilon \Delta_i}{8C})}{\Delta_i})^2
+\]</span> The proof is easy after applying the lemma into regret
+decomposition rule.</p>
+<h2 id="high-probability-lower-bounds">17 High-Probability Lower
+Bounds</h2>
+<p>For bandits in this section, we assume <span
+class="math inline">\(\Delta_i\le 1\)</span>.</p>
+<p>There is no randomness in the <span
+class="math inline">\(E[R_n]\)</span> of stochastic bandit. However, we
+could define a random pseudo-regret <span class="math inline">\(\bar
+R_n=\sum T_i(n)\Delta_i\)</span>. And we say a policy is reasonable if
+for any bandit <span class="math inline">\(v\)</span> it holds that
+<span class="math inline">\(R_n(\pi,v)\le B\sqrt{(k-1)n}\)</span>.</p>
+<p>Then we have the theorem of high probability lower bound: <span
+class="math display">\[
+P(\bar R_n\ge
+\frac{1}{4}\min(n,\frac{1}{B}\sqrt{(k-1)n}\log\frac{1}{4\delta}))\ge
+\delta
+\]</span> The proof is similar to the minimax lower bound, where we
+first set a bandit with <span
+class="math inline">\(\mu=(\Delta,0,\dots)\)</span>, then choose a <span
+class="math inline">\(i\)</span> with minimum <span
+class="math inline">\(E[T_i]\)</span>, followed by a bandit with <span
+class="math inline">\(\mu_i&#39;\leftarrow 2\Delta\)</span>, bounded
+using bandit divergence.</p>
+<p>In detail, as the policy is reasonable, <span
+class="math inline">\(E[T_i(n)]\le
+\frac{B}{\Delta}\sqrt{\frac{n}{k-1}}\)</span>. Then, <span
+class="math display">\[
+P(\bar R_n\ge \frac{\Delta n}{2})+P&#39;(\bar R&#39;_n\ge \frac{\Delta
+n}{2})\\ \ge P(T_i\ge \frac{n}{2})+P&#39;(T_i&lt;\frac{n}{2})\\\ge
+\frac{1}{2}\exp(-D(P|P&#39;))\ge \frac{1}{2}\exp(-2B\Delta
+\sqrt{\frac{n}{k-1}})
+\]</span> Simply tuning <span class="math inline">\(\Delta\)</span>
+brings us the result.</p>
 
     </div>
 </article>
@@ -415,7 +511,9 @@ class="math inline">\(\exp(-1/2)\)</span> brings us the result.</li>
         
         
         <div class="panel-body toc-container">
-            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#lower-bounds"><span class="toc-list-text">13 Lower Bounds</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#minimax-lower-bound"><span class="toc-list-text">15 Minimax Lower Bound</span></a></li></ol>
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#lower-bounds"><span class="toc-list-text">13 Lower Bounds</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#minimax-lower-bound"><span class="toc-list-text">15 Minimax Lower Bound</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#instance-dependent-lower-bounds"><span class="toc-list-text">16 Instance-Dependent Lower
+Bounds</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#asymptotic-bounds"><span class="toc-list-text">Asymptotic Bounds</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#finite-time-bound"><span class="toc-list-text">Finite-time bound</span></a></li></ol></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#high-probability-lower-bounds"><span class="toc-list-text">17 High-Probability Lower
+Bounds</span></a></li></ol>
         </div>
     </div>
 </aside>
@@ -447,43 +545,43 @@ class="math inline">\(\exp(-1/2)\)</span> brings us the result.</li>
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 15.915448959717924px;" class="tag-cloud-link">总结</a>
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 18.55672764067629px;" class="tag-cloud-link">总结</a>
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 19.24116612690477px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 19.64298475061196px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 16.25768322812525px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 18.66683480244351px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/ICS/" style="font-size: 12.101729916793044px;" class="tag-cloud-link">ICS</a>
+    <a href="/tags/ICS/" style="font-size: 17.28745250664619px;" class="tag-cloud-link">ICS</a>
     
-    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 11.23583932229469px;" class="tag-cloud-link">具身</a>
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 15.414432142910456px;" class="tag-cloud-link">具身</a>
     
-    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 8.739883586644869px;" class="tag-cloud-link">初恋日记</a>
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 8.05236437021776px;" class="tag-cloud-link">初恋日记</a>
     
-    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 14.783242015980846px;" class="tag-cloud-link">腾讯星火营</a>
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 12.837341740799701px;" class="tag-cloud-link">腾讯星火营</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 13.984434430545134px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 12.62477209713554px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 12.24792057369574px;" class="tag-cloud-link">程设</a>
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 9.541589469476438px;" class="tag-cloud-link">程设</a>
     
-    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 16.546120990400738px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 15.417186061542578px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
     
-    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 16.30872015780358px;" class="tag-cloud-link">波伏娃</a>
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 15.412488644830002px;" class="tag-cloud-link">波伏娃</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 18.823036502821818px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 14.902913916973512px;" class="tag-cloud-link">音数</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 14.11279559395938px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 11.112374270438472px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 18.73755289026386px;" class="tag-cloud-link">信概统</a>
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 14.04865071281042px;" class="tag-cloud-link">信概统</a>
     
-    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 19.299754029870826px;" class="tag-cloud-link">数算</a>
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 11.122582684876534px;" class="tag-cloud-link">数算</a>
     
-    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 14.868758953667315px;" class="tag-cloud-link">离散</a>
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 10.921854006626589px;" class="tag-cloud-link">离散</a>
     
-    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 14.265469883658742px;" class="tag-cloud-link">智障集锦</a>
+    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 15.849180495712329px;" class="tag-cloud-link">智障集锦</a>
     
-    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 9.94844280940757px;" class="tag-cloud-link">读论文</a>
+    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 16.58452536550135px;" class="tag-cloud-link">读论文</a>
     
-    <a href="/tags/bandit/" style="font-size: 15.173258602133199px;" class="tag-cloud-link">bandit</a>
+    <a href="/tags/bandit/" style="font-size: 16.393707233964903px;" class="tag-cloud-link">bandit</a>
     
 </div>
                 
