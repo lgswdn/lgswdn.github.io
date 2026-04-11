@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>学习笔记-静电场 | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>学习笔记-静电场</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2026/04/10/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E9%9D%99%E7%94%B5%E5%9C%BA/">学习笔记-静电场</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E4%BF%A1%E7%89%A9/">信物</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2026-04-10
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2026/04/10/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E9%9D%99%E7%94%B5%E5%9C%BA/">学习笔记-静电场</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2026-04-10
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E4%BF%A1%E7%89%A9/">信物</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h2 id="简要数学常识">0. 简要数学常识</h2>
+<p>球面面积：<span class="math inline">\(S=4\pi r^2\)</span>.</p>
+<p>球体体积：<span class="math inline">\(V=\frac{4}{3}\pi
+r^3\)</span>.</p>
+<h2 id="静电场">1. 静电场</h2>
+<h4 id="库仑定律">库仑定律</h4>
+<p>库仑定律：两个静电荷之间的相互作用力 <span
+class="math inline">\(F=\frac{1}{4\pi\epsilon_0}\frac{|q_1q_2|}{r^2}\)</span>.</p>
+<p>一个静电荷的电场强度 <span class="math inline">\(\vec E=\frac{\vec
+F}{q_0}=\frac{1}{4\pi \epsilon_0}\frac{Q}{r^2}\hat r\)</span>.</p>
+<p>电场的叠加原理：<span class="math inline">\(\vec E=\sum_{i=1}^n \vec
+E_i\)</span>.</p>
+<p>这些都是简单的高中基础知识.</p>
+<h4 id="电偶极子">电偶极子</h4>
+<p>对于一对很近的等量异号电荷，计算其中轴线/延长线上的电场（无论是中轴线还是延长线，电场方向都平行于电荷连线）：</p>
+<ul>
+<li>中轴线：<span
+class="math inline">\(E=\frac{1}{4\pi\epsilon_0}\frac{2q}{r^2+l^2/4}\frac{l/2}{\sqrt{r^2+l^2/4}}\approx
+\frac{1}{4\pi\epsilon_0}\frac{ql}{r^3}\)</span>.</li>
+<li>延长线：<span
+class="math inline">\(E=\frac{q}{4\pi\epsilon_0}(\frac{1}{(r-l/2)^2}-\frac{1}{(r+l/2)^2})\approx
+\frac{1}{4\pi\epsilon_0}\frac{2ql}{r^3}\)</span>.</li>
+</ul>
+<p>实际上，无论在哪电场都和 <span class="math inline">\(r^3\)</span>
+成反比.</p>
+<h4 id="电通量与高斯定理">电通量与高斯定理</h4>
+<p>电通量：<span class="math inline">\(\Phi=\oint E\cdot
+dS\)</span>，即穿过一个面的电场线总数（场强积分）.</p>
+<p>高斯定理：<span class="math inline">\(\oint E\cdot
+dS=\Phi=\frac{1}{\epsilon_0}\sum
+q_i\)</span>，即穿过一个闭合面的电通量等于该闭合面包裹的总电荷量.
+从场论的角度，电场为有源场.</p>
+<p>高斯定理可以用来解决几个经典模型（下面的表示均未写方向，方向是平凡的）：</p>
+<ul>
+<li><p><strong>等电荷球体（总电荷 <span
+class="math inline">\(Q\)</span>）电场</strong></p>
+<p>选球面为高斯面，得到 <span class="math inline">\(4\pi
+r^2E=\frac{\min(r,R)^3}{R^3\epsilon_0} Q\)</span>.</p>
+<p>故 <span class="math inline">\(r&lt;R\)</span> 时 <span
+class="math inline">\(E=\frac{1}{4\pi \epsilon_0}\frac{Qr}{R^3}\)</span>
+正比于 <span class="math inline">\(r\)</span>；</p>
+<p><span class="math inline">\(r\ge R\)</span> 时 <span
+class="math inline">\(E=\frac{1}{4\pi \epsilon_0}\frac{Q}{r^2}\)</span>
+反比于 <span class="math inline">\(r^2\)</span>.</p></li>
+<li><p><strong>无限大平面（面密度 <span
+class="math inline">\(\sigma\)</span>）电场</strong></p>
+<p>选垂直穿过平面的一个柱体为高斯面，得到 <span
+class="math inline">\(2SE=\frac{1}{\epsilon_0}S\sigma\)</span>.</p>
+<p>于是，得到在同方向上为匀强电场，<span
+class="math inline">\(E=\frac{\sigma}{2\epsilon_0}\)</span>.</p></li>
+<li><p><strong>无限长直线（线密度 $ $）电场</strong></p>
+<p>选平行穿过直线的一个柱体为高斯面，得到 <span
+class="math inline">\(2\pi r
+hE=\frac{h\lambda}{\epsilon_0}\)</span>.</p>
+<p>故 <span class="math inline">\(E_r=\frac{\lambda}{2\pi r
+\epsilon_0}\)</span>.</p></li>
+<li><p><strong>两个无限长平行平面电场</strong></p>
+<p>叠加原理即可.</p></li>
+</ul>
+<h4 id="环路定理">环路定理</h4>
+<p>静电场力是保守力，也就是说，对电荷的做功和路径无关.</p>
+<p>我们取静电场中任意环路，电场力的做功为 <span
+class="math inline">\(0\)</span>. 从数学的角度，<span
+class="math inline">\(\oint E\cdot dl = 0\)</span>.
+从场论的角度，电场为无旋场，处处旋度为 0.</p>
+<h4 id="电势">电势</h4>
+<p>电势：将正单位电荷从一点挪到零电势点的过程中，电场力做的功. <span
+class="math inline">\(U_P=\int_P^{O} E\cdot dl\)</span>，是一个标量.</p>
+<p>电势也用有叠加原理，并且是更为简单的标量的叠加原理，但是需要注意条件是等电势点相同.</p>
+<ul>
+<li><p><strong>点电荷电场的电势分布</strong></p>
+<p>运用定义，选择零电势点为无穷远，则电势 <span
+class="math inline">\(U_P=\int_P^{\infty}\frac{1}{4\pi
+\epsilon_0}\frac{q}{r^2}\hat e_rd\vec r=\frac{q}{4\pi \epsilon_0
+r}\)</span>，与 <span class="math inline">\(r\)</span> 成反比.</p></li>
+<li><p><strong>带电 <span class="math inline">\(Q\)</span>
+球面电场的电势分布</strong></p>
+<p>首先先计算场强. 内部场强为 0，外部由高斯定理知 <span
+class="math inline">\(\vec E=\frac{1}{4\pi \epsilon_0} \frac{Q}{r^2}\hat
+e_r\)</span>.</p>
+<p>于是 <span class="math inline">\(r\ge R\)</span> 时，<span
+class="math inline">\(U_r=\int_r^{+\infty} \frac{1}{4\pi
+\epsilon_0}\frac{Q}{r^2}dr=\frac{Q}{4\pi \epsilon_0 r}\)</span>.</p>
+<p><span class="math inline">\(r&lt;R\)</span> 时，<span
+class="math inline">\(U\)</span> 恒为 <span
+class="math inline">\(\frac{Q}{4\pi \epsilon_0 R}\)</span>.</p></li>
+<li><p><strong>无限大均匀带点平面的电势分布</strong></p>
+<p>由于是稳恒电场，所以无法选无限远处作为零电势点.
+选择平面上任意一点为零电势点，则知电势为 <span
+class="math inline">\(U_x=-\frac{\sigma
+|x|}{2\epsilon_0}\)</span>.</p></li>
+<li><p><strong>均匀带电圆环的轴线上电势分布</strong></p>
+<p>一个好方法是直接利用点电荷电场的电势分布，然后用叠加原理积起来.</p>
+<p><span class="math inline">\(U_x=\int \frac{\lambda dl}{4\pi\epsilon_0
+r}=\frac{Q}{4\pi \epsilon_0\sqrt{R^2+x^2}}\)</span>.</p></li>
+</ul>
+<h2 id="导体电容电介质">2. 导体，电容，电介质</h2>
+<h4 id="导体的电荷分布">导体的电荷分布</h4>
+<p>导体的一个重要因素是：导体内电场处处为 <span
+class="math inline">\(0\)</span>，整个导体是一个巨大的等势体，静电平衡，宏观电荷只能分布在导体表面上.</p>
+<p>导体表面外附近空间的场强和导体表面垂直，场强大小与该处导体表面的电荷面密度成正比.
+导体的电荷面密度是由导体的形状和位置所唯一确定的，需要解泊松方程：所以对于简单的题根据对称性猜就好了.</p>
+<ul>
+<li><p><strong>带电导体球的空间电势分布</strong></p>
+<p>猜测电荷分布均匀分布在球面. 根据前文得到电势分布.</p></li>
+<li><p><strong>已知电势为 <span class="math inline">\(U_0\)</span>
+求电荷分布</strong></p>
+<p>仍然猜测均匀分布在球面，然后推得 <span class="math inline">\(Q=4\pi
+\epsilon_0R U_0\)</span>.</p></li>
+<li><p><strong>等面积的电量 <span class="math inline">\(Q_A\)</span>
+<span class="math inline">\(Q_B\)</span>
+的平行导板的电荷分布</strong></p>
+<p>令从左到右四个面密度 <span
+class="math inline">\(\sigma_1\dots\sigma_4\)</span>.</p>
+<p>于是可以列出方程：<span
+class="math inline">\(\sigma_1S+\sigma_2S=Q_A\)</span>，<span
+class="math inline">\(\sigma_3S+\sigma_4S=Q_B\)</span>，以及两个电板内电场为
+0：<span
+class="math inline">\(\frac{1}{2\epsilon_0}(\sigma_1-\sigma_2-\sigma_3-\sigma_4)=\frac{1}{2\epsilon_0}(\sigma_1+\sigma_2+\sigma_3-\sigma_4)=0\)</span>.
+然后解方程即可。</p></li>
+</ul>
+<h4 id="一些其他问题">一些其他问题</h4>
+<p><strong>相邻导体</strong>：一个不带电的导体，被一个带正电导体接近后会发生什么？</p>
+<ul>
+<li>原本不带电导体电势为
+0，但是被带正电导体接近后，为了保证自身静电平衡，会在那个导体附近产生负的面电荷；然后正的面电荷的电力线只能终于无穷远，电势大于
+0.</li>
+</ul>
+<p><strong>接地</strong>：接地后电势永远为 0.</p>
+<ul>
+<li>孤立导体接地后，电量为 0.</li>
+<li>在上述相邻导体的 case 中，导体电势由于接地仍未
+0，但是需要注意为了保证自身电场为 0，仍然带负电.</li>
+</ul>
+<p><strong>导体空腔问题</strong>：</p>
+<ul>
+<li>考虑导体有个空腔. 如果腔内无电荷，则空腔内场强为
+0，导体的电荷只能分布在外表面上，可以当作空腔不存在.</li>
+<li>如果空腔内有电荷，则空腔内电荷和内表面电荷代数和为
+0，外表面的电荷量则就变成了 <span class="math inline">\(Q+q\)</span>.
+外表面以外的空间在腔内的总场强为 0，无影响. 这种现象称为静电屏蔽.
+腔内腔外的电荷分布分别存在自己的独立的唯一解.</li>
+</ul>
+<h4 id="电容">电容</h4>
+<p>从水流的角度出发，电势相当于水面高度，电容相当于水桶的底面积.</p>
+<p>定义式：<span class="math inline">\(C=\frac{Q}{U}\)</span>.</p>
+<p>电容器存储的静电能量 <span
+class="math inline">\(W=\frac{1}{2}CU^2=\frac{1}{2}QU\)</span>.</p>
+<ul>
+<li><p><strong>孤立导体球的电容</strong></p>
+<p><span class="math inline">\(U=\frac{Q}{4\pi
+\epsilon_0R}\)</span>，于是得到 <span
+class="math inline">\(C=4\pi\epsilon_0 R\)</span>.</p></li>
+<li><p><strong>平行板电容器的电容</strong></p>
+<p>采用两个无限大均匀带电面的计算，得到 <span
+class="math inline">\(E=2\times
+\frac{\sigma}{2\epsilon_0}\)</span>，于是 <span
+class="math inline">\(U=Ed=\frac{\sigma d}{\epsilon_0}\)</span>.</p>
+<p>代入得到 <span class="math inline">\(C=\frac{S\sigma}{\frac{\sigma
+d}{\epsilon_0}}=\epsilon_0\frac{S}{d}\)</span>.</p>
+<p>可以发现，平行板电容器面积越大，间距越小，电容越大.</p></li>
+<li><p><strong>圆柱体电容器的电容</strong></p>
+<p>也就是把两个带电面卷成两个圆柱面.</p>
+<p><span class="math inline">\(E=\frac{Q}{2\pi
+rL\epsilon_0}\)</span>，积分得 <span class="math inline">\(U=\int_A^B
+Edl=\frac{Q}{2\pi L\epsilon_0}\ln \frac{R_B}{R_A}\)</span>.</p>
+<p>于是 <span class="math inline">\(C=\frac{2\pi
+\epsilon_0L}{\ln(R_B/R_A)}\)</span>. 在 <span
+class="math inline">\(R_B-R_A&lt;&lt;R_A\)</span> 时用等价无穷小可以得到
+<span class="math inline">\(\approx \epsilon_0
+\frac{S}{d}\)</span>.</p></li>
+</ul>
+<p><strong>电容的串并联</strong>：</p>
+<ul>
+<li>并联 <span class="math inline">\(C=\sum c_i\)</span>.</li>
+<li>串联 <span class="math inline">\(\frac{1}{C}=\sum
+\frac{1}{c_i}\)</span>.</li>
+</ul>
+<h4 id="电介质">电介质</h4>
+<p>绝缘体中没有自由移动的电子，里面的分子可以想象成很多电偶极子.
+当我们把绝缘体放进静电场中，绝缘体中的分子的电偶极子会整齐向同一个方向排列，虽说内部的一正一负还是会抵消，但是最终在表面上会根据电场裸露出一层正电荷和负电荷.</p>
+<p><strong>极化强度</strong></p>
+<ul>
+<li>对于这样的电介质，定义极化强度 <span
+class="math inline">\(P\)</span> 为所有电偶极矩的矢量和.</li>
+<li>定义电极化率 <span class="math inline">\(x_e\)</span>. <span
+class="math inline">\(P=\epsilon_0x_eP\)</span>.</li>
+</ul>
+<p><strong>电介质常数</strong>：</p>
+<ul>
+<li>这层束缚电荷会在电介质中产生一个和外部电场反向的一个内部电场 <span
+class="math inline">\(E&#39;\)</span>. 所以电介质内部的总电场 <span
+class="math inline">\(E=E_0-E&#39;\)</span>.
+不同的电介质对电场的削弱不同，定义相对电容率 <span
+class="math inline">\(\epsilon_r\)</span>，得到 <span
+class="math inline">\(E=\frac{E_0}{\epsilon_r}\)</span>.</li>
+<li>所以当我们把电介质塞入电容器中的时候，电场减小 <span
+class="math inline">\(\epsilon_r\)</span> 倍，于是电容就增大了 <span
+class="math inline">\(\epsilon_r\)</span> 倍.</li>
+</ul>
+<p><strong>电位移矢量</strong></p>
+<ul>
+<li>定义（一个没有太多物理含义的）电位移矢量 <span
+class="math inline">\(D=\epsilon_0\epsilon_rE=\epsilon_0E+P\)</span>.</li>
+<li>有关于 <span class="math inline">\(D\)</span> 的高斯定理：<span
+class="math inline">\(\oint D\cdot dS=Q\)</span>，其中 <span
+class="math inline">\(Q\)</span> 为系统内的自由电荷.</li>
+<li>一般来说，都可以通过高斯定理求 <span
+class="math inline">\(D\)</span> 以及真实电场 <span
+class="math inline">\(E\)</span> 之后再反求 <span
+class="math inline">\(P\)</span>.</li>
+</ul>
+<p>Eg.</p>
+<ul>
+<li><p><strong>充满介质的平行板电容器</strong></p>
+<p>选择柱体高斯面，其中一个面在介质内，一个面在导体内.</p>
+<p>导体面的 <span class="math inline">\(D\)</span> 显然为 0.
+运用高斯定理，<span class="math inline">\(DS=\sigma_0S\)</span>，得到
+<span class="math inline">\(D=\sigma_0\)</span>. 然后代入 <span
+class="math inline">\(E=\frac{\sigma_0}{\epsilon_0\epsilon_r}\)</span>，<span
+class="math inline">\(U=\frac{\sigma_0
+d}{\epsilon_0\epsilon_r}\)</span>，<span
+class="math inline">\(P=\sigma_0-\frac{\sigma_0}{\epsilon_r}\)</span>.</p></li>
+<li><p><strong>无限大电介质中的带电球面</strong></p>
+<p>导体球内显然仍然保持 <span class="math inline">\(E=0\)</span>.</p>
+<p>对于球外，取球形高斯面，<span class="math inline">\(4\pi r^2
+D=Q\)</span>，求得 <span class="math inline">\(E=\frac{Q}{4\pi
+r^2\epsilon_0\epsilon_r}\)</span>.</p></li>
+</ul>
+<p>可以发现大多情况下也就是多乘了一个 <span
+class="math inline">\(1/\epsilon_r\)</span>. 但是这并不是对所有情况成立.
+一般情况下，如果等势面间充满均匀且各向同性的电介质，那确实是对的.</p>
+<h2 id="静电能与电场能">3 静电能与电场能</h2>
+<h4 id="静电能">静电能</h4>
+<p>电荷在外电场下的静电势能为 <span
+class="math inline">\(W=qU\)</span>.</p>
+<p>带电体系的静电能，为在没有外电场的情况下，各带电体分解成电荷微元相互无限原理受到的静电力做功之.
+<span class="math inline">\(W=\frac{1}{2}\sum q_iU_i\)</span>.</p>
+<p>推广到连续的情况直接换成积分即可.</p>
+<p>故电容器的储能 <span
+class="math inline">\(W=\frac{1}{2}QU=\frac{1}{2}CU^2\)</span>.</p>
+<h4 id="电场能">电场能</h4>
+<p>电场能适用于任何电场：<span
+class="math inline">\(w_e=\frac{1}{2}\epsilon_0 E^2\)</span>
+定义为电场的能量密度.</p>
+<p>电介质中的电场能：</p>
+<ul>
+<li>由于引入了 <span
+class="math inline">\(D\)</span>，所以我们确实也可以写成 <span
+class="math inline">\(w_e=\frac{1}{2}D\cdot E\)</span>.</li>
+<li>这个也可以拆成 <span class="math inline">\(\frac{1}{2}\epsilon
+E^2+\frac{1}{2}EP.\)</span>
+前者为电场的能量，后者则是极化相关的能量.</li>
+</ul>
+<h2 id="电流电源电阻电路">4 电流，电源，电阻，电路</h2>
+<h4 id="电流">电流</h4>
+<p>电流：电流为单位时间穿过某个截面的电量 <span
+class="math inline">\(I=\frac{dq}{dt}\)</span>.</p>
+<p>电流密度：是一个矢量，方向为电流方向，大小为该点垂直于电流方向的截面的单位面积电流强度：<span
+class="math inline">\(dI=\vec j \cdot dS\)</span>.</p>
+<p>电流是电荷的定向运动形成的. 取电荷运动方向的面元 <span
+class="math inline">\(\Delta S\)</span>，载流子平均速度 <span
+class="math inline">\(v\)</span>，单位体积内的平均载流子数 <span
+class="math inline">\(n\)</span>，则有</p>
+<ul>
+<li><span class="math inline">\(\vec j=nq\vec v\)</span>.</li>
+<li><span class="math inline">\(\Delta Q=qnv\Delta t\Delta
+S\)</span>.</li>
+</ul>
+<p>稳恒电流：电流密度不随时间变化. 对于任意闭合面，稳恒电流满足 <span
+class="math inline">\(\oint \vec j\cdot d\vec S=0\)</span>.
+稳恒电流的电流线为首尾相连的闭合密度曲线.</p>
+<h4 id="电阻">电阻</h4>
+<p>存在稳恒电流的导体内电场不为 0，伴随着能量的转移.
+电路中两点的电势差称为电压.</p>
+<p>欧姆定律：稳恒条件下，通过导体的电流和导体两端的电压成正比 <span
+class="math inline">\(I=GU\)</span>.</p>
+<p>一般来说，导体电阻与导体长度成正比，和截面大小成反比.</p>
+<p>微分欧姆定律：从微观上讲，<span class="math inline">\(j\)</span>
+的产生是因为有电场，成正比 <span class="math inline">\(j=\sigma
+E\)</span>，其中电导率为电阻率的倒数 <span
+class="math inline">\(\sigma=\frac{1}{\rho}\)</span>.</p>
+<ul>
+<li><p>Eg. 稳恒 <span class="math inline">\(I\)</span> 穿过相连导体
+<span class="math inline">\(A\)</span> <span
+class="math inline">\(B\)</span>，电导率 <span
+class="math inline">\(2\sigma\)</span> <span
+class="math inline">\(\sigma\)</span>，求电场强度.</p>
+<p><span class="math inline">\(J=I/S\)</span>，<span
+class="math inline">\(E_A=I/(2\sigma S)\)</span>，<span
+class="math inline">\(E_B=I/(\sigma S)\)</span>.</p></li>
+</ul>
+<p>在有电动势的情况下，<span
+class="math inline">\(j=\sigma(E+K)\)</span>.</p>
+<h4 id="直流电路的基尔霍夫方程">直流电路的基尔霍夫方程</h4>
+<p>这个很简单.</p>
+
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+
+<aside id="sidebar-toc">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-list-ul"></i>  
+            文章目录 
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        
+        
+        <div class="panel-body toc-container">
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E7%AE%80%E8%A6%81%E6%95%B0%E5%AD%A6%E5%B8%B8%E8%AF%86"><span class="toc-list-text">0. 简要数学常识</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E9%9D%99%E7%94%B5%E5%9C%BA"><span class="toc-list-text">1. 静电场</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E5%BA%93%E4%BB%91%E5%AE%9A%E5%BE%8B"><span class="toc-list-text">库仑定律</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E7%94%B5%E5%81%B6%E6%9E%81%E5%AD%90"><span class="toc-list-text">电偶极子</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E7%94%B5%E9%80%9A%E9%87%8F%E4%B8%8E%E9%AB%98%E6%96%AF%E5%AE%9A%E7%90%86"><span class="toc-list-text">电通量与高斯定理</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E7%8E%AF%E8%B7%AF%E5%AE%9A%E7%90%86"><span class="toc-list-text">环路定理</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E7%94%B5%E5%8A%BF"><span class="toc-list-text">电势</span></a></li></ol></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%AF%BC%E4%BD%93%E7%94%B5%E5%AE%B9%E7%94%B5%E4%BB%8B%E8%B4%A8"><span class="toc-list-text">2. 导体，电容，电介质</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E5%AF%BC%E4%BD%93%E7%9A%84%E7%94%B5%E8%8D%B7%E5%88%86%E5%B8%83"><span class="toc-list-text">导体的电荷分布</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E4%B8%80%E4%BA%9B%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98"><span class="toc-list-text">一些其他问题</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E7%94%B5%E5%AE%B9"><span class="toc-list-text">电容</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E7%94%B5%E4%BB%8B%E8%B4%A8"><span class="toc-list-text">电介质</span></a></li></ol></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E9%9D%99%E7%94%B5%E8%83%BD%E4%B8%8E%E7%94%B5%E5%9C%BA%E8%83%BD"><span class="toc-list-text">3 静电能与电场能</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E9%9D%99%E7%94%B5%E8%83%BD"><span class="toc-list-text">静电能</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E7%94%B5%E5%9C%BA%E8%83%BD"><span class="toc-list-text">电场能</span></a></li></ol></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E7%94%B5%E6%B5%81%E7%94%B5%E6%BA%90%E7%94%B5%E9%98%BB%E7%94%B5%E8%B7%AF"><span class="toc-list-text">4 电流，电源，电阻，电路</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E7%94%B5%E6%B5%81"><span class="toc-list-text">电流</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E7%94%B5%E9%98%BB"><span class="toc-list-text">电阻</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E7%9B%B4%E6%B5%81%E7%94%B5%E8%B7%AF%E7%9A%84%E5%9F%BA%E5%B0%94%E9%9C%8D%E5%A4%AB%E6%96%B9%E7%A8%8B"><span class="toc-list-text">直流电路的基尔霍夫方程</span></a></li></ol></li></ol></li></ol>
+        </div>
+    </div>
+</aside>
+
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2026/04/10/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E9%9D%99%E7%94%B5%E5%9C%BA/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2026/04/10/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E9%9D%99%E7%94%B5%E5%9C%BA/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 17.084233692256056px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 16.68924675457578px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 9.030363694280108px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 13.419877346016644px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 11.199147416408383px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 16.323491846351814px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 9.392220840509683px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 10.908302170196286px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 18.403583517032544px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 12.254724107181264px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 13.385294857487075px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 18.32034914967586px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 8.11732722232404px;" class="tag-cloud-link">高代</a>
+    
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 8.028547098079883px;" class="tag-cloud-link">信概统</a>
+    
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 14.610450113868433px;" class="tag-cloud-link">数算</a>
+    
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 17.397014531676582px;" class="tag-cloud-link">离散</a>
+    
+    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 12.19887749626825px;" class="tag-cloud-link">智障集锦</a>
+    
+    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 19.53418742109357px;" class="tag-cloud-link">读论文</a>
+    
+    <a href="/tags/bandit/" style="font-size: 9.439639128049443px;" class="tag-cloud-link">bandit</a>
+    
+    <a href="/tags/%E5%92%95%E5%92%95%E5%98%8E%E5%98%8E/" style="font-size: 18.379000487556276px;" class="tag-cloud-link">咕咕嘎嘎</a>
+    
+    <a href="/tags/%E6%98%8E%E5%8F%B2/" style="font-size: 16.44536419195119px;" class="tag-cloud-link">明史</a>
+    
+    <a href="/tags/%E4%BF%A1%E7%89%A9/" style="font-size: 15.719332892015379px;" class="tag-cloud-link">信物</a>
+    
+    <a href="/tags/%E7%AE%97%E5%88%86/" style="font-size: 8.05136833502171px;" class="tag-cloud-link">算分</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

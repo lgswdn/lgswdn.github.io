@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>学习笔记-线性规划的对偶 | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>学习笔记-线性规划的对偶</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2026/04/10/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E7%9A%84%E5%AF%B9%E5%81%B6/">学习笔记-线性规划的对偶</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E7%AE%97%E5%88%86/">算分</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2026-04-10
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2026/04/10/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E7%9A%84%E5%AF%B9%E5%81%B6/">学习笔记-线性规划的对偶</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2026-04-10
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E7%AE%97%E5%88%86/">算分</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h2 id="单纯形法">单纯形法</h2>
+<p>考虑一个等式线性规划问题：</p>
+<ul>
+<li>Minimize <span class="math inline">\(X=\sum
+c_ix_i\)</span>，需要满足 <span class="math inline">\(x\ge 0\)</span>
+并且 <span class="math inline">\(Ax=b\)</span>.</li>
+</ul>
+<p>单纯形法即为，提取 <span class="math inline">\(A\)</span>
+的线性无关列 <span
+class="math inline">\(B\)</span>，其他线性相关变量可以直接设为
+0，然后剩下的线性无关列直接解方程 <span
+class="math inline">\(x_B=B^{-1}b\)</span>.</p>
+<p>这个很难是最优的，但是由于这个问题是凸的，所以直接爬山就行了：</p>
+<ul>
+<li>作基变换，用一个非基变量替换一个基变量，得到新的可行解，使得目标函数不升.</li>
+</ul>
+<p>如何检验当前解的最优性？考虑目标函数 <span class="math display">\[
+X=c^Tx=c^Tx+c^T_BB^{-1}(b-Ax)\\
+= c^{T}B^{-1}b+(c^T-c^T_B B^{-1}A)x\\
+\]</span> 令检验数 <span
+class="math inline">\(\lambda^T=c^T-c_B^TB^{-1}A\)</span>. 如果 <span
+class="math inline">\(\lambda\ge
+0\)</span>，则证明为最优解；否则，如果存在 <span
+class="math inline">\(\lambda_k&lt;0\)</span> 并且 <span
+class="math inline">\(a_{i,k}\)</span> 全部 <span
+class="math inline">\(&lt;0\)</span> 则无最优解（直接把 <span
+class="math inline">\(x_k\)</span> 不断增大就可以达到 <span
+class="math inline">\(-\infty\)</span>）；否则需要进行基变换，把 <span
+class="math inline">\(k\)</span> 换入基中.</p>
+<p>调换出来的需要尽量性价比高. 定义 <span
+class="math inline">\(\beta_i=B^{-1}b\)</span>，那么性价比可以定义为
+<span class="math inline">\(\theta_i=\beta_i/a_{i,k}\)</span>，把 <span
+class="math inline">\(\theta_i\)</span> 最小的给换走即可.</p>
+<h2 id="对偶思想与弱对偶引理">对偶思想与弱对偶引理</h2>
+<p>考虑如下的最简单的线性规划问题：</p>
+<ul>
+<li>Maximize <span class="math inline">\(X=\sum
+c_ix_i\)</span>，但是需要满足 <span class="math inline">\(x_i\ge
+0\)</span> 并且有如下的限制：第 <span class="math inline">\(j\)</span>
+条限制是 <span class="math inline">\(\sum_i a_{j,i}x_i\le
+b_j\)</span>.</li>
+</ul>
+<p>那么一个小学生想法就是，我们能不能给每个限制赋予一个系数 <span
+class="math inline">\(y_j\)</span>，使得 <span
+class="math inline">\(\sum_j a_{j,i}y_j\ge
+c_i\)</span>，那么我们把所有限制按权相加就得到了关于一个 <span
+class="math inline">\(\sum c_ix_i\)</span> 的 Bound.
+那么原问题的答案一定小于等于这个 Bound.</p>
+<p>这就是对偶 (dual) 的思想. 我们把 <span
+class="math inline">\(y_i\)</span> 的限制写下来，得到：</p>
+<ul>
+<li>第 <span class="math inline">\(i\)</span> 条限制是 <span
+class="math inline">\(\sum_j
+a_{j,i}y_j\ge  c_i\)</span>，并且需要满足所有 <span
+class="math inline">\(y_j\ge 0\)</span>.</li>
+<li>Minimize <span class="math inline">\(Y=\sum_j b_jy_j\)</span>.</li>
+</ul>
+<p>根据我们之前的描述，一定有 <span class="math inline">\(Y\ge
+X\)</span>. 这个就是弱对偶引理.</p>
+<h2 id="线性代数的视角">线性代数的视角</h2>
+<p>我们考虑将刚才的这些文字推导落实到简洁严谨的数学语言上.</p>
+<p>原问题很容易描述：<span class="math inline">\(A\in \R^{m\times
+n}\)</span>，<span class="math inline">\(b\in \R ^m\)</span>，<span
+class="math inline">\(c\in \R^n\)</span>，我们有 Constraint <span
+class="math inline">\(Ax\le b\)</span>，<span class="math inline">\(x\ge
+0\)</span>，并且需要 Maximizes <span
+class="math inline">\(c^Tx\)</span>.</p>
+<p>我们赋予系数的这一个操作相当于就是取 <span class="math inline">\(y\in
+\R^m\)</span>，把 Constraint 变成 <span class="math inline">\(y^TAx\le
+y^Tb\)</span>.</p>
+<p>另一方面，只要 <span class="math inline">\(A^Ty\ge
+c\)</span>，我们就有 <span class="math inline">\(c^Tx\le
+(A^Ty)^Tx=y^TAx\le y^Tb\)</span>.</p>
+<p>于是得到对偶问题：Constraint <span class="math inline">\(A^Ty\ge
+c\)</span>，<span class="math inline">\(y\ge 0\)</span>，然后 Minimize
+<span class="math inline">\(b^Ty\)</span>.</p>
+<p>上面的不等式也就是前面所述的弱对偶引理：<span
+class="math inline">\(c^Tx\le b^Ty\)</span>.</p>
+<p>显然地，对偶问题的对偶仍为原问题.</p>
+<h2 id="强对偶引理与互补松弛">强对偶引理与互补松弛</h2>
+<p>我们显然不满足上述的一个不等式形式，我们希望知道上述问题何时取等，以及如何用对偶来帮助我们解决问题.</p>
+<p>我们引入松弛变量 <span
+class="math inline">\(u\)</span>，将条件写成等式形式：<span
+class="math inline">\(Ax+Iu=b\)</span>，<span class="math inline">\(x\ge
+0,u\ge 0\)</span>，即 <span
+class="math inline">\(b-Ax=u\)</span>；另一方面，对于对偶条件，写 <span
+class="math inline">\(A^Ty-c=v\)</span>，<span
+class="math inline">\(v\ge 0\)</span>.</p>
+<p>我们考虑差值 <span class="math display">\[
+b^Ty-c^Tx=(Ax+u)^Ty-(A^Ty-v)^Tx\\
+=(x^TA^Ty-y^TAx)+(u^Ty+v^Tx)
+\]</span> 由于 <span class="math inline">\(x^TA^Ty\)</span>
+为标量显然对称. 所以差值为 <span
+class="math inline">\(u^Ty+v^Tx\)</span>. 由于所有向量都 <span
+class="math inline">\(\ge 0\)</span>，所以取等条件一定是 <span
+class="math inline">\(u_jy_j=v_ix_i=0\)</span>.
+这也就是线性规划问题的<strong>互补松弛</strong> (complementary
+slackness). 互补松弛和等号成立是等价的.</p>
+<hr />
+<p>首先从弱对偶引理可以直接得到一个推论：对于可行解 <span
+class="math inline">\(x^*,y^*\)</span>，若 <span
+class="math inline">\(c^Tx^*=b^Ty^*\)</span>，则 <span
+class="math inline">\(x^*,y^*\)</span> 分别是问题的最优解.</p>
+<p>我们在引入松弛变量后，就可以将 <span class="math inline">\((x\
+u)\)</span> 看作需要求解的变量，然后使用单纯形法来求解一个最优解 <span
+class="math inline">\(x^{*}\)</span>. 考虑此时的检验向量 <span
+class="math inline">\(\lambda\)</span>. <span
+class="math inline">\(x\)</span> 所对应的检验向量 <span
+class="math inline">\(\lambda_x^T=c^{T}-c_B^TB^{-1}A\le
+0\)</span>，<span class="math inline">\(u\)</span> 所对应的检验向量
+<span class="math inline">\(\lambda_u^T=-c^T_BB^{-1}\le 0\)</span>.</p>
+<p>我们可以令 <span
+class="math inline">\(y^T=c_B^TB^{-1}=-\lambda_u^T\ge 0\)</span>，得到
+<span class="math inline">\(A^Ty-c=-\lambda_x\ge 0\)</span>，故 <span
+class="math inline">\(y\)</span> 为对偶问题的可行解. 同时，<span
+class="math inline">\(y^Tb=c_B^TB^{-1}b=c^Tx\)</span>，满足，故为最优解.</p>
+<p>于是，我们得到强对偶引理：</p>
+<ul>
+<li>原问题（或对偶问题）有最优解</li>
+<li>等号成立 <span class="math inline">\(c^Tx^*=b^Ty^*\)</span>.</li>
+<li>互补松弛 <span class="math inline">\(u_jy_j=v_ix_i=0\)</span>.</li>
+</ul>
+<p>上述三者等价.</p>
+<p>一个推论是：如果原问题无可行解，则对偶问题可以取 <span
+class="math inline">\(-\infty\)</span>；另一方面，如果原问题可以取 <span
+class="math inline">\(+\infty\)</span> 则对偶问题无可行解.</p>
+
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+
+<aside id="sidebar-toc">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-list-ul"></i>  
+            文章目录 
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        
+        
+        <div class="panel-body toc-container">
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95"><span class="toc-list-text">单纯形法</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%AF%B9%E5%81%B6%E6%80%9D%E6%83%B3%E4%B8%8E%E5%BC%B1%E5%AF%B9%E5%81%B6%E5%BC%95%E7%90%86"><span class="toc-list-text">对偶思想与弱对偶引理</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9A%84%E8%A7%86%E8%A7%92"><span class="toc-list-text">线性代数的视角</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%BC%BA%E5%AF%B9%E5%81%B6%E5%BC%95%E7%90%86%E4%B8%8E%E4%BA%92%E8%A1%A5%E6%9D%BE%E5%BC%9B"><span class="toc-list-text">强对偶引理与互补松弛</span></a></li></ol>
+        </div>
+    </div>
+</aside>
+
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2026/04/10/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E7%9A%84%E5%AF%B9%E5%81%B6/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2026/04/10/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E7%9A%84%E5%AF%B9%E5%81%B6/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 15.74953842669095px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 13.50384699265241px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 15.78367487549442px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 14.579473550803197px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 13.504233892496119px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 16.158912669362067px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 12.562940684376738px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 15.171533597562991px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 12.757389944955952px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 18.88606083624882px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 13.421873086609859px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 11.605011713661867px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 16.391631433447596px;" class="tag-cloud-link">高代</a>
+    
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 15.110141859941596px;" class="tag-cloud-link">信概统</a>
+    
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 19.252677675216326px;" class="tag-cloud-link">数算</a>
+    
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 16.978823916088384px;" class="tag-cloud-link">离散</a>
+    
+    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 11.238094389002686px;" class="tag-cloud-link">智障集锦</a>
+    
+    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 18.735449490784966px;" class="tag-cloud-link">读论文</a>
+    
+    <a href="/tags/bandit/" style="font-size: 16.06125838259101px;" class="tag-cloud-link">bandit</a>
+    
+    <a href="/tags/%E5%92%95%E5%92%95%E5%98%8E%E5%98%8E/" style="font-size: 15.247078175098933px;" class="tag-cloud-link">咕咕嘎嘎</a>
+    
+    <a href="/tags/%E6%98%8E%E5%8F%B2/" style="font-size: 15.388096345573425px;" class="tag-cloud-link">明史</a>
+    
+    <a href="/tags/%E4%BF%A1%E7%89%A9/" style="font-size: 18.819125483468206px;" class="tag-cloud-link">信物</a>
+    
+    <a href="/tags/%E7%AE%97%E5%88%86/" style="font-size: 11.45934037837953px;" class="tag-cloud-link">算分</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>
