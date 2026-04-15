@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>学习笔记-磁场 | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>学习笔记-磁场</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2026/04/12/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%A3%81%E5%9C%BA/">学习笔记-磁场</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E4%BF%A1%E7%89%A9/">信物</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2026-04-12
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2026/04/12/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%A3%81%E5%9C%BA/">学习笔记-磁场</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2026-04-12
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E4%BF%A1%E7%89%A9/">信物</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h2 id="恒定磁场">1. 恒定磁场</h2>
+<h4 id="磁场的电流受力">磁场的电流受力</h4>
+<p>这些都是高中知识. 我觉得我曾经超级无敌会，但是现在的我今昔非彼.</p>
+<p>洛伦兹力：</p>
+<ul>
+<li>电荷在磁场中受力 <span class="math inline">\(\vec F=q\vec v\times
+\vec B\)</span>.</li>
+<li>在均匀磁场中运动的粒子速度与磁场垂直故产生圆周运动，频率 <span
+class="math inline">\(f=\frac{B}{2\pi}\frac{q}{m}\)</span>，正比于荷质比.</li>
+</ul>
+<p>安培力：</p>
+<ul>
+<li>电流元 <span class="math inline">\(Id\vec l\)</span> 所受安培力
+<span class="math inline">\(d\vec F=Id\vec l\times \vec
+B\)</span>，和洛伦兹力是一回事.</li>
+<li>可以看出来，在匀强磁场中的稳恒电流一般情况下总受力只与开头结尾有关系，可以视作直线.</li>
+</ul>
+<p>霍尔效应</p>
+<ul>
+<li>由于这样的受力，磁场中有电流的固定导体两端存在电势差 <span
+class="math inline">\(U_H=k\frac{IB}{d}\)</span>.</li>
+</ul>
+<h4 id="稳恒电流元的磁场">稳恒电流元的磁场</h4>
+<p>毕奥- 萨伏尔定律：</p>
+<ul>
+<li><p>对于电流源 <span class="math inline">\(Id\vec l\)</span>，在距离
+<span class="math inline">\(\vec r\)</span> 处的点 <span
+class="math inline">\(P\)</span> 上产生的磁感应强度为</p>
+<p><span class="math inline">\(d\vec B=\frac{\mu_0}{4\pi}\frac{Id\vec
+l\times \hat r}{r^2}\)</span>，其中 <span
+class="math inline">\(\mu_0\)</span> 为真空磁导率.</p></li>
+<li><p>成平方反比. 如果抛去方向的话，本质上就是 <span
+class="math inline">\(\frac{\mu_0}{4\pi}\frac{Id\vec l\sin
+\theta}{r^2}\)</span>.</p></li>
+<li><p>看得出来，这就是直线电流的磁场的右手螺旋定则来的.</p></li>
+</ul>
+<p>同样，磁感应强度也拥有叠加原理，需要考虑方向.</p>
+<ul>
+<li><p><strong>无限长载流直导线的磁场</strong></p>
+<p><span class="math inline">\(B=\frac{\mu_0 I}{2\pi
+r}\)</span>.</p></li>
+<li><p><strong>圆环导线圆心处的磁场</strong></p>
+<p><span class="math inline">\(B=\frac{\mu_0 I}{2R}\)</span>.</p></li>
+</ul>
+<h4 id="载流线圈与磁矩">载流线圈与磁矩</h4>
+<p>一个通电的小线圈，从远处看，其相当于一个小磁铁，和电偶极子的模型差不多.
+为了描述这件事情，引入磁矩 <span
+class="math inline">\(m=IS\)</span>，方向为法向.</p>
+<p>其本质含义是，任意均匀磁场对平面载流线圈的磁矩为 <span
+class="math inline">\(\vec M=\vec m\times \vec B\)</span>.</p>
+<p>分析小线圈的磁场等价于分析电偶极子的电场，<span
+class="math inline">\(\vec B\approx \frac{\mu_0 \vec m}{2\pi
+r^3}\)</span>.</p>
+<p>在均匀磁场中，小线圈不受力；但是因为有力矩而产生转动，效果是驱使磁矩和磁场的方向相同.</p>
+<h4 id="恒定磁场的无源有旋性">恒定磁场的无源有旋性</h4>
+<p>注：本章探讨的皆为稳恒电流，需要满足闭合（或者无限远处闭合）.
+空间运动的电荷和电流元显然不是.</p>
+<p>磁通量：<span class="math inline">\(\Phi=\int \vec B\cdot d\vec
+S\)</span>，和电通量一样，为磁感应强度穿过面的积分.</p>
+<p><strong>磁感应强度的高斯定理</strong></p>
+<ul>
+<li>对于任意闭合曲面，<span class="math inline">\(\Phi=0\)</span>.</li>
+<li>该定理在任意条件下成立，非稳恒条件也一样.</li>
+</ul>
+<p><strong>磁感应强度的安培环路定理</strong></p>
+<ul>
+<li><p>磁感应强度沿任意闭合有向环路的环量，等于穿过该环路的电流强度的
+<span class="math inline">\(\mu_0\)</span> 倍.</p></li>
+<li><p><span class="math inline">\(\oint \vec B\cdot d\vec l=\mu_0 \sum
+I\)</span></p></li>
+<li><p><strong>均匀无限长圆柱体导线电流磁场</strong></p>
+<p>首先应该是绕着导线的垂直于 <span class="math inline">\(\hat
+r\)</span> 方向的磁场，成右手螺旋关系.</p>
+<p>取圆形环路垂直导线，由安培定理知 <span class="math inline">\(2\pi
+rB=\mu_0 I\frac{\min(r^2,R^2)}{R^2}\)</span>.</p>
+<p>故 <span class="math inline">\(r&lt;R\)</span> 时与 <span
+class="math inline">\(r\)</span> 成正比，<span class="math inline">\(\ge
+R\)</span> 时候成反比.</p></li>
+<li><p><strong>均匀无限大直向面电流的磁场</strong></p>
+<p>磁场应当平行于电流面，并且与电流方向平行，并且电流面两侧磁场方向相反.</p>
+<p>取小矩形环路，由安培定理知 <span class="math inline">\(2LB=\mu_0
+Lj_m\)</span>，故 <span class="math inline">\(B=\frac{\mu_0
+j_m}{2}\)</span>.</p></li>
+<li><p><strong>均匀无限长圆柱体环形电流磁场 / 通电螺旋管</strong></p>
+<p>只有管内有沿管内平行的磁场.</p>
+<p>取穿过管的小矩形回路，由安倍定理知 <span
+class="math inline">\(LB=\mu_0 j_m\)</span>，故 <span
+class="math inline">\(B=\mu_0 j_m\)</span>.</p></li>
+</ul>
+<h2 id="磁介质">2. 磁介质</h2>
+<h4 id="磁化">磁化</h4>
+<p><strong>磁化</strong>：电子绕着原子核转动及其自旋构成了天然的载流线圈.
+和电偶极子类似，介质平时不显磁性，但是在外加磁场中，呈现出一定的磁性，称为磁化.</p>
+<p>和电介质不同，有顺磁质和逆磁质.</p>
+<p><strong>磁化电流</strong>：由于分子环流定向排列，叠加形成等效的宏观电流，称为磁化电流.
+磁化电流是一种等效电流，不能发生传导转移.</p>
+<p><strong>磁化强度</strong>：<span class="math inline">\(\vec
+M=\frac{\sum \vec m}{\Delta
+V}\)</span>，即单位体积内分子磁矩的矢量和.</p>
+<p><strong>磁化面电流</strong>：<span class="math inline">\(\vec
+j_{\sigma m}=\vec M\times \hat n\)</span>.</p>
+<p>#### 磁场强度</p>
+<p>磁化现象存在的时候，总磁场是磁介质磁化电流的磁场和外磁场的叠加 <span
+class="math inline">\(\vec B=B_0+B_m\)</span>.</p>
+<p>和电介质类似，定义<strong>磁场强度</strong>：<span
+class="math inline">\(H=\frac{1}{\mu}B=\frac{1}{\mu_0\mu_r} B\)</span>.
+进而，<span class="math inline">\(M=x_mH\)</span>，其中 <span
+class="math inline">\(\mu_r=1+x_m\)</span>.</p>
+<p>同样也有磁场强度的安培定理：<span class="math inline">\(\oint
+Hdl=\sum I\)</span>.</p>
+<ul>
+<li><p><strong>圆柱磁介质包围的长直导线</strong></p>
+<p>取同心环路，有 <span class="math inline">\(2\pi r H=I\)</span>，故
+<span class="math inline">\(H_r=\frac{I}{2\pi r}\)</span>.</p>
+<p>于是柱外 <span class="math inline">\(B_r=\frac{\mu_0I}{2\pi
+r}\)</span>，柱内 <span class="math inline">\(B_r=\frac{\mu_0\mu_r
+I}{2\pi r}\)</span>.</p></li>
+</ul>
+<p>对于界面，界面两侧磁感应强度法向分量一定连续；若无传导电流，则切向方向也连续.</p>
+<h4 id="铁磁质">铁磁质</h4>
+<p><strong>铁磁性</strong>：铁、镍等物质磁性很强，远超一般物质，称为铁磁性.
+铁磁性起源于量子效应引起的原子间的相互作用，使得小范围内原子磁矩自动定向排列，称为磁畴.</p>
+<p>铁磁质中，一般 <span class="math inline">\(M&gt;&gt;H\)</span>.
+需要注意的是铁磁质中 <span class="math inline">\(\mu_r\)</span>
+不为常数，所以需要老老实实按照 <span
+class="math inline">\(M=\frac{B}{\mu_0}-H\)</span> 计算.</p>
+<p><strong>磁滞回线</strong>：由于磁畴在吞并和旋转中有内部摩擦，其磁化过程不可逆.
+不断增大 <span class="math inline">\(H\)</span> 的时候，<span
+class="math inline">\(B\)</span>（或者 <span
+class="math inline">\(M\)</span>）会饱和，称为磁饱和；然后再把 <span
+class="math inline">\(H\)</span> 减小到 0 之后，<span
+class="math inline">\(B\)</span>（或者 <span
+class="math inline">\(M\)</span>）还会剩下一点，称为剩磁。从图像上来看，无论如何
+<span class="math inline">\(B\)</span>（或者 <span
+class="math inline">\(M\)</span>）的变化都落后于 <span
+class="math inline">\(H\)</span> 的变化，称为磁滞现象.</p>
+<p>铁磁材料在高温下（居里温度）也会丧失磁性.</p>
+<p>在交变磁场中，铁磁材料由于反复磁化，产生热量，损耗能量等于磁滞回线的面积.</p>
+<ul>
+<li><p><strong>铁磁环中的剩磁场</strong></p>
+<p>剩磁的磁化强度为 <span class="math inline">\(M\)</span>
+的铁环，环体内的 <span class="math inline">\(B,H\)</span>.</p>
+<p>磁化电流密度为 <span class="math inline">\(j=M\)</span>，磁感应强度
+<span class="math inline">\(B=\mu_0j=jM\)</span>，<span
+class="math inline">\(H=\frac{B}{\mu_0}-M=0\)</span>.</p></li>
+</ul>
+
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+
+<aside id="sidebar-toc">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-list-ul"></i>  
+            文章目录 
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        
+        
+        <div class="panel-body toc-container">
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%81%92%E5%AE%9A%E7%A3%81%E5%9C%BA"><span class="toc-list-text">1. 恒定磁场</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E7%A3%81%E5%9C%BA%E7%9A%84%E7%94%B5%E6%B5%81%E5%8F%97%E5%8A%9B"><span class="toc-list-text">磁场的电流受力</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E7%A8%B3%E6%81%92%E7%94%B5%E6%B5%81%E5%85%83%E7%9A%84%E7%A3%81%E5%9C%BA"><span class="toc-list-text">稳恒电流元的磁场</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E8%BD%BD%E6%B5%81%E7%BA%BF%E5%9C%88%E4%B8%8E%E7%A3%81%E7%9F%A9"><span class="toc-list-text">载流线圈与磁矩</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E6%81%92%E5%AE%9A%E7%A3%81%E5%9C%BA%E7%9A%84%E6%97%A0%E6%BA%90%E6%9C%89%E6%97%8B%E6%80%A7"><span class="toc-list-text">恒定磁场的无源有旋性</span></a></li></ol></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E7%A3%81%E4%BB%8B%E8%B4%A8"><span class="toc-list-text">2. 磁介质</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E7%A3%81%E5%8C%96"><span class="toc-list-text">磁化</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E9%93%81%E7%A3%81%E8%B4%A8"><span class="toc-list-text">铁磁质</span></a></li></ol></li></ol></li></ol>
+        </div>
+    </div>
+</aside>
+
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2026/04/12/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%A3%81%E5%9C%BA/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2026/04/12/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%A3%81%E5%9C%BA/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 18.904460911600168px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 14.65138032045816px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 18.05349776722218px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 15.360358871146676px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 11.383899230314514px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 13.256735770411606px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 10.228443754561235px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 17.49001968197708px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 17.154754378088185px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 8.93277230973393px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 9.895460565214009px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 16.207155581321086px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 15.428624769755924px;" class="tag-cloud-link">高代</a>
+    
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 16.174479896544312px;" class="tag-cloud-link">信概统</a>
+    
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 18.1525515200299px;" class="tag-cloud-link">数算</a>
+    
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 14.27586119114104px;" class="tag-cloud-link">离散</a>
+    
+    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 17.72311864477469px;" class="tag-cloud-link">智障集锦</a>
+    
+    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 15.766033555221874px;" class="tag-cloud-link">读论文</a>
+    
+    <a href="/tags/bandit/" style="font-size: 12.647680337935437px;" class="tag-cloud-link">bandit</a>
+    
+    <a href="/tags/%E5%92%95%E5%92%95%E5%98%8E%E5%98%8E/" style="font-size: 18.66327450020772px;" class="tag-cloud-link">咕咕嘎嘎</a>
+    
+    <a href="/tags/%E6%98%8E%E5%8F%B2/" style="font-size: 19.615211678260092px;" class="tag-cloud-link">明史</a>
+    
+    <a href="/tags/%E4%BF%A1%E7%89%A9/" style="font-size: 17.895225210060968px;" class="tag-cloud-link">信物</a>
+    
+    <a href="/tags/%E7%AE%97%E5%88%86/" style="font-size: 9.224007480643756px;" class="tag-cloud-link">算分</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>
