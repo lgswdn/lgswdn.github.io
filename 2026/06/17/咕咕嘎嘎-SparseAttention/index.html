@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>咕咕嘎嘎-Token-Compression | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>咕咕嘎嘎-Token-Compression</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2026/06/17/%E5%92%95%E5%92%95%E5%98%8E%E5%98%8E-SparseAttention/">咕咕嘎嘎-Token-Compression</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E5%92%95%E5%92%95%E5%98%8E%E5%98%8E/">咕咕嘎嘎</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2026-06-17
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2026/06/17/%E5%92%95%E5%92%95%E5%98%8E%E5%98%8E-SparseAttention/">咕咕嘎嘎-Token-Compression</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2026-06-17
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E5%92%95%E5%92%95%E5%98%8E%E5%98%8E/">咕咕嘎嘎</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h2 id="ds-v4-sparse-attention">DS V4 sparse attention</h2>
+<h4 id="dsa">DSA</h4>
+<p>使用了 Indexer Projection 的 trick，其中</p>
+<ul>
+<li>生成低维度的新 Q/V，并用此做 cross-attention 进行评分计算</li>
+<li>然后做 top-k 得到最重要的 k 个 kv</li>
+<li>然后每个 query 只选择自己最重要的 kv</li>
+</ul>
+<h4 id="csa-compressed-sparse-attention">CSA: Compressed sparse
+attention</h4>
+<p>相比于 DSA 更加压缩，其中</p>
+<ul>
+<li>首先先将序列切成 n/m 个 block，block 内部先 merge</li>
+<li>然后对这些 block 做 DSA，得到 <span
+class="math inline">\(K_1,V_1\)</span></li>
+<li>然后再对于没有 merge 过的序列取小滑动窗口得到 <span
+class="math inline">\(K_2,V_2\)</span></li>
+<li>取 <span class="math inline">\(K_1\cup K_2,V_1\cup
+V_2\)</span>，然后过 attention block.</li>
+</ul>
+<h4 id="hca-heavily-compressed-attention">HCA: Heavily Compressed
+attention</h4>
+<p>将序列压缩程度更大地切成 block，每个 block 内部 merge 之后做 dense
+attention</p>
+<h4 id="mqa-multi-query-attention">MQA: Multi-query Attention</h4>
+<ul>
+<li>传统 multi-head attention 每个 attention 都要缓存自己的
+QKV，容易存不下。</li>
+<li>于是采用只有 query 多头，别的都单头的机制。</li>
+</ul>
+<h4 id="grouped-output-projection">Grouped Output Projection</h4>
+<ul>
+<li>注意到单个头的维度上升之后，会导致最后的 output projection
+变大。</li>
+<li>于是将头们划分成若干个组，每个组内部 concat
+后投影降维度，然后最后把这些 low-rank 的东西再拼起来然后做
+up-projection</li>
+</ul>
+<h2 id="spargeattention-icml2025">SpargeAttention (ICML2025)</h2>
+<p>和 DS 的 sparse attention 不同，是一个 plug-in 的东西. 基于
+flash-attention 的分块.</p>
+<h4 id="sparse-block-online-prediction">Sparse block online
+prediction</h4>
+<p>对于 flash-attention 划分出来的一个块，计算其 Q,K 的内部平均 cosine
+similarity，然后通过一个阈值设定是否是相似块（selective / fix）</p>
+<p>核心思想是，对 fix block 我们认真地计算 attention，对于 fix
+block，我们可以把最稀疏的东西略掉.</p>
+<p>如何判断是否稀疏？</p>
+<ul>
+<li>首先每个块 mean pooling，然后计算内积后，得到对 attention 的估计
+<span class="math inline">\(p\)</span></li>
+<li>将含有 fix block 的 pair 给强制设成 <span
+class="math inline">\(m_{i,j}=1\)</span> 并 <span
+class="math inline">\(p_{i,j}=-\infty\)</span>；然后做 softmax
+后，排序后，通过 Top-CDF 截断来将一些比较重要的 <span
+class="math inline">\(m_{i,j}\)</span> 设为 <span
+class="math inline">\(1\)</span>.</li>
+</ul>
+<p>然后 <span class="math inline">\(m=0\)</span> 的就直接略去了.</p>
+<h4 id="sparse-online-softmax">Sparse online softmax</h4>
+<p>在使用 flashattn 的 online softmax 的时候，注意到</p>
+<ul>
+<li>如果局部的 max 远小于全局历史的 max，那么这一项在 softmax
+中就会占比极小可以忽略，就可以跳过和 value 的乘法</li>
+<li>然后就能少掉很多次 softmax 后和 value 的乘法</li>
+</ul>
+<h4 id="hilbercurve-permuation">Hilbercurve permuation</h4>
+<p>注意到如果对于图片/视频，随意分块容易导致有很多 fix block</p>
+<p>于是论文采用 Hilbert Curve 来遍历 <span class="math inline">\(T\times
+W\times H\)</span> 的视觉 token，这样能够得提升 self-similarity.</p>
+<h4 id="实验结果">实验结果</h4>
+<p>在图像生成上远超了其他的一些方法；视频生成模型带来了 1.8x 加速.</p>
+<p>在长序列中更加使用，并且 fix block 在计算是必要.</p>
+<h2 id="xattention-icml2025">Xattention (ICML2025)</h2>
+<p>这个也是一个 plug-in framework. 注意到 block sparse 为了计算
+importance 会多计算不少东西，有一点亏.</p>
+<p>考虑到对于任何的 sparse pattern，其一定与反对角线相交.
+于是文章提出了一个新的计算 importance 的方法：对于一个
+block，提取其反对角线上的元素，用其来计算 importance weight.</p>
+<h4 id="threshold-block-selection">Threshold Block Selection</h4>
+<ul>
+<li>对于块编号 <span class="math inline">\(i,j\)</span>，定义 <span
+class="math inline">\(A&#39;_{i,j}\)</span> 为原本的 <span
+class="math inline">\(A=QK^T\)</span> 的反对角线按着一个 stride=S
+求和.</li>
+<li>求这个很简单：直接提取 <span class="math inline">\(Q\)</span> 的正序
+stride=S 然后 <span class="math inline">\(K\)</span> 的逆序 stride=S
+即可.</li>
+<li>然后做 Top-CDF 截断获得需要计算的块.</li>
+</ul>
+<h4 id="minimum-threshold-prediction">Minimum Threshold Prediction</h4>
+<ul>
+<li><p>注意到 Top-CDF 需要一个 threshold，而不同 head
+的重要程度不尽相同，所需的 threshold 也不尽相同. 文章提出用 DP 来计算
+threshold.</p></li>
+<li><p>定义一次调整为将一个头的 threshold 下降 10%. 然后令 <span
+class="math inline">\(DP[h][m]\)</span> 表示只调整了前 h
+个头，并且总共调整次数为 m 的模型最佳表现. 转移是 trivial 的.</p>
+<p>这样就能最后得到 accuracy 和 efficiency 的 curve.</p></li>
+</ul>
+<h4 id="实验结果-1">实验结果</h4>
+<p>考虑 256K 上下文中，S=16 时注意力本身达到了 13x 加速，S=8 时达到 9x
+加速.</p>
+<p>由于反对角线很容易计算，所 以比 FlexPrefill 什么的有 5.9x 加速.</p>
+
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+
+<aside id="sidebar-toc">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-list-ul"></i>  
+            文章目录 
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        
+        
+        <div class="panel-body toc-container">
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#ds-v4-sparse-attention"><span class="toc-list-text">DS V4 sparse attention</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#dsa"><span class="toc-list-text">DSA</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#csa-compressed-sparse-attention"><span class="toc-list-text">CSA: Compressed sparse
+attention</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#hca-heavily-compressed-attention"><span class="toc-list-text">HCA: Heavily Compressed
+attention</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#mqa-multi-query-attention"><span class="toc-list-text">MQA: Multi-query Attention</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#grouped-output-projection"><span class="toc-list-text">Grouped Output Projection</span></a></li></ol></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#spargeattention-icml2025"><span class="toc-list-text">SpargeAttention (ICML2025)</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#sparse-block-online-prediction"><span class="toc-list-text">Sparse block online
+prediction</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#sparse-online-softmax"><span class="toc-list-text">Sparse online softmax</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#hilbercurve-permuation"><span class="toc-list-text">Hilbercurve permuation</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="toc-list-text">实验结果</span></a></li></ol></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#xattention-icml2025"><span class="toc-list-text">Xattention (ICML2025)</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#threshold-block-selection"><span class="toc-list-text">Threshold Block Selection</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#minimum-threshold-prediction"><span class="toc-list-text">Minimum Threshold Prediction</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C-1"><span class="toc-list-text">实验结果</span></a></li></ol></li></ol></li></ol>
+        </div>
+    </div>
+</aside>
+
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2026/06/17/%E5%92%95%E5%92%95%E5%98%8E%E5%98%8E-SparseAttention/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2026/06/17/%E5%92%95%E5%92%95%E5%98%8E%E5%98%8E-SparseAttention/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 16.558561808472504px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 16.854106225758542px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 18.912835434385705px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 16.189097374419045px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 13.70797002160009px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 12.372300443372229px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 11.46289552779432px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 9.626460377568936px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 11.252109308893747px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 13.443420998448907px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 16.735178771047046px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 9.583772091312252px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 10.611246594095148px;" class="tag-cloud-link">高代</a>
+    
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 15.547200751418487px;" class="tag-cloud-link">信概统</a>
+    
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 14.72079339157211px;" class="tag-cloud-link">数算</a>
+    
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 19.592737457796257px;" class="tag-cloud-link">离散</a>
+    
+    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 11.718859505717013px;" class="tag-cloud-link">智障集锦</a>
+    
+    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 19.017994391293033px;" class="tag-cloud-link">读论文</a>
+    
+    <a href="/tags/bandit/" style="font-size: 11.294579338664938px;" class="tag-cloud-link">bandit</a>
+    
+    <a href="/tags/%E5%92%95%E5%92%95%E5%98%8E%E5%98%8E/" style="font-size: 19.43498855109238px;" class="tag-cloud-link">咕咕嘎嘎</a>
+    
+    <a href="/tags/%E6%98%8E%E5%8F%B2/" style="font-size: 17.881164175252025px;" class="tag-cloud-link">明史</a>
+    
+    <a href="/tags/%E4%BF%A1%E7%89%A9/" style="font-size: 9.228563638656794px;" class="tag-cloud-link">信物</a>
+    
+    <a href="/tags/%E7%AE%97%E5%88%86/" style="font-size: 14.311910590364704px;" class="tag-cloud-link">算分</a>
+    
+    <a href="/tags/AIGC/" style="font-size: 17.29574158898687px;" class="tag-cloud-link">AIGC</a>
+    
+    <a href="/tags/quantum/" style="font-size: 15.352019110221176px;" class="tag-cloud-link">quantum</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

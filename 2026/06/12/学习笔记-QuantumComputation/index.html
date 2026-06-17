@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>学习笔记-QuantumComputation | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>学习笔记-QuantumComputation</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2026/06/12/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-QuantumComputation/">学习笔记-QuantumComputation</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/quantum/">quantum</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2026-06-12
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2026/06/12/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-QuantumComputation/">学习笔记-QuantumComputation</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2026-06-12
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/quantum/">quantum</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>Notes taken from course Theory of Computation.</p>
+<p>Simple notations that could be obtained from Concrete Quantum
+Mechanics are omitted.</p>
+<p>Some <span class="math inline">\(|\rangle\)</span> for kets are
+omitted for convenience, with bras replaced by <span
+class="math inline">\(\dagger\)</span>.</p>
+<hr />
+<p>Superposition: for <span class="math inline">\(n\)</span> qubits
+superposition, the space is identical to <span
+class="math inline">\(C^N\)</span>, <span
+class="math inline">\(N=2^n\)</span>.</p>
+<p>Quantum operation: each quantum operation is a unitary matrix over
+<span class="math inline">\(C^{N\times N}\)</span>.</p>
+<p>Mixed state: a convex combination of superpositions, <span
+class="math inline">\(\{p_i,\phi_i\}\)</span>.</p>
+<ul>
+<li>The density of such system is defined by the matrix <span
+class="math inline">\(\rho=\sum_i p_i|\phi_i\rangle\langle
+\phi_i|\)</span>.</li>
+<li>Could easily obtain that the mixed state after quantum operation
+<span class="math inline">\(U\)</span> changes to <span
+class="math inline">\(U\rho U^{\dagger}\)</span>.</li>
+</ul>
+<p>Single-bit operation examples:</p>
+<ul>
+<li>Pauli matrices <span class="math inline">\(X,Y,Z\)</span>.</li>
+<li>Hadamard gate <span class="math inline">\(H\)</span>, phase gate
+<span class="math inline">\(S\)</span>, <span
+class="math inline">\(\pi/8\)</span> gate <span
+class="math inline">\(T\)</span>.</li>
+</ul>
+<p>Quantum measurement:</p>
+<ul>
+<li><p>In short, a measurement project the whole state space into a
+subspace.</p></li>
+<li><p>In details, measurement is described by a collection <span
+class="math inline">\(\{M_m\}\)</span> of measurement operators.</p>
+<p>The probability of that result <span class="math inline">\(m\)</span>
+occurs is <span class="math inline">\(\langle \phi|M^{\dagger}_m M_m
+|\phi\rangle\)</span>, and the state after the measurement is <span
+class="math inline">\(\frac{M_m|\phi\rangle}{\sqrt{p(m)}}\)</span>.</p>
+<p>It should be satisfied that <span class="math inline">\(\sum_m
+M_m^{\dagger} M_m=I\)</span>.</p>
+<p>Define <span class="math inline">\(E_m:=M_m^{\dagger}M_m\)</span>.
+The set <span class="math inline">\(\{E_m\}\)</span> is known as the
+POVM of the measurement.</p></li>
+<li><p>Projective measurement:</p>
+<p>In short, project measurement force the result to be eigenspace of
+<span class="math inline">\(M\)</span> and <span
+class="math inline">\(M\)</span> to be Hermitian.</p>
+<p><span class="math inline">\(M\)</span> is a Hermitian operator with
+<span class="math inline">\(M=\sum_m mP_m\)</span>, where <span
+class="math inline">\(P_m\)</span> is rhe projector onto the eigenspace
+of <span class="math inline">\(M\)</span> with eigenvalue <span
+class="math inline">\(m\)</span>.</p>
+<p>Thus, the probability of getting result <span
+class="math inline">\(m\)</span> is <span
+class="math inline">\(p_m=\langle \phi | P_m \phi \rangle\)</span>, with
+the state after measurement being <span
+class="math inline">\(\frac{P_m|\phi\rangle}{\sqrt{p(m)}}\)</span>.</p></li>
+</ul>
+<p>Quantum Turing Machine:</p>
+<ul>
+<li><p>For input size <span class="math inline">\(n\)</span> and time
+<span class="math inline">\(T(n)\)</span>, find a polynomial-time
+classical TM with <span class="math inline">\((1^n,1^{T(n)})\)</span>
+that outputs the description of quantum gates <span
+class="math inline">\(F_i\)</span> (in other words, uniform).</p></li>
+<li><p>Function <span class="math inline">\(f(x)\)</span> could be
+computed by the following probability with at least <span
+class="math inline">\(2/3\)</span> accuracy:</p>
+<ul>
+<li>Initialize m-qubit quantum register to the state <span
+class="math inline">\(x0^{m-n}\)</span>.</li>
+<li>Apply <span class="math inline">\(T(n)\)</span> quantum operators
+one after another.</li>
+<li>Measure the register by projecting it to the standard basis. Let
+<span class="math inline">\(Y\)</span> be the obtained value. Output
+<span class="math inline">\(Y_i\)</span>.</li>
+</ul></li>
+<li><p>BQP: P-time using QTM.</p>
+<p>(Note: It is proven that QIP=IP=PSPACE. However, quantum advantage
+could also be seen in interactive proof)</p>
+<p>eg. BPP in BQP. Simply generate the random string using quantum
+measurement.</p></li>
+</ul>
+<p>Grover Search:</p>
+<ul>
+<li><p>Theorem: There exists a quantum algo, that given as input every
+poly-time computable function <span class="math inline">\(f\)</span>,
+finds in <span class="math inline">\(poly(n)2^{n/2}\)</span> time a
+string <span class="math inline">\(a\)</span> such that <span
+class="math inline">\(f(a)=1\)</span> if such string exists.</p></li>
+<li><p>Assume <span class="math inline">\(f\)</span> only got one
+satisfying assignment. Also, the <span class="math inline">\(f\)</span>
+gives us an quantum operation <span class="math inline">\(O\)</span>:
+<span class="math inline">\(xq\to x(q\oplus f(x))\)</span>. (rangle is
+omitted for <span class="math inline">\(x,q\)</span>)</p></li>
+<li><p>Algo:</p>
+<ul>
+<li><p>Attain <span class="math inline">\(u=\frac{1}{2^{n/2}}\sum_{x\in
+\{0,1\}^n} x\)</span> (which serves as uniform distribution of all
+possible answers)</p>
+<p><span class="math inline">\(u=H^{\otimes n}(0^{\otimes
+n})\)</span>.</p></li>
+<li><p>Notice that the inner product of <span
+class="math inline">\(u,a=1/2^{n/2}\)</span>. Denote such angle as <span
+class="math inline">\(\pi/2-\theta\)</span>, hence <span
+class="math inline">\(\sin\theta=1/2^{n/2}\)</span>.</p></li>
+<li><p>Start with <span class="math inline">\(u\)</span>, and repeat for
+<span class="math inline">\(O(1/\theta)=O(2^{n/2}\)</span> steps. Each
+step shrink the angle from <span
+class="math inline">\(\pi/2-\alpha\)</span> to <span
+class="math inline">\(\pi/2-\alpha-2\theta\)</span>.</p>
+<ul>
+<li><p>Step 1: Reflect <span class="math inline">\(x\)</span> around
+direction <span class="math inline">\(e\)</span> (orth against <span
+class="math inline">\(a\)</span>).</p>
+<p>Use <span class="math inline">\(O\)</span> with <span
+class="math inline">\(q=\frac{0-1}{\sqrt 2}\)</span>, and transform
+<span class="math inline">\(x\to (-1)^{f(x)}x\)</span>.</p></li>
+<li><p>Step 2: Reflect <span class="math inline">\(x\)</span> around
+<span class="math inline">\(u\)</span> (namely, the grover diffusion
+operator).</p>
+<p>We want to obtain <span class="math inline">\(x\to (2u^{\dagger}
+u-I)x\)</span>. The question is how to construct such operator.</p>
+<p><span class="math inline">\(2u^\dagger u-I=H^n\left(\begin{matrix} 1
+&amp; \\ &amp; diag^{2^n-1}(-1) \end{matrix}\right) H^n\)</span> .</p>
+<p>The center matrix could be constructed as: calculate the OR of all
+bits as <span class="math inline">\(r\)</span>, and CNOT with <span
+class="math inline">\(r\)</span>.</p></li>
+</ul></li>
+</ul></li>
+</ul>
+
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2026/06/12/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-QuantumComputation/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2026/06/12/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-QuantumComputation/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 8.760445995484497px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 10.67580881747561px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 9.327343285959465px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 13.015965899110173px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 14.887108656029955px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 15.800117549713026px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 17.504983415672104px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 8.310125467820848px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 11.002625772752431px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 10.212993258511425px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 15.348560266184084px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 15.662549111212126px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 9.292759923402057px;" class="tag-cloud-link">高代</a>
+    
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 13.977674283757665px;" class="tag-cloud-link">信概统</a>
+    
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 8.823365868129066px;" class="tag-cloud-link">数算</a>
+    
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 12.178521464755754px;" class="tag-cloud-link">离散</a>
+    
+    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 18.119374688718715px;" class="tag-cloud-link">智障集锦</a>
+    
+    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 8.156763391280414px;" class="tag-cloud-link">读论文</a>
+    
+    <a href="/tags/bandit/" style="font-size: 14.952555065520894px;" class="tag-cloud-link">bandit</a>
+    
+    <a href="/tags/%E5%92%95%E5%92%95%E5%98%8E%E5%98%8E/" style="font-size: 15.975571020602295px;" class="tag-cloud-link">咕咕嘎嘎</a>
+    
+    <a href="/tags/%E6%98%8E%E5%8F%B2/" style="font-size: 17.309554060527155px;" class="tag-cloud-link">明史</a>
+    
+    <a href="/tags/%E4%BF%A1%E7%89%A9/" style="font-size: 10.556686428602402px;" class="tag-cloud-link">信物</a>
+    
+    <a href="/tags/%E7%AE%97%E5%88%86/" style="font-size: 12.326364049827198px;" class="tag-cloud-link">算分</a>
+    
+    <a href="/tags/AIGC/" style="font-size: 15.172242573071241px;" class="tag-cloud-link">AIGC</a>
+    
+    <a href="/tags/quantum/" style="font-size: 17.22059918561128px;" class="tag-cloud-link">quantum</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

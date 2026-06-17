@@ -10,7 +10,7 @@
     
     
     
-    <title>学习笔记-BanditAlgo-6 | lgswdn-SA</title>
+    <title>学习笔记-量子通信 | lgswdn-SA</title>
     <link href="http://lgswdn.github.io" rel="prefetch" />
 
     
@@ -216,13 +216,13 @@
         <i class="fa fa-home"></i>
         <a href="http://lgswdn.github.io">lgswdn-SA</a>
         >
-        <span>学习笔记-BanditAlgo-6</span>
+        <span>学习笔记-量子通信</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2026/02/24/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-BanditAlgo-6/">学习笔记-BanditAlgo-6</a>
+                <a href="/2026/06/06/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E9%87%8F%E5%AD%90%E9%80%9A%E4%BF%A1/">学习笔记-量子通信</a>
             </h1>
         </div>
         <div class="tag-article">
@@ -230,12 +230,12 @@
             <span class="label label-gal">
                 <i class="fa fa-tags"></i>
                 
-                <a href="/tags/bandit/">bandit</a>
+                <a href="/tags/quantum/">quantum</a>
                 
             </span>
             
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2026-02-24
+                <i class="fa fa-calendar"></i> 2026-06-06
             </span>
             
         </div>
@@ -245,17 +245,17 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2026/02/24/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-BanditAlgo-6/">学习笔记-BanditAlgo-6</a>
+                    <a href="/2026/06/06/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E9%87%8F%E5%AD%90%E9%80%9A%E4%BF%A1/">学习笔记-量子通信</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2026-02-24
+                <i class="fa fa-calendar"></i> 2026-06-06
             </p>
             <p>
                 
                 <i class="fa fa-tags"></i>
                 
-                <a href="/tags/bandit/">bandit</a>
+                <a href="/tags/quantum/">quantum</a>
                 
                 
                 
@@ -263,7 +263,76 @@
         </center>
     </div>
     <div class="content-article">
-        
+        <p>《简明量子力学》第十章的学习笔记</p>
+<h2 id="量子隐形传态">量子隐形传态</h2>
+<p>为了方便起见省略 <span class="math inline">\(|\rangle\)</span>.</p>
+<p>考虑 Alice 有一个处于偏正态 <span
+class="math inline">\(\phi=\alpha0+\alpha 1\)</span>
+的光子，然后想要通过一些信息来把这个光子的信息传递给 Bob.</p>
+<p>除了直接通过量子信道之外，还有一个方法，是量子隐形传态.</p>
+<p>Alice 可以先制备一对处于纠缠态的辅助光子 <span
+class="math inline">\(\gamma_{00}=\frac{1}{\sqrt{2}}(00+11)\)</span>.
+于是加上这个原本的光子，这三个光子组成了 <span class="math display">\[
+\Phi_0=\frac{1}{\sqrt{2}}(\alpha(000+011)+\beta(100+111))
+\]</span> 然后 Alice 可以把第三个光子用量子信道传给 Bob.</p>
+<p>接下来 Alice 对自己有的两个量子进行一次 CNOT
+门操作（第一个光子为控制比特），再对第一个 bit 进行 H 门操作，得到：</p>
+<ul>
+<li><p>通过 CNOT 门： <span class="math display">\[
+\Phi_1=\frac{1}{\sqrt{2}}(\alpha0\otimes (00+11)+\beta 1\otimes (10+01))
+\]</span></p></li>
+<li><p>通过 H 门： <span class="math display">\[
+\begin{aligned}
+\Phi_2=&amp;\frac{1}{2}(\alpha(0+1)\otimes (00+11)\\&amp;+\beta
+(0-1)\otimes (10+01))\\
+=&amp;\frac{1}{2}[00\otimes (\alpha 0+\beta 1)+01\otimes (\alpha 1+\beta
+0)\\
+&amp;+ 10\otimes (\alpha 0-\beta 1)+11\otimes (\alpha 1 -\beta 0)]
+\end{aligned}
+\]</span></p></li>
+</ul>
+<p>于是只要 Alice 将观测结果用经典方法发给
+Bob，就能用根据这个观测结果用简单的门来从得到的光子制备出 <span
+class="math inline">\(\phi=\alpha 0+\beta 1\)</span>，.</p>
+<p>注意到相比于经典通信，这个信道是安全的，因为发送的光子不携带关于
+<span class="math inline">\(\phi\)</span>
+的信息；另一方面，相比于直接量子信道传输，我们也可以增加纠缠光子的数量来提升稳定性.</p>
+<h2 id="量子加密-bb84">量子加密 / BB84</h2>
+<p>Alice 公开声称手里只有四种偏振态的光子：<span
+class="math inline">\(0,1,0_x,1_x\)</span>，分别用 <span
+class="math inline">\(\phi_{00},\phi_{10},\phi_{01},\phi_{11}\)</span>
+表示. 测量方式 <span class="math inline">\(M_z\)</span> 用 0 表示，<span
+class="math inline">\(M_x\)</span> 用 1 表示.</p>
+<p>，随机声称并保密，然后传给 Bob；Bob 随机用 <span
+class="math inline">\(M_x,M_z\)</span> 测量然后用公共经典信道和 Alice
+讨论，最后保留一些 bit 作为密码.</p>
+<p>具体方法：</p>
+<ol type="1">
+<li>Alice 想要加密 K 位的二进制数 <span class="math inline">\(a\)</span>
+并传输给 Bob.</li>
+<li>Alice 随机产生一个 K 位的二进制数 <span
+class="math inline">\(b\)</span>.</li>
+<li>Alice 给 Bob 发送一系列偏振态的光子，其中第 <span
+class="math inline">\(k\)</span> 个光子的偏振态为 <span
+class="math inline">\(\phi_{a_kb_k}\)</span>.</li>
+<li>Bob 随机产生一个 K 位的二进制数 <span
+class="math inline">\(b&#39;\)</span>，并据此决定每个光子的测量方式，并进行测量.
+以此记录后得到 K 位二进制数 <span
+class="math inline">\(a&#39;\)</span>.</li>
+<li>Alice 公布 <span class="math inline">\(b\)</span>. 显然若 <span
+class="math inline">\(b_k=b&#39;_k\)</span> 则一定有 <span
+class="math inline">\(a_k=a&#39;_k\)</span>. 故获得了期望 <span
+class="math inline">\(K/2\)</span> 个位置的 <span
+class="math inline">\(a\)</span>.</li>
+</ol>
+<p>实际中，由于有噪声所以可能会破坏纠缠光子对，所以得到的 <span
+class="math inline">\(b_k=b&#39;_k\)</span> 不一定直接 imply <span
+class="math inline">\(a_k=a&#39;_k\)</span>.</p>
+<p>所以为了传递 <span class="math inline">\(n\)</span> 个 bit
+的信息，Alice 会先发 <span class="math inline">\(4n+\delta\)</span> 个
+bit，然后得到约 <span class="math inline">\(2n\)</span> 个 bit 的 <span
+class="math inline">\(b_k=b&#39;_k\)</span>，然后再通过经典纠错方法来随机选出
+<span class="math inline">\(n\)</span> 个.</p>
 
     </div>
 </article>
@@ -321,6 +390,25 @@
     
     
     
+
+<aside id="sidebar-toc">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-list-ul"></i>  
+            文章目录 
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        
+        
+        <div class="panel-body toc-container">
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E9%87%8F%E5%AD%90%E9%9A%90%E5%BD%A2%E4%BC%A0%E6%80%81"><span class="toc-list-text">量子隐形传态</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E9%87%8F%E5%AD%90%E5%8A%A0%E5%AF%86-bb84"><span class="toc-list-text">量子加密 &#x2F; BB84</span></a></li></ol>
+        </div>
+    </div>
+</aside>
+
+    
+    
     <!-- 要配置好leancloud才能开启此小工具 -->
     
     
@@ -332,13 +420,13 @@
 
                 
                 <li>
-                    <a href="/2026/02/24/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-BanditAlgo-6/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2026/06/06/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E9%87%8F%E5%AD%90%E9%80%9A%E4%BF%A1/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 
                 <li>
-                    <a href="/2026/02/24/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-BanditAlgo-6/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2026/06/06/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E9%87%8F%E5%AD%90%E9%80%9A%E4%BF%A1/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -346,51 +434,55 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 19.522917304764203px;" class="tag-cloud-link">总结</a>
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 18.95501102743893px;" class="tag-cloud-link">总结</a>
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 19.89712568456556px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 10.343074800495591px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 16.793353607192167px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 10.712545701801083px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/ICS/" style="font-size: 11.31168842873062px;" class="tag-cloud-link">ICS</a>
+    <a href="/tags/ICS/" style="font-size: 12.461313734157224px;" class="tag-cloud-link">ICS</a>
     
-    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 16.21794842024644px;" class="tag-cloud-link">具身</a>
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 8.959912463286475px;" class="tag-cloud-link">具身</a>
     
-    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 9.333509863441712px;" class="tag-cloud-link">初恋日记</a>
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 16.269695255384143px;" class="tag-cloud-link">初恋日记</a>
     
-    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 11.762984592808927px;" class="tag-cloud-link">腾讯星火营</a>
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 11.747805483065651px;" class="tag-cloud-link">腾讯星火营</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 19.827857526419614px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 19.39872748796994px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 11.44863972176887px;" class="tag-cloud-link">程设</a>
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 10.86399341609961px;" class="tag-cloud-link">程设</a>
     
-    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 8.293034126093506px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 8.025484286675086px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
     
-    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 19.920660534572914px;" class="tag-cloud-link">波伏娃</a>
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 16.40475639070399px;" class="tag-cloud-link">波伏娃</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 17.03545125280723px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 11.662152278609257px;" class="tag-cloud-link">音数</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 12.481316632157014px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 19.527080106643297px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 8.496964814654984px;" class="tag-cloud-link">信概统</a>
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 8.846044058573685px;" class="tag-cloud-link">信概统</a>
     
-    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 15.370410523358546px;" class="tag-cloud-link">数算</a>
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 17.617656470006256px;" class="tag-cloud-link">数算</a>
     
-    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 11.326308229410884px;" class="tag-cloud-link">离散</a>
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 12.469640972934169px;" class="tag-cloud-link">离散</a>
     
-    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 13.458900003204255px;" class="tag-cloud-link">智障集锦</a>
+    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 9.453042815631537px;" class="tag-cloud-link">智障集锦</a>
     
-    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 12.417688977366407px;" class="tag-cloud-link">读论文</a>
+    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 8.281834049063342px;" class="tag-cloud-link">读论文</a>
     
-    <a href="/tags/bandit/" style="font-size: 10.858980305771176px;" class="tag-cloud-link">bandit</a>
+    <a href="/tags/bandit/" style="font-size: 11.268168493732388px;" class="tag-cloud-link">bandit</a>
     
-    <a href="/tags/%E5%92%95%E5%92%95%E5%98%8E%E5%98%8E/" style="font-size: 16.096382818066957px;" class="tag-cloud-link">咕咕嘎嘎</a>
+    <a href="/tags/%E5%92%95%E5%92%95%E5%98%8E%E5%98%8E/" style="font-size: 19.265633634851717px;" class="tag-cloud-link">咕咕嘎嘎</a>
     
-    <a href="/tags/%E6%98%8E%E5%8F%B2/" style="font-size: 15.742595017374681px;" class="tag-cloud-link">明史</a>
+    <a href="/tags/%E6%98%8E%E5%8F%B2/" style="font-size: 10.897023961649893px;" class="tag-cloud-link">明史</a>
     
-    <a href="/tags/%E4%BF%A1%E7%89%A9/" style="font-size: 15.336778043219642px;" class="tag-cloud-link">信物</a>
+    <a href="/tags/%E4%BF%A1%E7%89%A9/" style="font-size: 15.408964147346301px;" class="tag-cloud-link">信物</a>
     
-    <a href="/tags/%E7%AE%97%E5%88%86/" style="font-size: 9.157193845306944px;" class="tag-cloud-link">算分</a>
+    <a href="/tags/%E7%AE%97%E5%88%86/" style="font-size: 15.084528264863884px;" class="tag-cloud-link">算分</a>
+    
+    <a href="/tags/AIGC/" style="font-size: 8.874054108957662px;" class="tag-cloud-link">AIGC</a>
+    
+    <a href="/tags/quantum/" style="font-size: 18.49192383698103px;" class="tag-cloud-link">quantum</a>
     
 </div>
                 

@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>咕咕嘎嘎-VLM-Acceleration | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>咕咕嘎嘎-VLM-Acceleration</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2026/06/17/%E5%92%95%E5%92%95%E5%98%8E%E5%98%8E-VLM-Acceleration/">咕咕嘎嘎-VLM-Acceleration</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E5%92%95%E5%92%95%E5%98%8E%E5%98%8E/">咕咕嘎嘎</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2026-06-17
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2026/06/17/%E5%92%95%E5%92%95%E5%98%8E%E5%98%8E-VLM-Acceleration/">咕咕嘎嘎-VLM-Acceleration</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2026-06-17
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E5%92%95%E5%92%95%E5%98%8E%E5%98%8E/">咕咕嘎嘎</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>看了三篇主题不一样的文章：</p>
+<ul>
+<li>Proxy Attn: 对 attn head 进行分组的方法做 sparse attn</li>
+<li>SGL：用小模型指导大模型 prune visual token</li>
+<li>Q-VLM：用后训练的方式做网络的 quantization</li>
+</ul>
+<h2 id="proxy-attn-iclr-2026">Proxy Attn (ICLR 2026)</h2>
+<p>https://arxiv.org/pdf/2509.24745</p>
+<p>核心观察：以往的 sparse attention 的逻辑一般都是先给 token
+序列分块，每一个块 pooling 然后去计算一个块与块的 importance weight.
+这样做的问题是它是比较 course-grained
+的，可能如果一个块里面只有一个重要的 token 的话这个块也容易被忽略掉.</p>
+<p>Proxy Attn 提出将这个分块不要按照序列分块，而是按照 attention head
+分块. 每个 attention head 去 pool 然后计算 importance weight.
+依据是观察到每个 head 之间各个 token 的 importance 大差不差，head
+之间的差异主要在于 sparsity.</p>
+<p>据此，methodology 主要分为两部分：</p>
+<ul>
+<li><p>由于每个 head 之间 token attention importance 大差不差，所以给
+head 分成若干个 Group，每个 Group <span class="math inline">\(g\)</span>
+计算出 avg query <span class="math inline">\(Q^g\)</span> 和 avg key
+<span class="math inline">\(K^g\)</span>，然后乘起来再 soft-max 得到
+attention importance map <span class="math inline">\(A^g\)</span>. 然后
+<span class="math inline">\(A^g\leftarrow softmax(A^g)\)</span>.
+这里为了节省时间可以设置一个 stride.</p>
+<p>然后由于最后还是要落回块上，所以再用 max-pool 算得每一个块的
+importance map.</p></li>
+<li><p>然后由于各个 head 之间 sparsity 不同，所以要分配不同的 <span
+class="math inline">\(k\)</span> 来取 top-K. 我们要给每个块分配一个
+budget <span class="math inline">\(b_g\)</span>.</p>
+<p>计算一个 head 的 sparsity：所有块的 query attend to 最后一个块的
+key，以此计算出一个每个块的注意力分数 <span class="math inline">\(\hat
+a_i\)</span>. 归一化后做 Top-CDF，计算 <span
+class="math inline">\(b_g\)</span> 表示取最大的 <span
+class="math inline">\(b_g\)</span> 个块可以让取出的 <span
+class="math inline">\(\sum \hat a_i&gt;\gamma\)</span>.</p>
+<p>然后 <span class="math inline">\(b_g\)</span> 就代表了 sparsity，按
+<span class="math inline">\(b_g\)</span> 为比例，每个 head 取 top-k
+即可.</p></li>
+</ul>
+<p>实验：</p>
+<ul>
+<li>在注意力计算方面，256k 达到 10x 加速.</li>
+<li>Time to First Token 2.4x 加速.</li>
+<li>XAttention 在 Qwen 上有 accuracy degration，但是 proxy attn
+比较通用地在不怎么做更改的情况下 migrate 到
+Qwen，应该是得益于后面的动态的 online budget estimation</li>
+</ul>
+<h2 id="small-guide-large-cvpr-2025">Small Guide Large (CVPR 2025)</h2>
+<p>https://arxiv.org/pdf/2412.03324</p>
+<p>Observation: 像 FastV 这样的 visual token pruning，prune 到 9%
+的时候就会表现断崖下降. 他们做了一个实验，先完整
+inference，然后用这个作为一个、 oracle 去 prune visual
+token，表现会显著好很多。于是文章的主要做法是，用一个小模型来充当这样的
+oracle 指导大模型如何 prune token.</p>
+<p>Methodology：</p>
+<ul>
+<li>首先用一个小模型直接跑.</li>
+<li>然后对于 prefilling stage，提取 visual token 和 language token 的
+cross attention，然后每个 visual token 统计所有 language token &amp;
+所有 layer&amp;head 的求和.</li>
+<li>对于 decoding stage，则就是对于每个 generated token &amp; layer
+&amp; head 求和.</li>
+<li>然后这两个加起来得到每个 visual token 的权重.</li>
+<li>然后取 top p pruning</li>
+</ul>
+<p>Early exit:</p>
+<ul>
+<li>注意到我们既然已经用小模型跑出来一个结果了。如果这个结果已经足够好了那就不用麻烦大模型重新跑了.</li>
+<li>首先计算一个 confidence score，也就是生成的 log-likelihood.</li>
+<li>然后计算 consistency score. 这个是通过将 pruned tokens
+喂给小模型然后生成的 log-likelihood.</li>
+<li>Decision score 为这两个 score 取平均.
+如果高于一个阈值就直接用小模型的输出.
+实验证明这个方法相比于只用其中一个会有所提升.</li>
+</ul>
+<p>Experiment:</p>
+<ul>
+<li>在裁掉91% token 的时候仍然能保持 95~96 的 score ratio； 相比之下
+FastV / ToMe 在裁更多 token 的时候就几乎不能正常工作.</li>
+</ul>
+<h2 id="q-vlm-nips2024">Q-VLM (NIPS2024)</h2>
+<p>https://arxiv.org/pdf/2410.08119</p>
+<p>Post-training 可以只拉来一小部分数据，然后去优化 quantization 的
+rounding function (clipping threshold).</p>
+<p>训练目标是给每个 layer 决定一个 percentile <span
+class="math inline">\(p\)</span>，但是如果直接枚举每个 layer 的 <span
+class="math inline">\(p\)</span> 就爆炸了；conventional method
+是对于每一层分别贪心 quantization，但是这显然是 sub-optimal 的.</p>
+<p>Cross-layer dependency:</p>
+<ul>
+<li><p>这篇工作提出可以分块，对于一个块内的 layer 一起优化.
+我们需要找到哪些 layer 比较 sensitive.</p></li>
+<li><p>如何计算 cross-layer dependency? 直接 forward
+太慢了，文章提出用条件信息熵的办法，对于相邻两层，</p>
+<p><span class="math inline">\(D(k,k+1)=-\sum_{i,j}
+p(x^q_{k,i,j},x^q_{k+1,i,j})\log p\)</span>.</p>
+<p>对于一个给定的 quantization level <span
+class="math inline">\(q_1,\dots,q_m\)</span>，怎么计算 <span
+class="math inline">\(x^q\)</span>? 我们考虑对于 <span
+class="math inline">\(x^r\)</span>，我们可以计算 <span
+class="math inline">\(p(x^q_{k,i,j})=\exp(-(x^r_{k,i,j}-q_m)^2/\Delta)/(\sum_m
+\exp) [x^q=q_m]\)</span>.</p>
+<p>那么一整个块的 D 就是相邻的 D 相加. 如果区间的 D 平均值超过 threshold
+就需要划成一块.</p></li>
+</ul>
+<p>Visual-encoder optimization:</p>
+<ul>
+<li>文章注意到 visual-encoder 对上面这件事情影响比较大，可以 optimize
+visual encoder 让上面的事情更快更好.</li>
+<li>设置了一些损失项：
+<ul>
+<li>encoder 对 <span class="math inline">\(\sum_k D(k,k+1)\)</span> 的
+jacobian</li>
+<li>量化的 discretization error</li>
+</ul></li>
+<li>然后优化 encoder 参数.</li>
+</ul>
+<p>Experiment:</p>
+<ul>
+<li>对比了 conventional method 的 AWQ 和 QLora，相比于这两者在 accuracy
+上有所提升；另一方面，和 AWQ 一样减少了 inference 耗时，QLora
+耗时是增加的.</li>
+</ul>
+
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+
+<aside id="sidebar-toc">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-list-ul"></i>  
+            文章目录 
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        
+        
+        <div class="panel-body toc-container">
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#proxy-attn-iclr-2026"><span class="toc-list-text">Proxy Attn (ICLR 2026)</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#small-guide-large-cvpr-2025"><span class="toc-list-text">Small Guide Large (CVPR 2025)</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#q-vlm-nips2024"><span class="toc-list-text">Q-VLM (NIPS2024)</span></a></li></ol>
+        </div>
+    </div>
+</aside>
+
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2026/06/17/%E5%92%95%E5%92%95%E5%98%8E%E5%98%8E-VLM-Acceleration/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2026/06/17/%E5%92%95%E5%92%95%E5%98%8E%E5%98%8E-VLM-Acceleration/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 8.215221893916183px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 18.305612321574646px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 8.65826532957178px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 14.518848471821766px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 8.161864554942103px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 9.821404002928844px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 13.165382807694705px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 12.590676060071411px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 11.01277491230033px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 11.474006301046884px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 14.46449067272878px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 11.403314892758353px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 11.679326379943998px;" class="tag-cloud-link">高代</a>
+    
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 16.987239442974676px;" class="tag-cloud-link">信概统</a>
+    
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 15.675735934548811px;" class="tag-cloud-link">数算</a>
+    
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 13.055152132111209px;" class="tag-cloud-link">离散</a>
+    
+    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 10.068078840865638px;" class="tag-cloud-link">智障集锦</a>
+    
+    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 8.80033446209777px;" class="tag-cloud-link">读论文</a>
+    
+    <a href="/tags/bandit/" style="font-size: 14.530190055790275px;" class="tag-cloud-link">bandit</a>
+    
+    <a href="/tags/%E5%92%95%E5%92%95%E5%98%8E%E5%98%8E/" style="font-size: 14.894979528855416px;" class="tag-cloud-link">咕咕嘎嘎</a>
+    
+    <a href="/tags/%E6%98%8E%E5%8F%B2/" style="font-size: 18.038442335070464px;" class="tag-cloud-link">明史</a>
+    
+    <a href="/tags/%E4%BF%A1%E7%89%A9/" style="font-size: 17.058902050041254px;" class="tag-cloud-link">信物</a>
+    
+    <a href="/tags/%E7%AE%97%E5%88%86/" style="font-size: 19.03395412123748px;" class="tag-cloud-link">算分</a>
+    
+    <a href="/tags/AIGC/" style="font-size: 10.554306550222538px;" class="tag-cloud-link">AIGC</a>
+    
+    <a href="/tags/quantum/" style="font-size: 18.05052576133499px;" class="tag-cloud-link">quantum</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

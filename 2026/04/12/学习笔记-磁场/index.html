@@ -288,7 +288,7 @@ class="math inline">\(U_H=k\frac{IB}{d}\)</span>.</li>
 <h4 id="稳恒电流元的磁场">稳恒电流元的磁场</h4>
 <p>毕奥- 萨伏尔定律：</p>
 <ul>
-<li><p>对于电流源 <span class="math inline">\(Id\vec l\)</span>，在距离
+<li><p>对于电流元 <span class="math inline">\(Id\vec l\)</span>，在距离
 <span class="math inline">\(\vec r\)</span> 处的点 <span
 class="math inline">\(P\)</span> 上产生的磁感应强度为</p>
 <p><span class="math inline">\(d\vec B=\frac{\mu_0}{4\pi}\frac{Id\vec
@@ -409,6 +409,132 @@ class="math inline">\(H\)</span> 的变化，称为磁滞现象.</p>
 <span class="math inline">\(B=\mu_0j=jM\)</span>，<span
 class="math inline">\(H=\frac{B}{\mu_0}-M=0\)</span>.</p></li>
 </ul>
+<h2 id="电磁感应">3. 电磁感应</h2>
+<h4 id="感应电动势">感应电动势</h4>
+<p>法拉第定律：<span
+class="math inline">\(\epsilon=-\frac{d\Phi}{dt}\)</span>，闭合回路中感应电动势正比于回路磁通量的变化率的负值</p>
+<p>楞次定律：感应电流的效果，是反抗引起感应电流的原因</p>
+<p>感生电动势：导体不动，由于磁场变化而在导体中产生的电动势</p>
+<p>感生电动势的来源是感生电场（感生电场不依赖于线圈是否存在）：</p>
+<ul>
+<li><p><span class="math inline">\(\epsilon_i=\oint \vec E_v d\vec
+l\)</span>.</p></li>
+<li><p>感生电场是有旋的，是非保守场，其中 <span
+class="math inline">\(\oint E_vd\vec l=\epsilon_i=-\iint
+\frac{dB}{dt}dS\)</span>.</p></li>
+<li><p>感生电场是无源的，所以有高斯定理：<span
+class="math inline">\(\oint E_vd\vec S=0\)</span>.</p></li>
+</ul>
+<p>动生电动势：在恒定磁场中，运动导体产生感应电动势</p>
+<ul>
+<li>由于法拉第定律，可以推出 <span class="math inline">\(d\epsilon=(\vec
+v\times \vec B)d\vec l\)</span>.</li>
+</ul>
+<p>eg.</p>
+<ul>
+<li><p>长直电流磁场中的运动导体：长直电流旁边 <span
+class="math inline">\(l_0\)</span> 垂直放着导体 <span
+class="math inline">\(l\)</span>，平行于电流运动，速度 <span
+class="math inline">\(v\)</span></p>
+<p>从磁场安培环路定理知电流产生磁场 <span
+class="math inline">\(B(x)=\frac{\mu_0 I}{2\pi x}\)</span>.</p>
+<p>取导体上一段小导体 <span
+class="math inline">\(dx\)</span>，知其感应电动势 <span
+class="math inline">\(d\epsilon=-\frac{v\mu_0I}{2\pi
+x}\)</span>，积分起来得到 <span class="math inline">\(-\frac{\mu_0 v
+I}{2\pi}\ln \frac{l_0+l}{l_0}\)</span>.</p></li>
+<li><p>均匀磁场中的旋转线圈：方形线圈在均匀磁场中匀速旋转，设其电阻无限大</p>
+<p>电阻无限大故没有感生电流，故线圈中磁场只取决于外磁场.</p>
+<p>在 <span class="math inline">\(t\)</span> 时刻，线圈磁通量 <span
+class="math inline">\(\Phi=Blw\sin \omega t\)</span>，求导知 <span
+class="math inline">\(\epsilon=BLw\omega\cos \omega t\)</span>.</p></li>
+<li><p>柱形均匀磁场产生的涡旋电场：半径为 <span
+class="math inline">\(R\)</span> 的圆柱体空间内 <span
+class="math inline">\(B_t=B_0t\)</span>，求涡旋电场</p>
+<p>根据对称性，涡旋电场为绕 <span class="math inline">\(z\)</span>
+的同心圆且大小只和 <span class="math inline">\(r\)</span> 有关.</p>
+<p>根据环路定理列式 $$.</p></li>
+</ul>
+<h4 id="导体中的电磁感应">导体中的电磁感应</h4>
+<p>涡流：处在变化中磁场中的导体会产生电流（涡旋电场-&gt;感生电动势-&gt;涡流）</p>
+<p>电磁阻尼：磁场中的运动导体会受到阻碍.</p>
+<p>抗磁性：导体中产生的感应电流会抵抗导体内磁场的变化，于是面对高频交变磁场会有磁屏蔽.</p>
+<p>趋肤效应：通有交变电流的导线中导线表面电流密度较大.</p>
+<h4 id="电感">电感</h4>
+<p>自感通量</p>
+<ul>
+<li>回路电流的磁场在自身回路中的磁通量.</li>
+<li>一般情况下，根据比尔萨伏尔定律，线圈中的磁场决定于电流，磁通量应与电流大小成正比</li>
+<li>令这个比值为自感系数 <span class="math inline">\(L\)</span>，则
+<span class="math inline">\(\Phi=LI\)</span>.</li>
+<li>多匝线圈的全通量定义为 <span class="math inline">\(\Psi=\sum
+\phi_i\)</span>，于是可以定义线圈的自感系数 <span
+class="math inline">\(L\)</span>，则 <span
+class="math inline">\(\Psi=LI\)</span>.</li>
+</ul>
+<p>自感电动势： <span
+class="math inline">\(\epsilon=-\frac{d\Phi}{dt}=-L\frac{dI}{dt}\)</span>.1</p>
+<ul>
+<li><p>计算螺旋管的自感系数：<span
+class="math inline">\(l,S,n\)</span></p>
+<p>用无限长螺线管模型来分析，内部磁感应强度为 <span
+class="math inline">\(B=n\mu_0I\)</span>；于是加起来得到 <span
+class="math inline">\(\Psi=n^2\mu_0IlS\)</span>，于是 <span
+class="math inline">\(L=n^2\mu_0lS\)</span>.</p></li>
+<li><p>如果填充磁介质，那么会对应变大 <span
+class="math inline">\(\mu_r\)</span> 倍.</p></li>
+</ul>
+<p>互感现象</p>
+<ul>
+<li>两个线圈互相也能发生感应. <span
+class="math inline">\(\Psi_1=L_1I_1+M_{12}I_2\)</span>，其中 <span
+class="math inline">\(M_{12}\)</span> 为互感系数.</li>
+<li>可以证明 <span class="math inline">\(M_{12}=M_{21}\)</span>.
+在无漏磁的理想情况下，<span
+class="math inline">\(M=\sqrt{L_1L_2}\)</span>.</li>
+</ul>
+<h4 id="电容和电感的充放电问题">电容和电感的充放电问题</h4>
+<p>电容充放电问题：</p>
+<ul>
+<li><p>满足似稳条件的电容，有 <span class="math inline">\(i(t)=C\frac{d
+u(t)}{dt}\)</span></p></li>
+<li><p>考虑充电过程（与电阻 <span class="math inline">\(R\)</span>
+串联）：</p>
+<p><span class="math inline">\(u_R(t)+u_C(t)=\epsilon\)</span>，即 <span
+class="math inline">\(Ri_R(t)+u_C(t)=\epsilon\)</span>，即 <span
+class="math inline">\(RC\frac{du_C(t)}{dt}+u_C(t)=\epsilon\)</span>.</p>
+<p>解微分方程得到 <span
+class="math inline">\(u_C(t)=\epsilon(1-e^{-t/\tau})\)</span>，其中
+<span class="math inline">\(\tau=RC\)</span>
+为阻容电路的时间常数.</p></li>
+<li><p>考虑放电过程：</p>
+<p><span
+class="math inline">\(RC\frac{du_C(t)}{dt}+u_C(t)=0\)</span>，并且初值
+<span class="math inline">\(u_C(0)=u_0\)</span>.</p>
+<p>解微分方程得到 <span
+class="math inline">\(u_C(t)=u_0e^{-t\tau}\)</span>.</p></li>
+<li><p><span class="math inline">\(\tau\)</span>
+越大，充放电时间越长.</p></li>
+</ul>
+<p>电感的充放电问题：</p>
+<ul>
+<li><p>满足似稳条件的电感，有 <span
+class="math inline">\(u_L(t)=L\frac{di(t)}{dt}\)</span></p></li>
+<li><p>考虑充电过程 （和电阻 <span class="math inline">\(R\)</span>
+串联）</p>
+<p><span
+class="math inline">\(L\frac{di(t)}{dt}+Ri(t)=\epsilon\)</span>，故
+<span class="math inline">\(i_L(t)=\frac{\epsilon}{R}(1-e
+^{-t/\tau})\)</span>. 其中 <span class="math inline">\(\tau=L/R\)</span>
+为 RL 电路的时间常数.</p></li>
+</ul>
+<h4 id="磁场能">磁场能</h4>
+<p>磁介质存在的情况下，磁场能量密度 <span
+class="math inline">\(w_e=1/2\vec B\vec H=1/2B^2/\mu_0\)</span>.</p>
+<p>自感磁能 <span
+class="math inline">\(W_m=\frac{1}{2}LI^2\)</span>，互感磁能 <span
+class="math inline">\(W_m=MI_1I_2\)</span>.</p>
+<h2 id="maxwell-理论">4. Maxwell 理论</h2>
 
     </div>
 </article>
@@ -478,7 +604,7 @@ class="math inline">\(H=\frac{B}{\mu_0}-M=0\)</span>.</p></li>
         
         
         <div class="panel-body toc-container">
-            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%81%92%E5%AE%9A%E7%A3%81%E5%9C%BA"><span class="toc-list-text">1. 恒定磁场</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E7%A3%81%E5%9C%BA%E7%9A%84%E7%94%B5%E6%B5%81%E5%8F%97%E5%8A%9B"><span class="toc-list-text">磁场的电流受力</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E7%A8%B3%E6%81%92%E7%94%B5%E6%B5%81%E5%85%83%E7%9A%84%E7%A3%81%E5%9C%BA"><span class="toc-list-text">稳恒电流元的磁场</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E8%BD%BD%E6%B5%81%E7%BA%BF%E5%9C%88%E4%B8%8E%E7%A3%81%E7%9F%A9"><span class="toc-list-text">载流线圈与磁矩</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E6%81%92%E5%AE%9A%E7%A3%81%E5%9C%BA%E7%9A%84%E6%97%A0%E6%BA%90%E6%9C%89%E6%97%8B%E6%80%A7"><span class="toc-list-text">恒定磁场的无源有旋性</span></a></li></ol></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E7%A3%81%E4%BB%8B%E8%B4%A8"><span class="toc-list-text">2. 磁介质</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E7%A3%81%E5%8C%96"><span class="toc-list-text">磁化</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E9%93%81%E7%A3%81%E8%B4%A8"><span class="toc-list-text">铁磁质</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%81%92%E5%AE%9A%E7%A3%81%E5%9C%BA"><span class="toc-list-text">1. 恒定磁场</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E7%A3%81%E5%9C%BA%E7%9A%84%E7%94%B5%E6%B5%81%E5%8F%97%E5%8A%9B"><span class="toc-list-text">磁场的电流受力</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E7%A8%B3%E6%81%92%E7%94%B5%E6%B5%81%E5%85%83%E7%9A%84%E7%A3%81%E5%9C%BA"><span class="toc-list-text">稳恒电流元的磁场</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E8%BD%BD%E6%B5%81%E7%BA%BF%E5%9C%88%E4%B8%8E%E7%A3%81%E7%9F%A9"><span class="toc-list-text">载流线圈与磁矩</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E6%81%92%E5%AE%9A%E7%A3%81%E5%9C%BA%E7%9A%84%E6%97%A0%E6%BA%90%E6%9C%89%E6%97%8B%E6%80%A7"><span class="toc-list-text">恒定磁场的无源有旋性</span></a></li></ol></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E7%A3%81%E4%BB%8B%E8%B4%A8"><span class="toc-list-text">2. 磁介质</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E7%A3%81%E5%8C%96"><span class="toc-list-text">磁化</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E9%93%81%E7%A3%81%E8%B4%A8"><span class="toc-list-text">铁磁质</span></a></li></ol></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E7%94%B5%E7%A3%81%E6%84%9F%E5%BA%94"><span class="toc-list-text">3. 电磁感应</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E6%84%9F%E5%BA%94%E7%94%B5%E5%8A%A8%E5%8A%BF"><span class="toc-list-text">感应电动势</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E5%AF%BC%E4%BD%93%E4%B8%AD%E7%9A%84%E7%94%B5%E7%A3%81%E6%84%9F%E5%BA%94"><span class="toc-list-text">导体中的电磁感应</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E7%94%B5%E6%84%9F"><span class="toc-list-text">电感</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E7%94%B5%E5%AE%B9%E5%92%8C%E7%94%B5%E6%84%9F%E7%9A%84%E5%85%85%E6%94%BE%E7%94%B5%E9%97%AE%E9%A2%98"><span class="toc-list-text">电容和电感的充放电问题</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E7%A3%81%E5%9C%BA%E8%83%BD"><span class="toc-list-text">磁场能</span></a></li></ol></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#maxwell-%E7%90%86%E8%AE%BA"><span class="toc-list-text">4. Maxwell 理论</span></a></li></ol>
         </div>
     </div>
 </aside>
@@ -510,51 +636,55 @@ class="math inline">\(H=\frac{B}{\mu_0}-M=0\)</span>.</p></li>
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 18.904460911600168px;" class="tag-cloud-link">总结</a>
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 14.162566120153613px;" class="tag-cloud-link">总结</a>
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 14.65138032045816px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 19.747871852994827px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 18.05349776722218px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 16.34096305125001px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/ICS/" style="font-size: 15.360358871146676px;" class="tag-cloud-link">ICS</a>
+    <a href="/tags/ICS/" style="font-size: 8.273436986260819px;" class="tag-cloud-link">ICS</a>
     
-    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 11.383899230314514px;" class="tag-cloud-link">具身</a>
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 16.74026068103629px;" class="tag-cloud-link">具身</a>
     
-    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 13.256735770411606px;" class="tag-cloud-link">初恋日记</a>
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 9.64768544879174px;" class="tag-cloud-link">初恋日记</a>
     
-    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 10.228443754561235px;" class="tag-cloud-link">腾讯星火营</a>
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 15.389407185657337px;" class="tag-cloud-link">腾讯星火营</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 17.49001968197708px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 19.09985540606808px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 17.154754378088185px;" class="tag-cloud-link">程设</a>
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 16.918539251211175px;" class="tag-cloud-link">程设</a>
     
-    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 8.93277230973393px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 12.36829289653198px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
     
-    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 9.895460565214009px;" class="tag-cloud-link">波伏娃</a>
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 16.845531045162424px;" class="tag-cloud-link">波伏娃</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 16.207155581321086px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 11.928345722844014px;" class="tag-cloud-link">音数</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 15.428624769755924px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 11.040342835613146px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 16.174479896544312px;" class="tag-cloud-link">信概统</a>
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 16.144091718010046px;" class="tag-cloud-link">信概统</a>
     
-    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 18.1525515200299px;" class="tag-cloud-link">数算</a>
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 19.026361024133507px;" class="tag-cloud-link">数算</a>
     
-    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 14.27586119114104px;" class="tag-cloud-link">离散</a>
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 11.105298545503445px;" class="tag-cloud-link">离散</a>
     
-    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 17.72311864477469px;" class="tag-cloud-link">智障集锦</a>
+    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 13.220056211668442px;" class="tag-cloud-link">智障集锦</a>
     
-    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 15.766033555221874px;" class="tag-cloud-link">读论文</a>
+    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 16.74812640116818px;" class="tag-cloud-link">读论文</a>
     
-    <a href="/tags/bandit/" style="font-size: 12.647680337935437px;" class="tag-cloud-link">bandit</a>
+    <a href="/tags/bandit/" style="font-size: 13.121873597192875px;" class="tag-cloud-link">bandit</a>
     
-    <a href="/tags/%E5%92%95%E5%92%95%E5%98%8E%E5%98%8E/" style="font-size: 18.66327450020772px;" class="tag-cloud-link">咕咕嘎嘎</a>
+    <a href="/tags/%E5%92%95%E5%92%95%E5%98%8E%E5%98%8E/" style="font-size: 12.803657896532322px;" class="tag-cloud-link">咕咕嘎嘎</a>
     
-    <a href="/tags/%E6%98%8E%E5%8F%B2/" style="font-size: 19.615211678260092px;" class="tag-cloud-link">明史</a>
+    <a href="/tags/%E6%98%8E%E5%8F%B2/" style="font-size: 9.189165694878177px;" class="tag-cloud-link">明史</a>
     
-    <a href="/tags/%E4%BF%A1%E7%89%A9/" style="font-size: 17.895225210060968px;" class="tag-cloud-link">信物</a>
+    <a href="/tags/%E4%BF%A1%E7%89%A9/" style="font-size: 8.867591516944735px;" class="tag-cloud-link">信物</a>
     
-    <a href="/tags/%E7%AE%97%E5%88%86/" style="font-size: 9.224007480643756px;" class="tag-cloud-link">算分</a>
+    <a href="/tags/%E7%AE%97%E5%88%86/" style="font-size: 10.216823782332938px;" class="tag-cloud-link">算分</a>
+    
+    <a href="/tags/AIGC/" style="font-size: 18.72567012028365px;" class="tag-cloud-link">AIGC</a>
+    
+    <a href="/tags/quantum/" style="font-size: 10.62317893891605px;" class="tag-cloud-link">quantum</a>
     
 </div>
                 
