@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>东林琴房-关于Deepseek和Anthropic | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>东林琴房-关于Deepseek和Anthropic</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2026/06/17/%E4%B8%9C%E6%9E%97%E7%90%B4%E6%88%BF-%E5%85%B3%E4%BA%8EDeepseek%E5%92%8CAnthropic/">东林琴房-关于Deepseek和Anthropic</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E4%B8%9C%E6%9E%97%E7%90%B4%E6%88%BF/">东林琴房</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2026-06-17
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2026/06/17/%E4%B8%9C%E6%9E%97%E7%90%B4%E6%88%BF-%E5%85%B3%E4%BA%8EDeepseek%E5%92%8CAnthropic/">东林琴房-关于Deepseek和Anthropic</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2026-06-17
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E4%B8%9C%E6%9E%97%E7%90%B4%E6%88%BF/">东林琴房</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="1be7927b5005d7d60cd15da9c30ec3157a9b3d23bc6cb31f6cb2da6400f3aa80">30b4b79d06dfe6477f32b631a08c92696e4e1f9406711b16628ce398895e035326f84626996d81f507a35eef9e5beea3dadf4960806b06bed6dc4f80217b3952a5c8b8254691a2a7535f7f4e4a834713e78a99d127b3b97efe1eff904a7f8d5c3362c78a0f769bde0853d36187f1d25d74d501a04b764c34571f50db1571d1b93321ff82f4cb67589096cd5e866b19c319917173e95db38057cf557fde4e5548ab79433707a7f33ca8e40ee582a33e6f5fb7f837fed6c10a4612b874f8daefa5d7cc9736d03e6c749e15ca9c0f4181fd74226f621dd559832dcfdb3b1a7a959f0b8c59d4dbd9c3707bc8bede16749434b29c6f036b9e7ca5c943b89632322c6a5bb6966e90c13e037c8ad868dba3dc2e54f5aa696053185165d3e9066f7f333ba97bd11203ea3d98ad98ed57a9bae1c9b3eae74e404bee8943bcc56f2ddd594434a0bb41ffe2d0fc4cfd6707b509414febad115952a4e40d6572a8b14d2e90c6b899ec92533582190ac13ce31b185a140cb2c98391642a056b923a74f6c072ef0c4d0c229c5ac5d07a180490b183f47a4e762f94b57f48e7e94c0568a328096590009b4fc302f469a7c11570a56236cf9ba5d27c53a8519d6e9740febc4d2ff4c10bbb535ff65614ed71ea50e604b83a1af433c9fe091dbc07d90d33e6f07d10f6e303a57992d3cc88cce62161b0bea3cbc363a7b08fdfaa6078a2733f453f6beba59986df4908e4a095bda56c73f3278403f4c6f253dbb51db6f95930200e948bc54cdfc2fc0d4406d5f8fc2823f0d5ba35538509cea156aaa90e6e30e645205ca38a6261fb9773447de7bca59b26e060e12c5e1292fc0e96a423486bd41634dca2cb3bd8d30920e9d8bf00fe978c706807e4e9fd677bba19c09950f9dc4c91e61390739eb83df7e7d41b7bf31b8e8a9c5fee3f669c0fe94ed584d6af614cf47e1fb0e75eb623796ee5c54d6ab0aeda8282a151eedcf782d6faa53ce0bcd74831934ac4a897a7e850d7a54c615ed01e3b9496ecf55d9a04443763edbb0d4d3168fd95a2250a96cf2bc4a16d62196eb32b1944d62dca60ec5cdb5a80b4039613f86e5c800908ac2e98b41b31a8fc700bee1850db3fc776af55d3df7b847b3beca1697b1dd4e7f742747f3e1109445983ca660082f837d230c40d183034ca768151c96a4dd9cd27ab59e9fb56efd1b883cf25749addaf21c9a33ea5de9e76dcd256dcfb35d7e41acfc922b67728c918c8b0a0b1fabdbc84d731ccadb0a6730ef10f66b408df05b2d8d3ec76f216cb66af826165ba29d18ec934e75329e8d58c8a602a3d944ca233530cedc19e2552857ace7734e937faa7909f39b233793cd6153b4d65ccf5fef27f3521c47677bd031890e5027024badcbf1308abfb8af3579f4eec346ffc38b78480be5cfb36ebf33473ea9cf2b84739965d72dc85a137be0c84bd54a135749607bbe94baad49bd9656b4959d287ff113fd6e0c030c780a58c5eb258f44f6c53071f482ff14d6b06bfa67f13969994348996a9de7e6198aa4354bcf6a45895175d82160d7f3fd9916b6d03caedd2cfa01ac4feace97b84061fb43b626f9b2345496a4567d2b31db805a423ce22f4233349d1f1363b9460676fe24f3fa8e58ea5380680fadcc1c0b60ce9b6ede16fa901efe5193587ab817ddab22c2e02fbcbc4d8ffc73a03687f7bc792775f4ae52257168cacec34bfa277c703992fa47286c126a3423ca29ac0d74b0a6cb8b83a30d979fc8d68e20c3d1464e3f2b559f6784b1be3e4090c73b50be5b5dff5bbfc16fa5be942d535cfb98f7de948d6bcd13601ee281284796354fedb2057f11fdd476c8397ee019376815bc89342cd16c64c0f0a5c4ea52149c65ffda4e415932afbd6f5467a2c06f143aa356e8b1ef24960706f38dec5468bffad03ed77da5094133ec6f0809dc0010adddbf75d33304bdbc4a69131cff02c84a0693dfa62a6dca8c475c4e455b8e3e84b7b9c6cd07d0b82c4624a56d15db816ab4a3ecffbe14373681e303d0de436795dd067094135835d7b8526139a81bdc706ae0c318e9dca69455e5e0f5c898d7bff53c879231b84e488eb4d2a8fbc98269acc13163e33fa2b5bb8efc5396a9f7b864c95e80813de453cdbed5dd89159dc4f2ea49bc55b6474e0b7393e69598546aab1306ce499cb23581d4bc23789f52c6818ccd7c24b372a70160562645a1ac3156dbf4b4b62be199fdb0ae99ef9b84f47501614ce49fd82e27f42feaf0b541315f8a913314846247ddefae7d84707c940fe8701aee7927c626bbbf5c7cf752585b1c6bdf5862d208aefb15d0b111ab5933d49ce90d3ea150d6761c1e99c7e836f68774138cb40020221f30bacf59fb2070697db8abe113cf0a0ad09775292f7d07b0a656a4599ec1a1b3d4ab224cdd56aab0b46874cd589e1a00ee88a566208334138d681c59a35b7c8b35b6cb8b884c2d686adc0d011741ed3fa258945a507b12dc7d8ca69ad43940439c0542215cadba2a734b46628be23f1eab5437ed901fae8e0699798b976960c296b95da3d602d990312ed529267ccec6d80cdb3ef6ca38ace7531d0804751b01bf42fdd70bfef7276a895c9acb6223b86052e6ce989d8fab824b46ea11183118b165d294423c02f3ded3d9d901359d1dc63f556195f49c38f59508192383c773238b7487f8def8b158ab6ee7fdb19c643bce4f5f326baa290be6114ab946e777ce5f1495780c1ffa33ec32bf941820e96c6aa2c9b31adc3025392248c0d19ba6ed69e71ff1ee7ae9e422f4fa7cd5a11efad270707397059945e66a155955b060f2eb151841ac50cc14052ab41fd70680f6d7ba5b7879f0bee712aad1ea35509bb665c02c35fd21011dd17b7b51f0c7d0c3b344bf0f8096410210a946352a2265b756f829858c318812e353e1d249e60daf4c4f30e1d7914261ab18fe291b2ac6182bfb0a91caddb55361c4020d1d9c43cf4af0db109f75fd3e0dbe26ddd226f2bb82a593c80d7597fdf1d0ea2403d8692686cc544a3ff9e4648155a87683eef39e97a7672d802949bec086ad67da17edc5c9a0ce0a7488c9f82b4d4c3882ed0186a1415711280894396477a99da285fba86bee9a8f0df943487cb434c3a30eb0ae755e1f278ab51a3736bef9af3ecf0aec9305a7ded439589a601cea5be01908260d3dd8145d8c8276f22574959bda6067eda22b1adf63c12849d5afb1720a393b1b34501d1007c7451014c1075c5b2b139bf4179ccbc3d7cee4b17929cb5fd5951f476dfbec245d7bd51b88a7721dde6b03529e21b172b57a4cbaa97ad9a38b29a2232776d55263fa8041da0a11846e15487cf98afc7007bae42ee64a098b9ae9ef49c8bfa7b729bc4b3c8727b035d7b39752a7767e23a86f525b148182edfd4afcfead1d39ecdeed30ee50b530d4a261e6fdea665c86ee16c380b4e7525a7cd76562671ba8e4e299da8b480bd4e02f45747fd5ac3345b1f673f712c7d301b843440cd0a439308f2cd0bb5c62201b64f55af513bcbe8dfd720db74ae045e55cdec627b19130f439db2bb101bc9a979b091c373fa68d339a71bb91610ad42e23cc0d7aba7db6529f50255fdb46262fdc6d6f03e9e1a3ff6938a45e79381a7a9b94de9cf900cc199fe1dbe9223e7dc10601b08b69fce24db11cb9b952534a9ec3eb400621099fa63e3e02a790d028f9b4465f5e4648b0b44a9a8caf016811f13b99c57feb9edfae419ae7e764265add685e5bf7aaf4ebe2820139ceb8943306ef84939ff081907343cffc9dd6cf6909b4346b1ff2599409b63ee923e357df80ff00e0062be44d8a2e9cfc1742ef323170e8b675864b77ee0453c5abd76eb4620a8c9714dd27b8666be312794d813963f65ac561689ef32c9e964f09fae1a1c7cfbcd7287d4c3005b7a958082d0b581e83c25602983b49a00fd7a5e481a043aae8f8a7b44e437b690cf5e653d9db8f9e873fdfba23990ec060a16c8f1b7f58e33cdcefad8965a2badfb4e72432dc929f1535e347fdd6d0817cd76ea52998b82b64ea7ddab62fd784ad380c6533520b4669e7f7750844f526c6026657bcc530ee4f37abe457cdf76f6495370d505d043f4948b1c12441588914657d363f63ff245777cadb0a2c83df755e2ce35291d93e34ff21a375c0eb8cef9f4cd117b193f6d882f947310f005bd66900fe88b8f25971baacbfcd77c92fc434b854a89092c95de044fb1cacfb90bf9c1a400474422ab305c1ff5e60efbc280e32b142c69dfc5181af0bf4e4eb90915cfd61fe61941c6631917dcb85a0be737055e9453ebe5a5c222c511ae46b7671306322964af4f3086c53cd7c77e16cacbf9b2bc9f38b4a1f7de5f17d82206fa77ecbee5fd98f16255c87921e8f4c630b5298cffaa04c9a928b883ce30cc76f4736f7670f758317298a09c2377490bfebca98ba6026eb4918878274c0cf3b3fcecde07105fd574fde9e708940065cad89ce3097e2232f74676090c187ee11ca7790385bb9e217ef5a4a7483fffa54533f913dd915cd4fe63059fc8f721aad40bd8a3ca57c9d60a9a529720f90541c4786eb97c068bc0d8708f0d70d56b818509e887786e2df2d191883f87b2452c4dd2754b597d490ea9ec709e61be731d89826f86a577522026ef88fd8a878d8f988a33d7208b7513e6db6d8cc2548e425c64e0e353a4a3c38ce6b724af53e4a7c2d65c7d0a133a354f4ca17a6c6e8ad9b7b5b598a502e0842010e167540ab28be98a67fbbc6ab8107959c489539680dbb42bde9cf9e2f9ec02198b4075538a89e11cc8b820553d8d76073b4bc1acb0c4fb02054b35781b484b392830374a05def58d58a2ca683aa15d5b68f30e86b983468473f3f895282aa9490cf72d5621ee9e066b8a1acbc06fdfc20da7cac29ea685de402249fff40ff354bab0be05f7eb371021686155ace5be5157e456a8fb7de5981917889e214992d2408c7f812438c6a654dd00f6116b95e47f2df59e22d92004e74b278633c9683fe9b8f1b5c72ecdd2a2ae83f5883f11f1473cb553a978c6a358e7895c35468bceedd347c18a6f433d73f4ed8de649e65a6cbeae03eb22000436d70d43260c9272a330342b3c8306ec1a84dbc24c6ca3e1b8c9d64cf93f3b57246a3ce01013a5b5d72bf947072b960442c66d8544d985e6b977653e387c785fa07ab47304edf9e6a7370d4ed55895ae059f024d7def49b6bf58ede79184b3e9cc3730273bdf35d28992404aa3e43cdf1133babcbb60cd4b5dd3e47ebff52c6c391f4937a4d52c7d15e893e79fe7af7b9ed47a2e6554284275b70ddad5da1c6ce4e8dd490abaccad0b71aa58319613d2115d2cf9063b692209a9c89d39ec13e0e74b0e74a792c3b70ba87764eae968af86d5deb457bb0868f898bec6c5a0159bd231bc84fa3b54b0952e98c9ba3286ddf6080c585f4509ca88877025872a113a3ac8eabc3a094121bd2d28b2dda08c7bed769e2de6fa5bdb589857f4a7188a2f3bf39f4f290ac19484f8207c91ac3b398af3c4951d65da10a23f5b8d4f47e11c181804f171a2dc35eb5e1d6c9317203f82eba96707d68d74a7cc15e47bde7f8725aeb694b551f6b79547449458ddf0f1f49e83bfac4766aa9e7e0a3cea1a07006cd0ca85168a8615c5ef8f2cdc91bf71653bf691af0c8e234bb71e8a5e0c31f022d7058117f31e4629d35b5ca1c9602ed3859df928a6eac358c97cde7417fa24a55550137ee8d575b431394dac8a2057af8849ccd64a9eaade95f3fd7053e36f04e74a7df855226b6e4d89c19653165788309aa151d01d517099aa3faa6bb77d8f69caac7583ab8197eec5ba0d4d31c95ddd985c5b1bd4148d034aa7babc7cec94519d8bb236cf719ea3dce92863455d8bed4f53d2fece83b85a9312166a82bb592570e30c8cd3e43049557273b2b3e3d412ddb11d3aac1f759670609c7b56c2227183f424f3988c569b695c1ef51954a45973d14c03017cb7ef535a1ce65a1a69949bfdf001a4a960fea5ac286d6cc76c7bf7026056f1bcc63505aa925da147780ec8e50e220bd522662724b14592e8f40768d51696196366b73b7b76a4f2becfa12ea26729871db8659f821c4eafa039be762bc8be6c2537c59f92006fbc87105f370daa2e126ff76fb22b7d7893fe66f2dc2203297830b48d8ebc9bf9ff8f721791a7c0dd8169456df6c55a13abd2df760c066eb698e67056ef8ce019718512505866514e4243e4e839497434d227e4f677601f45666d1ef9d61b867eee35</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2026/06/17/%E4%B8%9C%E6%9E%97%E7%90%B4%E6%88%BF-%E5%85%B3%E4%BA%8EDeepseek%E5%92%8CAnthropic/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2026/06/17/%E4%B8%9C%E6%9E%97%E7%90%B4%E6%88%BF-%E5%85%B3%E4%BA%8EDeepseek%E5%92%8CAnthropic/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 11.9454190505077px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 9.590600291429539px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 14.039884029569585px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 12.323989851617409px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 14.43801164858003px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 10.82908522283248px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 19.718109561095737px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 13.693303686525852px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 16.15828015568302px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 13.506361436238814px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 8.205076511059787px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 19.268595940950384px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 17.289914887864622px;" class="tag-cloud-link">高代</a>
+    
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 15.87897341534244px;" class="tag-cloud-link">信概统</a>
+    
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 11.692427819578555px;" class="tag-cloud-link">数算</a>
+    
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 17.5034144023015px;" class="tag-cloud-link">离散</a>
+    
+    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 11.517444339262415px;" class="tag-cloud-link">智障集锦</a>
+    
+    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 17.195039184483747px;" class="tag-cloud-link">读论文</a>
+    
+    <a href="/tags/bandit/" style="font-size: 14.456566370746035px;" class="tag-cloud-link">bandit</a>
+    
+    <a href="/tags/%E5%92%95%E5%92%95%E5%98%8E%E5%98%8E/" style="font-size: 11.668043157989736px;" class="tag-cloud-link">咕咕嘎嘎</a>
+    
+    <a href="/tags/%E6%98%8E%E5%8F%B2/" style="font-size: 10.054477580793634px;" class="tag-cloud-link">明史</a>
+    
+    <a href="/tags/%E4%BF%A1%E7%89%A9/" style="font-size: 18.224919436741775px;" class="tag-cloud-link">信物</a>
+    
+    <a href="/tags/%E7%AE%97%E5%88%86/" style="font-size: 14.947087856513004px;" class="tag-cloud-link">算分</a>
+    
+    <a href="/tags/AIGC/" style="font-size: 17.72484088719633px;" class="tag-cloud-link">AIGC</a>
+    
+    <a href="/tags/quantum/" style="font-size: 8.35449556721706px;" class="tag-cloud-link">quantum</a>
+    
+    <a href="/tags/%E4%B8%9C%E6%9E%97%E7%90%B4%E6%88%BF/" style="font-size: 18.744254368307587px;" class="tag-cloud-link">东林琴房</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>
