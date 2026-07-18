@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="lgswdn">
+    
+    
+    
+    
+    
+    
+    <title>Lyndon and runs | lgswdn-SA</title>
+    <link href="http://lgswdn.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/logo.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview11.jpg,preview12.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://lgswdn.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">lgswdn-SA</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AE%B0/">个人随记</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">总结</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/AI%E5%9F%BA/">AI基</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/CVDL/">CVDL</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/resources">
+                        <i class="fa fa-file"></i>资源
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://lgswdn.github.io">lgswdn-SA</a>
+        >
+        <span>Lyndon and runs</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2026/07/12/lyndon-and-runs/">Lyndon and runs</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%90%86%E8%AE%BA/">字符串理论</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2026-07-12
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2026/07/12/lyndon-and-runs/">Lyndon and runs</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2026-07-12
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%90%86%E8%AE%BA/">字符串理论</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h2 id="lyndon-串">Lyndon 串</h2>
+<h4 id="definition">Definition</h4>
+<p>Lyndon 串：</p>
+<ul>
+<li>定义 Lyndon 串为字典序小于其每个真后缀的字符串.</li>
+</ul>
+<p>Lyndon 分解：</p>
+<ul>
+<li>将字符串拆解成 <span class="math inline">\(w=w_1w_2\dots
+w_k\)</span>，并满足 <span class="math inline">\(w_i\)</span> 为 Lyndon
+串，<span class="math inline">\(w_i\ge w_{i+1}\)</span> 的形式称为
+Lyndon 分解.</li>
+<li>称 <span class="math inline">\(w_i\)</span> 为 <span
+class="math inline">\(w\)</span> 的 Lyndon 因子.</li>
+</ul>
+<p>Necklace：</p>
+<ul>
+<li>定义 Necklace 为满足字典序小于等于其所有循环表示的字符串.</li>
+</ul>
+<p>性质：</p>
+<ul>
+<li><p>对于 <span class="math inline">\(w\)</span> 的 Lyndon 分解，有
+<span class="math inline">\(w_k\)</span> 为 <span
+class="math inline">\(w\)</span> 的最小真后缀.</p>
+<p>Proof：若最小真后缀为 <span class="math inline">\(uw_i\dots
+w_k\)</span>，则其 <span class="math inline">\(\ge w_{i-1}w_i\dots
+w_k\ge w_k\)</span>.</p>
+<p>推论：Lyndon 分解唯一.</p></li>
+<li><p>若 <span class="math inline">\(u,v\)</span> 都为 Lyndon 串，<span
+class="math inline">\(u&gt;v\)</span>，则 <span
+class="math inline">\(uv\)</span> 也为 Lyndon 串.</p>
+<p>Proof：显然.</p>
+<p>推论：结合前一个性质，知 Lyndon 分解存在.</p></li>
+<li><p><span class="math inline">\(w_i&gt;w_{i+1}^{\infty}\)</span></p>
+<p>Proof：若 <span class="math inline">\(w_{i+1}\)</span> 不为 <span
+class="math inline">\(w_i\)</span> 前缀则显然；否则由于 <span
+class="math inline">\(w_{i+1}\)</span> 为 Lyndon
+串所以任何后缀都大于其自身，故所以仍然 <span
+class="math inline">\(&gt;w_{i+1}\)</span>，故 <span
+class="math inline">\(w_i&gt;w_{i+1}^{\infty}\)</span>.</p></li>
+</ul>
+<h4 id="duvals-algorithm">Duval's Algorithm</h4>
+<p>对于 Lyndon 串 <span class="math inline">\(w\)</span>，定义形如 <span
+class="math inline">\(w^kw&#39;\)</span> 的串为一个近似 Lyndon 串，其中
+<span class="math inline">\(w&#39;\)</span> 为 <span
+class="math inline">\(w\)</span> 的前缀.</p>
+<p>Duval 算法一边从前往后加字符一边进行分解：</p>
+<ul>
+<li>假设当前已经加入到了第 <span class="math inline">\(i\)</span>
+个字符，并且 <span class="math inline">\(w[1,i]\)</span>
+可以分解为若干个 Lyndon 因子加上一个近似 Lyndon 串 <span
+class="math inline">\(w[j,i]=u^tu&#39;\)</span>，<span
+class="math inline">\(|u|=k\)</span>. 该近似 Lyndon 串也满足 Lyndon
+串的递减条件.</li>
+<li>考虑新加入的字符 <span class="math inline">\(w_{i+1}\)</span>：
+<ul>
+<li><span
+class="math inline">\(w_{i+1}=w_{i+1-k}\)</span>，则加入后仍然保持相同的近似
+Lyndon 串结构，不需要做改变.</li>
+<li><span class="math inline">\(w_{i+1}&gt;w_{i+1-k}\)</span>，则 <span
+class="math inline">\(w[j,i+1]\)</span> 为 Lyndon 串，设 <span
+class="math inline">\(u\leftarrow w[j,i+1]\)</span>，即 <span
+class="math inline">\(k\leftarrow i-j+2\)</span> 即刻.</li>
+<li><span class="math inline">\(w_{i+1}&lt;w_{i+1-k}\)</span>，则 <span
+class="math inline">\(u&#39;w_{i+1}&lt;u\)</span>. 于是这 <span
+class="math inline">\(t\)</span> 个 <span
+class="math inline">\(u\)</span> 即为 Lyndon 因子，将其分解出来.
+然后我们将 <span class="math inline">\(i\)</span> 回退到 <span
+class="math inline">\(u &#39;\)</span> 的开始，再做一遍.</li>
+</ul></li>
+</ul>
+<p>正确性容易验证. 复杂度需要考虑其回退问题：每当分解出一个 Lyndon 因子
+<span class="math inline">\(u\)</span>，<span
+class="math inline">\(i\)</span> 就会减少 <span
+class="math inline">\(\le |u|\)</span> 的距离. 于是 <span
+class="math inline">\(i\)</span> 最多减少 <span
+class="math inline">\(n\)</span> 次，故总复杂度 <span
+class="math inline">\(O(n)\)</span>.</p>
+<h4 id="significant-suffix">Significant Suffix</h4>
+<p>Significant Suffix：</p>
+<ul>
+<li>对于后缀 <span class="math inline">\(w&#39;\)</span>，若存在字符串
+<span class="math inline">\(u\)</span> 使得对于任意后缀 <span
+class="math inline">\(w&#39;&#39;\)</span> 皆有 <span
+class="math inline">\(w&#39;u&lt;w&#39;&#39;u\)</span>，则称 <span
+class="math inline">\(w&#39;\)</span> 为一个 significant suffix.</li>
+<li>字符串的所有 significant suffix 的集合称为其最小后缀组 <span
+class="math inline">\(SS(w)\)</span>.</li>
+</ul>
+<p>性质：</p>
+<ul>
+<li><p>若有后缀 <span class="math inline">\(u^2v\)</span>，则 <span
+class="math inline">\(uv\not\in SS(w)\)</span>.</p>
+<p>Proof：显然 <span class="math inline">\(u^2v,uv,v\)</span> 中，<span
+class="math inline">\(uv\)</span> 不是 significant 的.</p>
+<p>推论：对于 Lyndon 分解 <span class="math inline">\(w=w_1^{c_1}\dots
+w_k^{c_k}\)</span>，任何一个 significant suffix 一定形如 <span
+class="math inline">\(w_i^{c_i}\dots w_k^{c_k}\)</span>.</p></li>
+<li><p>对于 <span class="math inline">\(u,v\in SS(w)\)</span>，<span
+class="math inline">\(|u|&lt;|v|\)</span>，则 <span
+class="math inline">\(u\)</span> 为 <span
+class="math inline">\(v\)</span> 的 border 且 <span
+class="math inline">\(2|u|\le |v|\)</span>.</p>
+<p>Proof：首先由于 <span class="math inline">\(u,v\)</span>
+的比较不会在前 <span class="math inline">\(|u|\)</span> 位结束，故知其为
+Border；另一方面，若 <span
+class="math inline">\(2|u|&gt;|v|\)</span>，那么就会产生周期，于是由上一个性质知，<span
+class="math inline">\(u\not\in SS(w)\)</span>.</p>
+<p>推论：<span class="math inline">\(|SS(w)|=  O(\log
+n)\)</span>.</p></li>
+</ul>
+<p>为了求解 <span
+class="math inline">\(SS(w)\)</span>，我们需要先证明以下性质：</p>
+<ul>
+<li><p>记 <span class="math inline">\(s_i=w_i^{c_i}\dots
+w_k^{c_k}\)</span>，则 <span class="math inline">\(s_{i+1}\)</span> 为
+<span class="math inline">\(s_{i}\)</span> 前缀的充分必要条件为 <span
+class="math inline">\(s_{i}\)</span> 在 Duval 算法的过程中可以形成近似
+Lyndon 串；换句话说，令 <span class="math inline">\(\lambda\)</span>
+为第一次匹配到字符串末尾时的近似 Lyndon 串，则有 <span
+class="math inline">\(i\ge \lambda\)</span>.</p>
+<p>Proof：必要性：如果没能形成一个到末尾的近似 Lyndon
+串，意味着匹配的时候出现了不等号，所以显然不是 border；充分性：近似
+Lyndon 串的结构 <span class="math inline">\(w_i^{c_i}s_{i+1}\)</span>
+满足 <span class="math inline">\(s_{i+1}\)</span> 为 <span
+class="math inline">\(w_i\)</span> 的前缀，故显然充分.</p>
+<p>推论：只有 <span class="math inline">\(i\ge \lambda\)</span> 的 <span
+class="math inline">\(s_i\)</span> 才可能 <span
+class="math inline">\(\in SS(w)\)</span>.</p></li>
+</ul>
+<p>然后对于 <span class="math inline">\(i\ge \lambda\)</span>
+考察如下引理：</p>
+<ul>
+<li><p>记 <span class="math inline">\(w_i=s_{i+1}y_i\)</span>，<span
+class="math inline">\(x_i=y_is_{i+1}\)</span>，于是 <span
+class="math inline">\(s_i=w_i^{c_i}s_{i+1}=s_{i+1}x^{c_i}\)</span>.</p></li>
+<li><p>引理：<span
+class="math inline">\(y_i&gt;x_{i+1}^{\infty}\)</span>.</p>
+<p>Proof：<span
+class="math inline">\(s_{i+1}x_{i+1}^{\infty}=s_{i+1}(y_{i+1}s_{i+2})^{\infty}=(s_{i+2}y_{i+1})^{c_{i+1}}s_{i+2}(y_{i+1}s_{i+2})^{\infty}=w_{i+1}^{\infty}\)</span>，而
+<span class="math inline">\(w_{i+1}^{\infty}&lt;
+w_i=s_{i+1}y_i\)</span>，故得证.</p>
+<p>推论：<span class="math inline">\(x_{i}^{\infty}\ge y_i&gt;
+x_{i+1}^{\infty}\)</span>，即 <span
+class="math inline">\(\{x_i^{\infty}\}\)</span> 为递降的序列.</p></li>
+</ul>
+<p>最终结论：<span class="math inline">\(s_i\in SS(w)\)</span>
+的充分必要条件是 <span class="math inline">\(i\ge \lambda\)</span>.</p>
+<ul>
+<li>Proof：考虑将 <span class="math inline">\(s_iv\)</span> 写成 <span
+class="math inline">\(x_k^{c_k}x_{k-1}^{c_{k-1}}\dots
+x_i^{c_i}v\)</span> 的形式，于是知只要取 <span
+class="math inline">\(v&gt;x_j^{c_j}(j\ge i)\)</span>，以及 <span
+class="math inline">\(v&lt;x_{i-1}^{c_{i-1}}\)</span> 即刻. 由于 <span
+class="math inline">\(x^{\infty}\)</span>
+的单调性质，我们知这是可以做到的.</li>
+</ul>
+<p>这也给我们了如下问题的解法：<span
+class="math inline">\(MinSuf(w,v)\)</span> 表示求出一个 <span
+class="math inline">\(w\)</span> 的后缀使得 <span
+class="math inline">\(wv\)</span> 最小. 根据上面的结论，我们有：</p>
+<ul>
+<li><span
+class="math inline">\(v&gt;x_{\lambda}^{\infty}\)</span>：<span
+class="math inline">\(MinSuf=s_{\lambda}\)</span>.</li>
+<li><span class="math inline">\(v\in
+(x_{i-1}^{\infty},x_i^{\infty})\)</span>：<span
+class="math inline">\(MinSuf=s_i\)</span>.</li>
+<li>否则 <span class="math inline">\(MinSuf=\epsilon\)</span>.</li>
+</ul>
+<h2 id="runs">Runs</h2>
+<h4 id="definition-1">Definition</h4>
+<p><strong>本原串</strong>：没有整周期的串.</p>
+<p><strong>幂串</strong>：形如 <span
+class="math inline">\(w^k\)</span>（<span class="math inline">\(k\ge
+2\)</span>）的串（<span class="math inline">\(k\)</span> 次方串）. 若
+<span class="math inline">\(w\)</span> 为本原串，我们称其为本原 <span
+class="math inline">\(k\)</span> 次方串.</p>
+<p>性质：对于最小周期为 <span class="math inline">\(p\)</span> 的串
+<span class="math inline">\(S\)</span>，任意子串 <span
+class="math inline">\(S[i,i+kp-1]\)</span> 都是本原 <span
+class="math inline">\(k\)</span> 次方串. 证明显然.</p>
+<p><strong>Runs</strong>：</p>
+<ul>
+<li>如果子串 <span class="math inline">\(S[i,j]\)</span> 有最小周期
+<span class="math inline">\(p\)</span>（<span
+class="math inline">\(2p\le j-i+1\)</span>），且是极长的（<span
+class="math inline">\(S_{i-1}\neq S_{i+p-1},S_{j+1}\neq
+S_{j-p+1}\)</span>），那么称 <span
+class="math inline">\((i,j,p)\)</span> 为字符串 <span
+class="math inline">\(S\)</span> 的一个 run.</li>
+<li>对于 <span class="math inline">\(r=(i,j,p)\)</span>，记 <span
+class="math inline">\(e_r=\frac{j-i+1}{p}\)</span> 为该 run 的指数.</li>
+</ul>
+<p>性质：</p>
+<ul>
+<li><p>任意两个周期相同的 run 的交都 <span
+class="math inline">\(&lt;p\)</span>. （trivial）</p></li>
+<li><p>任意 run <span class="math inline">\((i,j,p)\)</span> 可以导出
+<span class="math inline">\(j-i+2-2p\)</span>
+个本原平方串，并且这些串不交地构成了所有本原平方串的集合.</p>
+<p>Proof：对于任意本原平方串我们都能扩展成一个 run；而由于交 <span
+class="math inline">\(&lt;p\)</span> 故不可能有两个 runs
+共享同一个本原平方串.</p></li>
+</ul>
+<h4 id="lyndon-root-runs-theorem">Lyndon Root &amp; Runs Theorem</h4>
+<p>定义在 <span class="math inline">\(&lt;_0\)</span> 下 <span
+class="math inline">\(0&lt;1\)</span>，<span
+class="math inline">\(&lt;_{1}\)</span> 下 <span
+class="math inline">\(1&lt;0\)</span>. 注意 <span
+class="math inline">\(S&lt;T\)</span> 等价 <span
+class="math inline">\(T&lt;S\)</span>
+不总是成立（反例为一个是另一个前缀）.</p>
+<p>Lyndon 根：</p>
+<ul>
+<li>对于一种字典序 <span class="math inline">\(&lt;_t\)</span>（<span
+class="math inline">\(t\in\{0,1\}\)</span>），在一个 run <span
+class="math inline">\(r=(i,j,p)\)</span> 内部的子串 <span
+class="math inline">\(S [u,u+p-1]\)</span>，若在 <span
+class="math inline">\(&lt;_t\)</span> 意义下 <span
+class="math inline">\(S[u,u+p-1]\)</span> 为 Lyndon 串，则称其为 <span
+class="math inline">\(r\)</span> 关于 <span
+class="math inline">\(&lt;_t\)</span> 的一个 Lyndon 根.</li>
+<li>定义真 Lyndon 根为 <span class="math inline">\(u\neq i\)</span> 的
+Lyndon 根.</li>
+<li>性质：任何 <span class="math inline">\(r\)</span> 的真 Lyndon
+根存在且字符串唯一（即最小表示）.</li>
+</ul>
+<p>Lyndon 数组：</p>
+<ul>
+<li>定义 <span class="math inline">\(l_t(i)\)</span> 为在 <span
+class="math inline">\(&lt;_t\)</span> 意义下，以 <span
+class="math inline">\(i\)</span> 为左端点的最长 Lyndon
+子串的右端点.</li>
+</ul>
+<p>性质：</p>
+<ul>
+<li><p>以下皆假设 <span class="math inline">\(s\)</span> 后面跟了一个
+<span class="math inline">\(-1\)</span> 字符.</p></li>
+<li><p><span class="math inline">\(l_0(i)\)</span> 和 <span
+class="math inline">\(l_1(i)\)</span> 至少有一个 <span
+class="math inline">\(=i\)</span>.</p>
+<p>Proof：令 <span class="math inline">\(j\)</span> 为 <span
+class="math inline">\(i\)</span> 后面第一个 <span
+class="math inline">\(s_i\neq s_j\)</span> 的 <span
+class="math inline">\(j\)</span>. 不妨设 <span
+class="math inline">\(s_i&lt;_0s_j\)</span>. 那么必然有 <span
+class="math inline">\(l_0&lt;j\)</span>. 于是 <span
+class="math inline">\(l_0=i\)</span>.</p></li>
+<li><p>对于任意 run <span class="math inline">\(r=(i,j,p)\)</span>，若
+<span class="math inline">\(s_{j+1}&lt;_t s_{j+1-p}\)</span>，那么其任何
+Lyndon 根都有 <span class="math inline">\(l_t(u)=u+p-1\)</span>.</p>
+<p>Proof：对于 <span class="math inline">\(v&gt;j\)</span>，由条件知
+<span class="math inline">\(s[u,v]\)</span> 显然不是 Lyndon
+串；另一方面真近似 Lyndon 串显然也不是 Lyndon 串.</p></li>
+<li><p>对于任意 <span class="math inline">\(u\in[1,|S|]\)</span>，<span
+class="math inline">\(S[u,l_0(u)]\)</span> 和 <span
+class="math inline">\(S[u,l_1(u)]\)</span> 不可能同时是真 Lyndon 根.</p>
+<p>Proof：不妨设 <span class="math inline">\(l_0(u)=u\)</span>，则 <span
+class="math inline">\(S_{l_1(u)}\neq S_u\)</span>；另一方面，由于 <span
+class="math inline">\(S[u,l_0(u)]\)</span> 为真 Lyndon 根所以 <span
+class="math inline">\(S_u=S_{u-1}=S_{u+p_1-1}=S_{l_1(u)}\)</span>，矛盾.</p></li>
+<li><p>任何两个不同 runs 的全部真 Lyndon 根的左端点不交.</p>
+<p>Proof：假设重合且为 <span class="math inline">\([u,x]\)</span>，<span
+class="math inline">\([u,y]\)</span>，则由上上条性质知 <span
+class="math inline">\(\{x,y\}=\{l_0(u),l_1(u)\}\)</span>，与上一条性质矛盾.</p></li>
+</ul>
+<p>Runs 定理：</p>
+<ul>
+<li><p>令 <span class="math inline">\(\rho\)</span> 为 runs 数，<span
+class="math inline">\(\sigma\)</span> 为 runs 指数之和，则 <span
+class="math inline">\(\rho&lt;n\)</span>，<span
+class="math inline">\(\sigma&lt;3n\)</span>.</p></li>
+<li><p>Proof：</p>
+<p>首先，一个 runs 至少有两个真 Lyndon 根，所以 <span
+class="math inline">\(\rho&lt;n\)</span>.</p>
+<p>其次，若指数 <span class="math inline">\(=x\)</span>，则至少有 <span
+class="math inline">\(\lfloor x-1\rfloor\ge x-2\)</span> 个真 Lyndon
+根，所以 <span class="math inline">\(\sigma &lt;3n\)</span>.</p></li>
+</ul>
+<h4 id="three-square-lemma">Three Square Lemma</h4>
+<p>Three Square Lemma:</p>
+<ul>
+<li>若 <span class="math inline">\(u^2,v^2,w^2\)</span>
+是本原平方串，并且 <span class="math inline">\(u^2,v^2,w^2\)</span>
+依次为前者的前缀，则 <span class="math inline">\(|w|\ge
+|u|+|v|\)</span>.</li>
+</ul>
+<p>Proof:</p>
+<ul>
+<li><p>若 <span class="math inline">\(|w|&lt;|u|+|v|\)</span>，则 <span
+class="math inline">\(|w|&lt;2|v|\)</span>. 于是对于 <span
+class="math inline">\(i+|w|-|v|\le |v|\)</span> 有 <span
+class="math inline">\(v_i=w_i=w^2_{i+|w|}=v_{i+|w|-|v|}\)</span>，故
+<span class="math inline">\(|w|-|v|\)</span> 为 <span
+class="math inline">\(v\)</span> 的周期.</p></li>
+<li><p>若 <span class="math inline">\(|v|&gt;2|u|\)</span>，则 <span
+class="math inline">\(|w|-|v|\)</span> 也为 <span
+class="math inline">\(u^2\)</span> 的周期，于是由弱周期引理知道 <span
+class="math inline">\(\gcd(|u|,|w|-|v|)\)</span> 为 <span
+class="math inline">\(u^2\)</span> 的整周期，与 <span
+class="math inline">\(u\)</span> 为本原平方串矛盾. 故 <span
+class="math inline">\(|v|\le 2|u|\)</span>.</p></li>
+<li><p>若 <span class="math inline">\(|u|+(|w|-|v|)\le
+|v|\)</span>，则由弱周期引理知 <span
+class="math inline">\(\gcd(|u|,|w|-|v|))\)</span> 为 <span
+class="math inline">\(v\)</span> 的整周期，也是 <span
+class="math inline">\(u\)</span> 的整周期，同样矛盾. 故 <span
+class="math inline">\(|u|+|w|\le 2|v|\)</span>.</p></li>
+<li><p>于是我们目前在假设下得出了结论 <span
+class="math inline">\(|w|&lt;|u|+|v|\)</span>，<span
+class="math inline">\(\frac{|u|+|w|}{2}\le  |v|\le
+2|u|\)</span>.</p></li>
+<li><p>于是我们可以把 <span class="math inline">\(u^2,v^2,w^2\)</span>
+写成如下的形式：</p>
+<p><span class="math inline">\(u^2:\)</span> 1111122211111222</p>
+<p><span class="math inline">\(v^2:\)</span> 1111122233311111222333</p>
+<p><span class="math inline">\(w^2\)</span>:
+11111222333111111111122233311111</p></li>
+<li><p>于是可以发现
+11111是222333的前缀，333是11111的前缀，所以333是222333的前缀，所以222是222333的周期；另一方面，222333是11111222的前缀，所以333是222333的周期，所以
+gcd(222,333) 是 222333 的周期；另一方面，222是11111222的周期，所以
+gcd(222,333) 是 <span class="math inline">\(u\)</span> 的周期.</p></li>
+<li><p>然后由于 222 是 11111 的前缀，所以 11111 是 <span
+class="math inline">\(u\)</span> 的周期. 然后就得到 gcd(11111,222,333)
+是 <span class="math inline">\(u\)</span> 的周期，并且小于 <span
+class="math inline">\(u\)</span> 的整周期. 矛盾.</p></li>
+</ul>
+
+    </div>
+</article>
+
+
+
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            lgswdn
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/logo.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    
+    
+
+<aside id="sidebar-toc">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-list-ul"></i>  
+            文章目录 
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        
+        
+        <div class="panel-body toc-container">
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#lyndon-%E4%B8%B2"><span class="toc-list-text">Lyndon 串</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#definition"><span class="toc-list-text">Definition</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#duvals-algorithm"><span class="toc-list-text">Duval&#39;s Algorithm</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#significant-suffix"><span class="toc-list-text">Significant Suffix</span></a></li></ol></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#runs"><span class="toc-list-text">Runs</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#definition-1"><span class="toc-list-text">Definition</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#lyndon-root-runs-theorem"><span class="toc-list-text">Lyndon Root &amp; Runs Theorem</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#three-square-lemma"><span class="toc-list-text">Three Square Lemma</span></a></li></ol></li></ol></li></ol>
+        </div>
+    </div>
+</aside>
+
+    
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2026/07/12/lyndon-and-runs/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2026/07/12/lyndon-and-runs/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 19.300314084708578px;" class="tag-cloud-link">总结</a>
+    
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 14.065526469183517px;" class="tag-cloud-link">AI基</a>
+    
+    <a href="/tags/CVDL/" style="font-size: 10.331699738943488px;" class="tag-cloud-link">CVDL</a>
+    
+    <a href="/tags/ICS/" style="font-size: 9.539746135531008px;" class="tag-cloud-link">ICS</a>
+    
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 10.852683322890464px;" class="tag-cloud-link">具身</a>
+    
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 12.406959902528905px;" class="tag-cloud-link">初恋日记</a>
+    
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 13.479412679944591px;" class="tag-cloud-link">腾讯星火营</a>
+    
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 11.702065550427026px;" class="tag-cloud-link">数分</a>
+    
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 19.746504429000975px;" class="tag-cloud-link">程设</a>
+    
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 16.68055398721333px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 16.307156010551484px;" class="tag-cloud-link">波伏娃</a>
+    
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 18.35742783294925px;" class="tag-cloud-link">音数</a>
+    
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 16.087844021308833px;" class="tag-cloud-link">高代</a>
+    
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 16.871313765141135px;" class="tag-cloud-link">信概统</a>
+    
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 12.367083025425895px;" class="tag-cloud-link">数算</a>
+    
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 9.747860102746813px;" class="tag-cloud-link">离散</a>
+    
+    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 15.855461895264844px;" class="tag-cloud-link">智障集锦</a>
+    
+    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 18.338397076275367px;" class="tag-cloud-link">读论文</a>
+    
+    <a href="/tags/bandit/" style="font-size: 13.15040219744042px;" class="tag-cloud-link">bandit</a>
+    
+    <a href="/tags/%E5%92%95%E5%92%95%E5%98%8E%E5%98%8E/" style="font-size: 15.097787592696855px;" class="tag-cloud-link">咕咕嘎嘎</a>
+    
+    <a href="/tags/%E6%98%8E%E5%8F%B2/" style="font-size: 9.134097889414143px;" class="tag-cloud-link">明史</a>
+    
+    <a href="/tags/%E4%BF%A1%E7%89%A9/" style="font-size: 13.915694155230462px;" class="tag-cloud-link">信物</a>
+    
+    <a href="/tags/%E7%AE%97%E5%88%86/" style="font-size: 12.647086648996707px;" class="tag-cloud-link">算分</a>
+    
+    <a href="/tags/AIGC/" style="font-size: 13.909543590645715px;" class="tag-cloud-link">AIGC</a>
+    
+    <a href="/tags/quantum/" style="font-size: 18.57648942940463px;" class="tag-cloud-link">quantum</a>
+    
+    <a href="/tags/%E4%B8%9C%E6%9E%97%E7%90%B4%E6%88%BF/" style="font-size: 15.51389348497997px;" class="tag-cloud-link">东林琴房</a>
+    
+    <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%90%86%E8%AE%BA/" style="font-size: 9.39356617060746px;" class="tag-cloud-link">字符串理论</a>
+    
+    <a href="/tags/RL/" style="font-size: 16.837805756262714px;" class="tag-cloud-link">RL</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/lgswdn" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://x.com/lgswdn_ChrisZ" target="_blank">X (Twitter)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.luogu.com.cn/user/180652" target="_blank">洛谷</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 lgswdn Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>
