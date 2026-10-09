@@ -304,8 +304,8 @@ S[t^*^,t']接到t+delta后（即直接执行S[t^*^,t']）.</p>
 <p>优点大概在与确实比较
 plug-and-play，并且其实我觉得在理论上其实比较有道理.
 喜欢这个，漂亮又有效.</p>
-<h2 id="bad-inn-adapter-for-one-step-flow-matching">(bad) INN Adapter
-for one-step flow matching</h2>
+<h2 id="inn-adapter-for-one-step-flow-matching">INN Adapter for one-step
+flow matching</h2>
 <p>https://arxiv.org/pdf/2606.19194</p>
 <p>首先一分钟解释一下 Invertible Neural Network:</p>
 <ul>
@@ -350,7 +350,7 @@ y&#39;||^2\)</span></li>
 <p>但是这篇文章写的有点，烂. 也没有尝试去探究原理到底是什么.
 写的什么玩意儿啊，ablation study 都没有，参数都不写. 除了 novelty
 一无是处感觉.</p>
-<h2 id="boring-flowwam">(boring) FlowWAM</h2>
+<h2 id="flowwam">FlowWAM</h2>
 <p>https://arxiv.org/pdf/2607.13017</p>
 <p>文章认为视频的光流是一个天然的连接 RGB 视频和控制运动的媒介.</p>
 <p>首先，对光流的处理：</p>
@@ -371,7 +371,7 @@ RoPE，以及加入自己的 stream embedding.</p>
 <p>并且用上述的结构支持两种 inference mode，其中 policy mode 的时候从
 noise 初始化然后联合 denoise；wm mode 的时候给出 flow encoding 然后重建
 RGB.</p>
-<p>然后最后搭一个 action expert. 好无聊.</p>
+<p>然后最后搭一个 action expert.</p>
 <p>然后一些比较好的细节：</p>
 <ul>
 <li>flow loss 由于大部分地方都是 id 所以直接训不好，所以根据 reference
@@ -386,6 +386,43 @@ baseline，可喜可贺可喜可贺.</p>
 <p>Ablation 证明了 raw <span class="math inline">\((u,v)\)</span> flow
 确实不如换算成 RGB 然后放视频模型. 好耶好耶.</p>
 <p>好无聊的文章.</p>
+<h2 id="fast-action-tokenization">FAST action tokenization</h2>
+<p>https://www.roboticsproceedings.org/rss21/p012.pdf</p>
+<p>是 B-spline 对比的 baseline，然后也是 RSS2025 best paper
+finalist.</p>
+<p>之前 trivial 的做法就是，对于 <span class="math inline">\(D\)</span>
+维，action chunk length = <span class="math inline">\(H\)</span>，就输出
+<span class="math inline">\(H\times D\)</span> 个 token.
+但是动作和语言不一样，这个信息非常冗余. 于是 FAST 就试图把这个 <span
+class="math inline">\(R^{H\times D}\)</span> 通过
+DCT+量化+裁剪的方式变成 <span
+class="math inline">\((T_1,\dots,T_n)\)</span>，通常 <span
+class="math inline">\(n&lt;&lt;H\times D\)</span>.
+这个变换需要尽量做到可逆，否则也没法得回来到原来的动作.</p>
+<p><strong>DCT</strong>：转化到频域后就会更好：低频代表整体轨迹，高频代表抖动/突变，于是直接在
+normalization 之后过 DCT. 作者在这里做了 ablation，测试了 PCA 和
+clustering 等，发现还是 DCT 又简单又通用.</p>
+<p><strong>量化和排列</strong>：首先我们按 <span
+class="math inline">\(\gamma\)</span> 比例做量化 <span
+class="math inline">\(Z=round(\gamma C)\)</span> 来进行压缩. 然后我们对
+<span class="math inline">\(Z\)</span>
+做转置后摊开，排列成先遍历频率再遍历维度的形式.
+然后这样的排列，我们就可以做 BPE 进一步压缩了.
+这一步压缩不仅压缩掉了很多高频的
+0，还把一些常见的动作维度模式压到了一起.</p>
+<p><strong>FAST+</strong>：为了避免之后对于不同数据集不同本体都要训自己的
+BPE，于是文章就用综合的跨各种东西的数据集训了一个 BPE
+出来，这样就能通用了.</p>
+<p>实验：</p>
+<ul>
+<li>在 5hz 的数据集和 50 hz 的数据集，每秒的 FAST token 数分别为 20 和
+53，证明了 FAST token
+数在高频率下压缩极大，并且更多反映了轨迹而非操作频率.</li>
+<li>在高频和精细任务上的策略性能也显著更优. 这是老生常谈的问题了.</li>
+<li>用 FAST 的自回归 <span class="math inline">\(\pi_0\)</span> 和
+diffusion-based <span class="math inline">\(\pi_0\)</span>
+进行比较，后者推理速度仍然快一些，但是前者收敛速度比后这快很多，总体性能匹配.</li>
+</ul>
 
     </div>
 </article>
@@ -455,8 +492,8 @@ baseline，可喜可贺可喜可贺.</p>
         
         
         <div class="panel-body toc-container">
-            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#b-spline-policy"><span class="toc-list-text">B-spline Policy</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#bad-inn-adapter-for-one-step-flow-matching"><span class="toc-list-text">(bad) INN Adapter
-for one-step flow matching</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#boring-flowwam"><span class="toc-list-text">(boring) FlowWAM</span></a></li></ol>
+            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#b-spline-policy"><span class="toc-list-text">B-spline Policy</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#inn-adapter-for-one-step-flow-matching"><span class="toc-list-text">INN Adapter for one-step
+flow matching</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#flowwam"><span class="toc-list-text">FlowWAM</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#fast-action-tokenization"><span class="toc-list-text">FAST action tokenization</span></a></li></ol>
         </div>
     </div>
 </aside>
@@ -488,61 +525,63 @@ for one-step flow matching</span></a></li><li class="toc-list-item toc-list-leve
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 10.808399871771684px;" class="tag-cloud-link">总结</a>
+    <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 14.671637794769012px;" class="tag-cloud-link">总结</a>
     
-    <a href="/tags/AI%E5%9F%BA/" style="font-size: 12.921655119738194px;" class="tag-cloud-link">AI基</a>
+    <a href="/tags/AI%E5%9F%BA/" style="font-size: 8.555743627698067px;" class="tag-cloud-link">AI基</a>
     
-    <a href="/tags/CVDL/" style="font-size: 13.271314818712327px;" class="tag-cloud-link">CVDL</a>
+    <a href="/tags/CVDL/" style="font-size: 13.648217189742699px;" class="tag-cloud-link">CVDL</a>
     
-    <a href="/tags/ICS/" style="font-size: 8.713499201621797px;" class="tag-cloud-link">ICS</a>
+    <a href="/tags/ICS/" style="font-size: 9.934160740499301px;" class="tag-cloud-link">ICS</a>
     
-    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 15.84580589927877px;" class="tag-cloud-link">具身</a>
+    <a href="/tags/%E5%85%B7%E8%BA%AB/" style="font-size: 12.511721887582073px;" class="tag-cloud-link">具身</a>
     
-    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 15.928915985816921px;" class="tag-cloud-link">初恋日记</a>
+    <a href="/tags/%E5%88%9D%E6%81%8B%E6%97%A5%E8%AE%B0/" style="font-size: 15.054075059472774px;" class="tag-cloud-link">初恋日记</a>
     
-    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 14.93464701089961px;" class="tag-cloud-link">腾讯星火营</a>
+    <a href="/tags/%E8%85%BE%E8%AE%AF%E6%98%9F%E7%81%AB%E8%90%A5/" style="font-size: 9.723587261377581px;" class="tag-cloud-link">腾讯星火营</a>
     
-    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 13.424547128945125px;" class="tag-cloud-link">数分</a>
+    <a href="/tags/%E6%95%B0%E5%88%86/" style="font-size: 17.734350903382932px;" class="tag-cloud-link">数分</a>
     
-    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 14.638033050123848px;" class="tag-cloud-link">程设</a>
+    <a href="/tags/%E7%A8%8B%E8%AE%BE/" style="font-size: 8.524300874688244px;" class="tag-cloud-link">程设</a>
     
-    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 15.557251031214072px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
+    <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BA%9A%E6%B4%B2%E5%86%85%E9%99%86%E8%BE%B9%E7%96%86/" style="font-size: 12.83935399943245px;" class="tag-cloud-link">中国的亚洲内陆边疆</a>
     
-    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 10.573434499609576px;" class="tag-cloud-link">波伏娃</a>
+    <a href="/tags/%E6%B3%A2%E4%BC%8F%E5%A8%83/" style="font-size: 12.829059185964852px;" class="tag-cloud-link">波伏娃</a>
     
-    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 19.94060289149181px;" class="tag-cloud-link">音数</a>
+    <a href="/tags/%E9%9F%B3%E6%95%B0/" style="font-size: 17.10225976679483px;" class="tag-cloud-link">音数</a>
     
-    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 11.920030035014214px;" class="tag-cloud-link">高代</a>
+    <a href="/tags/%E9%AB%98%E4%BB%A3/" style="font-size: 13.064077547598739px;" class="tag-cloud-link">高代</a>
     
-    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 17.92093109383582px;" class="tag-cloud-link">信概统</a>
+    <a href="/tags/%E4%BF%A1%E6%A6%82%E7%BB%9F/" style="font-size: 8.230114460763414px;" class="tag-cloud-link">信概统</a>
     
-    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 18.961752529414966px;" class="tag-cloud-link">数算</a>
+    <a href="/tags/%E6%95%B0%E7%AE%97/" style="font-size: 10.096017265731309px;" class="tag-cloud-link">数算</a>
     
-    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 9.786404291410326px;" class="tag-cloud-link">离散</a>
+    <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 9.454116653770049px;" class="tag-cloud-link">离散</a>
     
-    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 10.5101713814964px;" class="tag-cloud-link">智障集锦</a>
+    <a href="/tags/%E6%99%BA%E9%9A%9C%E9%9B%86%E9%94%A6/" style="font-size: 17.051323816170182px;" class="tag-cloud-link">智障集锦</a>
     
-    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 17.834143770988437px;" class="tag-cloud-link">读论文</a>
+    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/" style="font-size: 10.98742849556073px;" class="tag-cloud-link">读论文</a>
     
-    <a href="/tags/bandit/" style="font-size: 8.384588609171917px;" class="tag-cloud-link">bandit</a>
+    <a href="/tags/bandit/" style="font-size: 18.67225234058821px;" class="tag-cloud-link">bandit</a>
     
-    <a href="/tags/%E5%92%95%E5%92%95%E5%98%8E%E5%98%8E/" style="font-size: 13.904667340413077px;" class="tag-cloud-link">咕咕嘎嘎</a>
+    <a href="/tags/%E5%92%95%E5%92%95%E5%98%8E%E5%98%8E/" style="font-size: 17.734188666992445px;" class="tag-cloud-link">咕咕嘎嘎</a>
     
-    <a href="/tags/%E6%98%8E%E5%8F%B2/" style="font-size: 9.478697417025561px;" class="tag-cloud-link">明史</a>
+    <a href="/tags/%E6%98%8E%E5%8F%B2/" style="font-size: 14.669897986448923px;" class="tag-cloud-link">明史</a>
     
-    <a href="/tags/%E4%BF%A1%E7%89%A9/" style="font-size: 16.452910666315834px;" class="tag-cloud-link">信物</a>
+    <a href="/tags/%E4%BF%A1%E7%89%A9/" style="font-size: 13.313781057004787px;" class="tag-cloud-link">信物</a>
     
-    <a href="/tags/%E7%AE%97%E5%88%86/" style="font-size: 19.34878590200231px;" class="tag-cloud-link">算分</a>
+    <a href="/tags/%E7%AE%97%E5%88%86/" style="font-size: 18.523549256400532px;" class="tag-cloud-link">算分</a>
     
-    <a href="/tags/AIGC/" style="font-size: 12.317446855811186px;" class="tag-cloud-link">AIGC</a>
+    <a href="/tags/AIGC/" style="font-size: 16.942061687566778px;" class="tag-cloud-link">AIGC</a>
     
-    <a href="/tags/quantum/" style="font-size: 10.27211945393617px;" class="tag-cloud-link">quantum</a>
+    <a href="/tags/quantum/" style="font-size: 12.874110544391705px;" class="tag-cloud-link">quantum</a>
     
-    <a href="/tags/%E4%B8%9C%E6%9E%97%E7%90%B4%E6%88%BF/" style="font-size: 18.319683583091688px;" class="tag-cloud-link">东林琴房</a>
+    <a href="/tags/%E4%B8%9C%E6%9E%97%E7%90%B4%E6%88%BF/" style="font-size: 10.463871376549273px;" class="tag-cloud-link">东林琴房</a>
     
-    <a href="/tags/RL/" style="font-size: 14.879625074254538px;" class="tag-cloud-link">RL</a>
+    <a href="/tags/string/" style="font-size: 9.561219376396275px;" class="tag-cloud-link">string</a>
     
-    <a href="/tags/string/" style="font-size: 19.90306239039066px;" class="tag-cloud-link">string</a>
+    <a href="/tags/RL-%E5%92%95%E5%92%95%E5%98%8E%E5%98%8E/" style="font-size: 12.149194672816115px;" class="tag-cloud-link">RL 咕咕嘎嘎</a>
+    
+    <a href="/tags/%E8%90%A8%E7%89%B9/" style="font-size: 13.388022962393954px;" class="tag-cloud-link">萨特</a>
     
 </div>
                 
