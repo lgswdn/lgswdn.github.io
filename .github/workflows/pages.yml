@@ -113,8 +113,6 @@ jobs:
               file = site / name
               text = file.read_text(encoding='utf-8')
               text = text.replace('</head>', '<link rel="canonical" href="https://lgswdn.github.io/' + ('' if name == 'index.html' else name) + '">\n</head>')
-              if 'href="/blog/"' not in text:
-                  text = text.replace('</div>\n    </nav>', '<a href="/blog/">Blog</a></div>\n    </nav>')
               file.write_text(text, encoding='utf-8')
           (site / '.nojekyll').touch()
           
