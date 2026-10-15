@@ -2,7 +2,7 @@
 
 The original generated Hexo files remain at the root of this repository's main branch. The workflow at .github/workflows/pages.yml composes the published website without changing those input files:
 
-- /: homepage copied from lgswdn/home, main branch, with a Blog navigation link.
+- /: homepage copied from lgswdn/home, main branch. The homepage does not link to the blog.
 - /home/: still served by the existing home repository's GitHub Pages site.
 - /blog/: existing generated Hexo website, with local URLs rewritten for the subdirectory.
 - Existing article and archive URLs: generated HTML redirects preserve query strings and fragments. Old non-HTML asset/download URLs remain available too.
