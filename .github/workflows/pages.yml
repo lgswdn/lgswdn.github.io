@@ -1,0 +1,151 @@
+name: Publish homepage and blog
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read existing generated Hexo blog
+        uses: actions/checkout@v4
+        with:
+          path: blog-source
+          persist-credentials: false
+      - name: Read personal homepage
+        uses: actions/checkout@v4
+        with:
+          repository: lgswdn/home
+          ref: main
+          path: homepage-source
+          persist-credentials: false
+      - name: Compose and verify website
+        shell: python
+        run: |
+          from pathlib import Path
+          import shutil, re, json, html, os
+          from urllib.parse import urlsplit, urlunsplit, quote
+          
+          src = Path('blog-source')
+          site = Path('_site')
+          blog = site / 'blog'
+          shutil.copytree(src, blog, ignore=shutil.ignore_patterns('.git', '.github', '*.md'))
+          roots = {p.name for p in src.iterdir() if not p.name.startswith('.') and p.suffix != '.md'}
+          
+          def move_url(value):
+              u = urlsplit(value)
+              if u.scheme and u.scheme not in ('http', 'https'):
+                  return value
+              if u.netloc and u.netloc.lower() != 'lgswdn.github.io':
+                  return value
+              path = u.path
+              if not path.startswith('/'):
+                  if u.netloc and not path:
+                      path = '/'
+                  else:
+                      return value
+              first = path.lstrip('/').split('/')[0]
+              if path != '/' and first not in roots:
+                  return value
+              newpath = '/blog/' + path.lstrip('/')
+              return urlunsplit(('', '', newpath, u.query, u.fragment))
+          
+          attrs = re.compile(r'''(\b(?:href|src|action|poster|data-src)\s*=\s*)(["'])(.*?)\2''', re.I | re.S)
+          cssurl = re.compile(r'''url\(\s*(["']?)([^\s)'";]+)\1\s*\)''', re.I)
+          rootnames = '|'.join(re.escape(x) for x in sorted(roots))
+          strings = re.compile(r'''(["'])(/(?:''' + rootnames + r''')(?=[/?#"'])[^"'\n]*)\1''')
+          origins = re.compile(r'''(["'])(https?://lgswdn\.github\.io(?:/[^"'\s]*)?)\1''')
+          
+          def rewrite(text):
+              text = re.sub(r'<[A-Za-z][^>]*>', lambda tag: attrs.sub(lambda m: m[1] + m[2] + move_url(m[3]) + m[2], tag[0]), text)
+              text = cssurl.sub(lambda m: 'url(' + m[1] + move_url(m[2]) + m[1] + ')', text)
+              text = strings.sub(lambda m: m[1] + move_url(m[2]) + m[1], text)
+              text = origins.sub(lambda m: m[1] + move_url(m[2]) + m[1], text)
+              text = text.replace("var path = '/' + article.path", "var path = '/blog/' + article.path")
+              return text
+          
+          changed = 0
+          for file in blog.rglob('*'):
+              if file.is_file() and file.suffix.lower() in ('.html', '.css', '.js', '.xml', '.json', '.txt'):
+                  original = file.read_text(encoding='utf-8')
+                  updated = rewrite(original)
+                  if updated != original:
+                      file.write_text(updated, encoding='utf-8')
+                      changed += 1
+          
+          # Preserve old asset/download URLs and redirect existing article/archive URLs.
+          redirects = 0
+          for file in src.rglob('*'):
+              rel = file.relative_to(src)
+              if any(part.startswith('.') for part in rel.parts) or not file.is_file() or file.suffix == '.md':
+                  continue
+              dest = site / rel
+              if file.suffix.lower() == '.html':
+                  if rel.as_posix() == 'index.html':
+                      continue
+                  target = '/blog/' + quote(rel.as_posix(), safe='/')
+                  if target.endswith('/index.html'):
+                      target = target[:-10]
+                  escaped = html.escape(target, quote=True)
+                  page = '<!doctype html><html><head><meta charset="utf-8"><title>Moved</title><link rel="canonical" href="' + escaped + '"><meta http-equiv="refresh" content="0;url=' + escaped + '"><script>location.replace(' + json.dumps(target) + ' + location.search + location.hash);</script></head><body><a href="' + escaped + '">Continue to the blog</a></body></html>'
+                  dest.parent.mkdir(parents=True, exist_ok=True)
+                  dest.write_text(page, encoding='utf-8')
+                  redirects += 1
+              else:
+                  dest.parent.mkdir(parents=True, exist_ok=True)
+                  shutil.copy2(file, dest)
+          
+          # The existing home repository remains the editable homepage source.
+          home = Path('homepage-source')
+          for name in ('index.html', 'research.html', 'miscellaneous.html', 'papers.yml', 'assets'):
+              file = home / name
+              assert file.exists(), 'Missing homepage file: ' + name
+              if file.is_dir():
+                  shutil.copytree(file, site / name, dirs_exist_ok=True)
+              else:
+                  shutil.copy2(file, site / name)
+          for name in ('index.html', 'research.html', 'miscellaneous.html'):
+              file = site / name
+              text = file.read_text(encoding='utf-8')
+              text = text.replace('</head>', '<link rel="canonical" href="https://lgswdn.github.io/' + ('' if name == 'index.html' else name) + '">\n</head>')
+              if 'href="/blog/"' not in text:
+                  text = text.replace('</div>\n    </nav>', '<a href="/blog/">Blog</a></div>\n    </nav>')
+              file.write_text(text, encoding='utf-8')
+          (site / '.nojekyll').touch()
+          
+          # Check critical migration paths before publishing.
+          assert 'Wenxuan Zhu' in (site / 'index.html').read_text()
+          assert 'Hexo' in (blog / 'index.html').read_text()
+          assert 'href="/blog/css/' in (blog / 'index.html').read_text()
+          assert "'/blog/' + article.path" in (blog / 'search/index.html').read_text()
+          for name in ('css/style.css', 'js/blog.js', 'imgs/logo.png', 'content.json', 'archives/index.html'):
+              assert (blog / name).is_file(), 'Missing blog file: ' + name
+          posts = sum(1 for year in ('2025', '2026') for p in (blog / year).rglob('index.html'))
+          assert posts > 0, 'No articles found'
+          summary = f'Published homepage at / and blog at /blog/. Migrated {posts} articles, rewrote {changed} text files, preserved {redirects} old HTML URLs.\n'
+          print(summary)
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as f:
+              f.write(summary)
+          
+      - name: Upload website
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
